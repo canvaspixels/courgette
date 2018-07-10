@@ -1,5 +1,5 @@
-modules.exports = function checkUrl(beOrContain, expectedUrl) {
-  const waitTimeout = this.cucumberTimeout : 3000;
+module.exports = function checkUrl(beOrContain, expectedUrl) {
+  const waitTimeout = this.cucumberTimeout || 3000;
   let currentUrlNoTrailingSlash;
   const expectedUrlNoTrailingSlash = expectedUrl.replace(/\/$/, '');
   const timestamp = Date.now();

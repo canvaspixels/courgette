@@ -33,7 +33,7 @@ const protractorConfig = {
   cucumberOpts: {
     require: [
       // `${specsPath}/helpers/globals.js`,
-      // `${cukeTractorPath}/globals.js`,
+      `${cukeTractorPath}/globals.js`,
       `${cukeTractorPath}/hooks/attachScenarioNameBefore.js`,
       `${cukeTractorPath}/hooks/attachScreenshotAfter.js`,
       `${cukeTractorPath}/hooks/pageObjectModelBefore.js`,

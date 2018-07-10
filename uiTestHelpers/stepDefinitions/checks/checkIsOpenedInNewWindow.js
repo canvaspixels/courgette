@@ -3,7 +3,7 @@ module.exports = function checkIsOpenedInNewWindow(href) {
     .then((handles) =>
       handles.map((handle) =>
         browser.switchTo().window(handle)
-          .then() =>
+          .then(() =>
             browser.getCurrentUrl()
           )
       )

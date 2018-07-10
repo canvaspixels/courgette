@@ -1,4 +1,4 @@
-const getAttributesMap = {
+const getAttributesMap = () => {
   const newMap = {};
 
   el.forEach((attribute) => {

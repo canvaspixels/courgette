@@ -1,5 +1,5 @@
 module.exports = function checkTitle(doesNotMatch, expectedTitle) {
-  return browser.getTitle();
+  return browser.getTitle()
     .then((title) => (
       doesNotMatch ?
         expect(title).to.not.equal(expectedTitle) :

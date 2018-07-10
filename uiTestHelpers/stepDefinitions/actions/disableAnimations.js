@@ -1,5 +1,5 @@
-module.exports = function(){
-    return browser.executeScript(function(){
+module.exports = function disableAnimations() {
+    return browser.executeScript(function() {
         //This following block executes in the context of the browser,
         //which we cant rely on having support for let/const
         //eslint-disable-next-line no-var
