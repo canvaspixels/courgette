@@ -1,0 +1,39 @@
+{
+  "name": "cucumber-protractor",
+  "version": "1.0.0",
+  "description": "Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
+  "main": "index.js",
+  "scripts": {
+    "build": "react-scripts build",
+    "eject": "react-scripts eject",
+    "lint": "eslint **/*.js *.js",
+    "postinstall": "webdriver-manager update --gecko=false --versions.chrome 2.35",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom",
+    "uitests": "npm run start & rm -rf uiTestResult && mkdir uiTestResult && node index.js"
+  },
+  "bin": {
+    "uitests": "./index.js"
+  },
+  "author": "Alex Rogers",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "cucumber": "^4.2.1",
+    "cucumber-html-reporter": "^4.0.2",
+    "protractor": "^5.3.1",
+    "protractor-cucumber-framework": "^5.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.10.0",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "1.1.4"
+  }
+}
