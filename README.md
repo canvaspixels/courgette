@@ -3,7 +3,7 @@
 Create easy-to-read, functioning scenarios in minutes:
 
 1. Install the package: `npm install cucumber-protractor`
-2. [Setup your config file and copy the sample file structure](setup-your-config-file-and-copy-the-sample-file-structure)
+2. [Setup your config file and copy the sample file structure](#setup-your-config-file-and-copy-the-sample-file-structure)
 3. Run the sample: `npm run uitests`
 4. Create a Page Object and locators
 5. Use the step definitions provided (or create your own) to write your first scenario
