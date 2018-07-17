@@ -1,4 +1,4 @@
-const createPage = require('../../uiTestHelpers/createPage');
+const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
 
 const pagePath = 'https://www.google.com/';
 
