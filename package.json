@@ -15,6 +15,10 @@
   "bin": {
     "uitests": "./index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/canvaspixels/cucumber-protractor.git"
+  },
   "author": "Alex Rogers",
   "license": "MIT",
   "dependencies": {
