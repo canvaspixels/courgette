@@ -22,6 +22,8 @@ Easily compose Page Objects and Component Objects. Page objects and Component Ob
 
 ## Step Definitions
 
+Note that the words in italics are optional.
+
 ### Given...
 
 | Step definition | Notes |
@@ -46,7 +48,7 @@ Easily compose Page Objects and Component Objects. Page objects and Component Ob
 | _the_ 'LOCATOR' does not contain the text 'LOCATOR' | |
 | _the_ 'LOCATOR' contains any text | |
 | _the_ 'LOCATOR' does not contain any text | |
-| _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | |
+| _the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | |
 | _the_ 'LOCATOR' is empty | |
 | _the_ 'LOCATOR' is not empty | |
 | the value of _the_ 'LOCATOR' is 'VALUE' | |
@@ -66,7 +68,7 @@ Easily compose Page Objects and Component Objects. Page objects and Component Ob
 | I submit the _form_ 'LOCATOR' | |
 | I press 'KEY' | |
 | I clear _the_ 'LOCATOR' | |
-| I select the option for select element 'LOCATOR' with the text 'VALUE' | |
+| I&nbsp;select&nbsp;the&nbsp;option&nbsp;for&nbsp;select&nbsp;element&nbsp;'LOCATOR'&nbsp;with&nbsp;the&nbsp;text&nbsp;'VALUE' | |
 
 ### Then...
 
@@ -109,5 +111,5 @@ Easily compose Page Objects and Component Objects. Page objects and Component Ob
 | I expect _the_ 'LOCATOR' to not be empty | |
 | I expect the value of _the_ 'LOCATOR' to be 'VALUE'  | |
 | I expect the value of _the_ 'LOCATOR' to not be 'VALUE'  | |
-| I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'  | |
+| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE'  | |
 | fail step and take screenshot | |
