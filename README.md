@@ -4,7 +4,7 @@ Create easy-to-read, functioning scenarios in minutes:
 
 1. Install the package: `npm install cucumber-protractor`
 2. [Setup your config file and copy the sample file structure](#setup-your-config-file-and-copy-the-sample-file-structure)
-3. Run the sample: `npm run uitests`
+3. Run the sample, type `uitests` in your terminal in the root of your project
 4. Create a [Page Object](https://www.protractortest.org/#/page-objects) and [Locators](https://www.protractortest.org/#/locators)
 5. Use the [step definitions provided](#step-definitions) (or create your own) to write your first scenario
 
@@ -15,10 +15,9 @@ Easily compose Page Objects and Component Objects. Page objects and Component Ob
 
 ## Setup your config file and copy the sample file structure
 
-1. Add to scripts in package json: `"uitests": "rm -rf uiTestResult && mkdir uiTestResult && node node_modules/cucumber-protractor/index.js",`
-2. Copy the sample file structure `cp -R node_modules/cucumber-protractor/ui-tests .`
-3. Copy the sample config `cp node_modules/cucumber-protractor/sample-conf.js conf.js`
-4. Add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
+1. Copy the sample file structure `cp -R node_modules/cucumber-protractor/ui-tests .`
+2. Copy the sample config `cp node_modules/cucumber-protractor/sample-conf.js conf.js`
+3. Add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
 
 
 ## Step Definitions
