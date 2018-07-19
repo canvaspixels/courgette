@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
 
@@ -5,8 +7,34 @@ const path = require('path');
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
-// todo make uiTestResult folder
+
+const rmDir = function(dir, rmSelf) {
+  var files;
+  rmSelf = (rmSelf === undefined) ? true : rmSelf;
+  dir = dir + '/';
+  try { files = fs.readdirSync(dir); } catch (e) { console.log('Directory not exist.'); return; }
+  if (files.length > 0) {
+    files.forEach(function(x, i) {
+      if (fs.statSync(dir + x).isDirectory()) {
+        rmDir(dir + x);
+      } else {
+        fs.unlinkSync(dir + x);
+      }
+    });
+  }
+  if (rmSelf) {
+    // check if user want to delete the directory ir just the files in this directory
+    fs.rmdirSync(dir);
+  }
+};
+
 const outputPath = path.join(process.cwd(), pomConfig.outputPath);
+if (fs.existsSync(outputPath)){
+  rmDir(outputPath);
+}
+if (!fs.existsSync(outputPath)){
+  fs.mkdirSync(outputPath);
+}
 const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
 const cmd = 'node_modules/.bin/protractor';

@@ -1,7 +1,7 @@
 require('babel-core/register');
 
-const specsPath = 'tests';
-const specsPathAbs = `${process.cwd()}/tests`;
+const specsPath = 'testsToValidateStepDefinitions';
+const specsPathAbs = `${process.cwd()}/${specsPath}`;
 const outputPath = 'uiTestResult';
 const cukeTractorPath = 'uiTestHelpers'; // todo, change to node_modules/etc...
 

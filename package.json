@@ -10,7 +10,7 @@
     "postinstall": "webdriver-manager update --gecko=false --versions.chrome 2.35",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "uitests": "npm run start & rm -rf uiTestResult && mkdir uiTestResult && node index.js"
+    "uitests": "node index.js"
   },
   "bin": {
     "uitests": "./index.js"

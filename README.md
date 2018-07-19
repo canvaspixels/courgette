@@ -18,6 +18,7 @@ Easily compose Page Objects and Component Objects. Page objects and Component Ob
 1. Add to scripts in package json: `"uitests": "rm -rf uiTestResult && mkdir uiTestResult && node node_modules/cucumber-protractor/index.js",`
 2. Copy the sample file structure `cp -R node_modules/cucumber-protractor/ui-tests .`
 3. Copy the sample config `cp node_modules/cucumber-protractor/sample-conf.js conf.js`
+4. Add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
 
 
 ## Step Definitions
