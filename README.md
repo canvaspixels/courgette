@@ -7,14 +7,11 @@ Create easy-to-read, functioning scenarios in minutes:
     1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
     2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal
     3. If you're using source control such as git, add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
-3. Run the sample, type `cuketractor` or `uitests` or `brmbrm` in your terminal in the root of your project
-4. Create a [Page Object](https://www.protractortest.org/#/page-objects) and [Locators](https://www.protractortest.org/#/locators)
-5. Use the [step definitions provided](#step-definitions) (or create your own) to write your first scenario
+3. Run the sample, type `cuketractor` or `uitests` or `brmbrm` in your terminal in the root of your project. The sample is in the `uiTests` folder you just copied. Edit / rename these and get going!
 
 ![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
 
-Easily compose Page Objects and Component Objects. Page objects and Component Objects are composed of locators, custom methods, and other Component Objects. Components can compose Components which compose Components etc.
-
+Easily compose Page Objects and Component Objects. Page objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. Use the [step definitions provided](#step-definitions) (or create your own) to write your first scenario.
 
 ## Feature file by example
 
@@ -44,7 +41,7 @@ You don't need to write any page methods, nor step definitions. How easy is that
 
 It’s advisable when writing your features to add a tag at the top of the Feature file and a tag to the beginning of each Scenario. A tag starts with a @. As a convention you can prefix each Scenario tag with whatever you've used at the top of the file (in this case @google-home). Try and keep them unique for your ease of use.
 
-Note you can add more than one tag to each scenario and you could tag them when a hook tag that you can hook into Before or After each scenario.
+Note you can add more than one tag to each scenario and you could tag them when a hook tag that you can hook into Before or After each scenario. [Read more about hooks](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/hooks.md) just add hooks to the existing ones in your conf.js file.
 
 ```
 @google-home
