@@ -7,7 +7,7 @@ Create easy-to-read, functioning scenarios in minutes:
     1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
     2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal
     3. If you're using source control such as git, add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
-3. Run the sample, type `cuketractor` or `uitests` or `brmbrm` in your terminal in the root of your project. The sample is in the `uiTests` folder you just copied. Edit / rename these and get going!
+3. Run the sample, type `./node_modules/.bin/cuketractor` in your terminal in the root of your project. The sample is in the `uiTests` folder you just copied. Edit / rename these and get going!
 
 ![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
 
@@ -73,19 +73,19 @@ Continuing on from the examples above...
 To run just one feature:
 
 ```
-cuketractor --tags=@google-home
+./node_modules/.bin/cuketractor --tags=@google-home
 ```
 
 To run just one scenario:
 
 ```
-cuketractor --tags=@google-home-another-thing
+./node_modules/.bin/cuketractor --tags=@google-home-another-thing
 ```
 
 To run a couple (comma separate):
 
 ```
-cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
+./node_modules/.bin/cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
 ```
 
 
