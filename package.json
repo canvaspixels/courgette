@@ -1,7 +1,7 @@
 {
   "name": "cucumber-protractor",
   "version": "1.0.7",
-  "description": "Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
+  "description": "POM CukeTractor - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
     "build": "react-scripts build",
@@ -13,7 +13,9 @@
     "uitests": "node index.js"
   },
   "bin": {
-    "uitests": "./index.js"
+    "uitests": "./index.js",
+    "cuketractor": "./index.js",
+    "brmbrm": "./index.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +30,8 @@
     "cucumber": "^4.2.1",
     "cucumber-html-reporter": "^4.0.2",
     "protractor": "^5.3.1",
-    "protractor-cucumber-framework": "^5.0.0"
+    "protractor-cucumber-framework": "^5.0.0",
+    "yargs": "^12.0.1"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

@@ -14,6 +14,8 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
+const cukeTags = process.env.cukeTags ? process.env.cukeTags.replace(',', ' or ') : '';
+
 const protractorConfig = {
   directConnect: true,
   ignoreUncaughtExceptions: true,
@@ -23,7 +25,7 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    shardTestFiles: !process.env.cukeTags && !process.env.debug,
+    shardTestFiles: !cukeTags && !process.env.debug,
     maxInstances: 4,
     browserName: 'chrome',
     chromeOptions: {
@@ -42,7 +44,7 @@ const protractorConfig = {
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,
     ],
-    tags: ['~ignore'].concat(process.env.cukeTags || []),
+    tags: ['~ignore'].concat(cukeTags || []),
     format: [
       'node_modules/cucumber-protractor/cucumberFormatter.js',
       `json:./${outputPath}/report.json`,

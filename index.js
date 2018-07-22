@@ -2,11 +2,14 @@
 
 const fs = require('fs');
 const path = require('path');
+const argv = require('yargs').argv;
 
 // eslint-disable-next-line
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), argv.confFile || process.env.confFile || 'conf.js'));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
+
+console.log('Brm brm... off we go!');
 
 const rmDir = function(dir, rmSelf) {
   var files;
@@ -39,7 +42,10 @@ const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
 const cmd = 'node_modules/.bin/protractor';
 const args = ['./conf.js'];
-const spawnedProcess = spawn(cmd, args, { env: process.env });
+const spawnedProcess = spawn(cmd, args, { env: Object.assign({}, process.env, {
+  cukeTags: argv.tags,
+  confFile: argv.confFile || process.env.confFile || 'conf.js'
+}) });
 
 const cucumberHtmlReporterConfig = Object.assign({
   theme: 'bootstrap',
