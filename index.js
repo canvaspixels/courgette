@@ -76,6 +76,7 @@ const loopThroughReport = () => new Promise((resolve, reject) => {
 
     let successCount = 0;
     let failureCount = 0;
+    let totalCount = 0;
 
     elements.forEach((el) => {
       let scenarioStatus = 'passed';
@@ -99,9 +100,10 @@ const loopThroughReport = () => new Promise((resolve, reject) => {
       } else if (scenarioStatus === 'failed') {
         failureCount += 1;
       }
+      totalCount += 1;
     });
 
-    resolve({ successCount, failureCount });
+    resolve({ successCount, failureCount, totalCount });
   } catch (e) {
     reject(e);
   }
@@ -123,5 +125,8 @@ spawnedProcess.on('exit', () => {
 
   cucumberHtmlReporter.generate(cucumberHtmlReporterConfig);
 
-  loopThroughReport();
+  loopThroughReport().then(({ successCount, totalCount }) => {
+    process.exitCode = totalCount === successCount ? 0 : 1;
+  });
+
 });

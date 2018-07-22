@@ -15,9 +15,9 @@ Easily compose Page Objects and Component Objects. Page objects and Component Ob
 
 ## Setup your config file and copy the sample file structure
 
-1. Copy the sample file structure `cp -R node_modules/cucumber-protractor/ui-tests .`
-2. Copy the sample config `cp node_modules/cucumber-protractor/sample-conf.js conf.js`
-3. Add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
+1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
+2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal
+3. If you're using source control suc as git, add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
 
 
 ## Step Definitions
