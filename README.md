@@ -4,9 +4,9 @@ Create easy-to-read, functioning scenarios in minutes:
 
 1. Install the package: `npm install cucumber-protractor`
 2. Setup
-  1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
-  2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal
-  3. If you're using source control such as git, add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
+    1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
+    2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal
+    3. If you're using source control such as git, add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
 3. Run the sample, type `cuketractor` or `uitests` or `brmbrm` in your terminal in the root of your project
 4. Create a [Page Object](https://www.protractortest.org/#/page-objects) and [Locators](https://www.protractortest.org/#/locators)
 5. Use the [step definitions provided](#step-definitions) (or create your own) to write your first scenario
