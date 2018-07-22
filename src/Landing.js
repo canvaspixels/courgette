@@ -4,6 +4,7 @@ import './Landing.css';
 
 const Landing = () => (
   <div className="Landing">
+    <h1>Home page</h1>
     <p className="Landing-intro">
       <Link to="/other-page" data-test="rr-link">Go to other page by react router</Link>
     </p>

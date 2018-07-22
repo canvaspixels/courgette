@@ -1,3 +1,5 @@
+const path = require('path');
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 const createComponent = require('./createComponent');
 
 module.exports = (name, world, pageUrl, elLocators) =>
@@ -5,12 +7,16 @@ module.exports = (name, world, pageUrl, elLocators) =>
     {},
     createComponent(name, world, elLocators, 'page'),
     {
-      url() {
-        return world.getUrl(pageUrl);
+      getPageFullUrl() {
+        // add protocol and host from pomConfig if pageUrl in the page object is just a pathname
+        const url = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
+
+        console.log('Getting full url: ', url);
+        return url;
       },
 
       goToPage() {
-        return browser.get(this.url());
+        return browser.get(this.getPageFullUrl());
       },
     },
   );

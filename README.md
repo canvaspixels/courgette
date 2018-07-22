@@ -74,6 +74,7 @@ Note that the words in italics are optional.
 
 | Step definition | Notes |
 | --- | --- |
+| I expect to eventually be on the 'PAGENAME' page | Using this changes the page object to the PAGENAME so any subsequent steps in that scenario will be pointing to that page |
 | I expect the url 'URL' is opened in a new tab | |
 | I expect the url 'URL' is opened in a new window | |
 | I expect the url to contain 'STRING' | |

@@ -1,5 +1,4 @@
 const path = require('path');
-
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
 Before(function beforeHook(scenarioResult) {

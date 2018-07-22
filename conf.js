@@ -1,9 +1,11 @@
 require('babel-core/register');
 
+// This config file is used to validate the pre-defined resuable generic step definitions in this repo
+
 const specsPath = 'testsToValidateStepDefinitions';
 const specsPathAbs = `${process.cwd()}/${specsPath}`;
 const outputPath = 'uiTestResult';
-const cukeTractorPath = 'uiTestHelpers'; // todo, change to node_modules/etc...
+const cukeTractorPath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,

@@ -2,7 +2,7 @@ const path = require('path');
 // eslint-disable-next-line
 const { Then } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
-// const checkEventualUrlFromPOM = require('./checks/checkEventualUrlFromPOM');
+const checkEventualUrlFromPOM = require('./checks/checkEventualUrlFromPOM');
 // const checkNewWindow = require('./checks/checkNewWindow');
 const checkIsOpenedInNewWindow = require('./checks/checkIsOpenedInNewWindow');
 // const checkEventualUrl = require('./checks/checkEventualUrl');
@@ -28,7 +28,7 @@ const checkInputIsEmpty = require('./checks/checkInputIsEmpty');
 const checkInputValue = require('./checks/checkInputValue');
 const checkAttribute = require('./checks/checkAttribute');
 
-// Then(/^I expect to eventually be on the '([^']*)?' page$/, checkEventualUrlFromPOM);
+Then(/^I expect to eventually (be) on the '([^']*)?' page$/, checkEventualUrlFromPOM);
 // Then(/^I expect to be on the '([^']*)?' page$/, checkEventualUrlFromPOM);
 // Then(/^I expect a new (?:window|tab) has( not)* been opened$/, checkNewWindow);
 Then(/^I expect the url '([^']*)?' is opened in a new (?:tab|window)$/, checkIsOpenedInNewWindow);
@@ -49,7 +49,7 @@ Then(/^I expect(?: the)? '([^']*)?' to( not)* be (?:checked|selected)$/, checkIs
 Then(/^I expect(?: the)? '([^']*)?' to( not)* be enabled$/, checkIsEnabled);
 Then(/^I expect cookie '([^']*)?' to( not)* contain '([^']*)?'$/, checkCookieContains);
 Then(/^I expect cookie '([^']*)?' to( not)* exist$/, checkCookieExists);
-Then(/^I expect(?: the)? '([^']*)?' to( not)* have the class '('[^']*)?'$/, checkClass);
+Then(/^I expect(?: the)? '([^']*)?' to( not)* have the class '([^']*)?'$/, checkClass);
 Then(/^I expect(?: the)? '([^']*)?' to be focused$/, checkFocus);
 Then(/^I expect(?: the)? '([^']*)?' to( not)* be empty$/, checkInputIsEmpty);
 Then(/^I expect the value of(?: the)? '([^']*)?' to( not)* be '([^']*)?' $/, checkInputValue);

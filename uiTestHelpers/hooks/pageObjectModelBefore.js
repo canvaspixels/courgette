@@ -3,13 +3,6 @@ const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
 Before(function pomBeforeHook() {
-  this.getUrl = (pathname) => {
-    const url = `${pathname.startsWith('http') ? '' : pomConfig.baseUrl}${pathname}`;
-
-    console.log('Getting baseUrl');
-    return url;
-  };
-
   this.getComponent = (componentName) => {
     const name = componentName.replace(/ /g, '-').toLowerCase();
 
@@ -23,14 +16,17 @@ Before(function pomBeforeHook() {
     }
   };
 
-  this.getPage = (pageName) => {
+  this.getPage = (pageName, updateCurrentPage = true) => {
     const name = pageName.replace(/ /g, '-').toLowerCase();
 
     try {
       // eslint-disable-next-line import/no-dynamic-require, global-require
       const page = require(path.resolve(pomConfig.pagesPath, name));
-      this.currentPage = page(this);
-      return this.currentPage;
+
+      if(updateCurrentPage) {
+        this.currentPage = page(this);
+      }
+      return page(this);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.log(err);

@@ -9,7 +9,7 @@ exports.pomConfig = {
   outputPath,
   pagesPath: `${specsPathAbs}/pages`,
   componentsPath: `${specsPathAbs}/pages/components`,
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://localhost:3000', // <------------ SET THE URL TO YOUR PROJECT HERE
 };
 
 exports.cucumberHtmlReporterConfig = {};
