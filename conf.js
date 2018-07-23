@@ -16,8 +16,6 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
-const cukeTags = process.env.cukeTags ? process.env.cukeTags.replace(',', ' or ') : '';
-
 const protractorConfig = {
   directConnect: true,
   ignoreUncaughtExceptions: true,
@@ -27,7 +25,8 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    shardTestFiles: !cukeTags && !process.env.debug,
+    acceptInsecureCerts: false, // change this to true if you are testing on https and are using self-signed certs
+    shardTestFiles: !process.env.cukeTags && !process.env.debug,
     maxInstances: 4,
     browserName: 'chrome',
     chromeOptions: {
@@ -46,7 +45,7 @@ const protractorConfig = {
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,
     ],
-    tags: ['~ignore'].concat(cukeTags || []),
+    tags: ['~ignore'].concat(process.env.cukeTags || []),
     format: [
       'cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
