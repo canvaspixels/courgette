@@ -43,7 +43,7 @@ const logStream = fs.createWriteStream(logPath);
 const cmd = 'node_modules/.bin/protractor';
 const args = ['./conf.js'];
 const spawnedProcess = spawn(cmd, args, { env: Object.assign({}, process.env, {
-  cukeTags: argv.tags,
+  cukeTags: argv.tags || '',
   confFile: argv.confFile || process.env.confFile || 'conf.js'
 }) });
 
