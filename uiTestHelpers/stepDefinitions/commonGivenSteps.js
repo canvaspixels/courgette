@@ -36,4 +36,3 @@ Given(/^the value of(?: the)? '([^']*)?' is( not)* '([^']*)?'$/, checkInputValue
 Given(/^I set the cookie '([^']*)?' with value '([^']*)?'$/, setCookie);
 Given(/^the cookie '([^']*)?' is( not)* set to '([^']*)?'$/, checkCookieContent);
 Given(/^the cookie '([^']*)?' is( not)* set$/, checkCookieExists);
-

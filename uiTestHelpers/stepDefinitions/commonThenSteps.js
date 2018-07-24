@@ -55,5 +55,3 @@ Then(/^I expect(?: the)? '([^']*)?' to( not)* be empty$/, checkInputIsEmpty);
 Then(/^I expect the value of(?: the)? '([^']*)?' to( not)* be '([^']*)?' $/, checkInputValue);
 Then(/^I expect(?: the)? '([^']*)?' has an attribute '([^']*)?' with a value of '([^']*)?' $/, checkAttribute);
 Then(/^fail step and take screenshot$/, Promise.reject);
-
-

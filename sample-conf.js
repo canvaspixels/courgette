@@ -1,4 +1,4 @@
-require('babel-core/register');
+require('babel-register');
 
 const specsPath = 'uiTests';
 const specsPathAbs = `${process.cwd()}/${specsPath}`;

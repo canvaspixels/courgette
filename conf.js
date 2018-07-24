@@ -1,4 +1,4 @@
-require('babel-core/register');
+require('babel-register');
 
 // This config file is used to validate the pre-defined resuable generic step definitions in this repo
 
