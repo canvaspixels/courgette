@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const argv = require('yargs').argv;
+const { argv } = require('yargs');
 
 // eslint-disable-next-line
 const { pomConfig } = require(path.join(process.cwd(), argv.confFile || process.env.confFile || 'conf.js'));
@@ -11,13 +11,13 @@ const cucumberHtmlReporter = require('cucumber-html-reporter');
 
 console.log('Brm brm... off we go!');
 
-const rmDir = function(dir, rmSelf) {
-  var files;
+const rmDir = function rmDir(dir, rmSelf) {
+  let files;
   rmSelf = (rmSelf === undefined) ? true : rmSelf;
   dir = dir + '/';
   try { files = fs.readdirSync(dir); } catch (e) { console.log('Directory not exist.'); return; }
   if (files.length > 0) {
-    files.forEach(function(x, i) {
+    files.forEach(function (x, i) {
       if (fs.statSync(dir + x).isDirectory()) {
         rmDir(dir + x);
       } else {
@@ -32,20 +32,22 @@ const rmDir = function(dir, rmSelf) {
 };
 
 const outputPath = path.join(process.cwd(), pomConfig.outputPath);
-if (fs.existsSync(outputPath)){
+if (fs.existsSync(outputPath)) {
   rmDir(outputPath);
 }
-if (!fs.existsSync(outputPath)){
+if (!fs.existsSync(outputPath)) {
   fs.mkdirSync(outputPath);
 }
 const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
 const cmd = 'node_modules/.bin/protractor';
 const args = ['./conf.js'];
-const spawnedProcess = spawn(cmd, args, { env: Object.assign({}, process.env, {
-  cukeTags: (argv.tags || '').replace(',', ' or ') : '',
-  confFile: argv.confFile || process.env.confFile || 'conf.js'
-}) });
+const spawnedProcess = spawn(cmd, args, {
+  env: Object.assign({}, process.env, {
+    cukeTags: (argv.tags || '').replace(',', ' or '),
+    confFile: argv.confFile || process.env.confFile || 'conf.js',
+  }),
+});
 
 const cucumberHtmlReporterConfig = Object.assign({
   theme: 'bootstrap',
@@ -134,5 +136,4 @@ spawnedProcess.on('exit', () => {
   loopThroughReport().then(({ successCount, totalCount }) => {
     process.exitCode = totalCount === successCount ? 0 : 1;
   });
-
 });
