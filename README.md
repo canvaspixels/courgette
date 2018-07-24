@@ -88,6 +88,12 @@ To run a couple (comma separate):
 ./node_modules/.bin/cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
 ```
 
+Note:
+
+As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` rather than typing `./node_modules/.bin/cuketractor` each time, you can add the following line to your `~/.bash_profile` file:
+
+```alias cuketractor="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"```
+
 
 ## Step Definitions
 
