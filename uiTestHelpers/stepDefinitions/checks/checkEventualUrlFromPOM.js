@@ -1,4 +1,4 @@
-module.exports = function checkUrl(beOrContain, pageName) {
+module.exports = function checkUrl(pageName) {
   const expectedUrl = this.getPage(pageName).getPageFullUrl();
   const waitTimeout = this.cucumberTimeout || 3000;
   let currentUrlNoTrailingSlash;
@@ -9,9 +9,7 @@ module.exports = function checkUrl(beOrContain, pageName) {
       .then((currentUrl) => {
         currentUrlNoTrailingSlash = currentUrl.replace(/\/$/, '');
 
-        if (beOrContain === 'be' && currentUrlNoTrailingSlash === expectedUrlNoTrailingSlash) {
-          resolve();
-        } else if (beOrContain === 'contain' && currentUrlNoTrailingSlash.includes(expectedUrlNoTrailingSlash)) {
+        if (currentUrlNoTrailingSlash === expectedUrlNoTrailingSlash) {
           resolve();
         } else if (Date.now() > (timestamp + waitTimeout - 100)) {
           reject();

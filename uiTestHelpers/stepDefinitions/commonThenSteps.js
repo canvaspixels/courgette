@@ -28,7 +28,7 @@ const checkInputIsEmpty = require('./checks/checkInputIsEmpty');
 const checkInputValue = require('./checks/checkInputValue');
 const checkAttribute = require('./checks/checkAttribute');
 
-Then(/^I expect to eventually (be) on the '([^']*)?' page$/, checkEventualUrlFromPOM);
+Then(/^I expect to eventually be on the '([^']*)?' page$/, checkEventualUrlFromPOM);
 // Then(/^I expect to be on the '([^']*)?' page$/, checkEventualUrlFromPOM);
 // Then(/^I expect a new (?:window|tab) has( not)* been opened$/, checkNewWindow);
 Then(/^I expect the url '([^']*)?' is opened in a new (?:tab|window)$/, checkIsOpenedInNewWindow);
