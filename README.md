@@ -1,17 +1,22 @@
 # POM CukeTractor - Cucumber Protractor Runner with Setup for Page Object Model
 
-Create easy-to-read, functioning scenarios in minutes:
+![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
+
+## Create easy-to-read, functioning scenarios in minutes:
 
 1. Install the package: `npm install cucumber-protractor`
 2. Setup
     1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
-    2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal
-    3. If you're using source control such as git, add `uiTestResult` (or whatever you set in your conf.js) to your .gitignore file
-3. Run the sample, type `./node_modules/.bin/cuketractor` in your terminal in the root of your project. The sample is in the `uiTests` folder you just copied. Edit / rename these and get going!
+    2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal. This will create a `uiTests` folder with the sample in it.
+3. Run the sample, type `./node_modules/.bin/cuketractor` in your terminal in the root of your project.
 
-![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
+### Futher tips:
 
-Easily compose Page Objects and Component Objects. Page objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. Use the [step definitions provided](#step-definitions) (or create your own) to write your first scenario.
+1. To improve organisation and scalability, easily compose Page Objects and Component Objects. Page Objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. Use the [step definitions provided](#step-definitions) (or create your own) to write your own first scenario.
+2. If you're using source control such as git, add `uiTestResult` to your .gitignore file
+3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` rather than typing `./node_modules/.bin/cuketractor` each time, you can add the following line to your `~/.bash_profile` file:
+
+```alias cuketractor="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"```
 
 ## Feature file by example
 
@@ -87,12 +92,6 @@ To run a couple (comma separate):
 ```
 ./node_modules/.bin/cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
 ```
-
-Note:
-
-As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` rather than typing `./node_modules/.bin/cuketractor` each time, you can add the following line to your `~/.bash_profile` file:
-
-```alias cuketractor="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"```
 
 
 ## Step Definitions
