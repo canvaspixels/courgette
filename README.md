@@ -4,6 +4,8 @@
 
 ## Create easy-to-read, functioning scenarios in minutes:
 
+This assumes that you have an npm project. If you don't then make a new one with `npm init`.
+
 1. Install the package: `npm install cucumber-protractor`
 2. Setup
     1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
@@ -12,7 +14,7 @@
 
 ### Futher tips:
 
-1. To improve organisation and scalability, easily compose Page Objects and Component Objects. Page Objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. Use the [step definitions provided](#step-definitions) (or create your own) to write your own first scenario.
+1. To improve organisation and scalability, easily compose Page Objects and Component Objects. Page Objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. The only difference between a Page Object and a Component Object is a Component Object does not have an URL. Use the [step definitions provided](#step-definitions) (or create your own) to write your own first scenario.
 2. If you're using source control such as git, add `uiTestResult` to your .gitignore file
 3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` rather than typing `./node_modules/.bin/cuketractor` each time, you can add the following line to your `~/.bash_profile` file:
 
