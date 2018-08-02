@@ -12,42 +12,45 @@ const Landing = () => (
     <p><a href="/other-page" data-test="other-page-link-new-tab" target="_blank">Go to other page in new tab</a></p>
 
     <form action="">
-      <div><label>Name <input type="text" name="fullname" /></label></div>
-      <div>
+      <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
+      <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{display:'none'}} /></label></p>
+      <p>
         <label>Age
-          <select name="age" data-test="age">
-            <option value="18-25">18-25</option>
-            <option value="26+">26+</option>
+          <select name="age" data-test="age" data-test="age-field">
+            <option value="18-25" data-test="age-18to25">18-25</option>
+            <option value="26+" data-test="age-26plus">26+</option>
           </select>
         </label>
-      </div>
+      </p>
       <fieldset>
         <legend>Gender</legend>
         <label>
-          <input type="radio" name="gender" value="male" checked onChange={() => {}} />
+          <input type="radio" name="gender" value="male" checked onChange={() => {}} data-test="male-radio" />
           Male
         </label>
         <label>
-          <input type="radio" name="gender" value="female" />
+          <input type="radio" name="gender" value="female" data-test="female-radio" />
           Female
         </label>
         <label>
-          <input type="radio" name="gender" value="other" />
+          <input type="radio" name="gender" value="other" data-test="other-gender-radio" />
           Other
         </label>
       </fieldset>
-      <div>
+      <p>
         <label>
-          <input type="checkbox" name="newsletter-uncheck" value="true" checked onChange={() => {}} />
+          <input type="checkbox" name="newsletter-uncheck" value="true" checked onChange={() => {}} data-test="newsletter-checkbox" />
           Uncheck if you don’t wish to not receive the newsletter
         </label>
-      </div>
-      <div>
+      </p>
+      <p>
         <label>
-          <input type="checkbox" name="you-ok" value="ok" />
-          Are you ok? Tick the box if so
+          <input type="checkbox" name="you-ok" value="ok" data-test="you-ok-checkbox" />
+          Are you ok? Tick the box if so.
         </label>
-      </div>
+      </p>
+      <p><button type="button" data-test="button">Button</button></p>
+      <p><button type="button" disabled data-test="disabled-button">Disabled Button</button></p>
     </form>
   </div>
 );

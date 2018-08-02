@@ -22,16 +22,17 @@ const checkCookieExists = require('./checks/checkCookieExists');
 
 Given(/^I go to the '([^']*)?' page$/, goToPage);
 Given(/^the page url is( not)* '([^']*)?'$/, checkUrl);
+// add url contains
 Given(/^animations are disabled$/, disableAnimations);
-Given(/^(?: the)? '([^']*)?' is (visible|hidden)$/, checkVisibility);
-Given(/^(?: the)? '([^']*)?' is( not)* enabled$/, checkIsEnabled);
-Given(/^(?: the)? '([^']*)?' is( not)* (?:selected|checked)$/, checkIsSelected);
-Given(/^(?: the)? '([^']*)?' is( not)* on the pages$/, checkElementExists);
+Given(/^(?:the)? '([^']*)?' is (visible|hidden)$/, checkVisibility);
+Given(/^(?:the)? '([^']*)?' is (enabled|disabled)$/, checkIsEnabled);
+Given(/^(?:the)? '([^']*)?' is( not)* (?:selected|checked)$/, checkIsSelected);
+Given(/^(?:the)? '([^']*)?' is( not)* on the page$/, checkElementExists);
 Given(/^the title is( not)* '([^']*)?'$/, checkTitle);
-Given(/^(?: the)? '([^']*)?'( does not)* contain(?:s)* the text '([^']*)?'$/, checkContainsText);
-Given(/^(?: the)? '([^']*)?'( does not)* contain(?:s)* any text$/, checkContainsAnyText);
-Given(/^(?: the)? '([^']*)?' has an attribute '([^']*)?' with a value of '([^']*)?'$/, checkAttribute);
-Given(/^(?: the)? '([^']*)?' is( not)* empty$/, checkInputIsEmpty);
+Given(/^(?:the)? '([^']*)?'( does not)* contain(?:s)* the text '([^']*)?'$/, checkContainsText);
+Given(/^(?:the)? '([^']*)?'( does not)* contain(?:s)* any text$/, checkContainsAnyText);
+Given(/^(?:the)? '([^']*)?' has an attribute '([^']*)?' with a value of '([^']*)?'$/, checkAttribute);
+Given(/^(?:the)? '([^']*)?' is( not)* empty$/, checkInputIsEmpty);
 Given(/^the value of(?: the)? '([^']*)?' is( not)* '([^']*)?'$/, checkInputValue);
 Given(/^I set the cookie '([^']*)?' with value '([^']*)?'$/, setCookie);
 Given(/^the cookie '([^']*)?' is( not)* set to '([^']*)?'$/, checkCookieContent);

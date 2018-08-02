@@ -11,7 +11,8 @@ const clearInputFieldValue = require('./actions/clearInputFieldValue');
 const setSelectValueByOptionText = require('./actions/setSelectValueByOptionText');
 
 When(/^I click(?: the)? '([^']*)?'$/, clickElement);
-When(/^I set '([^']*)?' to value '([^']*)?'$/, setInputFieldValue);
+When(/^I append '([^']*)?' to '([^']*)?'$/, setInputFieldValue);
+// Add i set to value
 When(/^I submit the(?: form)? '([^']*)?'$/, submitForm);
 When(/^I press '([^']*)?'$/, pressKey);
 When(/^I clear(?: the)? '([^']*)?'$/, clearInputFieldValue);

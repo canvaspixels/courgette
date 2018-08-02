@@ -111,13 +111,13 @@ Note that the words in italics are optional.
 | _the_ 'LOCATOR' is visible | |
 | _the_ 'LOCATOR' is hidden | |
 | _the_ 'LOCATOR' is enabled | |
-| _the_ 'LOCATOR' is not enabled | |
+| _the_ 'LOCATOR' is disabled | |
 | _the_ 'LOCATOR' is selected | |
 | _the_ 'LOCATOR' is checked | |
 | _the_ 'LOCATOR' is not selected | |
 | _the_ 'LOCATOR' is not checked | |
-| _the_ 'LOCATOR' is on the pages | |
-| _the_ 'LOCATOR' is not on the pages | |
+| _the_ 'LOCATOR' is on the page | |
+| _the_ 'LOCATOR' is not on the page | |
 | the title is 'LOCATOR' | |
 | the title is not 'LOCATOR' | |
 | _the_ 'LOCATOR' contains the text 'LOCATOR' | |
@@ -141,6 +141,7 @@ Note that the words in italics are optional.
 | --- | --- |
 | I click _the_ 'LOCATOR' | |
 | I set 'LOCATOR' to value 'VALUE' | |
+| I append 'STRING' to 'LOCATOR' | |
 | I submit the _form_ 'LOCATOR' | |
 | I press 'KEY' | |
 | I clear _the_ 'LOCATOR' | |
@@ -176,7 +177,7 @@ Note that the words in italics are optional.
 | I expect _the_ 'LOCATOR' to be selected | |
 | I expect _the_ 'LOCATOR' to not be selected | |
 | I expect _the_ 'LOCATOR' to be enabled | |
-| I expect _the_ 'LOCATOR' to not be enabled | |
+| I expect _the_ 'LOCATOR' to be disabled | |
 | I expect cookie 'LOCATOR' to contain 'VALUE' | |
 | I expect cookie 'LOCATOR' to not contain 'VALUE' | |
 | I expect cookie 'LOCATOR' to exist | |

@@ -46,7 +46,7 @@ Then(/^I expect(?: the)? '([^']*)?' to( not)* exist$/, checkElementExists);
 Then(/^I expect(?: the)? '([^']*)?' to( not)* contain the text '([^']*)?'$/, checkContainsText);
 Then(/^I expect(?: the)? '([^']*)?' to( not)* contain any text$/, checkContainsAnyText);
 Then(/^I expect(?: the)? '([^']*)?' to( not)* be (?:checked|selected)$/, checkIsSelected);
-Then(/^I expect(?: the)? '([^']*)?' to( not)* be enabled$/, checkIsEnabled);
+Then(/^I expect(?: the)? '([^']*)?' be (enabled|disabled)$/, checkIsEnabled);
 Then(/^I expect cookie '([^']*)?' to( not)* contain '([^']*)?'$/, checkCookieContains);
 Then(/^I expect cookie '([^']*)?' to( not)* exist$/, checkCookieExists);
 Then(/^I expect(?: the)? '([^']*)?' to( not)* have the class '([^']*)?'$/, checkClass);

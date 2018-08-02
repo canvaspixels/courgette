@@ -1,8 +1,8 @@
-module.exports = function checkIsEnabled(locatorKey, isNotEnabled) {
-  const els = this.getCurrentPage().getElement(locatorKey);
+module.exports = function checkIsEnabled(locatorKey, enabledOrDisabled) {
+  const el = this.getCurrentPage().getElement(locatorKey);
   const elIsEnabled = el.isEnabled();
 
-  return isNotEnabled ?
-    expect(elIsEnabled).to.eventually.equal(false) :
-    expect(elIsEnabled).to.eventually.equal(true);
+  return enabledOrDisabled === 'enabled' ?
+    expect(elIsEnabled).to.eventually.equal(true) :
+    expect(elIsEnabled).to.eventually.equal(false);
 };

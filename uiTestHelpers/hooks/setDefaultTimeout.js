@@ -3,7 +3,7 @@ const path = require('path');
 // eslint-disable-next-line
 const { setDefaultTimeout, Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
-const timeoutInSeconds = 15;
+const timeoutInSeconds = 8;
 const timeoutInMS = timeoutInSeconds * 1000;
 setDefaultTimeout(timeoutInMS);
 
