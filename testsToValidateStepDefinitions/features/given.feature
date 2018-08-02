@@ -64,3 +64,18 @@ Feature: Testing Given steps
   Scenario: Given the element is not selected
     Given I go to the 'Home' page
     And the 'age field 26 plus' is not selected
+
+  @given-steps-element-not-checked
+  Scenario: Given the element is not checked
+    Given I go to the 'Home' page
+    And the 'you ok checkbox' is not checked
+
+  @given-steps-element-on-page
+  Scenario: Given the element is on the page
+    Given I go to the 'Home' page
+    And the 'newsletter checkbox' is on the page
+
+  @given-steps-element-not-on-page
+  Scenario: Given the element is not on the page
+    Given I go to the 'Home' page
+    And the 'non-existant element' is not on the page

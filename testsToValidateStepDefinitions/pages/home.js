@@ -15,5 +15,6 @@ module.exports = (world) =>
     'disabled button': by.css('[data-test="disabled-button"]'),
     'newsletter checkbox': by.css('[data-test="newsletter-checkbox"]'),
     'you ok checkbox': by.css('[data-test="you-ok-checkbox"]'),
+    'non-existant element': by.css('[data-test="non-existant"]'),
     'Go to home page by react router link': by.css('[data-test="go-to-home-link"]'), // doesn't actually exist on this page, just using to test that it doesn't exist
   });
