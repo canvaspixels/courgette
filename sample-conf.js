@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 require('babel-register');
 
 const specsPath = 'uiTests';

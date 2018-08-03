@@ -1,6 +1,7 @@
 const path = require('path');
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 const createComponent = require('./createComponent');
+// eslint-disable-next-line
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
 module.exports = (name, world, pageUrl, elLocators) =>
   Object.assign(

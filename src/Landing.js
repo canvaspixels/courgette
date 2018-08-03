@@ -13,10 +13,10 @@ const Landing = () => (
 
     <form action="">
       <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
-      <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{display:'none'}} /></label></p>
+      <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} /></label></p>
       <p>
         <label>Age
-          <select name="age" data-test="age" data-test="age-field">
+          <select name="age" data-test="age-field">
             <option value="18-25" data-test="age-18to25">18-25</option>
             <option value="26+" data-test="age-26plus">26+</option>
           </select>

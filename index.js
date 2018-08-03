@@ -9,25 +9,33 @@ const { pomConfig } = require(path.join(process.cwd(), argv.confFile || process.
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
 
+// eslint-disable-next-line no-console
 console.log('Brm brm... off we go!');
 
 const rmDir = function rmDir(dir, rmSelf) {
   let files;
-  rmSelf = (rmSelf === undefined) ? true : rmSelf;
-  dir = dir + '/';
-  try { files = fs.readdirSync(dir); } catch (e) { console.log('Directory not exist.'); return; }
+  const isSelf = (rmSelf === undefined) ? true : rmSelf;
+  const directory = `${dir}/`;
+  try {
+    files = fs.readdirSync(directory);
+  } catch (e) {
+    // eslint-disable-next-line no-console
+    console.log('Directory not exist.');
+    return;
+  }
   if (files.length > 0) {
-    files.forEach(function (x, i) {
-      if (fs.statSync(dir + x).isDirectory()) {
-        rmDir(dir + x);
+    files.forEach((x) => {
+      const newPath = `${directory}${x}`;
+      if (fs.statSync(newPath).isDirectory()) {
+        rmDir(newPath);
       } else {
-        fs.unlinkSync(dir + x);
+        fs.unlinkSync(newPath);
       }
     });
   }
-  if (rmSelf) {
+  if (isSelf) {
     // check if user want to delete the directory ir just the files in this directory
-    fs.rmdirSync(dir);
+    fs.rmdirSync(directory);
   }
 };
 

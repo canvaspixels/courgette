@@ -1,6 +1,8 @@
+// eslint-disable-next-line
 require('babel-register');
 
-// This config file is used to validate the pre-defined resuable generic step definitions in this repo
+// This config file is used to validate the pre-defined
+// reusable generic step definitions in this repo
 
 const specsPath = 'testsToValidateStepDefinitions';
 const specsPathAbs = `${process.cwd()}/${specsPath}`;
@@ -25,12 +27,14 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    acceptInsecureCerts: false, // change this to true if you are testing on https and are using self-signed certs
+    // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
+    acceptInsecureCerts: false,
     shardTestFiles: !process.env.cukeTags && !process.env.debug,
     maxInstances: 4,
     browserName: 'chrome',
     chromeOptions: {
-      args: ['--window-size=1100,800'].concat(process.env.disableHeadless ? [] : ['--headless', '--disable-gpu']),
+      args: ['--window-size=1100,800']
+        .concat(process.env.disableHeadless ? [] : ['--headless', '--disable-gpu']),
     },
   },
   cucumberOpts: {
