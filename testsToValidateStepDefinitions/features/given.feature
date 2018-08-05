@@ -17,7 +17,7 @@ Feature: Testing Given steps
   Scenario: Link to open in new tab
     Given I go to the 'Home' page
     When I click the 'Go to other page in new window link'
-    Then I expect the url '/other-page' is opened in a new tab
+    Then I expect the url 'http://localhost:3000/other-page' is opened in a new tab
 
   @given-steps-routing-given-url
   Scenario: Given the url is x
