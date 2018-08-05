@@ -93,5 +93,5 @@ Note that the words in italics are optional.
 | I expect _the_ 'LOCATOR' to not be empty |  |
 | I expect the value of _the_ 'LOCATOR' to be 'STRING'  |  |
 | I expect the value of _the_ 'LOCATOR' to not be 'STRING'  |  |
-| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE'&nbsp; |  |
+| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' |  |
 | fail step and take screenshot |  |

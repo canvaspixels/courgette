@@ -22,10 +22,10 @@ const steps = [
   { matcher: "I expect the border colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementBorderColour' },
   { matcher: "I expect the colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementColour' },
   { matcher: "I expect the background colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementBackgroundColour' },
-  { matcher: "I expect the title to( not)* be 'STRING'", path: './checks/checkContainsText' },
-  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* appear exactly 'NUMBER' times", path: './checks/checkTitle' },
-  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* exist", path: './checks/checkElementExistsNTimes' },
-  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* contain the text 'STRING'", path: './checks/checkElementExists' },
+  { matcher: "I expect the title to( not)* be 'STRING'", path: './checks/checkTitle' },
+  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* appear exactly 'NUMBER' times", path: './checks/checkElementExistsNTimes' },
+  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* exist", path: './checks/checkElementExists' },
+  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* contain the text 'STRING'", path: './checks/checkContainsText' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* contain any text", path: './checks/checkContainsAnyText' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be (?:checked)", path: './checks/checkIsSelected' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be (?:selected)", path: './checks/checkIsSelected' },
@@ -37,7 +37,7 @@ const steps = [
   { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty' },
   { matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING' ", path: './checks/checkInputValue' },
-  { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' ", path: './checks/checkAttribute' },
+  { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute' },
 ];
 
 if (!argv.genFiles) {
@@ -46,6 +46,7 @@ if (!argv.genFiles) {
     const matcher = step.matcher
       .replace(/PAGENAME/, matchPattern)
       .replace(/URL/, matchPattern)
+      .replace(/STRING/, matchPattern)
       .replace(/ATTRIBUTE_NAME/, matchPattern)
       .replace(/CLASS_NAME/, matchPattern)
       .replace(/VALUE/, matchPattern)
