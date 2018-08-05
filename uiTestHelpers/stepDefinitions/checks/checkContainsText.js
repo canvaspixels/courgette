@@ -1,8 +1,8 @@
-module.exports = function checkContainsText(locatorKey, doesNotContain, expectedText) {
+module.exports = function checkContainsText(locatorKey, containsStr, expectedText) {
   return this.getCurrentPage().getElementWhenInDOM(locatorKey)
     .then((el) => (
-      doesNotContain ?
-        expect(el.getText()).to.not.eventually.equal(expectedText) :
-        expect(el.getText()).to.eventually.equal(expectedText)
+      containsStr === 'contains' ?
+        expect(el.getText()).to.eventually.equal(expectedText) :
+        expect(el.getText()).to.not.eventually.equal(expectedText)
     ));
 };

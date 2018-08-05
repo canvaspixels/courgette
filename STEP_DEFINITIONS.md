@@ -38,14 +38,16 @@
 | Step definition | Notes |
 | --- | --- |
 | I click _the_ 'LOCATOR' |  |
-| I set 'LOCATOR' to value 'VALUE' |  |
-| I append 'STRING' to 'LOCATOR' |  |
+| I append 'LOCATOR' to 'LOCATOR' |  |
+| I set 'LOCATOR' to 'LOCATOR' |  |
+| I append 'LOCATOR' to react field 'LOCATOR' |  |
+| I set react field 'LOCATOR' to 'LOCATOR' |  |
 | I submit the _form_ 'LOCATOR' |  |
 | I press 'KEY' |  |
 | I clear _the_ 'LOCATOR' |  |
 | I&nbsp;select&nbsp;the&nbsp;option&nbsp;for&nbsp;select&nbsp;element&nbsp;'LOCATOR'&nbsp;with&nbsp;the&nbsp;text&nbsp;'VALUE' |  |
 
-### Then...
+### When...
 
 | Step definition | Notes |
 | --- | --- |
@@ -76,16 +78,16 @@
 | I expect _the_ 'LOCATOR' to not be selected |  |
 | I expect _the_ 'LOCATOR' to be enabled |  |
 | I expect _the_ 'LOCATOR' to be disabled |  |
-| I expect cookie 'LOCATOR' to contain 'VALUE' |  |
-| I expect cookie 'LOCATOR' to not contain 'VALUE' |  |
+| I expect cookie 'LOCATOR' to contain 'STRING' |  |
+| I expect cookie 'LOCATOR' to not contain 'STRING' |  |
 | I expect cookie 'LOCATOR' to exist |  |
 | I expect cookie 'LOCATOR' to not exist |  |
-| I expect _the_ 'LOCATOR' to have the class 'CLASSNAME' |  |
-| I expect _the_ 'LOCATOR' to not have the class 'CLASSNAME' |  |
+| I expect _the_ 'LOCATOR' to have the class 'CLASS_NAME' |  |
+| I expect _the_ 'LOCATOR' to not have the class 'CLASS_NAME' |  |
 | I expect _the_ 'LOCATOR' to be focused |  |
 | I expect _the_ 'LOCATOR' to be empty |  |
 | I expect _the_ 'LOCATOR' to not be empty |  |
-| I expect the value of _the_ 'LOCATOR' to be 'VALUE'  |  |
-| I expect the value of _the_ 'LOCATOR' to not be 'VALUE'  |  |
-| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE'  |  |
+| I expect the value of _the_ 'LOCATOR' to be 'STRING'  |  |
+| I expect the value of _the_ 'LOCATOR' to not be 'STRING'  |  |
+| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE'&nbsp; |  |
 | fail step and take screenshot |  |

@@ -1,24 +1,33 @@
 const path = require('path');
+const { argv } = require('yargs');
 
 // eslint-disable-next-line
 const { When } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
-const clickElement = require('./actions/clickElement');
-const appendInputFieldValue = require('./actions/appendInputFieldValue');
-const setInputFieldValue = require('./actions/setInputFieldValue');
-const appendReactInputFieldValue = require('./actions/appendReactInputFieldValue');
-const setReactInputFieldValue = require('./actions/setReactInputFieldValue');
-const submitForm = require('./actions/submitForm');
-const pressKey = require('./actions/pressKey');
-const clearInputFieldValue = require('./actions/clearInputFieldValue');
-const setSelectValueByOptionText = require('./actions/setSelectValueByOptionText');
+const steps = [
+  { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement' },
+  { matcher: "I append 'LOCATOR' to 'LOCATOR'", path: './actions/appendInputFieldValue' },
+  { matcher: "I set 'LOCATOR' to 'LOCATOR'", path: './actions/setInputFieldValue' },
+  { matcher: "I append 'LOCATOR' to react field 'LOCATOR'", path: './actions/appendReactInputFieldValue' },
+  { matcher: "I set react field 'LOCATOR' to 'LOCATOR'", path: './actions/setReactInputFieldValue' },
+  { matcher: "I submit the(?: form)? 'LOCATOR'", path: './actions/submitForm' },
+  { matcher: "I press 'KEY'", path: './actions/pressKey' },
+  { matcher: "I clear(?: the)? 'LOCATOR'", path: './actions/clearInputFieldValue' },
+  { matcher: "I select the option for select element 'LOCATOR' with the text 'VALUE'", path: './actions/setSelectValueByOptionText' },
+];
 
-When(/^I click(?: the)? '([^']*)?'$/, clickElement);
-When(/^I append '([^']*)?' to '([^']*)?'$/, appendInputFieldValue);
-When(/^I set '([^']*)?' to '([^']*)?'$/, setInputFieldValue);
-When(/^I append '([^']*)?' to react field '([^']*)?'$/, appendReactInputFieldValue);
-When(/^I set react field '([^']*)?' to '([^']*)?'$/, setReactInputFieldValue);
-When(/^I submit the(?: form)? '([^']*)?'$/, submitForm);
-When(/^I press '([^']*)?'$/, pressKey);
-When(/^I clear(?: the)? '([^']*)?'$/, clearInputFieldValue);
-When(/^I select the option for select element '([^']*)?' with the text '([^']*)?'$/, setSelectValueByOptionText);
+if (!argv.genFiles) {
+  steps.forEach((step) => {
+    const matchPattern = "([^']*)?";
+    const matcher = step.matcher
+      .replace(/PAGENAME/, matchPattern)
+      .replace(/URL/, matchPattern)
+      .replace(/VALUE/, matchPattern)
+      .replace(/KEY/, matchPattern)
+      .replace(/LOCATOR/, matchPattern);
+
+    When(new RegExp(`^${matcher}$`), {}, require(step.path));
+  });
+}
+
+module.exports = steps;
