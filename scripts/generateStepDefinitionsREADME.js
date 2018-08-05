@@ -47,6 +47,10 @@ const createStepDefLines = (steps) => {
 };
 
 const givenStepDefLines = [
+  '## Step Definitions',
+  '',
+  'Note that the words in italics are optional.',
+  '',
   '### Given...',
   '',
   '| Step definition | Notes |',
