@@ -1,3 +1,7 @@
+## Step Definitions
+
+Note that the words in italics are optional.
+
 ### Given...
 
 | Step definition | Notes |
@@ -47,7 +51,7 @@
 | I clear _the_ 'LOCATOR' |  |
 | I&nbsp;select&nbsp;the&nbsp;option&nbsp;for&nbsp;select&nbsp;element&nbsp;'LOCATOR'&nbsp;with&nbsp;the&nbsp;text&nbsp;'VALUE' |  |
 
-### When...
+### Then...
 
 | Step definition | Notes |
 | --- | --- |

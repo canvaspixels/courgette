@@ -94,3 +94,7 @@ To run a couple (comma separate):
 ```
 ./node_modules/.bin/cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
 ```
+
+## Contributing
+
+To create the STEP_DEFINITIONS.md file, run the script: `node scripts/generateStepDefinitionsREADME.js --genFiles`
