@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'
 ]]></content>
-    <tabTrigger>thencheckAttribute</tabTrigger>
+    <tabTrigger>attribute</tabTrigger>
 </snippet>

@@ -2,5 +2,5 @@
     <content><![CDATA[
 I append '${1:LOCATOR}' to '${2:LOCATOR}'
 ]]></content>
-    <tabTrigger>whenappendInputFieldValue</tabTrigger>
+    <tabTrigger>append</tabTrigger>
 </snippet>

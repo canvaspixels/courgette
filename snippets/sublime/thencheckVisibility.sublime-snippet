@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the '${1:LOCATOR}' to be hidden
 ]]></content>
-    <tabTrigger>thencheckVisibility</tabTrigger>
+    <tabTrigger>hidden</tabTrigger>
 </snippet>

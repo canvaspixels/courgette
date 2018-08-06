@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect cookie '${1:COOKIE_NAME}' to not contain '${2:STRING}'
 ]]></content>
-    <tabTrigger>thencheckCookieContains</tabTrigger>
+    <tabTrigger>cookiecontain</tabTrigger>
 </snippet>

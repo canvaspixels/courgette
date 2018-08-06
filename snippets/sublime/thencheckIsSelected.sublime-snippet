@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the '${1:LOCATOR}' to not be selected
 ]]></content>
-    <tabTrigger>thencheckIsSelected</tabTrigger>
+    <tabTrigger>selected</tabTrigger>
 </snippet>

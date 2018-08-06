@@ -2,5 +2,5 @@
     <content><![CDATA[
 I set react field '${1:LOCATOR}' to '${2:LOCATOR}'
 ]]></content>
-    <tabTrigger>whensetReactInputFieldValue</tabTrigger>
+    <tabTrigger>setreact</tabTrigger>
 </snippet>

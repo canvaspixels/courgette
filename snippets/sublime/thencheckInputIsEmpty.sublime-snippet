@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the '${1:LOCATOR}' to not be empty
 ]]></content>
-    <tabTrigger>thencheckInputIsEmpty</tabTrigger>
+    <tabTrigger>empty</tabTrigger>
 </snippet>

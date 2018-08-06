@@ -2,5 +2,5 @@
     <content><![CDATA[
 I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'
 ]]></content>
-    <tabTrigger>whensetSelectValueByOptionText</tabTrigger>
+    <tabTrigger>option</tabTrigger>
 </snippet>

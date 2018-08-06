@@ -2,5 +2,5 @@
     <content><![CDATA[
 I append '${1:LOCATOR}' to react field '${2:LOCATOR}'
 ]]></content>
-    <tabTrigger>whenappendReactInputFieldValue</tabTrigger>
+    <tabTrigger>appendreact</tabTrigger>
 </snippet>

@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'
 ]]></content>
-    <tabTrigger>thencheckElementBorderColour</tabTrigger>
+    <tabTrigger>bordercolour</tabTrigger>
 </snippet>

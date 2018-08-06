@@ -79,3 +79,9 @@ Feature: Testing Given steps
   Scenario: Given the element is not on the page
     Given I go to the 'Home' page
     And the 'non-existant element' is not on the page
+
+@given-steps-title-is
+Scenario: Given the title iis not visible
+    Given the title is not 'LOCATOR'
+    And
+

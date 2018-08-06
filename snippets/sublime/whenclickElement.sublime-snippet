@@ -2,5 +2,5 @@
     <content><![CDATA[
 I click the '${1:LOCATOR}'
 ]]></content>
-    <tabTrigger>whenclickElement</tabTrigger>
+    <tabTrigger>click</tabTrigger>
 </snippet>

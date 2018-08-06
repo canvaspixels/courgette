@@ -4,7 +4,7 @@ Note that the words in italics are optional.
 
 ### Given...
 
-| Step definition | Code | Notes |
+| Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I go to the 'PAGE_NAME' page | givengoToPage | PAGE_NAME should match the name of the page object file in your pages directory and the first argument to createPage in that same file. This step definition sets the current page object |
 | the page url is 'URL' | givencheckUrl |  |
@@ -39,7 +39,7 @@ Note that the words in italics are optional.
 
 ### When...
 
-| Step definition | Code | Notes |
+| Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I click _the_ 'LOCATOR' | whenclickElement |  |
 | I append 'LOCATOR' to 'LOCATOR' | whenappendInputFieldValue |  |
@@ -53,7 +53,7 @@ Note that the words in italics are optional.
 
 ### Then...
 
-| Step definition | Code | Notes |
+| Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I expect to eventually be on the 'PAGE_NAME' page | thencheckEventualUrlFromPOM | Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page |
 | I expect the url 'URL' is opened in a new tab | thencheckIsOpenedInNewWindow |  |

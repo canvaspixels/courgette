@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the url to contain '${1:STRING}'
 ]]></content>
-    <tabTrigger>thencheckUrlContainsString</tabTrigger>
+    <tabTrigger>urlcontains</tabTrigger>
 </snippet>

@@ -2,5 +2,5 @@
     <content><![CDATA[
 the cookie '${1:COOKIE_NAME}' is not set to '${2:VALUE}'
 ]]></content>
-    <tabTrigger>givencheckCookieContent</tabTrigger>
+    <tabTrigger>cookie</tabTrigger>
 </snippet>

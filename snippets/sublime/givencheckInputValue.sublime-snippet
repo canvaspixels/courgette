@@ -2,5 +2,5 @@
     <content><![CDATA[
 the value of the '${1:LOCATOR}' is not '${2:VALUE}'
 ]]></content>
-    <tabTrigger>givencheckInputValue</tabTrigger>
+    <tabTrigger>value</tabTrigger>
 </snippet>

@@ -2,5 +2,5 @@
     <content><![CDATA[
 I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'
 ]]></content>
-    <tabTrigger>givensetCookie</tabTrigger>
+    <tabTrigger>setcookie</tabTrigger>
 </snippet>

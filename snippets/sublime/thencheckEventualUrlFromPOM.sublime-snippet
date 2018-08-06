@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect to eventually be on the '${1:PAGE_NAME}' page
 ]]></content>
-    <tabTrigger>thencheckEventualUrlFromPOM</tabTrigger>
+    <tabTrigger>eventuallyonpage</tabTrigger>
 </snippet>

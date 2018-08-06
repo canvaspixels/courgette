@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the '${1:LOCATOR}' to be disabled
 ]]></content>
-    <tabTrigger>thencheckIsEnabled</tabTrigger>
+    <tabTrigger>disabled</tabTrigger>
 </snippet>

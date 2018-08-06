@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the '${1:LOCATOR}' to be focused
 ]]></content>
-    <tabTrigger>thencheckFocus</tabTrigger>
+    <tabTrigger>focused</tabTrigger>
 </snippet>

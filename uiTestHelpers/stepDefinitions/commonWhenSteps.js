@@ -5,15 +5,15 @@ const { When } = require(path.join(process.cwd(), 'node_modules/cucumber')); // 
 const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslint-disable-line
 
 const steps = [
-  { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement' },
-  { matcher: "I append 'LOCATOR' to 'LOCATOR'", path: './actions/appendInputFieldValue' },
-  { matcher: "I set 'LOCATOR' to 'LOCATOR'", path: './actions/setInputFieldValue' },
-  { matcher: "I append 'LOCATOR' to react field 'LOCATOR'", path: './actions/appendReactInputFieldValue' },
-  { matcher: "I set react field 'LOCATOR' to 'LOCATOR'", path: './actions/setReactInputFieldValue' },
-  { matcher: "I submit the(?: form)? 'LOCATOR'", path: './actions/submitForm' },
-  { matcher: "I press 'KEY'", path: './actions/pressKey' },
-  { matcher: "I clear(?: the)? 'LOCATOR'", path: './actions/clearInputFieldValue' },
-  { matcher: "I select the option for select element 'LOCATOR' with the text 'VALUE'", path: './actions/setSelectValueByOptionText' },
+  { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
+  { matcher: "I append 'LOCATOR' to 'LOCATOR'", path: './actions/appendInputFieldValue', code: 'append' },
+  { matcher: "I set 'LOCATOR' to 'LOCATOR'", path: './actions/setInputFieldValue', code: 'set' },
+  { matcher: "I append 'LOCATOR' to react field 'LOCATOR'", path: './actions/appendReactInputFieldValue', code: 'appendreact' },
+  { matcher: "I set react field 'LOCATOR' to 'LOCATOR'", path: './actions/setReactInputFieldValue', code: 'setreact' },
+  { matcher: "I submit the(?: form)? 'LOCATOR'", path: './actions/submitForm', code: 'submit' },
+  { matcher: "I press 'KEY'", path: './actions/pressKey', code: 'key' },
+  { matcher: "I clear(?: the)? 'LOCATOR'", path: './actions/clearInputFieldValue', code: 'clear' },
+  { matcher: "I select the option for select element 'LOCATOR' with the text 'VALUE'", path: './actions/setSelectValueByOptionText', code: 'option' },
 ];
 
 if (!argv.genFiles) {

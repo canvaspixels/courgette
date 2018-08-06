@@ -2,5 +2,5 @@
     <content><![CDATA[
 I expect the url '${1:URL}' is opened in a new window
 ]]></content>
-    <tabTrigger>thencheckIsOpenedInNewWindow</tabTrigger>
+    <tabTrigger>urlnewwindow</tabTrigger>
 </snippet>

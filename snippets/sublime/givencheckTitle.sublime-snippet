@@ -2,5 +2,5 @@
     <content><![CDATA[
 the title is not '${1:LOCATOR}'
 ]]></content>
-    <tabTrigger>givencheckTitle</tabTrigger>
+    <tabTrigger>title</tabTrigger>
 </snippet>
