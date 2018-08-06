@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the '${1:LOCATOR}' contains the text '${2:LOCATOR}'
+the '${1:LOCATOR}' contains the text '${2:STRING}'
 ]]></content>
   <tabTrigger>givencontainstext</tabTrigger>
 </snippet>

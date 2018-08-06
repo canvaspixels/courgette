@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the '${1:LOCATOR}' does not contain the text '${2:LOCATOR}'
+the '${1:LOCATOR}' does not contain the text '${2:STRING}'
 ]]></content>
   <tabTrigger>givennotcontainstext</tabTrigger>
 </snippet>
