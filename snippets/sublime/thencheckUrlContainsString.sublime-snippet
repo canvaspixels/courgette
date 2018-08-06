@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I expect the url to contain '${1:STRING}'
-]]></content>
-    <tabTrigger>urlcontains</tabTrigger>
-</snippet>

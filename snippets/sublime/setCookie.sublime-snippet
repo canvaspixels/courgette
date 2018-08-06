@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'
-]]></content>
-    <tabTrigger>givensetcookie</tabTrigger>
-</snippet>

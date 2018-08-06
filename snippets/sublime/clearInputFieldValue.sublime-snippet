@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I clear the '${1:LOCATOR}'
-]]></content>
-    <tabTrigger>whenclear</tabTrigger>
-</snippet>

@@ -1,6 +1,6 @@
 <snippet>
-    <content><![CDATA[
+  <content><![CDATA[
 fail step and take screenshot
 ]]></content>
-    <tabTrigger>thendie</tabTrigger>
+  <tabTrigger>thendie</tabTrigger>
 </snippet>

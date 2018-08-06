@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+the '${1:LOCATOR}' is not selected
+]]></content>
+  <tabTrigger>givennotselected</tabTrigger>
+</snippet>

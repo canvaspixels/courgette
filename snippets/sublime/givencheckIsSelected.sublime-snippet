@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-the '${1:LOCATOR}' is not checked
-]]></content>
-    <tabTrigger>checked</tabTrigger>
-</snippet>

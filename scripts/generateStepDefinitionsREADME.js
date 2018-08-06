@@ -26,9 +26,10 @@ const padLongestMatcher = (stepDefLines) => {
 };
 
 const createStepDefLines = (steps, type) => {
+  let stepDefNum = 0;
   const newStepDefLines = [];
-  steps.forEach((step, i) => {
-    const code = generateSublimeStepDefSnippets[type][i];
+  steps.forEach((step) => {
+    const code = generateSublimeStepDefSnippets[type][stepDefNum++];
     const zeroOrManyMatcher = /\((.*)\)\*/;
     const newMatcher = step.matcher
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => {
@@ -40,7 +41,8 @@ const createStepDefLines = (steps, type) => {
 
     if (newMatcher.match(zeroOrManyMatcher)) {
       const matcher2 = newMatcher.replace(zeroOrManyMatcher, '$1');
-      newStepDefLines.push(createStepDefLine(matcher2, code, step.notes));
+      const code2 = generateSublimeStepDefSnippets[type][stepDefNum++];
+      newStepDefLines.push(createStepDefLine(matcher2, code2, step.notes));
     }
   });
 

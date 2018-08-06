@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I expect the '${1:LOCATOR}' to not appear exactly '${2:NUMBER}' times
-]]></content>
-    <tabTrigger>appearexactly</tabTrigger>
-</snippet>

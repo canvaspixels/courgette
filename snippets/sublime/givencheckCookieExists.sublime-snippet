@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-the cookie '${1:COOKIE_NAME}' is not set
-]]></content>
-    <tabTrigger>cookieset</tabTrigger>
-</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+I expect the '${1:LOCATOR}' to not be checked
+]]></content>
+  <tabTrigger>thennotchecked</tabTrigger>
+</snippet>

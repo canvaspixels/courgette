@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I expect the '${1:LOCATOR}' to not be empty
-]]></content>
-    <tabTrigger>thenempty</tabTrigger>
-</snippet>

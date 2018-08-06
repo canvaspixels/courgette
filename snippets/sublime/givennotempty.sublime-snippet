@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+the '${1:LOCATOR}' is not empty
+]]></content>
+  <tabTrigger>givennotempty</tabTrigger>
+</snippet>

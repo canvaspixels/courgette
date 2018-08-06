@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I submit the form '${1:LOCATOR}'
-]]></content>
-    <tabTrigger>submit</tabTrigger>
-</snippet>
