@@ -20,10 +20,10 @@ Note that the words in italics are optional.
 | _the_ 'LOCATOR' is not checked | givennotchecked |  |
 | _the_ 'LOCATOR' is on the page | givenexists |  |
 | _the_ 'LOCATOR' is not on the page | givennotexists |  |
-| the title is 'LOCATOR' | giventitle |  |
-| the title is not 'LOCATOR' | givennottitle |  |
-| _the_ 'LOCATOR' contains the text 'LOCATOR' | givencontainstext |  |
-| _the_ 'LOCATOR' does not contain the text 'LOCATOR' | givennotcontainstext |  |
+| the title is 'STRING' | giventitle |  |
+| the title is not 'STRING' | givennottitle |  |
+| _the_ 'LOCATOR' contains the text 'STRING' | givencontainstext |  |
+| _the_ 'LOCATOR' does not contain the text 'STRING' | givennotcontainstext |  |
 | _the_ 'LOCATOR' contains any text | givencontainsanytext |  |
 | _the_ 'LOCATOR' does not contain any text | givennotcontainsanytext |  |
 | _the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | givenattribute |  |
