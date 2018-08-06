@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I expect the url to not be '${1:STRING}'
-]]></content>
-    <tabTrigger>url</tabTrigger>
-</snippet>

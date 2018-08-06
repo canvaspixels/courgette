@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-the '${1:LOCATOR}' is disabled
-]]></content>
-    <tabTrigger>disabled</tabTrigger>
-</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+I expect the url '${1:URL}' is opened in a new tab
+]]></content>
+  <tabTrigger>thenurlnewtab</tabTrigger>
+</snippet>

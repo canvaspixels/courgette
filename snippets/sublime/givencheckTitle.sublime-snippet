@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-the title is not '${1:LOCATOR}'
-]]></content>
-    <tabTrigger>title</tabTrigger>
-</snippet>

@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I go to the '${1:PAGE_NAME}' page
-]]></content>
-    <tabTrigger>goto</tabTrigger>
-</snippet>

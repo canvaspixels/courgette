@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I press '${1:KEY}'
-]]></content>
-    <tabTrigger>key</tabTrigger>
-</snippet>

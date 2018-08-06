@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'
+]]></content>
+  <tabTrigger>thennotclassname</tabTrigger>
+</snippet>

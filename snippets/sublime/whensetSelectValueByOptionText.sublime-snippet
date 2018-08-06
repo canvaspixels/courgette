@@ -1,6 +1,0 @@
-<snippet>
-    <content><![CDATA[
-I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'
-]]></content>
-    <tabTrigger>option</tabTrigger>
-</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+I expect the title to not be '${1:STRING}'
+]]></content>
+  <tabTrigger>thentitle</tabTrigger>
+</snippet>
