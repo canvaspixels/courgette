@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[
+I set '${1:LOCATOR}' to '${2:LOCATOR}'
+]]></content>
+    <tabTrigger>whensetInputFieldValue</tabTrigger>
+</snippet>

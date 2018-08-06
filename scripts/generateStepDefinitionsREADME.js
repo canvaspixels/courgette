@@ -2,9 +2,12 @@ const fs = require('fs');
 const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
 const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
+const generateSublimeStepDefSnippets = require('./generateSublimeStepDefSnippets');
 
-const createStepDefLine = (matcher, notes) =>
-  [`${matcher.replace(/\((.*)\)/g, '$1')}`, notes || ''];
+console.log(generateSublimeStepDefSnippets);
+
+const createStepDefLine = (matcher, code, notes) =>
+  [`${matcher.replace(/\((.*)\)/g, '$1')}`, code, notes || ''];
 
 const padLongestMatcher = (stepDefLines) => {
   let longestMatcherLength = 0;
@@ -22,9 +25,10 @@ const padLongestMatcher = (stepDefLines) => {
   return stepDefLines;
 };
 
-const createStepDefLines = (steps) => {
+const createStepDefLines = (steps, type) => {
   const newStepDefLines = [];
   steps.forEach((step, i) => {
+    const code = generateSublimeStepDefSnippets[type][i];
     const zeroOrManyMatcher = /\((.*)\)\*/;
     const newMatcher = step.matcher
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => {
@@ -32,11 +36,11 @@ const createStepDefLines = (steps) => {
       })
       .replace(/\(\?\:(.*)\)/g, '$1');
     const matcher = newMatcher.replace(zeroOrManyMatcher, '');
-    newStepDefLines.push(createStepDefLine(matcher, step.notes));
+    newStepDefLines.push(createStepDefLine(matcher, code, step.notes));
 
     if (newMatcher.match(zeroOrManyMatcher)) {
       const matcher2 = newMatcher.replace(zeroOrManyMatcher, '$1');
-      newStepDefLines.push(createStepDefLine(matcher2, step.notes));
+      newStepDefLines.push(createStepDefLine(matcher2, code, step.notes));
     }
   });
 
@@ -53,25 +57,25 @@ const givenStepDefLines = [
   '',
   '### Given...',
   '',
-  '| Step definition | Notes |',
-  '| --- | --- |',
-].concat(createStepDefLines(givenSteps));
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(givenSteps, 'given'));
 
 const whenStepDefLines = [
   '',
   '### When...',
   '',
-  '| Step definition | Notes |',
-  '| --- | --- |',
-].concat(createStepDefLines(whenSteps));
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(whenSteps, 'when'));
 
 const thenStepDefLines = [
   '',
   '### Then...',
   '',
-  '| Step definition | Notes |',
-  '| --- | --- |',
-].concat(createStepDefLines(thenSteps));
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(thenSteps, 'then'));
 
 const fileContents = [].concat(givenStepDefLines, whenStepDefLines, thenStepDefLines).join('\n');
 fs.writeFileSync('./STEP_DEFINITIONS.md', fileContents);

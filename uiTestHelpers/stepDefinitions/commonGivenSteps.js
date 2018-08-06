@@ -1,8 +1,8 @@
 const path = require('path');
 const { argv } = require('yargs');
 
-// eslint-disable-next-line
-const { Given } = require(path.join(process.cwd(), 'node_modules/cucumber'));
+const { Given } = require(path.join(process.cwd(), 'node_modules/cucumber')); // eslint-disable-line
+const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslint-disable-line
 
 // TODO: add url contains
 const steps = [
@@ -34,13 +34,7 @@ if (!argv.genFiles) {
   steps.forEach((step) => {
     const matchPattern = "([^']*)?";
     const matcher = step.matcher
-      .replace(/PAGE_NAME/, matchPattern)
-      .replace(/URL/, matchPattern)
-      .replace(/ATTRIBUTE_NAME/, matchPattern)
-      .replace(/VALUE/, matchPattern)
-      .replace(/KEY/, matchPattern)
-      .replace(/COOKIE_NAME/, matchPattern)
-      .replace(/LOCATOR/, matchPattern);
+      .replace(new RegExp(`(${placeholders.join('|')})`), matchPattern);
 
     Given(new RegExp(`^${matcher}$`), {}, require(step.path));
   });

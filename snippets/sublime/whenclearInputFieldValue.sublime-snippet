@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[
+I clear the '${1:LOCATOR}'
+]]></content>
+    <tabTrigger>whenclearInputFieldValue</tabTrigger>
+</snippet>

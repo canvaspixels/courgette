@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[
+I expect the '${1:LOCATOR}' to not contain any text
+]]></content>
+    <tabTrigger>thencheckContainsAnyText</tabTrigger>
+</snippet>

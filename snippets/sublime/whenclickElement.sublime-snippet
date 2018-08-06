@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[
+I click the '${1:LOCATOR}'
+]]></content>
+    <tabTrigger>whenclickElement</tabTrigger>
+</snippet>

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[
+the page url is not '${1:URL}'
+]]></content>
+    <tabTrigger>givencheckUrl</tabTrigger>
+</snippet>

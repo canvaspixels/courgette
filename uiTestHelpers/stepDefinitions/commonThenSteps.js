@@ -1,8 +1,8 @@
 const path = require('path');
 const { argv } = require('yargs');
 
-// eslint-disable-next-line
-const { Then } = require(path.join(process.cwd(), 'node_modules/cucumber'));
+const { Then } = require(path.join(process.cwd(), 'node_modules/cucumber')); // eslint-disable-line
+const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslint-disable-line
 
 // TODO:
 // Then(/^I expect to be on the 'LOCATOR' page$/, checkEventualUrlFromPOM);
@@ -13,8 +13,8 @@ const { Then } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const steps = [
   { matcher: "I expect to eventually be on the 'PAGE_NAME' page", path: './checks/checkEventualUrlFromPOM',
     notes: 'Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page' },
-  { matcher: "I expect the url 'URL' is opened in a new (?:tab)", path: './checks/checkIsOpenedInNewWindow' },
-  { matcher: "I expect the url 'URL' is opened in a new (?:window)", path: './checks/checkIsOpenedInNewWindow' },
+  { matcher: "I expect the url 'URL' is opened in a new tab", path: './checks/checkIsOpenedInNewWindow' },
+  { matcher: "I expect the url 'URL' is opened in a new window", path: './checks/checkIsOpenedInNewWindow' },
   { matcher: "I expect the url to contain 'STRING'", path: './checks/checkUrlContainsString' },
   { matcher: "I expect the url to( not)* be 'STRING'", path: './checks/checkUrl' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility' },
@@ -45,16 +45,7 @@ if (!argv.genFiles) {
   steps.forEach((step) => {
     const matchPattern = "([^']*)?";
     const matcher = step.matcher
-      .replace(/PAGE_NAME/, matchPattern)
-      .replace(/URL/, matchPattern)
-      .replace(/STRING/, matchPattern)
-      .replace(/ATTRIBUTE_NAME/, matchPattern)
-      .replace(/COOKIE_NAME/, matchPattern)
-      .replace(/CLASS_NAME/, matchPattern)
-      .replace(/VALUE/, matchPattern)
-      .replace(/KEY/, matchPattern)
-      .replace(/NUMBER/, matchPattern)
-      .replace(/LOCATOR/, matchPattern);
+      .replace(new RegExp(`(${placeholders.join('|')})`), matchPattern);
 
     Then(new RegExp(`^${matcher}$`), {}, require(step.path));
   });

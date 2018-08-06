@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[
+I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}' 
+]]></content>
+    <tabTrigger>thencheckInputValue</tabTrigger>
+</snippet>

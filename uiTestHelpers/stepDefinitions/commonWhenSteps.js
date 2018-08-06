@@ -1,8 +1,8 @@
 const path = require('path');
 const { argv } = require('yargs');
 
-// eslint-disable-next-line
-const { When } = require(path.join(process.cwd(), 'node_modules/cucumber'));
+const { When } = require(path.join(process.cwd(), 'node_modules/cucumber')); // eslint-disable-line
+const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslint-disable-line
 
 const steps = [
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement' },
@@ -20,10 +20,7 @@ if (!argv.genFiles) {
   steps.forEach((step) => {
     const matchPattern = "([^']*)?";
     const matcher = step.matcher
-      .replace(/URL/, matchPattern)
-      .replace(/VALUE/, matchPattern)
-      .replace(/KEY/, matchPattern)
-      .replace(/LOCATOR/, matchPattern);
+      .replace(new RegExp(`(${placeholders.join('|')})`), matchPattern);
 
     When(new RegExp(`^${matcher}$`), {}, require(step.path));
   });
