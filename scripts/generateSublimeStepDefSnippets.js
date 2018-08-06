@@ -29,7 +29,7 @@ const genSnippets = (steps, type) => {
     if (!snippetCodes[type]) {
       snippetCodes[type] = [];
     }
-    snippetCodes[type].push(generatedCode);
+    snippetCodes[type].push(step.code || generatedCode);
 
     console.log(generatedCode);
     const snippet = `<snippet>
