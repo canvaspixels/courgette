@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[
+I expect to eventually be on the '${1:PAGE_NAME}' page
+]]></content>
+    <tabTrigger>theneventuallyonpage</tabTrigger>
+</snippet>

@@ -23,20 +23,20 @@ const genSnippets = (steps, type) => {
       .replace(/\((.*)\)/g, '$1');
 
 
-    const generatedCode = `${type}${step.path ?
+    const generatedCode = `${step.path ?
       step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
 
     if (!snippetCodes[type]) {
       snippetCodes[type] = [];
     }
-    snippetCodes[type].push(step.code || generatedCode);
+    snippetCodes[type].push(`${type}${step.code || generatedCode}`);
 
     console.log(generatedCode);
     const snippet = `<snippet>
     <content><![CDATA[
 ${matcher}
 ]]></content>
-    <tabTrigger>${step.code || generatedCode}</tabTrigger>
+    <tabTrigger>${type}${step.code || generatedCode}</tabTrigger>
 </snippet>`;
 
     fs.writeFileSync(`${snippetsFolder}/${generatedCode}.sublime-snippet`, snippet);
