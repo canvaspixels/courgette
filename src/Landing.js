@@ -4,7 +4,7 @@ import './Landing.css';
 
 const Landing = () => (
   <div className="Landing">
-    <h1>Home page</h1>
+    <h1 data-test="main-heading">Home page</h1>
     <p className="Landing-intro">
       <Link to="/other-page" data-test="rr-link">Go to other page by react router</Link>
     </p>
@@ -13,6 +13,7 @@ const Landing = () => (
 
     <form action="">
       <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
+      <p><label>Email <input type="text" name="email" data-test="email" value="hi@hello.com" /></label></p>
       <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} /></label></p>
       <p>
         <label>Age

@@ -80,8 +80,79 @@ Feature: Testing Given steps
     Given I go to the 'Home' page
     And the 'non-existant element' is not on the page
 
-@given-steps-title-is
-Scenario: Given the title iis not visible
-    Given the title is not 'LOCATOR'
-    And
+  @given-steps-title-is
+  Scenario: Given the title is
+    Given I go to the 'Home' page
+    And the title is 'React App'
 
+  @given-steps-title-is-not
+  Scenario: Given the title is not visible
+    Given I go to the 'Home' page
+    And the title is not 'foo'
+
+  @given-steps-contains-text
+  Scenario: Given the page contains text
+    Given I go to the 'Home' page
+    And the 'main heading' contains the text 'foo'
+    # todo step undefined
+
+  @given-steps-does-not-contain-text
+  Scenario: Given the
+    Given I go to the 'Home' page
+    And the 'main heading' does not contain the text 'Home page'
+    # todo step undefined
+
+  @given-steps-contains-any-text
+  Scenario: Given the page contains text
+    Given I go to the 'Home' page
+    And the 'hidden field' contains any text
+
+  @given-steps-empty
+  Scenario: Given the page is empty
+    Given I go to the 'Home' page
+    And the 'fullname' is empty
+
+  @given-steps-not-empty
+  Scenario: Given the page is not empty
+    Given I go to the 'Home' page
+    And the 'email' is not empty
+
+  @given-steps-attribute-with-value
+  Scenario: Given the attribute has a value of x
+    Given I go to the 'Home' page
+    And the 'fullname' has an attribute 'type' with a value of 'texty'
+
+  @given-steps-has-value
+  Scenario: Given the element has value
+    Given I go to the 'Home' page
+    And the value of the 'LOCATOR' is 'VALUE'
+
+  @given-steps-does-not-have-value
+  Scenario: Given the element has value
+    Given I go to the 'Home' page
+    And the value of the 'LOCATOR' is not 'VALUE'
+
+  @given-steps-has-cookie-value
+  Scenario: Given set the cookie with value
+    Given I go to the 'Home' page
+    And I set the cookie 'COOKIE_NAME' with value 'VALUE'
+
+  @given-steps-cookie-name-has-set-value
+  Scenario: Given the cookie is set to value
+    Given I go to the 'Home' page
+    And the cookie 'COOKIE_NAME' is set to 'VALUE'
+
+  @given-steps-cookie-name-is-not-set-value
+  Scenario: Given the cookie is not set to value
+    Given I go to the 'Home' page
+    And the cookie 'COOKIE_NAME' is not set to 'VALUE'
+
+  @given-steps-cookie-name-is-set
+  Scenario: Given set the cookie is set
+    Given I go to the 'Home' page
+    And the cookie 'COOKIE_NAME' is set
+
+  @given-steps-cookie-name-is-not-set
+  Scenario: Given set the cookie is not set
+    Given I go to the 'Home' page
+    And the cookie 'COOKIE_NAME' is not set

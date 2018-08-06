@@ -20,7 +20,7 @@ if (!argv.genFiles) {
   steps.forEach((step) => {
     const matchPattern = "([^']*)?";
     const matcher = step.matcher
-      .replace(new RegExp(`(${placeholders.join('|')})`), matchPattern);
+      .replace(new RegExp(`(${placeholders.join('|')})`, 'g'), matchPattern);
 
     When(new RegExp(`^${matcher}$`), {}, require(step.path));
   });
