@@ -20,7 +20,6 @@ if (!argv.genFiles) {
   steps.forEach((step) => {
     const matchPattern = "([^']*)?";
     const matcher = step.matcher
-      .replace(/PAGENAME/, matchPattern)
       .replace(/URL/, matchPattern)
       .replace(/VALUE/, matchPattern)
       .replace(/KEY/, matchPattern)
