@@ -7,20 +7,21 @@ const generateSublimeStepDefSnippets = require('./generateSublimeStepDefSnippets
 console.log(generateSublimeStepDefSnippets);
 
 const createStepDefLine = (matcher, code, notes) =>
-  [`${matcher.replace(/\((.*)\)/g, '$1')}`, code, notes || ''];
+  [`\`${matcher.replace(/\((.*)\)/g, '$1')}\``, code, notes || ''];
 
 const padLongestMatcher = (stepDefLines) => {
   let longestMatcherLength = 0;
   let longestIndex;
 
   stepDefLines.forEach((stepDefLine, i) => {
-    if (stepDefLine[0].length > longestMatcherLength) {
+    const len = stepDefLine[0].length;
+    if (len > longestMatcherLength && len < 60) {
       longestIndex = i;
       longestMatcherLength = stepDefLine[0].length;
     }
   });
 
-  stepDefLines[longestIndex][0] = stepDefLines[longestIndex][0].replace(/ /g, '&nbsp;').replace("ATTRIBUTE_NAME'&nbsp;", "ATTRIBUTE_NAME' ");
+  stepDefLines[longestIndex][0] = stepDefLines[longestIndex][0].replace(/ /g, '&nbsp;');
 
   return stepDefLines;
 };
