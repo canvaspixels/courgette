@@ -7,7 +7,7 @@ const generateSublimeStepDefSnippets = require('./generateSublimeStepDefSnippets
 console.log(generateSublimeStepDefSnippets);
 
 const createStepDefLine = (matcher, code, notes) =>
-  [`\`${matcher.replace(/\((.*)\)/g, '$1')}\``, code, notes || ''];
+  [`${matcher.replace(/\((.*)\)/g, '$1')}`, code, notes || ''];
 
 const padLongestMatcher = (stepDefLines) => {
   let longestMatcherLength = 0;
