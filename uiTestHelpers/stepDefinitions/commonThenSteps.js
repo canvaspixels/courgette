@@ -37,7 +37,7 @@ const steps = [
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },
-  { matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING' ", path: './checks/checkInputValue', code: 'value' },
+  { matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'", path: './checks/checkInputValue', code: 'value' },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
 ];
 

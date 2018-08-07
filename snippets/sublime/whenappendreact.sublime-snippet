@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I append '${1:LOCATOR}' to react field '${2:LOCATOR}'
+I append '${1:STRING}' to react field '${2:LOCATOR}'
 ]]></content>
   <tabTrigger>whenappendreact</tabTrigger>
 </snippet>

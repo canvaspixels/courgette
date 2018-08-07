@@ -42,10 +42,10 @@ Note that the words in italics are optional.
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I click _the_ 'LOCATOR' | whenclick |  |
-| I append 'LOCATOR' to 'LOCATOR' | whenappend |  |
-| I set 'LOCATOR' to 'LOCATOR' | whenset |  |
-| I append 'LOCATOR' to react field 'LOCATOR' | whenappendreact |  |
-| I set react field 'LOCATOR' to 'LOCATOR' | whensetreact |  |
+| I append 'STRING' to 'LOCATOR' | whenappend |  |
+| I set 'LOCATOR' to 'STRING' | whenset |  |
+| I append 'STRING' to react field 'LOCATOR' | whenappendreact |  |
+| I set react field 'LOCATOR' to 'STRING' | whensetreact |  |
 | I submit the _form_ 'LOCATOR' | whensubmit |  |
 | I press 'KEY' | whenkey |  |
 | I clear _the_ 'LOCATOR' | whenclear |  |
@@ -91,7 +91,7 @@ Note that the words in italics are optional.
 | I expect _the_ 'LOCATOR' to be focused | thenfocused |  |
 | I expect _the_ 'LOCATOR' to be empty | thenempty |  |
 | I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
-| I expect the value of _the_ 'LOCATOR' to be 'STRING'  | thenvalue |  |
-| I expect the value of _the_ 'LOCATOR' to not be 'STRING'  | thennotvalue |  |
+| I expect the value of _the_ 'LOCATOR' to be 'STRING' | thenvalue |  |
+| I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue |  |
 | I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | thenattribute |  |
 | fail step and take screenshot | thendie |  |

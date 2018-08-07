@@ -120,39 +120,39 @@ Feature: Testing Given steps
   @given-steps-attribute-with-value
   Scenario: Given the attribute has a value of x
     Given I go to the 'Home' page
-    And the 'fullname' has an attribute 'type' with a value of 'texty'
+    And the 'fullname' has an attribute 'type' with a value of 'text'
 
   @given-steps-has-value
   Scenario: Given the element has value
     Given I go to the 'Home' page
-    And the value of the 'LOCATOR' is 'VALUE'
+    And the value of the 'age field' is '18-25'
 
   @given-steps-does-not-have-value
   Scenario: Given the element has value
     Given I go to the 'Home' page
-    And the value of the 'LOCATOR' is not 'VALUE'
+    And the value of the 'age field' is not '18-26'
 
-  @given-steps-has-cookie-value
-  Scenario: Given set the cookie with value
-    Given I go to the 'Home' page
-    And I set the cookie 'COOKIE_NAME' with value 'VALUE'
+  # @given-steps-has-cookie-value
+  # Scenario: Given set the cookie with value
+  #   Given I go to the 'Home' page
+  #   And I set the cookie 'COOKIE_NAME' with value 'VALUE'
 
-  @given-steps-cookie-name-has-set-value
-  Scenario: Given the cookie is set to value
-    Given I go to the 'Home' page
-    And the cookie 'COOKIE_NAME' is set to 'VALUE'
+  # @given-steps-cookie-name-has-set-value
+  # Scenario: Given the cookie is set to value
+  #   Given I go to the 'Home' page
+  #   And the cookie 'COOKIE_NAME' is set to 'VALUE'
 
-  @given-steps-cookie-name-is-not-set-value
-  Scenario: Given the cookie is not set to value
-    Given I go to the 'Home' page
-    And the cookie 'COOKIE_NAME' is not set to 'VALUE'
+  # @given-steps-cookie-name-is-not-set-value
+  # Scenario: Given the cookie is not set to value
+  #   Given I go to the 'Home' page
+  #   And the cookie 'COOKIE_NAME' is not set to 'VALUE'
 
-  @given-steps-cookie-name-is-set
-  Scenario: Given set the cookie is set
-    Given I go to the 'Home' page
-    And the cookie 'COOKIE_NAME' is set
+  # @given-steps-cookie-name-is-set
+  # Scenario: Given set the cookie is set
+  #   Given I go to the 'Home' page
+  #   And the cookie 'COOKIE_NAME' is set
 
-  @given-steps-cookie-name-is-not-set
-  Scenario: Given set the cookie is not set
-    Given I go to the 'Home' page
-    And the cookie 'COOKIE_NAME' is not set
+  # @given-steps-cookie-name-is-not-set
+  # Scenario: Given set the cookie is not set
+  #   Given I go to the 'Home' page
+  #   And the cookie 'COOKIE_NAME' is not set
