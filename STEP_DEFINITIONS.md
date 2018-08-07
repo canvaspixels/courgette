@@ -23,10 +23,10 @@ Note that the words in italics are optional.
 | the title is 'STRING' | giventitle |  |
 | the title is not 'STRING' | givennottitle |  |
 | _the_ 'LOCATOR' contains the text 'STRING' | givencontainstext |  |
-| _the_ 'LOCATOR' does not contain the text 'STRING' | givennotcontainstext |  |
+| _the_&nbsp;'LOCATOR'&nbsp;does&nbsp;not&nbsp;contain&nbsp;the&nbsp;text&nbsp;'STRING' | givennotcontainstext |  |
 | _the_ 'LOCATOR' contains any text | givencontainsanytext |  |
 | _the_ 'LOCATOR' does not contain any text | givennotcontainsanytext |  |
-| _the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | givenattribute |  |
+| _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | givenattribute |  |
 | _the_ 'LOCATOR' is empty | givenempty |  |
 | _the_ 'LOCATOR' is not empty | givennotempty |  |
 | the value of _the_ 'LOCATOR' is 'VALUE' | givenvalue |  |
@@ -44,12 +44,12 @@ Note that the words in italics are optional.
 | I click _the_ 'LOCATOR' | whenclick |  |
 | I append 'STRING' to 'LOCATOR' | whenappend |  |
 | I set 'LOCATOR' to 'STRING' | whenset |  |
-| I append 'STRING' to react field 'LOCATOR' | whenappendreact |  |
+| I&nbsp;append&nbsp;'STRING'&nbsp;to&nbsp;react&nbsp;field&nbsp;'LOCATOR' | whenappendreact |  |
 | I set react field 'LOCATOR' to 'STRING' | whensetreact |  |
 | I submit the _form_ 'LOCATOR' | whensubmit |  |
 | I press 'KEY' | whenkey |  |
 | I clear _the_ 'LOCATOR' | whenclear |  |
-| I&nbsp;select&nbsp;the&nbsp;option&nbsp;for&nbsp;select&nbsp;element&nbsp;'LOCATOR'&nbsp;with&nbsp;the&nbsp;text&nbsp;'VALUE' | whenoption |  |
+| I select the option for select element 'LOCATOR' with the text 'VALUE' | whenoption |  |
 
 ### Then...
 
@@ -87,11 +87,11 @@ Note that the words in italics are optional.
 | I expect cookie 'COOKIE_NAME' to exist | thencookieexists |  |
 | I expect cookie 'COOKIE_NAME' to not exist | thennotcookieexists |  |
 | I expect _the_ 'LOCATOR' to have the class 'CLASS_NAME' | thenclassname |  |
-| I expect _the_ 'LOCATOR' to not have the class 'CLASS_NAME' | thennotclassname |  |
+| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;not&nbsp;have&nbsp;the&nbsp;class&nbsp;'CLASS_NAME' | thennotclassname |  |
 | I expect _the_ 'LOCATOR' to be focused | thenfocused |  |
 | I expect _the_ 'LOCATOR' to be empty | thenempty |  |
 | I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
 | I expect the value of _the_ 'LOCATOR' to be 'STRING' | thenvalue |  |
 | I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue |  |
-| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | thenattribute |  |
+| I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenattribute |  |
 | fail step and take screenshot | thendie |  |

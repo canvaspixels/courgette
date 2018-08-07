@@ -14,7 +14,8 @@ const padLongestMatcher = (stepDefLines) => {
   let longestIndex;
 
   stepDefLines.forEach((stepDefLine, i) => {
-    if (stepDefLine[0].length > longestMatcherLength) {
+    const len = stepDefLine[0].length;
+    if (len > longestMatcherLength && len < 60) {
       longestIndex = i;
       longestMatcherLength = stepDefLine[0].length;
     }
