@@ -26,7 +26,7 @@ Note that the words in italics are optional.
 | _the_ 'LOCATOR' does not contain the text 'STRING' | givennotcontainstext |  |
 | _the_ 'LOCATOR' contains any text | givencontainsanytext |  |
 | _the_ 'LOCATOR' does not contain any text | givennotcontainsanytext |  |
-| _the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | givenattribute |  |
+| _the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME' with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | givenattribute |  |
 | _the_ 'LOCATOR' is empty | givenempty |  |
 | _the_ 'LOCATOR' is not empty | givennotempty |  |
 | the value of _the_ 'LOCATOR' is 'VALUE' | givenvalue |  |
@@ -93,5 +93,5 @@ Note that the words in italics are optional.
 | I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
 | I expect the value of _the_ 'LOCATOR' to be 'STRING'  | thenvalue |  |
 | I expect the value of _the_ 'LOCATOR' to not be 'STRING'  | thennotvalue |  |
-| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME'&nbsp;with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | thenattribute |  |
+| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;has&nbsp;an&nbsp;attribute&nbsp;'ATTRIBUTE_NAME' with&nbsp;a&nbsp;value&nbsp;of&nbsp;'VALUE' | thenattribute |  |
 | fail step and take screenshot | thendie |  |

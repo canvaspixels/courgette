@@ -20,7 +20,7 @@ const padLongestMatcher = (stepDefLines) => {
     }
   });
 
-  stepDefLines[longestIndex][0] = stepDefLines[longestIndex][0].replace(/ /g, '&nbsp;');
+  stepDefLines[longestIndex][0] = stepDefLines[longestIndex][0].replace(/ /g, '&nbsp;').replace("ATTRIBUTE_NAME'&nbsp;", "ATTRIBUTE_NAME' ");
 
   return stepDefLines;
 };
