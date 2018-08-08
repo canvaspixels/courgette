@@ -1,5 +1,7 @@
 .Landing {
   text-align: center;
+  background: rgba(220, 220, 220, 1);
+  padding: 10px;
 }
 
 .Landing-logo {
@@ -8,10 +10,10 @@
 }
 
 .Landing-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+  padding: 10px;
+  border: 1px solid rgba(255, 0, 255, 1);
+  display: inline-block;
+  color: rgba(13, 105, 227, 1);
 }
 
 .Landing-title {

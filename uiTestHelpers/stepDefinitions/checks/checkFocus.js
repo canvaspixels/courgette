@@ -1,4 +1,6 @@
-const getAttributesMap = () => {
+// todo forEach of undefined
+
+const getAttributesMap = (el) => {
   const newMap = {};
 
   el.forEach((attribute) => {

@@ -3,17 +3,22 @@ import { Link } from 'react-router-dom';
 import './Landing.css';
 
 const Landing = () => (
-  <div className="Landing">
-    <h1 data-test="main-heading">Home page</h1>
+  <div className="Landing" data-test="landing-container">
+    <h1 className="Landing-header" data-test="main-heading">Home page</h1>
     <p className="Landing-intro">
       <Link to="/other-page" data-test="rr-link">Go to other page by react router</Link>
     </p>
     <p><a href="/other-page" data-test="other-page-link">Go to other page with full page load</a></p>
     <p><a href="/other-page" data-test="other-page-link-new-tab" target="_blank">Go to other page in new tab</a></p>
+    <ul>
+      <li data-test="list-item">bullet 1</li>
+      <li data-test="list-item">bullet 2</li>
+      <li data-test="list-item">bullet 3</li>
+    </ul>
 
     <form action="">
       <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
-      <p><label>Email <input type="text" name="email" data-test="email" value="hi@hello.com" /></label></p>
+      <p><label>Email <input type="text" name="email" data-test="email" value="hi@hello.com" onChange={() => {}} /></label></p>
       <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} /></label></p>
       <p>
         <label>Age
