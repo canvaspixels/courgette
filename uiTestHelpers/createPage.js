@@ -3,6 +3,7 @@ const createComponent = require('./createComponent');
 // eslint-disable-next-line
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
+
 module.exports = (name, world, pageUrl, elLocators) =>
   Object.assign(
     {},
@@ -21,3 +22,6 @@ module.exports = (name, world, pageUrl, elLocators) =>
       },
     },
   );
+
+module.exports.getFileName = (fileName) =>
+  path.basename(fileName).replace(/\.js$/, '');

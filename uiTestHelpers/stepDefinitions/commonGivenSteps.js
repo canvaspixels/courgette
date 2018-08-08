@@ -7,7 +7,7 @@ const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslin
 // TODO: add url contains
 const steps = [
   { matcher: "I go to the 'PAGE_NAME' page", path: './actions/goToPage',
-    notes: 'PAGE_NAME should match the name of the page object file in your pages directory and the first argument to createPage in that same file. This step definition sets the current page object', code: 'goto' },
+    notes: 'PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object', code: 'goto' },
   { matcher: "the page url is( not)* 'URL'", path: './checks/checkUrl', code: 'pageurl' },
   { matcher: "animations are disabled", path: './actions/disableAnimations' },
   { matcher: "(?:the )?'LOCATOR' is (visible)", path: './checks/checkVisibility', code: 'visible' },

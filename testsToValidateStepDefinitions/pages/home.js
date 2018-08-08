@@ -1,9 +1,9 @@
 const createPage = require('../../uiTestHelpers/createPage');
+const fileName = createPage.getFileName(__filename);
 
-const pagePath = '/';
-
-module.exports = (world) =>
-  createPage('home', world, pagePath, {
+module.exports = (world) => {
+  const pagePath = '/';
+  const locators = {
     'Go to other page by react router link': by.css('[data-test="rr-link"]'),
     'Go to other page link': by.css('[data-test="other-page-link"]'),
     'Go to other page in new window link': by.css('[data-test="other-page-link-new-tab"]'),
@@ -20,4 +20,7 @@ module.exports = (world) =>
     'you ok checkbox': by.css('[data-test="you-ok-checkbox"]'),
     'non-existant element': by.css('[data-test="non-existant"]'),
     'Go to home page by react router link': by.css('[data-test="go-to-home-link"]'), // doesn't actually exist on this page, just using to test that it doesn't exist
-  });
+  };
+
+  return createPage(fileName, world, pagePath, locators);
+};

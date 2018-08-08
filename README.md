@@ -4,7 +4,7 @@
 
 ## Create easy-to-read, functioning scenarios in minutes:
 
-This assumes that you have an npm project. If you don't then make a new one with `npm init`.
+This assumes that you have an npm project. If you don't then make a new one with `npm init`. It also assumes you have node 8 and npm 6 installed.
 
 1. Install the package: `npm install cucumber-protractor`
 2. Setup
@@ -37,14 +37,21 @@ Note that all you need to be able to run that is a page object that looks like t
 
 ```
 const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
+const fileName = createPage.getFileName(__filename);
 
-module.exports = (world) =>
-  createPage('google-home', world, 'https://www.google.com/', {
+module.exports = (world) => {
+  const pagePath = 'https://www.google.com/';
+  const locators = {
     'I’m Feeling Lucky': by.css('[value="I\'m Feeling Lucky"]'),
-  });
+  };
+
+  return createPage(fileName, world, pagePath, locators);
+};
 ```
 
 You don't need to write any page methods, nor step definitions. How easy is that!!?
+
+It's important that the page object name is kebab-case and lowercase. E.g. `about-us.js` or `about-something-else.js` or `google-home.js` as in the sample. `Given I go to the 'Google Home' page` sets the current page object and `Google Home` gets translated behind the scenes to `google-home.js` so make sure `Google Home` has the space in it.
 
 It’s advisable when writing your features to add a tag at the top of the Feature file and a tag to the beginning of each Scenario. A tag starts with a @. As a convention you can prefix each Scenario tag with whatever you've used at the top of the file (in this case @google-home). Try and keep them unique for your ease of use.
 

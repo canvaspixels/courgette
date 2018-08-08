@@ -1,8 +1,11 @@
 const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
+const fileName = createPage.getFileName(__filename);
 
-const pagePath = 'https://www.google.com/';
-
-module.exports = (world) =>
-  createPage('google-home', world, pagePath, {
+module.exports = (world) => {
+  const pagePath = 'https://www.google.com/';
+  const locators = {
     'I’m Feeling Lucky': by.css('[value="I\'m Feeling Lucky"]'),
-  });
+  };
+
+  return createPage(fileName, world, pagePath, locators);
+};
