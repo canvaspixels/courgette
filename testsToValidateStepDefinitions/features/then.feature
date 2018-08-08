@@ -87,8 +87,8 @@ Feature: Testing Then steps
     Then I expect the 'age field' to exist
 
   @then-steps-to-not-exist
-  Scenario: Given the element to not exists
-    Then I expect the 'fullname' to not exist
+  Scenario: Given the element doesn't exist
+    Then I expect the 'Go to home page by react router link' to not exist
 
   @then-steps-checked
   Scenario: Given the element is checked
@@ -116,6 +116,7 @@ Feature: Testing Then steps
 
   # @then-steps-cookie-to-contain
   # Scenario: Given the cookie contains x
+  #   And cookie set ...
   #   Then I expect cookie 'COOKIE_NAME' to contain 'STRING'
 
   # @then-steps-cookie-not-to-contain
@@ -152,7 +153,6 @@ Feature: Testing Then steps
   @then-steps-value
   Scenario: Given the value is x
     Then I expect the value of the 'email' to be 'hi@hello.com'
-    # todo: undefined
 
   @then-steps-not-value
   Scenario: Given the value is not x

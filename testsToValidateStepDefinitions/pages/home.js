@@ -10,6 +10,7 @@ module.exports = (world) => {
     'Go to other page link': by.css('[data-test="other-page-link"]'),
     'Go to other page in new tab link': by.css('[data-test="other-page-link-new-tab"]'),
     'fullname': by.css('[data-test="fullname"]'),
+    'main form': by.css('[data-test="form"]'),
     'main heading': by.css('[data-test="main-heading"]'),
     'email': by.css('[data-test="email"]'),
     'age field': by.css('[data-test="age-field"]'),

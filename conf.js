@@ -43,6 +43,7 @@ const protractorConfig = {
       `${cukeTractorPath}/globals.js`,
       `${cukeTractorPath}/hooks/attachScenarioNameBefore.js`,
       `${cukeTractorPath}/hooks/attachScreenshotAfter.js`,
+      `${cukeTractorPath}/hooks/deleteAllCookies.js`,
       `${cukeTractorPath}/hooks/pageObjectModelBefore.js`,
       `${cukeTractorPath}/hooks/setDefaultTimeout.js`,
       `${cukeTractorPath}/stepDefinitions/*.js`,

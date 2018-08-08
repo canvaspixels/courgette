@@ -7,6 +7,7 @@ const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslin
 const steps = [
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
   { matcher: "I append 'STRING' to 'LOCATOR'", path: './actions/appendInputFieldValue', code: 'append' },
+  // { matcher: "I set select 'LOCATOR' to 'STRING'", path: './actions/setSelectFieldValue', code: 'set' },
   { matcher: "I set 'LOCATOR' to 'STRING'", path: './actions/setInputFieldValue', code: 'set' },
   { matcher: "I append 'STRING' to react field 'LOCATOR'", path: './actions/appendReactInputFieldValue', code: 'appendreact' },
   { matcher: "I set react field 'LOCATOR' to 'STRING'", path: './actions/setReactInputFieldValue', code: 'setreact' },

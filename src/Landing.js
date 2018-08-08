@@ -16,7 +16,7 @@ const Landing = () => (
       <li data-test="list-item">bullet 3</li>
     </ul>
 
-    <form action="">
+    <form action="" data-test="form" onSubmit={(e) => {window.location.href = 'http://localhost:3000/other-page'; e.preventDefault(); }}>
       <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
       <p><label>Email <input type="text" name="email" data-test="email" value="hi@hello.com" onChange={() => {}} /></label></p>
       <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} /></label></p>
@@ -55,6 +55,7 @@ const Landing = () => (
           Are you ok? Tick the box if so.
         </label>
       </p>
+      <p><button data-test="submit-button">Submit Button</button></p>
       <p><button type="button" data-test="button">Button</button></p>
       <p><button type="button" disabled data-test="disabled-button">Disabled Button</button></p>
     </form>

@@ -1,44 +1,56 @@
 @when-steps
 Feature: Testing When steps
 
-  @when-steps-append
-  Scenario: When I append to a field
+  Background: I go to the homepage
     Given I go to the 'Home' page
-    When I append 'hello' to 'email'
-    Then I expect the value of the 'email' to be 'hello'
+
+  # @when-steps-append-value
+  # Scenario: When I append to a field
+  #   When I append 'hello' to 'email'
+  #   Then I expect the value of the 'email' to be 'hello'
     # todo fix
 
-  @when-steps-set
-  Scenario: When I set text in the field
-    Given I go to the 'Home' page
-    When I set 'LOCATOR' to 'LOCATOR'
+  # @when-steps-set-select
+  # Scenario: When I set select field
+  #   When I set 'age field' to '18-25'
+  #   Then I expect the value of the 'age field' to be '18-88'
+  # todo create
 
-  @when-steps-append-react-field
-  Scenario: When I append to a field in react
-    Given I go to the 'Home' page
-    When I append 'LOCATOR' to react field 'LOCATOR'
+  @when-steps-set-value
+  Scenario: When I set text in the field
+    When I set 'fullname' to 'foo'
+    Then I expect the value of the 'fullname' to be 'foo'
+
+  # @when-steps-append-react-field
+  # Scenario: When I append to a field in react
+  #   When I append 'hello' to react field 'email'
+  #   Then I expect the value of the 'email' to be 'foo'
+    # todo fix
 
   @when-steps-set-react-field
   Scenario: When I set text in a field in react
-    Given I go to the 'Home' page
-    When I set react field 'LOCATOR' to 'LOCATOR'
+    When I set react field 'fullname' to 'foo'
+    Then I expect the value of the 'fullname' to be 'foo'
 
   @when-steps-submit-form
   Scenario: When I submit a form
-    Given I go to the 'Home' page
-    When I submit the form 'LOCATOR'
+    When I submit the 'main form'
+    Then I expect the url to be 'http://localhost:3000/other-page'
 
   @when-steps-key
   Scenario: When I press a key
-    Given I go to the 'Home' page
-    When I press 'KEY'
+    When I set 'fullname' to 'foo'
+    And I press 'ENTER'
+    Then I expect the url to be 'http://localhost:3000/other-page'
+    # todo document pressing keys
 
   @when-steps-clear
   Scenario: When I clear a field
-    Given I go to the 'Home' page
-    When I clear the 'LOCATOR'
+    When I clear the 'email'
+    Then I expect the value of the 'email' to not be 'hi@hello.com'
+    Then I expect the value of the 'email' to be ''
 
-  @when-steps-select-element-with-text
+  @when-steps-select-by-text
   Scenario: When I select an option by the text inside it
-    Given I go to the 'Home' page
-    When I select the option for select element 'LOCATOR' with the text 'VALUE'
+    When I select the option for select element 'age field' with the text '26+'
+    Then I expect the value of the 'age field' to be '26+'

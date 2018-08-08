@@ -3,7 +3,7 @@
 // this function is particularly useful if you want to send a lot of text to the
 // browser all at once as sendKeys is particularly slow
 
-module.exports = function appendReactInputFieldValue(fieldName, text) {
+module.exports = function appendReactInputFieldValue(text, fieldName) {
   return this.getCurrentPage()
     .getElementWhenInDOM(fieldName)
     .then((element) => {
