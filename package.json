@@ -1,6 +1,6 @@
 {
   "name": "cucumber-protractor",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "POM CukeTractor - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
