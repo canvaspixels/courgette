@@ -22,7 +22,7 @@ This assumes that you have an npm project. If you don't then make a new one with
 
 ## Feature file by example
 
-```
+```gherkin
 @google-home
 Feature: Test feature
 
@@ -35,7 +35,7 @@ Feature: Test feature
 
 Note that all you need to be able to run that is a page object that looks like this:
 
-```
+```js
 const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
 const fileName = createPage.getFileName(__filename);
 
@@ -57,7 +57,7 @@ It’s advisable when writing your features to add a tag at the top of the Featu
 
 Note you can add more than one tag to each scenario and you could tag them when a hook tag that you can hook into Before or After each scenario. [Read more about hooks](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/hooks.md) just add hooks to the existing ones in your conf.js file.
 
-```
+```gherkin
 @google-home
 Feature: Test feature
 
@@ -86,20 +86,32 @@ Continuing on from the examples above...
 
 To run just one feature:
 
-```
+```bash
 ./node_modules/.bin/cuketractor --tags=@google-home
+
+OR SIMPLY JUST
+
+./node_modules/.bin/cuketractor @google-home
 ```
 
 To run just one scenario:
 
-```
+```bash
 ./node_modules/.bin/cuketractor --tags=@google-home-another-thing
+
+OR SIMPLY JUST
+
+./node_modules/.bin/cuketractor @google-home-another-thing
 ```
 
 To run a couple (comma separate):
 
-```
+```bash
 ./node_modules/.bin/cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
+
+OR SIMPLY JUST
+
+./node_modules/.bin/cuketractor @google-home-feeling-lucky,@google-home-another-thing
 ```
 
 ## Contributing
