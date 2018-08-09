@@ -17,15 +17,15 @@ module.exports = function checkFocus(locatorKey) {
   return Promise.all([el.getId(), activeEl.getId(), activeEl])
     .then(([expectedElementId, activeElementId, theActiveEl]) => {
       return browser.executeScript(function(activeElArg, elementArg) {
-        return { activeEl: activeElArg.attributes, element: elementArg.attibutes };
+        return { activeEl: activeElArg.attributes, element: elementArg.attributes };
       }, theActiveEl, el)
         .then((attrsObj) => {
-          if (expectedElementId !== activeElementId) {
-            console.error('Actual: ', getAttributesMap(attrsObj.activeEl));
-            console.error('Expected: ', getAttributesMap(attrsObj.element));
-          }
+          return expect(expectedElementId, `
 
-          return expect(expectedElementId, 'See log above for better Actual vs Expected')
+Actual: ${JSON.stringify(getAttributesMap(attrsObj.activeEl))}
+Expected: ${JSON.stringify(getAttributesMap(attrsObj.element))}
+
+            `)
             .to.equal(activeElementId);
         })
     })

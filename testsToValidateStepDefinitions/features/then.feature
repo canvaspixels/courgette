@@ -142,7 +142,6 @@ Feature: Testing Then steps
   Scenario: Then the element is focused
     When I press 'TAB'
     Then I expect the 'Go to other page by react router link' to be focused
-    # todo with: Go to other page link
 
   @then-steps-empty
   Scenario: Then the element is empty
