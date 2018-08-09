@@ -2,7 +2,7 @@ const path = require('path');
 const { argv } = require('yargs');
 
 const { When } = require(path.join(process.cwd(), 'node_modules/cucumber')); // eslint-disable-line
-const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslint-disable-line
+const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },

@@ -8,8 +8,8 @@ This assumes that you have an npm project. If you don't then make a new one with
 
 1. Install the package: `npm install cucumber-protractor`
 2. Setup
-    1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal
-    2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal. This will create a `uiTests` folder with the sample in it.
+    1. Copy the sample file structure. Type: `cp -R node_modules/cucumber-protractor/uiTests uiTests` into your terminal. This will create a `uiTests` folder with the sample in it
+    2. Copy the sample config. Put `cp node_modules/cucumber-protractor/sample-conf.js conf.js` into your terminal.
 3. Run the sample, type `./node_modules/.bin/cuketractor` in your terminal in the root of your project.
 
 ### Futher tips:

@@ -2,7 +2,7 @@ const path = require('path');
 const { argv } = require('yargs');
 
 const { Then } = require(path.join(process.cwd(), 'node_modules/cucumber')); // eslint-disable-line
-const placeholders = require(path.join(process.cwd(), 'placeholders')); // eslint-disable-line
+const placeholders = require('../../placeholders'); // eslint-disable-line
 
 // TODO:
 // Then(/^I expect to be on the 'LOCATOR' page$/, checkEventualUrlFromPOM);
