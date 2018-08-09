@@ -48,7 +48,7 @@ if (!argv.genFiles) {
 
     Then(new RegExp(`^${matcher}$`), {}, require(step.path));
   });
-  Then(/^fail step and take screenshot$/, {}, Promise.reject);
+  Then(/^fail step and take screenshot$/, {}, () => Promise.reject('Failing step and taking screenshot'));
 }
 
 steps.push({ matcher: "fail step and take screenshot" });

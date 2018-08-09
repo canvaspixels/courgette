@@ -12,8 +12,14 @@ After(function screenshotAfterHook(scenarioResult, callback) {
 
     console.log(msg);
     browser.takeScreenshot().then((png) => {
-      const screenshotFilePath = path.join(pomConfig.outputPath, `${this.scenarioName} - ${Date.now()}`);
+      const screenshotFilePath = path.join(pomConfig.outputPath, `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}.png`);
       const stream = fs.createWriteStream(screenshotFilePath);
+      console.log('-------------------------------------');
+      console.log('*************************************');
+      console.log('ScreenshotFilePath:');
+      console.log(screenshotFilePath);
+      console.log('*************************************');
+      console.log('-------------------------------------');
       stream.write(Buffer.from(png, 'base64'));
       stream.end();
       bufferedImage = Buffer.from(png.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');

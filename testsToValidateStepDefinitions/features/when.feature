@@ -4,11 +4,10 @@ Feature: Testing When steps
   Background: I go to the homepage
     Given I go to the 'Home' page
 
-  # @when-steps-append-value
-  # Scenario: When I append to a field
-  #   When I append 'hello' to 'email'
-  #   Then I expect the value of the 'email' to be 'hello'
-    # todo fix
+  @when-steps-append-value
+  Scenario: When I append to a field
+    When I append 'hello' to 'email'
+    Then I expect the value of the 'email' to be 'hi@hello.comhello'
 
   # @when-steps-set-select
   # Scenario: When I set select field
@@ -21,11 +20,10 @@ Feature: Testing When steps
     When I set 'fullname' to 'foo'
     Then I expect the value of the 'fullname' to be 'foo'
 
-  # @when-steps-append-react-field
-  # Scenario: When I append to a field in react
-  #   When I append 'hello' to react field 'email'
-  #   Then I expect the value of the 'email' to be 'foo'
-    # todo fix
+  @when-steps-append-react-field
+  Scenario: When I append to a field in react
+    When I append 'hello' to react field 'email'
+    Then I expect the value of the 'email' to be 'hi@hello.comhello'
 
   @when-steps-set-react-field
   Scenario: When I set text in a field in react
