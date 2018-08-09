@@ -21,8 +21,7 @@ Feature: Testing Then steps
 
   @then-steps-url-to-not-be
   Scenario: Given the url is not
-    Then I expect the url to not be 'http://localhost:3000/'
-  # todo fix
+    Then I expect the url to not be 'http://localhost:3000/foo'
 
   @then-steps-url-opens-in-new-tab
   Scenario: Given the url is opened in a new tab
