@@ -4,7 +4,10 @@ module.exports = function checkContainsText(locatorKey, containsStr, expectedTex
       containsStr.indexOf('contain') === 0 ?
         expect(el.getText()).to.eventually.equal(expectedText) :
         el.getText().then((text) => {
-          return expect(text, `Actual: ${text} --- Expected: ${expectedText}`)
+          return expect(text, `
+Actual: ${text}
+Expected: ${expectedText}
+            `)
             .to.not.equal(expectedText)
         })
     ));
