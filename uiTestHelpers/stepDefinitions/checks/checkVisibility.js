@@ -1,5 +1,10 @@
 module.exports = function checkVisibility(locatorKey, visibleOrHidden) {
-  return visibleOrHidden === 'hidden' ?
-    this.getCurrentPage().getElementWhenInvisible(locatorKey) :
-    this.getCurrentPage().getElementWhenVisible(locatorKey);
+  const currentPage = this.getCurrentPage();
+  return currentPage
+    .getElementWhenInDOM(locatorKey)
+    .then(() => {
+      return visibleOrHidden === 'hidden' ?
+        currentPage.getElementWhenInvisible(locatorKey) :
+        currentPage.getElementWhenVisible(locatorKey);
+    });
 };

@@ -3,9 +3,9 @@
 // this function is particularly useful if you want to send a lot of text to the
 // browser all at once as sendKeys is particularly slow
 
-module.exports = function appendReactInputFieldValue(text, fieldName) {
+module.exports = function appendReactInputFieldValue(text, locatorKey) {
   return this.getCurrentPage()
-    .getElementWhenInDOM(fieldName)
+    .getElementWhenInDOM(locatorKey)
     .then((element) => {
       return browser.executeScript(function(domEl, val) {
         const domElement = domEl;

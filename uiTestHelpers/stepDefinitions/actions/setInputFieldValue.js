@@ -1,6 +1,6 @@
-module.exports = function setInputFieldValue(fieldName, value) {
+module.exports = function setInputFieldValue(locatorKey, value) {
   return this.getCurrentPage()
-    .getElementWhenInDOM(fieldName)
+    .getElementWhenInDOM(locatorKey)
     .then((element) => {
       return element.clear()
         .then(() => element.sendKeys(value))

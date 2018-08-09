@@ -1,5 +1,5 @@
-module.exports = function appendInputFieldValue(value, fieldName) {
+module.exports = function appendInputFieldValue(value, locatorKey) {
   return this.getCurrentPage()
-    .getElementWhenInDOM(fieldName)
+    .getElementWhenInDOM(locatorKey)
     .then(element => element.sendKeys(value));
 };

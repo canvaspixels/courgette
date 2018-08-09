@@ -33,7 +33,6 @@ Feature: Testing Given steps
 
   @given-steps-hidden
   Scenario: Given the element is hidden
-    # check false positive, make sure element exists before checking visibility
     And the 'hidden field' is hidden
 
   @given-steps-enabled

@@ -1,5 +1,5 @@
-module.exports = function clearInputFieldValue(fieldName) {
+module.exports = function clearInputFieldValue(locatorKey) {
   return this.getCurrentPage()
-    .getElementWhenInDOM(fieldName)
+    .getElementWhenInDOM(locatorKey)
     .then(element => element.clear());
 };
