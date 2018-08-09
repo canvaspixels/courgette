@@ -5,158 +5,161 @@ Feature: Testing Then steps
     Given I go to the 'Home' page
 
   @then-steps-eventually-be-on-page
-  Scenario: Given I go to the home page
+  Scenario: Then I go to the home page
     When I click the 'Go to other page link'
     Then I expect to eventually be on the 'Other' page
 
   @then-steps-url-to-contain
-  Scenario: Given the url is to contain
+  Scenario: Then the url contains
     When I click the 'Go to other page link'
     Then I expect the url to contain '/other-page'
 
   @then-steps-url-to-be
-  Scenario: Given the url is
+  Scenario: Then the url is
     When I click the 'Go to other page link'
     Then I expect the url to be 'http://localhost:3000/other-page'
 
   @then-steps-url-to-not-be
-  Scenario: Given the url is not
+  Scenario: Then the url is not
     Then I expect the url to not be 'http://localhost:3000/foo'
 
   @then-steps-url-opens-in-new-tab
-  Scenario: Given the url is opened in a new tab
+  Scenario: Then the url is opened in a new tab
     When I click the 'Go to other page in new tab link'
     Then I expect the url 'http://localhost:3000/other-page' is opened in a new tab
   # todo improve to not check current tab
 
   @then-steps-is-visible
-  Scenario: Given the element is visible
+  Scenario: Then the element is visible
     Then I expect the 'email' to be visible
 
   @then-steps-is-hidden
-  Scenario: Given the element is hidden
+  Scenario: Then the element is hidden
     Then I expect the 'hidden field' to be hidden
 
   @then-steps-border-colour
-  Scenario: Given the border colour is
+  Scenario: Then the border colour is
     Then I expect the bottom border colour of the 'main heading' to be 'rgba(255, 0, 255, 1)'
 
   @then-steps-colour
-  Scenario: Given the colour is
+  Scenario: Then the colour is
     Then I expect the colour of the 'main heading' to be 'rgba(13, 105, 227, 1)'
 
   @then-steps-background-colour
-  Scenario: Given the background colour is
+  Scenario: Then the background colour is
     Then I expect the background colour of the 'main container' to be 'rgba(220, 220, 220, 1)'
 
   @then-steps-title
-  Scenario: Given the title is React App
+  Scenario: Then the title is React App
     Then I expect the title to be 'React App'
 
   @then-steps-title-is-not
-  Scenario: Given the title is not React App
+  Scenario: Then the title is not React App
     Then I expect the title to not be 'Foo'
 
   @then-steps-contain-text
-  Scenario: Given the element to contain text
+  Scenario: Then the element to contain text
     Then I expect the 'main heading' to contain the text 'Home page'
 
   @then-steps-not-contain-text
-  Scenario: Given the element to not contain text
+  Scenario: Then the element to not contain text
     Then I expect the 'email' to not contain the text 'hi@hello.com'
 
   @then-steps-any-text
-  Scenario: Given the element contains any text
+  Scenario: Then the element contains any text
     Then I expect the 'main heading' to contain any text
 
   @then-steps-not-any-text
-  Scenario: Given the element does not contain any text
+  Scenario: Then the element does not contain any text
     Then I expect the 'fullname' to not contain any text
 
   @then-steps-appear-exactly
-  Scenario: Given the element appears exactly x times
+  Scenario: Then the element appears exactly x times
     Then I expect the 'bullets' to appear exactly '3' times
 
   @then-steps-not-appear-exactly
-  Scenario: Given the element is hidden
+  Scenario: Then the element is hidden
     Then I expect the 'bullets' to not appear exactly '0' times
 
   @then-steps-to-exist
-  Scenario: Given the element exists
+  Scenario: Then the element exists
     Then I expect the 'age field' to exist
 
   @then-steps-to-not-exist
-  Scenario: Given the element doesn't exist
+  Scenario: Then the element doesn't exist
     Then I expect the 'Go to home page by react router link' to not exist
 
   @then-steps-checked
-  Scenario: Given the element is checked
+  Scenario: Then the element is checked
     Then I expect the 'newsletter checkbox' to be checked
 
   @then-steps-to-not-be-checked
-  Scenario: Given the element is not checked
+  Scenario: Then the element is not checked
     Then I expect the 'you ok checkbox' to not be checked
 
   @then-steps-to-be-selected
-  Scenario: Given the element selected
+  Scenario: Then the element selected
     Then I expect the 'newsletter checkbox' to be selected
 
   @then-steps-to-not-be-selected
-  Scenario: Given the element is not selected
+  Scenario: Then the element is not selected
     Then I expect the 'you ok checkbox' to not be selected
 
   @then-steps-to-be-enabled
-  Scenario: Given the element is enabled
+  Scenario: Then the element is enabled
     Then I expect the 'button' to be enabled
 
   @then-steps-to-be-disabled
-  Scenario: Given the element is disabled
+  Scenario: Then the element is disabled
     Then I expect the 'disabled button' to be disabled
 
   # @then-steps-cookie-to-contain
-  # Scenario: Given the cookie contains x
+  # Scenario: Then the cookie contains x
   #   And cookie set ...
   #   Then I expect cookie 'COOKIE_NAME' to contain 'STRING'
 
   # @then-steps-cookie-not-to-contain
-  # Scenario: Given the cookie does not contain x
+  # Scenario: Then the cookie does not contain x
   #   Then I expect cookie 'COOKIE_NAME' to not contain 'STRING'
 
   # @then-steps-cookie-exists
-  # Scenario: Given the cookie exists
+  # Scenario: Then the cookie exists
   #   Then I expect cookie 'COOKIE_NAME' to exist
 
   # @then-steps-cookie-to-not-exist
-  # Scenario: Given the cookie does not exist
+  # Scenario: Then the cookie does not exist
   #   Then I expect cookie 'COOKIE_NAME' to not exist
 
   @then-steps-class-name
-  Scenario: Given the class name
+  Scenario: Then the class name
     Then I expect the 'main container' to have the class 'Landing'
-    # todo improve to return actual class name
+
+  @then-steps-class-name-not
+  Scenario: Then the class name doesn't have
+    Then I expect the 'main container' to not have the class 'foo'
 
   @then-steps-focused
-  Scenario: Given the element is focused
+  Scenario: Then the element is focused
     When I press 'TAB'
     Then I expect the 'Go to other page by react router link' to be focused
     # todo with: Go to other page link
 
   @then-steps-empty
-  Scenario: Given the element is empty
+  Scenario: Then the element is empty
     Then I expect the 'fullname' to be empty
 
   @then-steps-not-empty
-  Scenario: Given the element is not empty
+  Scenario: Then the element is not empty
     Then I expect the 'email' to not be empty
 
   @then-steps-value
-  Scenario: Given the value is x
+  Scenario: Then the value is x
     Then I expect the value of the 'email' to be 'hi@hello.com'
 
   @then-steps-not-value
-  Scenario: Given the value is not x
+  Scenario: Then the value is not x
     Then I expect the value of the 'email' to not be 'hey@hello.com'
 
   @then-steps-attribute-value
-  Scenario: Given the element has an attribute with value of x
+  Scenario: Then the element has an attribute with value of x
     Then I expect the 'age field' has an attribute 'name' with a value of 'age'
