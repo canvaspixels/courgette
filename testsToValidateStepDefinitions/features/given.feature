@@ -82,7 +82,6 @@ Feature: Testing Given steps
   @given-steps-does-not-contain-text
   Scenario: Given the
     And the 'main heading' does not contain the text 'foo'
-  # todo error message is empty for Home page
 
   @given-steps-contains-any-text
   Scenario: Given the page contains text
