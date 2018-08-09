@@ -33,7 +33,7 @@ Feature: Test feature
     Then I expect the url to contain 'google.com'
 ```
 
-Note that all you need to be able to run that is a page object that looks like this:
+Note that all you need to be able to run that is a page object that looks like this inside a kebab-case file e.g. `google-home.js`:
 
 ```js
 const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
