@@ -86,7 +86,7 @@ Continuing on from the examples above...
 
 To run just one feature:
 
-```shell
+```console
 ./node_modules/.bin/cuketractor --tags=@google-home
 
 OR SIMPLY JUST
@@ -96,7 +96,7 @@ OR SIMPLY JUST
 
 To run just one scenario:
 
-```shell
+```console
 ./node_modules/.bin/cuketractor --tags=@google-home-another-thing
 
 OR SIMPLY JUST
@@ -106,7 +106,7 @@ OR SIMPLY JUST
 
 To run a couple (comma separate):
 
-```shell
+```console
 ./node_modules/.bin/cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
 
 OR SIMPLY JUST
