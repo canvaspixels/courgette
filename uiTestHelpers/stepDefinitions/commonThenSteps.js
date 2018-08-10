@@ -7,8 +7,8 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 // TODO:
 // Then(/^I expect to be on the 'LOCATOR' page$/, checkEventualUrlFromPOM);
 // Then(/^I expect a new (?:window|tab) has( not)* been opened$/, checkNewWindow);
-// Then(/^I expect the url to evenually (be|contain) 'LOCATOR'$/, checkEventualUrl);
-// Then(/^I expect the path to ( not)* be 'LOCATOR'$/, checkURLPath);
+// Then(/^I expect the url to evenually (be|contain) 'URL'$/, checkEventualUrl);
+// Then(/^I expect the path to ( not)* be 'URL'$/, checkURLPath);
 
 const steps = [
   { matcher: "I expect to eventually be on the 'PAGE_NAME' page", path: './checks/checkEventualUrlFromPOM',

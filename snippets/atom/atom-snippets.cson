@@ -1,0 +1,479 @@
+###### cuketractor snippets start 0-o
+
+".text.plain":
+  "I go to the '${1:PAGE_NAME}' page":
+    'prefix': 'givengoto'
+    'body': "I go to the '${1:PAGE_NAME}' page"
+  "the page url is '${1:URL}'":
+    'prefix': 'givenpageurl'
+    'body': "the page url is '${1:URL}'"
+  "the page url is not '${1:URL}'":
+    'prefix': 'givennotpageurl'
+    'body': "the page url is not '${1:URL}'"
+  "animations are disabled":
+    'prefix': 'givendisableAnimations'
+    'body': "animations are disabled"
+  "the '${1:LOCATOR}' is (visible)":
+    'prefix': 'givenvisible'
+    'body': "the '${1:LOCATOR}' is (visible)"
+  "the '${1:LOCATOR}' is (hidden)":
+    'prefix': 'givenhidden'
+    'body': "the '${1:LOCATOR}' is (hidden)"
+  "the '${1:LOCATOR}' is (enabled)":
+    'prefix': 'givenenabled'
+    'body': "the '${1:LOCATOR}' is (enabled)"
+  "the '${1:LOCATOR}' is (disabled)":
+    'prefix': 'givendisabled'
+    'body': "the '${1:LOCATOR}' is (disabled)"
+  "the '${1:LOCATOR}' is selected":
+    'prefix': 'givenselected'
+    'body': "the '${1:LOCATOR}' is selected"
+  "the '${1:LOCATOR}' is not selected":
+    'prefix': 'givennotselected'
+    'body': "the '${1:LOCATOR}' is not selected"
+  "the '${1:LOCATOR}' is checked":
+    'prefix': 'givenchecked'
+    'body': "the '${1:LOCATOR}' is checked"
+  "the '${1:LOCATOR}' is not checked":
+    'prefix': 'givennotchecked'
+    'body': "the '${1:LOCATOR}' is not checked"
+  "the '${1:LOCATOR}' is on the page":
+    'prefix': 'givenexists'
+    'body': "the '${1:LOCATOR}' is on the page"
+  "the '${1:LOCATOR}' is not on the page":
+    'prefix': 'givennotexists'
+    'body': "the '${1:LOCATOR}' is not on the page"
+  "the title is '${1:STRING}'":
+    'prefix': 'giventitle'
+    'body': "the title is '${1:STRING}'"
+  "the title is not '${1:STRING}'":
+    'prefix': 'givennottitle'
+    'body': "the title is not '${1:STRING}'"
+  "the '${1:LOCATOR}' (contains) the text '${2:STRING}'":
+    'prefix': 'givencontainstext'
+    'body': "the '${1:LOCATOR}' (contains) the text '${2:STRING}'"
+  "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'":
+    'prefix': 'givennotcontainstext'
+    'body': "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'"
+  "the '${1:LOCATOR}' (contains) any text":
+    'prefix': 'givencontainsanytext'
+    'body': "the '${1:LOCATOR}' (contains) any text"
+  "the '${1:LOCATOR}' (does not contain) any text":
+    'prefix': 'givennotcontainsanytext'
+    'body': "the '${1:LOCATOR}' (does not contain) any text"
+  "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
+    'prefix': 'givenattribute'
+    'body': "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  "the '${1:LOCATOR}' is empty":
+    'prefix': 'givenempty'
+    'body': "the '${1:LOCATOR}' is empty"
+  "the '${1:LOCATOR}' is not empty":
+    'prefix': 'givennotempty'
+    'body': "the '${1:LOCATOR}' is not empty"
+  "the value of the '${1:LOCATOR}' is '${2:VALUE}'":
+    'prefix': 'givenvalue'
+    'body': "the value of the '${1:LOCATOR}' is '${2:VALUE}'"
+  "the value of the '${1:LOCATOR}' is not '${2:VALUE}'":
+    'prefix': 'givennotvalue'
+    'body': "the value of the '${1:LOCATOR}' is not '${2:VALUE}'"
+  "I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'":
+    'prefix': 'givensetcookie'
+    'body': "I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'"
+  "the cookie '${1:COOKIE_NAME}' is set to '${2:VALUE}'":
+    'prefix': 'givencookie'
+    'body': "the cookie '${1:COOKIE_NAME}' is set to '${2:VALUE}'"
+  "the cookie '${1:COOKIE_NAME}' is not set to '${2:VALUE}'":
+    'prefix': 'givennotcookie'
+    'body': "the cookie '${1:COOKIE_NAME}' is not set to '${2:VALUE}'"
+  "the cookie '${1:COOKIE_NAME}' is set":
+    'prefix': 'givencookieset'
+    'body': "the cookie '${1:COOKIE_NAME}' is set"
+  "the cookie '${1:COOKIE_NAME}' is not set":
+    'prefix': 'givennotcookieset'
+    'body': "the cookie '${1:COOKIE_NAME}' is not set"
+  "I click the '${1:LOCATOR}'":
+    'prefix': 'whenclick'
+    'body': "I click the '${1:LOCATOR}'"
+  "I append '${1:STRING}' to '${2:LOCATOR}'":
+    'prefix': 'whenappend'
+    'body': "I append '${1:STRING}' to '${2:LOCATOR}'"
+  "I set '${1:LOCATOR}' to '${2:STRING}'":
+    'prefix': 'whenset'
+    'body': "I set '${1:LOCATOR}' to '${2:STRING}'"
+  "I append '${1:STRING}' to react field '${2:LOCATOR}'":
+    'prefix': 'whenappendreact'
+    'body': "I append '${1:STRING}' to react field '${2:LOCATOR}'"
+  "I set react field '${1:LOCATOR}' to '${2:STRING}'":
+    'prefix': 'whensetreact'
+    'body': "I set react field '${1:LOCATOR}' to '${2:STRING}'"
+  "I submit the form '${1:LOCATOR}'":
+    'prefix': 'whensubmit'
+    'body': "I submit the form '${1:LOCATOR}'"
+  "I press '${1:KEY}'":
+    'prefix': 'whenkey'
+    'body': "I press '${1:KEY}'"
+  "I clear the '${1:LOCATOR}'":
+    'prefix': 'whenclear'
+    'body': "I clear the '${1:LOCATOR}'"
+  "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'":
+    'prefix': 'whenoption'
+    'body': "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'"
+  "I expect to eventually be on the '${1:PAGE_NAME}' page":
+    'prefix': 'theneventuallyonpage'
+    'body': "I expect to eventually be on the '${1:PAGE_NAME}' page"
+  "I expect the url to contain '${1:STRING}'":
+    'prefix': 'thenurlcontains'
+    'body': "I expect the url to contain '${1:STRING}'"
+  "I expect the url to be '${1:STRING}'":
+    'prefix': 'thenurl'
+    'body': "I expect the url to be '${1:STRING}'"
+  "I expect the url to not be '${1:STRING}'":
+    'prefix': 'thennoturl'
+    'body': "I expect the url to not be '${1:STRING}'"
+  "I expect the url '${1:URL}' is opened in a new tab":
+    'prefix': 'thenurlnewtab'
+    'body': "I expect the url '${1:URL}' is opened in a new tab"
+  "I expect the '${1:LOCATOR}' to be (visible)":
+    'prefix': 'thenvisible'
+    'body': "I expect the '${1:LOCATOR}' to be (visible)"
+  "I expect the '${1:LOCATOR}' to be (hidden)":
+    'prefix': 'thenhidden'
+    'body': "I expect the '${1:LOCATOR}' to be (hidden)"
+  "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thenbordercolour'
+    'body': "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thennotbordercolour'
+    'body': "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thencolour'
+    'body': "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the background colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thenbackgroundcolour'
+    'body': "I expect the background colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the title to be '${1:STRING}'":
+    'prefix': 'thentitle'
+    'body': "I expect the title to be '${1:STRING}'"
+  "I expect the title to not be '${1:STRING}'":
+    'prefix': 'thennottitle'
+    'body': "I expect the title to not be '${1:STRING}'"
+  "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'":
+    'prefix': 'thencontainstext'
+    'body': "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'":
+    'prefix': 'thennotcontainstext'
+    'body': "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' to contain any text":
+    'prefix': 'thencontainsanytext'
+    'body': "I expect the '${1:LOCATOR}' to contain any text"
+  "I expect the '${1:LOCATOR}' to not contain any text":
+    'prefix': 'thennotcontainsanytext'
+    'body': "I expect the '${1:LOCATOR}' to not contain any text"
+  "I expect the '${1:LOCATOR}' to appear exactly '${2:NUMBER}' times":
+    'prefix': 'thenappearexactly'
+    'body': "I expect the '${1:LOCATOR}' to appear exactly '${2:NUMBER}' times"
+  "I expect the '${1:LOCATOR}' to not appear exactly '${2:NUMBER}' times":
+    'prefix': 'thennotappearexactly'
+    'body': "I expect the '${1:LOCATOR}' to not appear exactly '${2:NUMBER}' times"
+  "I expect the '${1:LOCATOR}' to exist":
+    'prefix': 'thenexists'
+    'body': "I expect the '${1:LOCATOR}' to exist"
+  "I expect the '${1:LOCATOR}' to not exist":
+    'prefix': 'thennotexists'
+    'body': "I expect the '${1:LOCATOR}' to not exist"
+  "I expect the '${1:LOCATOR}' to be checked":
+    'prefix': 'thenchecked'
+    'body': "I expect the '${1:LOCATOR}' to be checked"
+  "I expect the '${1:LOCATOR}' to not be checked":
+    'prefix': 'thennotchecked'
+    'body': "I expect the '${1:LOCATOR}' to not be checked"
+  "I expect the '${1:LOCATOR}' to be selected":
+    'prefix': 'thenselected'
+    'body': "I expect the '${1:LOCATOR}' to be selected"
+  "I expect the '${1:LOCATOR}' to not be selected":
+    'prefix': 'thennotselected'
+    'body': "I expect the '${1:LOCATOR}' to not be selected"
+  "I expect the '${1:LOCATOR}' to be (enabled)":
+    'prefix': 'thenenabled'
+    'body': "I expect the '${1:LOCATOR}' to be (enabled)"
+  "I expect the '${1:LOCATOR}' to be (disabled)":
+    'prefix': 'thendisabled'
+    'body': "I expect the '${1:LOCATOR}' to be (disabled)"
+  "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'":
+    'prefix': 'thencookiecontain'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'"
+  "I expect cookie '${1:COOKIE_NAME}' to not contain '${2:STRING}'":
+    'prefix': 'thennotcookiecontain'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to not contain '${2:STRING}'"
+  "I expect cookie '${1:COOKIE_NAME}' to exist":
+    'prefix': 'thencookieexists'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to exist"
+  "I expect cookie '${1:COOKIE_NAME}' to not exist":
+    'prefix': 'thennotcookieexists'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to not exist"
+  "I expect the '${1:LOCATOR}' to have the class '${2:CLASS_NAME}'":
+    'prefix': 'thenclassname'
+    'body': "I expect the '${1:LOCATOR}' to have the class '${2:CLASS_NAME}'"
+  "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'":
+    'prefix': 'thennotclassname'
+    'body': "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'"
+  "I expect the '${1:LOCATOR}' to be focused":
+    'prefix': 'thenfocused'
+    'body': "I expect the '${1:LOCATOR}' to be focused"
+  "I expect the '${1:LOCATOR}' to be empty":
+    'prefix': 'thenempty'
+    'body': "I expect the '${1:LOCATOR}' to be empty"
+  "I expect the '${1:LOCATOR}' to not be empty":
+    'prefix': 'thennotempty'
+    'body': "I expect the '${1:LOCATOR}' to not be empty"
+  "I expect the value of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thenvalue'
+    'body': "I expect the value of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'":
+    'prefix': 'thennotvalue'
+    'body': "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
+    'prefix': 'thenattribute'
+    'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  "fail step and take screenshot":
+    'prefix': 'thendie'
+    'body': "fail step and take screenshot"
+".text.feature":
+  "I go to the '${1:PAGE_NAME}' page":
+    'prefix': 'givengoto'
+    'body': "I go to the '${1:PAGE_NAME}' page"
+  "the page url is '${1:URL}'":
+    'prefix': 'givenpageurl'
+    'body': "the page url is '${1:URL}'"
+  "the page url is not '${1:URL}'":
+    'prefix': 'givennotpageurl'
+    'body': "the page url is not '${1:URL}'"
+  "animations are disabled":
+    'prefix': 'givendisableAnimations'
+    'body': "animations are disabled"
+  "the '${1:LOCATOR}' is (visible)":
+    'prefix': 'givenvisible'
+    'body': "the '${1:LOCATOR}' is (visible)"
+  "the '${1:LOCATOR}' is (hidden)":
+    'prefix': 'givenhidden'
+    'body': "the '${1:LOCATOR}' is (hidden)"
+  "the '${1:LOCATOR}' is (enabled)":
+    'prefix': 'givenenabled'
+    'body': "the '${1:LOCATOR}' is (enabled)"
+  "the '${1:LOCATOR}' is (disabled)":
+    'prefix': 'givendisabled'
+    'body': "the '${1:LOCATOR}' is (disabled)"
+  "the '${1:LOCATOR}' is selected":
+    'prefix': 'givenselected'
+    'body': "the '${1:LOCATOR}' is selected"
+  "the '${1:LOCATOR}' is not selected":
+    'prefix': 'givennotselected'
+    'body': "the '${1:LOCATOR}' is not selected"
+  "the '${1:LOCATOR}' is checked":
+    'prefix': 'givenchecked'
+    'body': "the '${1:LOCATOR}' is checked"
+  "the '${1:LOCATOR}' is not checked":
+    'prefix': 'givennotchecked'
+    'body': "the '${1:LOCATOR}' is not checked"
+  "the '${1:LOCATOR}' is on the page":
+    'prefix': 'givenexists'
+    'body': "the '${1:LOCATOR}' is on the page"
+  "the '${1:LOCATOR}' is not on the page":
+    'prefix': 'givennotexists'
+    'body': "the '${1:LOCATOR}' is not on the page"
+  "the title is '${1:STRING}'":
+    'prefix': 'giventitle'
+    'body': "the title is '${1:STRING}'"
+  "the title is not '${1:STRING}'":
+    'prefix': 'givennottitle'
+    'body': "the title is not '${1:STRING}'"
+  "the '${1:LOCATOR}' (contains) the text '${2:STRING}'":
+    'prefix': 'givencontainstext'
+    'body': "the '${1:LOCATOR}' (contains) the text '${2:STRING}'"
+  "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'":
+    'prefix': 'givennotcontainstext'
+    'body': "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'"
+  "the '${1:LOCATOR}' (contains) any text":
+    'prefix': 'givencontainsanytext'
+    'body': "the '${1:LOCATOR}' (contains) any text"
+  "the '${1:LOCATOR}' (does not contain) any text":
+    'prefix': 'givennotcontainsanytext'
+    'body': "the '${1:LOCATOR}' (does not contain) any text"
+  "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
+    'prefix': 'givenattribute'
+    'body': "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  "the '${1:LOCATOR}' is empty":
+    'prefix': 'givenempty'
+    'body': "the '${1:LOCATOR}' is empty"
+  "the '${1:LOCATOR}' is not empty":
+    'prefix': 'givennotempty'
+    'body': "the '${1:LOCATOR}' is not empty"
+  "the value of the '${1:LOCATOR}' is '${2:VALUE}'":
+    'prefix': 'givenvalue'
+    'body': "the value of the '${1:LOCATOR}' is '${2:VALUE}'"
+  "the value of the '${1:LOCATOR}' is not '${2:VALUE}'":
+    'prefix': 'givennotvalue'
+    'body': "the value of the '${1:LOCATOR}' is not '${2:VALUE}'"
+  "I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'":
+    'prefix': 'givensetcookie'
+    'body': "I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'"
+  "the cookie '${1:COOKIE_NAME}' is set to '${2:VALUE}'":
+    'prefix': 'givencookie'
+    'body': "the cookie '${1:COOKIE_NAME}' is set to '${2:VALUE}'"
+  "the cookie '${1:COOKIE_NAME}' is not set to '${2:VALUE}'":
+    'prefix': 'givennotcookie'
+    'body': "the cookie '${1:COOKIE_NAME}' is not set to '${2:VALUE}'"
+  "the cookie '${1:COOKIE_NAME}' is set":
+    'prefix': 'givencookieset'
+    'body': "the cookie '${1:COOKIE_NAME}' is set"
+  "the cookie '${1:COOKIE_NAME}' is not set":
+    'prefix': 'givennotcookieset'
+    'body': "the cookie '${1:COOKIE_NAME}' is not set"
+  "I click the '${1:LOCATOR}'":
+    'prefix': 'whenclick'
+    'body': "I click the '${1:LOCATOR}'"
+  "I append '${1:STRING}' to '${2:LOCATOR}'":
+    'prefix': 'whenappend'
+    'body': "I append '${1:STRING}' to '${2:LOCATOR}'"
+  "I set '${1:LOCATOR}' to '${2:STRING}'":
+    'prefix': 'whenset'
+    'body': "I set '${1:LOCATOR}' to '${2:STRING}'"
+  "I append '${1:STRING}' to react field '${2:LOCATOR}'":
+    'prefix': 'whenappendreact'
+    'body': "I append '${1:STRING}' to react field '${2:LOCATOR}'"
+  "I set react field '${1:LOCATOR}' to '${2:STRING}'":
+    'prefix': 'whensetreact'
+    'body': "I set react field '${1:LOCATOR}' to '${2:STRING}'"
+  "I submit the form '${1:LOCATOR}'":
+    'prefix': 'whensubmit'
+    'body': "I submit the form '${1:LOCATOR}'"
+  "I press '${1:KEY}'":
+    'prefix': 'whenkey'
+    'body': "I press '${1:KEY}'"
+  "I clear the '${1:LOCATOR}'":
+    'prefix': 'whenclear'
+    'body': "I clear the '${1:LOCATOR}'"
+  "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'":
+    'prefix': 'whenoption'
+    'body': "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'"
+  "I expect to eventually be on the '${1:PAGE_NAME}' page":
+    'prefix': 'theneventuallyonpage'
+    'body': "I expect to eventually be on the '${1:PAGE_NAME}' page"
+  "I expect the url to contain '${1:STRING}'":
+    'prefix': 'thenurlcontains'
+    'body': "I expect the url to contain '${1:STRING}'"
+  "I expect the url to be '${1:STRING}'":
+    'prefix': 'thenurl'
+    'body': "I expect the url to be '${1:STRING}'"
+  "I expect the url to not be '${1:STRING}'":
+    'prefix': 'thennoturl'
+    'body': "I expect the url to not be '${1:STRING}'"
+  "I expect the url '${1:URL}' is opened in a new tab":
+    'prefix': 'thenurlnewtab'
+    'body': "I expect the url '${1:URL}' is opened in a new tab"
+  "I expect the '${1:LOCATOR}' to be (visible)":
+    'prefix': 'thenvisible'
+    'body': "I expect the '${1:LOCATOR}' to be (visible)"
+  "I expect the '${1:LOCATOR}' to be (hidden)":
+    'prefix': 'thenhidden'
+    'body': "I expect the '${1:LOCATOR}' to be (hidden)"
+  "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thenbordercolour'
+    'body': "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thennotbordercolour'
+    'body': "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thencolour'
+    'body': "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the background colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thenbackgroundcolour'
+    'body': "I expect the background colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the title to be '${1:STRING}'":
+    'prefix': 'thentitle'
+    'body': "I expect the title to be '${1:STRING}'"
+  "I expect the title to not be '${1:STRING}'":
+    'prefix': 'thennottitle'
+    'body': "I expect the title to not be '${1:STRING}'"
+  "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'":
+    'prefix': 'thencontainstext'
+    'body': "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'":
+    'prefix': 'thennotcontainstext'
+    'body': "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' to contain any text":
+    'prefix': 'thencontainsanytext'
+    'body': "I expect the '${1:LOCATOR}' to contain any text"
+  "I expect the '${1:LOCATOR}' to not contain any text":
+    'prefix': 'thennotcontainsanytext'
+    'body': "I expect the '${1:LOCATOR}' to not contain any text"
+  "I expect the '${1:LOCATOR}' to appear exactly '${2:NUMBER}' times":
+    'prefix': 'thenappearexactly'
+    'body': "I expect the '${1:LOCATOR}' to appear exactly '${2:NUMBER}' times"
+  "I expect the '${1:LOCATOR}' to not appear exactly '${2:NUMBER}' times":
+    'prefix': 'thennotappearexactly'
+    'body': "I expect the '${1:LOCATOR}' to not appear exactly '${2:NUMBER}' times"
+  "I expect the '${1:LOCATOR}' to exist":
+    'prefix': 'thenexists'
+    'body': "I expect the '${1:LOCATOR}' to exist"
+  "I expect the '${1:LOCATOR}' to not exist":
+    'prefix': 'thennotexists'
+    'body': "I expect the '${1:LOCATOR}' to not exist"
+  "I expect the '${1:LOCATOR}' to be checked":
+    'prefix': 'thenchecked'
+    'body': "I expect the '${1:LOCATOR}' to be checked"
+  "I expect the '${1:LOCATOR}' to not be checked":
+    'prefix': 'thennotchecked'
+    'body': "I expect the '${1:LOCATOR}' to not be checked"
+  "I expect the '${1:LOCATOR}' to be selected":
+    'prefix': 'thenselected'
+    'body': "I expect the '${1:LOCATOR}' to be selected"
+  "I expect the '${1:LOCATOR}' to not be selected":
+    'prefix': 'thennotselected'
+    'body': "I expect the '${1:LOCATOR}' to not be selected"
+  "I expect the '${1:LOCATOR}' to be (enabled)":
+    'prefix': 'thenenabled'
+    'body': "I expect the '${1:LOCATOR}' to be (enabled)"
+  "I expect the '${1:LOCATOR}' to be (disabled)":
+    'prefix': 'thendisabled'
+    'body': "I expect the '${1:LOCATOR}' to be (disabled)"
+  "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'":
+    'prefix': 'thencookiecontain'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'"
+  "I expect cookie '${1:COOKIE_NAME}' to not contain '${2:STRING}'":
+    'prefix': 'thennotcookiecontain'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to not contain '${2:STRING}'"
+  "I expect cookie '${1:COOKIE_NAME}' to exist":
+    'prefix': 'thencookieexists'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to exist"
+  "I expect cookie '${1:COOKIE_NAME}' to not exist":
+    'prefix': 'thennotcookieexists'
+    'body': "I expect cookie '${1:COOKIE_NAME}' to not exist"
+  "I expect the '${1:LOCATOR}' to have the class '${2:CLASS_NAME}'":
+    'prefix': 'thenclassname'
+    'body': "I expect the '${1:LOCATOR}' to have the class '${2:CLASS_NAME}'"
+  "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'":
+    'prefix': 'thennotclassname'
+    'body': "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'"
+  "I expect the '${1:LOCATOR}' to be focused":
+    'prefix': 'thenfocused'
+    'body': "I expect the '${1:LOCATOR}' to be focused"
+  "I expect the '${1:LOCATOR}' to be empty":
+    'prefix': 'thenempty'
+    'body': "I expect the '${1:LOCATOR}' to be empty"
+  "I expect the '${1:LOCATOR}' to not be empty":
+    'prefix': 'thennotempty'
+    'body': "I expect the '${1:LOCATOR}' to not be empty"
+  "I expect the value of the '${1:LOCATOR}' to be '${2:STRING}'":
+    'prefix': 'thenvalue'
+    'body': "I expect the value of the '${1:LOCATOR}' to be '${2:STRING}'"
+  "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'":
+    'prefix': 'thennotvalue'
+    'body': "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
+    'prefix': 'thenattribute'
+    'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  "fail step and take screenshot":
+    'prefix': 'thendie'
+    'body': "fail step and take screenshot"
+###### cuketractor snippets end 0-o

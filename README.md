@@ -114,6 +114,22 @@ OR SIMPLY JUST
 ./node_modules/.bin/cuketractor @google-home-feeling-lucky,@google-home-another-thing
 ```
 
+## Snippets
+
+Snippets are available for Sublime Text 3 and Atom. To add them to your editor do the following.
+
+For Sublime Text 3:
+
+```console
+node node_modules/cucumber-protractor/scripts/generateSublimeStepDefSnippets.js --genFiles --justForIDE
+```
+
+For Atom:
+
+```console
+node node_modules/cucumber-protractor/scripts/generateAtomStepDefSnippets.js --genFiles --justForIDE
+```
+
 ## Contributing
 
 To create the STEP_DEFINITIONS.md file, run the script: `node scripts/generateStepDefinitionsREADME.js --genFiles`

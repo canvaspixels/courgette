@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I expect cookie '${1:COOKIE_NAME}' to not exist
+I expect cookie '${1:COOKIE_NAME}' to exist
 ]]></content>
   <tabTrigger>thencookieexists</tabTrigger>
 </snippet>

@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the cookie '${1:COOKIE_NAME}' is not set
+the cookie '${1:COOKIE_NAME}' is set
 ]]></content>
   <tabTrigger>givencookieset</tabTrigger>
 </snippet>

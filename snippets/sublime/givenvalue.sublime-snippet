@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the value of the '${1:LOCATOR}' is not '${2:VALUE}'
+the value of the '${1:LOCATOR}' is '${2:VALUE}'
 ]]></content>
   <tabTrigger>givenvalue</tabTrigger>
 </snippet>

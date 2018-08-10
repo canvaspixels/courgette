@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the '${1:LOCATOR}' is not empty
+the '${1:LOCATOR}' is empty
 ]]></content>
   <tabTrigger>givenempty</tabTrigger>
 </snippet>

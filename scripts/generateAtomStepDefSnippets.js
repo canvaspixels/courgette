@@ -1,8 +1,8 @@
 // To gen snippets in project and in ide
-// node scripts/generateSublimeStepDefSnippets.js --genFiles
+// node scripts/generateAtomStepDefSnippets.js --genFiles
 
 // To gen snippets just in ide
-// node scripts/generateSublimeStepDefSnippets.js --genFiles --justForIDE
+// node scripts/generateAtomStepDefSnippets.js --genFiles --justForIDE
 
 const fs = require('fs');
 const os = require('os');
@@ -15,9 +15,9 @@ const placeholders = require('../placeholders');
 
 const steps = [].concat(givenSteps, whenSteps, thenSteps);
 
-const sublimeSnippetsFolder = `${os.homedir()}/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sublime-snippets-cuketractor`;
+// const snippetsFolder = `${os.homedir()}/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sublime-snippets/cuketractor`;
 
-const snippetsFolder = 'snippets/sublime';
+const snippetsFolder = 'snippets/atom';
 
 if (!fs.existsSync('snippets')) {
   fs.mkdirSync('snippets');
@@ -26,25 +26,16 @@ if (!fs.existsSync(snippetsFolder)) {
   fs.mkdirSync(snippetsFolder);
 }
 
-
-if (!fs.existsSync(sublimeSnippetsFolder)) {
-  fs.mkdirSync(sublimeSnippetsFolder);
-}
-
 const snippetCodes = {};
 
-const genSnippet = (matcher, code) => {
-  // console.log(matcher);
-  // console.log('matcher: ', matcher.replace(/\((.*)\)/g, '$1'));
-  const snippet = `<snippet>
-  <content><![CDATA[
-${matcher.replace(/\((.*)\)/g, '$1')}
-]]></content>
-  <tabTrigger>${code}</tabTrigger>
-</snippet>`;
+let snippets = '###### cuketractor snippets start 0-o\n\n';
 
-  fs.writeFileSync(`${snippetsFolder}/${code}.sublime-snippet`, snippet);
-  fs.writeFileSync(`${sublimeSnippetsFolder}/${code}.sublime-snippet`, snippet);
+const genSnippet = (matcher, code) => {
+  snippets +=
+`  "${matcher}":
+    'prefix': '${code}'
+    'body': "${matcher}"
+`;
 };
 
 const genSnippets = (steps, type) => {
@@ -73,8 +64,7 @@ const genSnippets = (steps, type) => {
 
     const matcher = matcherWithReplacedPlaceholders
       .replace(zeroOrManyMatcher, '')
-      .replace(/\((.*)\)\*/g, '$1')
-
+      .replace(/\((.*)\)\*/g, '$1');
     const newCode = `${type}${step.code || generatedCode}`;
     snippetCodes[type].push(newCode);
     genSnippet(matcher, newCode);
@@ -90,9 +80,22 @@ const genSnippets = (steps, type) => {
     // console.log(`${type}${step.code || generatedCode}`);
   });
 };
-
+snippets += '".text.plain":\n'
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
+snippets += '".text.feature":\n'
+genSnippets(givenSteps, 'given');
+genSnippets(whenSteps, 'when');
+genSnippets(thenSteps, 'then');
+snippets += '###### cuketractor snippets end 0-o';
 
-module.exports = snippetCodes;
+if (!argv.justForIDE) {
+  fs.writeFileSync(`${snippetsFolder}/atom-snippets.cson`, snippets);
+}
+
+const homedir = require('os').homedir();
+const atomSnippetsFile = `${homedir}/.atom/snippets.cson`;
+const snippetsFile = fs.readFileSync(atomSnippetsFile, 'utf-8');
+const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### cuketractor snippets start 0-o[^~]*###### cuketractor snippets end 0-o$/m, '');
+fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCukeTrackor}${snippets}`);

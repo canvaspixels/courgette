@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I expect the '${1:LOCATOR}' to not exist
+I expect the '${1:LOCATOR}' to exist
 ]]></content>
   <tabTrigger>thenexists</tabTrigger>
 </snippet>
