@@ -3,14 +3,20 @@
 const fs = require('fs');
 const path = require('path');
 const { argv } = require('yargs');
+const Table = require('cli-table');
+require('colors');
 
 // eslint-disable-next-line
 const { pomConfig } = require(path.join(process.cwd(), argv.confFile || process.env.confFile || 'conf.js'));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
 
-// eslint-disable-next-line no-console
-console.log('Brm brm... off we go!');
+const log = (...args) => {
+  // eslint-disable-next-line no-console
+  console.log(...args);
+};
+
+log('Brm brm... off we go!');
 
 const rmDir = function rmDir(dir, rmSelf) {
   let files;
@@ -19,8 +25,7 @@ const rmDir = function rmDir(dir, rmSelf) {
   try {
     files = fs.readdirSync(directory);
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log('Directory not exist.');
+    log('Directory not exist.');
     return;
   }
   if (files.length > 0) {
@@ -68,20 +73,35 @@ const cucumberHtmlReporterConfig = Object.assign({
 }, pomConfig.cucumberHtmlReporterConfig);
 
 const printCukeErrors = (el, step) => {
-  // eslint-disable-next-line
+  const red = '\x1b[31m%s\x1b[0m';
+  const yellow = '\x1b[33m%s\x1b[0m';
   if (step.result.error_message) {
-    const red = '\x1b[31m%s\x1b[0m';
-    const yellow = '\x1b[33m%s\x1b[0m';
-    // eslint-disable-next-line
-    console.log(red, `------------------ Scenario Error --------------- ${el.name}`);
-    // eslint-disable-next-line
-    console.log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
-    // eslint-disable-next-line
-    console.log(yellow, `Step: ${step.keyword}${step.name}`);
-    // eslint-disable-next-line
-    console.log(yellow, `Location: ${step.match.location}`);
-    // eslint-disable-next-line
-    console.log(yellow, `Error message: ${step.result.error_message}`);
+    log(red, `\n------------------ Scenario Error --------------- ${el.name}`);
+    log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
+    log(yellow, `Step: ${step.keyword}${step.name}`);
+    log(yellow, `Location: ${step.match.location}`);
+    log(yellow, `Error message: ${step.result.error_message}`);
+  } else if (step.result.status === 'undefined') {
+    log(red, `\n------------------ Scenario Undefined Step Definition --------------- ${el.name}`);
+    log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
+    log(yellow, `Step: ${step.keyword}${step.name}`);
+  }
+
+  if (step.result.error_message || step.result.status === 'undefined') {
+    const screenshotStep = el.steps.find((stp) =>
+      stp.keyword === 'After' &&
+        stp.match &&
+        stp.match.location &&
+        stp.match.location.includes('attachScreenshotAfter'));
+
+    const screenshotFilePath = screenshotStep &&
+      screenshotStep.embeddings &&
+      screenshotStep.embeddings
+        .find((embed) =>
+          embed.data && embed.data.includes('ScreenshotFilePath'));
+    log('-----SCREENSHOT - hold cmd (on mac) and click .png below if using iterm ----');
+    log(screenshotFilePath ? screenshotFilePath.data : '');
+    log('---------');
   }
 };
 
@@ -115,7 +135,7 @@ const loopThroughReport = () => new Promise((resolve, reject) => {
 
       if (scenarioStatus === 'passed') {
         successCount += 1;
-      } else if (scenarioStatus === 'failed') {
+      } else {
         failureCount += 1;
       }
       totalCount += 1;
@@ -128,9 +148,7 @@ const loopThroughReport = () => new Promise((resolve, reject) => {
 });
 
 const output = (data) => {
-  // eslint-disable-next-line no-console
-  console.log(data.toString());
-
+  log(data.toString());
   // eslint-disable-next-line
   logStream.write(data.toString().replace(/\x1b\[\d\dm/g, ''));
 };
@@ -143,7 +161,20 @@ spawnedProcess.on('exit', () => {
 
   cucumberHtmlReporter.generate(cucumberHtmlReporterConfig);
 
-  loopThroughReport().then(({ successCount, totalCount }) => {
-    process.exitCode = totalCount === successCount ? 0 : 1;
-  });
+  loopThroughReport()
+    .then(({ successCount, failureCount, totalCount }) => {
+      const table = new Table({
+        head: [
+          'Total Scenarios'.white,
+          'Successful'.green,
+          'Failures'.red,
+        ],
+      });
+
+      table.push([totalCount, `${successCount}`.green, `${failureCount}`.red]);
+
+      log('');
+      log(table.toString());
+      process.exitCode = totalCount === successCount ? 0 : 1;
+    });
 });

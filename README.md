@@ -116,7 +116,7 @@ OR SIMPLY JUST
 
 ## Snippets
 
-Snippets are available for Sublime Text 3 and Atom. To add them to your editor do the following.
+Snippets are available for Sublime Text 3 and Atom. Webstorm and VScode to come in the future. To add them to your editor do the following.
 
 For Sublime Text 3:
 

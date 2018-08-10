@@ -12,6 +12,7 @@ module.exports = {
     },
     "rules": {
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+      "arrow-parens": ["error", "always"],
       "jsx-a11y/anchor-is-valid": "off",
       "jsx-a11y/label-has-for": "off",
       "react/jsx-filename-extension": "off",

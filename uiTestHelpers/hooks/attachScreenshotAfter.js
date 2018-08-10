@@ -7,7 +7,7 @@ const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || '
 
 After(function screenshotAfterHook(scenarioResult, callback) {
   const msg = `Screenshot of ${this.scenarioName}\n`;
-  if (scenarioResult.result.status === 'failed') {
+  if (scenarioResult.result.status === 'failed' || scenarioResult.result.status === 'undefined') {
     let bufferedImage;
 
     console.log(msg);
@@ -18,6 +18,7 @@ After(function screenshotAfterHook(scenarioResult, callback) {
       console.log('*************************************');
       console.log('ScreenshotFilePath:');
       console.log(screenshotFilePath);
+      this.attach(`ScreenshotFilePath: ${screenshotFilePath}`);
       console.log('*************************************');
       console.log('-------------------------------------');
       stream.write(Buffer.from(png, 'base64'));
