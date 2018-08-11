@@ -210,7 +210,7 @@ const pageMethods = {
 };
 ```
 
-Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/76f203e4ae57a4a457d3257c1be288c21f13ba7a/uiTestHelpers/hooks/addMethodsBefore.js#L43) that you can use to combine your steps.
+Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/7ebf04a018e8f27ff25a76ac84b593e04221f455/uiTestHelpers/hooks/addMethodsBefore.js#L43) that you can use to combine your steps.
 
 ## Contributing
 

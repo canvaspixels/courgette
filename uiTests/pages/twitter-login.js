@@ -15,7 +15,7 @@ module.exports = (world) => {
       await world.setInputFieldValue('username', 'YOUR_USERNAME');
       await world.setInputFieldValue('password', 'YOUR_PASSWORD');
       await world.submitForm('login form');
-      return await world.checkUrl(false, 'https://twitter.com');
+      return await world.checkUrlIs('https://twitter.com');
     },
   };
 
