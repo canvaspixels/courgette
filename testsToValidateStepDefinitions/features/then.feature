@@ -1,8 +1,8 @@
 @then-steps
 Feature: Testing Then steps
 
-  Background: I go to the homepage
-    Given I go to the 'Home' page
+  Background: I am on the homepage
+    Given I am on the 'Home' page
 
   @then-steps-eventually-be-on-page
   Scenario: Then I go to the home page

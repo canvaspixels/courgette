@@ -2,7 +2,7 @@
 
 ".text.plain":
   "I am on the '${1:PAGE_NAME}' page":
-    'prefix': 'givengoto'
+    'prefix': 'givenonpage'
     'body': "I am on the '${1:PAGE_NAME}' page"
   "the page url is '${1:URL}'":
     'prefix': 'givenpageurl'
@@ -240,7 +240,7 @@
     'body': "fail step and take screenshot"
 ".text.feature":
   "I am on the '${1:PAGE_NAME}' page":
-    'prefix': 'givengoto'
+    'prefix': 'givenonpage'
     'body': "I am on the '${1:PAGE_NAME}' page"
   "the page url is '${1:URL}'":
     'prefix': 'givenpageurl'

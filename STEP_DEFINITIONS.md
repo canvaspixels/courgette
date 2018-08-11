@@ -6,7 +6,7 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I am on the 'PAGE_NAME' page | givengoto | PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object |
+| I am on the 'PAGE_NAME' page | givenonpage | PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object |
 | the page url is 'URL' | givenpageurl |  |
 | the page url is not 'URL' | givennotpageurl |  |
 | animations are disabled | givendisableAnimations |  |

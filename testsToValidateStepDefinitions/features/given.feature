@@ -1,8 +1,8 @@
 @given-steps
 Feature: Testing Given steps
 
-  Background: I go to the homepage
-    Given I go to the 'Home' page
+  Background: I am on the homepage
+    Given I am on the 'Home' page
 
   @given-steps-routing-react-router-link
   Scenario: React router link

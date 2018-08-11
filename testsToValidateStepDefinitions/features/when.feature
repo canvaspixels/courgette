@@ -1,8 +1,8 @@
 @when-steps
 Feature: Testing When steps
 
-  Background: I go to the homepage
-    Given I go to the 'Home' page
+  Background: I am on the homepage
+    Given I am on the 'Home' page
 
   @when-steps-append-value
   Scenario: When I append to a field
