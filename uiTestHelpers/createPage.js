@@ -4,7 +4,7 @@ const createComponent = require('./createComponent');
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
 
-module.exports = (name, world, pageUrl, elLocators) =>
+module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
   Object.assign(
     {},
     createComponent(name, world, elLocators, 'page'),
@@ -21,6 +21,7 @@ module.exports = (name, world, pageUrl, elLocators) =>
         return browser.get(this.getPageFullUrl());
       },
     },
+    customMethods,
   );
 
 module.exports.getFileName = (fileName) =>

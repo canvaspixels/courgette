@@ -6,7 +6,7 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 // TODO: add url contains
 const steps = [
-  { matcher: "I go to the 'PAGE_NAME' page", path: './actions/goToPage',
+  { matcher: "I am on the 'PAGE_NAME' page", path: './actions/goToPage',
     notes: 'PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object', code: 'goto' },
   { matcher: "the page url is( not)* 'URL'", path: './checks/checkUrl', code: 'pageurl' },
   { matcher: "animations are disabled", path: './actions/disableAnimations' },

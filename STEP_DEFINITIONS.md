@@ -6,7 +6,7 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I go to the 'PAGE_NAME' page | givengoto | PAGE_NAME should match the name of the page object file in your pages directory and the first argument to createPage in that same file. This step definition sets the current page object |
+| I am on the 'PAGE_NAME' page | givengoto | PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object |
 | the page url is 'URL' | givenpageurl |  |
 | the page url is not 'URL' | givennotpageurl |  |
 | animations are disabled | givendisableAnimations |  |
@@ -56,14 +56,14 @@ Note that the words in italics are optional.
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I expect to eventually be on the 'PAGE_NAME' page | theneventuallyonpage | Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page |
-| I expect the url 'URL' is opened in a new tab | thenurlnewtab |  |
-| I expect the url 'URL' is opened in a new window | thenurlnewwindow |  |
 | I expect the url to contain 'STRING' | thenurlcontains |  |
 | I expect the url to be 'STRING' | thenurl |  |
 | I expect the url to not be 'STRING' | thennoturl |  |
+| I expect the url 'URL' is opened in a new tab | thenurlnewtab |  |
 | I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
 | I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |
 | I expect the border colour of the 'LOCATOR' to be 'STRING' | thenbordercolour |  |
+| I expect the bottom|top|left|right border colour of the 'LOCATOR' to be 'STRING' | thennotbordercolour |  |
 | I expect the colour of the 'LOCATOR' to be 'STRING' | thencolour |  |
 | I expect the background colour of the 'LOCATOR' to be 'STRING' | thenbackgroundcolour |  |
 | I expect the title to be 'STRING' | thentitle |  |

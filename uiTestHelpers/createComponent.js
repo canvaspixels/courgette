@@ -1,6 +1,6 @@
 const EC = protractor.ExpectedConditions;
 
-module.exports = (name, world, elLocators, type = 'component') => {
+module.exports = (name, world, elLocators, type = 'component', customMethods = {}) => {
   const components = {};
   const locators = elLocators;
 
@@ -11,7 +11,7 @@ module.exports = (name, world, elLocators, type = 'component') => {
     }
   };
 
-  return {
+  return Object.assign({}, {
     name,
     type,
     locators,
@@ -76,5 +76,5 @@ module.exports = (name, world, elLocators, type = 'component') => {
       // todo see syntax without EC
       return browser.wait(EC.invisibilityOf(el)).then(() => el);
     },
-  };
+  }, customMethods);
 };

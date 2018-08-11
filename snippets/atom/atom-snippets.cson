@@ -1,9 +1,9 @@
 ###### cuketractor snippets start 0-o
 
 ".text.plain":
-  "I go to the '${1:PAGE_NAME}' page":
+  "I am on the '${1:PAGE_NAME}' page":
     'prefix': 'givengoto'
-    'body': "I go to the '${1:PAGE_NAME}' page"
+    'body': "I am on the '${1:PAGE_NAME}' page"
   "the page url is '${1:URL}'":
     'prefix': 'givenpageurl'
     'body': "the page url is '${1:URL}'"
@@ -239,9 +239,9 @@
     'prefix': 'thendie'
     'body': "fail step and take screenshot"
 ".text.feature":
-  "I go to the '${1:PAGE_NAME}' page":
+  "I am on the '${1:PAGE_NAME}' page":
     'prefix': 'givengoto'
-    'body': "I go to the '${1:PAGE_NAME}' page"
+    'body': "I am on the '${1:PAGE_NAME}' page"
   "the page url is '${1:URL}'":
     'prefix': 'givenpageurl'
     'body': "the page url is '${1:URL}'"

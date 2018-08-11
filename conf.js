@@ -11,6 +11,7 @@ const cukeTractorPath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
+  timeoutInSeconds: 3,
   pagesPath: `${specsPathAbs}/pages`,
   componentsPath: `${specsPathAbs}/pages/components`,
   baseUrl: 'http://localhost:3000',
@@ -45,6 +46,7 @@ const protractorConfig = {
       `${cukeTractorPath}/hooks/attachScreenshotAfter.js`,
       `${cukeTractorPath}/hooks/deleteAllCookies.js`,
       `${cukeTractorPath}/hooks/pageObjectModelBefore.js`,
+      `${cukeTractorPath}/hooks/addMethodsBefore.js`,
       `${cukeTractorPath}/hooks/setDefaultTimeout.js`,
       `${cukeTractorPath}/stepDefinitions/*.js`,
       `${specsPath}/stepDefinitions/*.js`,

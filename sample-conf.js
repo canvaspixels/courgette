@@ -8,6 +8,7 @@ const cukeTractorPath = 'node_modules/cucumber-protractor/uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
+  timeoutInSeconds: 10,
   pagesPath: `${specsPathAbs}/pages`,
   componentsPath: `${specsPathAbs}/pages/components`,
   baseUrl: 'http://localhost:3000', // <------------ SET THE URL TO YOUR PROJECT HERE
@@ -40,6 +41,7 @@ const protractorConfig = {
       `${cukeTractorPath}/hooks/attachScenarioNameBefore.js`,
       `${cukeTractorPath}/hooks/attachScreenshotAfter.js`,
       `${cukeTractorPath}/hooks/pageObjectModelBefore.js`,
+      `${cukeTractorPath}/hooks/addMethodsBefore.js`,
       `${cukeTractorPath}/hooks/setDefaultTimeout.js`,
       `${cukeTractorPath}/stepDefinitions/*.js`,
       `${specsPath}/stepDefinitions/*.js`,
