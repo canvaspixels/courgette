@@ -1,5 +1,7 @@
 # POM CukeTractor - Cucumber Protractor Runner with Setup for Page Object Model
 
+[![Build Status](https://travis-ci.org/canvaspixels/cucumber-protractor.svg?branch=master)](https://travis-ci.org/canvaspixels/cucumber-protractor)
+
 ![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
 
 ## Create easy-to-read, functioning scenarios in minutes:
