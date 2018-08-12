@@ -216,4 +216,6 @@ Have a look at the [available methods](https://github.com/canvaspixels/cucumber-
 
 ## Contributing
 
-To create the STEP_DEFINITIONS.md file, run the script: `node scripts/generateStepDefinitionsREADME.js --genFiles`
+Please get in touch if you'd like to contribute to this project.
+
+To create the STEP_DEFINITIONS.md and snippets files, run the script: `npm run build-readme-and-snippets`
