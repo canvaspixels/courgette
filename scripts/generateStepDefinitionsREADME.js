@@ -4,12 +4,13 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const generateSublimeStepDefSnippets = require('./generateSublimeStepDefSnippets');
 
-console.log(generateSublimeStepDefSnippets);
+// console.log(generateSublimeStepDefSnippets);
 
 const createStepDefLine = (matcher, code, notes) =>
   [`${matcher.replace(/\((.*)\)/g, '$1')}`, code, notes || ''];
 
-const padLongestMatcher = (stepDefLines) => {
+const padLongestMatcher = (stepDefLns) => {
+  const stepDefLines = stepDefLns;
   let longestMatcherLength = 0;
   let longestIndex;
 
@@ -30,19 +31,18 @@ const createStepDefLines = (steps, type) => {
   let stepDefNum = 0;
   const newStepDefLines = [];
   steps.forEach((step) => {
-    const code = generateSublimeStepDefSnippets[type][stepDefNum++];
+    const code = generateSublimeStepDefSnippets[type][stepDefNum++]; // eslint-disable-line no-plusplus
     const zeroOrManyMatcher = /\((.*)\)\*/;
     const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => {
-        return p1.replace(/([^ ]+)/, '_$1_')
-      })
+      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\(\?\:(.*)\)/g, '$1');
+
     const matcher = newMatcher.replace(zeroOrManyMatcher, '');
     newStepDefLines.push(createStepDefLine(matcher, code, step.notes));
 
     if (newMatcher.match(zeroOrManyMatcher)) {
       const matcher2 = newMatcher.replace(zeroOrManyMatcher, '$1');
-      const code2 = generateSublimeStepDefSnippets[type][stepDefNum++];
+      const code2 = generateSublimeStepDefSnippets[type][stepDefNum++]; // eslint-disable-line no-plusplus
       newStepDefLines.push(createStepDefLine(matcher2, code2, step.notes));
     }
   });

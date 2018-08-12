@@ -13,7 +13,7 @@ module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
         // add protocol and host from pomConfig if pageUrl in the page object is just a pathname
         const url = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
 
-        console.log('Getting full url: ', url);
+        console.log('Getting full url: ', url); // eslint-disable-line no-console
         return url;
       },
 

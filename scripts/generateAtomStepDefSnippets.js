@@ -13,10 +13,6 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-const steps = [].concat(givenSteps, whenSteps, thenSteps);
-
-// const snippetsFolder = `${os.homedir()}/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sublime-snippets/cuketractor`;
-
 const snippetsFolder = 'snippets/atom';
 
 if (!fs.existsSync('snippets')) {
@@ -52,11 +48,9 @@ const genSnippets = (steps, type) => {
       .replace(/\(\?\:(.*)\)\?/g, '$1');
 
     const zeroOrManyMatcher = /\((.*)\)\*/g;
-    // console.log(step.matcher);
+
     const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => {
-        return p1.replace(/([^ ]+)/, '_$1_')
-      })
+      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\(\?\:(.*)\)/g, '$1');
 
     const generatedCode = `${step.path ?
@@ -80,11 +74,11 @@ const genSnippets = (steps, type) => {
     // console.log(`${type}${step.code || generatedCode}`);
   });
 };
-snippets += '".text.plain":\n'
+snippets += '".text.plain":\n';
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
-snippets += '".text.feature":\n'
+snippets += '".text.feature":\n';
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
@@ -94,7 +88,7 @@ if (!argv.justForIDE) {
   fs.writeFileSync(`${snippetsFolder}/atom-snippets.cson`, snippets);
 }
 
-const homedir = require('os').homedir();
+const homedir = os.homedir();
 const atomSnippetsFile = `${homedir}/.atom/snippets.cson`;
 const snippetsFile = fs.readFileSync(atomSnippetsFile, 'utf-8');
 const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### cuketractor snippets start 0-o[^~]*###### cuketractor snippets end 0-o$/m, '');

@@ -6,16 +6,13 @@
 
 const fs = require('fs');
 const os = require('os');
-const { argv } = require('yargs');
 
 const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
 const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-const steps = [].concat(givenSteps, whenSteps, thenSteps);
-
-const sublimeSnippetsFolder = `${os.homedir()}/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/sublime-snippets-cuketractor`;
+const sublimeSnippetsFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User/sublime-snippets-cuketractor`;
 
 const snippetsFolder = 'snippets/sublime';
 
@@ -34,8 +31,6 @@ if (!fs.existsSync(sublimeSnippetsFolder)) {
 const snippetCodes = {};
 
 const genSnippet = (matcher, code) => {
-  // console.log(matcher);
-  // console.log('matcher: ', matcher.replace(/\((.*)\)/g, '$1'));
   const snippet = `<snippet>
   <content><![CDATA[
 ${matcher.replace(/\((.*)\)/g, '$1')}
@@ -61,11 +56,9 @@ const genSnippets = (steps, type) => {
       .replace(/\(\?\:(.*)\)\?/g, '$1');
 
     const zeroOrManyMatcher = /\((.*)\)\*/g;
-    // console.log(step.matcher);
     const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => {
-        return p1.replace(/([^ ]+)/, '_$1_')
-      })
+      .replace(/\(\?\:(.*)\)\?/g, (match, p1) =>
+        p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\(\?\:(.*)\)/g, '$1');
 
     const generatedCode = `${step.path ?
@@ -73,7 +66,7 @@ const genSnippets = (steps, type) => {
 
     const matcher = matcherWithReplacedPlaceholders
       .replace(zeroOrManyMatcher, '')
-      .replace(/\((.*)\)\*/g, '$1')
+      .replace(/\((.*)\)\*/g, '$1');
 
     const newCode = `${type}${step.code || generatedCode}`;
     snippetCodes[type].push(newCode);

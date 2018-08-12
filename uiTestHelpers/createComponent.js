@@ -25,7 +25,9 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
         Object.keys(components.locators).forEach((locatorName) => {
           if (locators[locatorName]) {
             // eslint-disable-next-line no-console
-            console.error(`Error: Cannot add component "${componentName}" ${componentInstance.type} into the ${name} ${type} because there is an element name locator conflict. Both have the same locator name "${locatorName}"`);
+            console.error(`Error: Cannot add component "${componentName}" ${componentInstance.type} into the ${name} ${type} because there is an element name locator conflict.`);
+            // eslint-disable-next-line no-console
+            console.error(`Both have the same locator name "${locatorName}"`);
           }
 
           locators[locatorName] = componentInstance.locators[locatorName];
