@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "react-scripts build",
+    "ci": "npm run lint",
     "eject": "react-scripts eject",
     "lint": "eslint **/*.js *.js",
     "postinstall": "webdriver-manager update --gecko=false --versions.chrome 2.35",
