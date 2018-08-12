@@ -5,10 +5,7 @@ cache:
     - "node_modules"
 node_js:
   - 'node'
-  - '8'
 install:
-  - nvm install 8
-  - nvm alias default 8
   - npm install
 before_script:
     - sudo chown root /opt/google/chrome/chrome-sandbox
