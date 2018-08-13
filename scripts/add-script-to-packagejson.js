@@ -1,4 +1,5 @@
 const jsonfile = require('jsonfile');
+const path = require('path');
 
 function scriptAlreadyExists (name) {
   this.name = 'scriptAlreadyExists'
@@ -16,16 +17,18 @@ function noPackageJsonExists (name) {
 noPackageJsonExists.prototype = new Error()
 noPackageJsonExists.prototype.constructor = noPackageJsonExists
 
+const packageJsonFilePath = path.join(process.cwd(), 'package.json');
+
 try {
   const key = process.argv[2];
   const value = process.argv[3];
-  const packageJson = jsonfile.readFileSync('package.json');
+  const packageJson = jsonfile.readFileSync(packageJsonFilePath);
   if (!packageJson.scripts) packageJson.scripts = {}
   if (packageJson.scripts[key]) {
     console.error('cuketractor script already exists');
   }
   packageJson.scripts[key] = value;
-  jsonfile.writeFileSync('package.json', packageJson, {spaces: 2});
+  jsonfile.writeFileSync(packageJsonFilePath, packageJson, {spaces: 2});
 } catch (e) {
   if (e.message === 'ENOENT, no such file or directory \'package.json\'') {
     throw new noPackageJsonExists();
