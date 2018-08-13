@@ -18,7 +18,7 @@ This assumes that you have an npm project. If you don't then make a new one with
 
 1. To improve organisation and scalability, easily compose Page Objects and Component Objects. Page Objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. The only difference between a Page Object and a Component Object is a Component Object does not have an URL. Use the [step definitions provided](https://github.com/canvaspixels/cucumber-protractor/blob/master/STEP_DEFINITIONS.md#step-definitions) (or create your own) to write your own first scenario.
 2. If you're using source control such as git, add `uiTestResult` to your .gitignore file
-3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` rather than typing `./node_modules/.bin/cuketractor` each time, you can add the following lines to your `~/.bash_profile` file:
+3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:
 
 ```alias cuketractor="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"```
 ```alias ct="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"```
@@ -92,31 +92,31 @@ Continuing on from the examples above...
 To run just one feature:
 
 ```console
-./node_modules/.bin/cuketractor --tags=@google-home
+npm run ct --tags=@google-home
 
 OR SIMPLY JUST
 
-./node_modules/.bin/cuketractor @google-home
+npm run ct @google-home
 ```
 
 To run just one scenario:
 
 ```console
-./node_modules/.bin/cuketractor --tags=@google-home-another-thing
+npm run ct --tags=@google-home-another-thing
 
 OR SIMPLY JUST
 
-./node_modules/.bin/cuketractor @google-home-another-thing
+npm run ct @google-home-another-thing
 ```
 
 To run a couple (comma separate):
 
 ```console
-./node_modules/.bin/cuketractor --tags=@google-home-feeling-lucky,@google-home-another-thing
+npm run ct --tags=@google-home-feeling-lucky,@google-home-another-thing
 
 OR SIMPLY JUST
 
-./node_modules/.bin/cuketractor @google-home-feeling-lucky,@google-home-another-thing
+npm run ct @google-home-feeling-lucky,@google-home-another-thing
 ```
 
 ## conf.js file
@@ -136,7 +136,7 @@ The conf file allows you to specify the following:
 To point to a different configuration file:
 
 ```console
-./node_modules/.bin/cuketractor --confFile=staging.conf.js
+npm run ct --confFile=staging.conf.js
 ```
 
 ## Snippets
