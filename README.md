@@ -4,7 +4,7 @@
 
 ![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
 
-## Create easy-to-read, functioning scenarios in minutes:
+## Create easy-to-read, functioning scenarios in seconds:
 
 ### Setup
 
