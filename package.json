@@ -9,7 +9,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint **/*.js *.js",
     "build-readme-and-snippets": "node scripts/generateAtomStepDefSnippets.js --genFiles && node scripts/generateSublimeStepDefSnippets.js --genFiles && node scripts/generateStepDefinitionsREADME.js --genFiles",
-    "postinstall": "npm run setupcuketractor; webdriver-manager update --gecko=false --versions.chrome 2.35",
+    "postinstall": "webdriver-manager update --gecko=false --versions.chrome 2.35",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "uitests": "node index.js"
