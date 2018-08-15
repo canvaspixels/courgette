@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenpageurl",
+    "body": [
+      "the page url is '${1:URL}'"
+    ],
+    "description": "the page url is '${1:URL}'"
+  }
+}

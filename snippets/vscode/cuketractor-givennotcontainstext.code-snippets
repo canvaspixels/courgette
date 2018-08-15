@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givennotcontainstext",
+    "body": [
+      "the '${1:LOCATOR}' does not contain the text '${2:STRING}'"
+    ],
+    "description": "the '${1:LOCATOR}' does not contain the text '${2:STRING}'"
+  }
+}

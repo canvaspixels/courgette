@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenkey",
+    "body": [
+      "I press '${1:KEY}'"
+    ],
+    "description": "I press '${1:KEY}'"
+  }
+}

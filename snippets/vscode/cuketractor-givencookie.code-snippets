@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givencookie",
+    "body": [
+      "the cookie '${1:COOKIE_NAME}' is set to '${2:VALUE}'"
+    ],
+    "description": "the cookie '${1:COOKIE_NAME}' is set to '${2:VALUE}'"
+  }
+}

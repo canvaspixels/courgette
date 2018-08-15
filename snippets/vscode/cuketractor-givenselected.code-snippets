@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenselected",
+    "body": [
+      "the '${1:LOCATOR}' is selected"
+    ],
+    "description": "the '${1:LOCATOR}' is selected"
+  }
+}

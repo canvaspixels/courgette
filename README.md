@@ -20,8 +20,10 @@ This assumes that you have an npm project. If you don't then make a new one with
 2. If you're using source control such as git, add `uiTestResult` to your .gitignore file
 3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:
 
-```alias cuketractor="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"```
-```alias ct="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"```
+```
+alias cuketractor="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"
+alias ct="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"
+```
 
 This is the same command that was added to your package.json. This means you don't have to put npm run each time.
 
@@ -141,18 +143,24 @@ npm run ct --confFile=staging.conf.js
 
 ## Snippets
 
-Snippets are available for Sublime Text 3 and Atom. Webstorm and VScode to come in the future. To add them to your editor do the following.
+Snippets are available for Sublime Text 3 and Atom. Webstorm to come in the future. To add them to your editor do the following.
 
 For Sublime Text 3:
 
 ```console
-node node_modules/cucumber-protractor/scripts/generateSublimeStepDefSnippets.js --genFiles --justForIDE
+node node_modules/cucumber-protractor/scripts/generateSnippetsSublime.js --genFiles --justForIDE
 ```
 
 For Atom:
 
 ```console
-node node_modules/cucumber-protractor/scripts/generateAtomStepDefSnippets.js --genFiles --justForIDE
+node node_modules/cucumber-protractor/scripts/generateSnippetsAtom.js --genFiles --justForIDE
+```
+
+For VSCode:
+
+```console
+node node_modules/cucumber-protractor/scripts/generateSnippetsVSCode.js --genFiles --justForIDE
 ```
 
 ## A side note

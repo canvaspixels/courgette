@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thennottitle",
+    "body": [
+      "I expect the title to not be '${1:STRING}'"
+    ],
+    "description": "I expect the title to not be '${1:STRING}'"
+  }
+}

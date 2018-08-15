@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenvalue",
+    "body": [
+      "the value of the '${1:LOCATOR}' is '${2:VALUE}'"
+    ],
+    "description": "the value of the '${1:LOCATOR}' is '${2:VALUE}'"
+  }
+}

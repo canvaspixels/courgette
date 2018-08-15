@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givencontainsanytext",
+    "body": [
+      "the '${1:LOCATOR}' contains any text"
+    ],
+    "description": "the '${1:LOCATOR}' contains any text"
+  }
+}

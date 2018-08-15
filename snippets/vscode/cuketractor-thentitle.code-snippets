@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thentitle",
+    "body": [
+      "I expect the title to be '${1:STRING}'"
+    ],
+    "description": "I expect the title to be '${1:STRING}'"
+  }
+}

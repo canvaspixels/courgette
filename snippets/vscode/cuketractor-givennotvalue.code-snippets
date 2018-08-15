@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givennotvalue",
+    "body": [
+      "the value of the '${1:LOCATOR}' is not '${2:VALUE}'"
+    ],
+    "description": "the value of the '${1:LOCATOR}' is not '${2:VALUE}'"
+  }
+}

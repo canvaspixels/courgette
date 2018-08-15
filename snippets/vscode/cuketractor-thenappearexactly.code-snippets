@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenappearexactly",
+    "body": [
+      "I expect the '${1:LOCATOR}' to appear exactly '${2:NUMBER}' times"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to appear exactly '${2:NUMBER}' times"
+  }
+}

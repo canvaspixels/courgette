@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thennotclassname",
+    "body": [
+      "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'"
+  }
+}

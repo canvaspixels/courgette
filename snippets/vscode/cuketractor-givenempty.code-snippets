@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenempty",
+    "body": [
+      "the '${1:LOCATOR}' is empty"
+    ],
+    "description": "the '${1:LOCATOR}' is empty"
+  }
+}

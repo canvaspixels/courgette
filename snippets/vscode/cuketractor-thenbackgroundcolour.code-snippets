@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenbackgroundcolour",
+    "body": [
+      "I expect the background colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+    ],
+    "description": "I expect the background colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  }
+}

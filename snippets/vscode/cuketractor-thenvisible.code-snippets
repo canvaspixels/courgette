@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenvisible",
+    "body": [
+      "I expect the '${1:LOCATOR}' to be visible"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to be visible"
+  }
+}

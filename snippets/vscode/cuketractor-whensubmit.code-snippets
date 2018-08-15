@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whensubmit",
+    "body": [
+      "I submit the form '${1:LOCATOR}'"
+    ],
+    "description": "I submit the form '${1:LOCATOR}'"
+  }
+}

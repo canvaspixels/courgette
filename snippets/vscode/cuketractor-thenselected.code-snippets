@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenselected",
+    "body": [
+      "I expect the '${1:LOCATOR}' to be selected"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to be selected"
+  }
+}

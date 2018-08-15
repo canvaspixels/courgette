@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenattribute",
+    "body": [
+      "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+    ],
+    "description": "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  }
+}

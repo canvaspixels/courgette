@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenhidden",
+    "body": [
+      "the '${1:LOCATOR}' is hidden"
+    ],
+    "description": "the '${1:LOCATOR}' is hidden"
+  }
+}

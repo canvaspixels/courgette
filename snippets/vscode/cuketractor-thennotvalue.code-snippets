@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thennotvalue",
+    "body": [
+      "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
+    ],
+    "description": "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
+  }
+}

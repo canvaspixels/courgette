@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givennotpageurl",
+    "body": [
+      "the page url is not '${1:URL}'"
+    ],
+    "description": "the page url is not '${1:URL}'"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givennotchecked",
+    "body": [
+      "the '${1:LOCATOR}' is not checked"
+    ],
+    "description": "the '${1:LOCATOR}' is not checked"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thennotchecked",
+    "body": [
+      "I expect the '${1:LOCATOR}' to not be checked"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to not be checked"
+  }
+}

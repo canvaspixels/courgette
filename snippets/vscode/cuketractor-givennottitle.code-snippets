@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givennottitle",
+    "body": [
+      "the title is not '${1:STRING}'"
+    ],
+    "description": "the title is not '${1:STRING}'"
+  }
+}

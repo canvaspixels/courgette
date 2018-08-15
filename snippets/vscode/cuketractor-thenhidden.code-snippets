@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenhidden",
+    "body": [
+      "I expect the '${1:LOCATOR}' to be hidden"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to be hidden"
+  }
+}

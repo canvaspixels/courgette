@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenurlcontains",
+    "body": [
+      "I expect the url to contain '${1:STRING}'"
+    ],
+    "description": "I expect the url to contain '${1:STRING}'"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givennotselected",
+    "body": [
+      "the '${1:LOCATOR}' is not selected"
+    ],
+    "description": "the '${1:LOCATOR}' is not selected"
+  }
+}

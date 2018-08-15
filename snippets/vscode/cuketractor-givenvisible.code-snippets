@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenvisible",
+    "body": [
+      "the '${1:LOCATOR}' is visible"
+    ],
+    "description": "the '${1:LOCATOR}' is visible"
+  }
+}

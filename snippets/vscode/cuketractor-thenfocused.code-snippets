@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenfocused",
+    "body": [
+      "I expect the '${1:LOCATOR}' to be focused"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to be focused"
+  }
+}

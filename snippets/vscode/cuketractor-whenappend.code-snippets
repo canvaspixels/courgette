@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenappend",
+    "body": [
+      "I append '${1:STRING}' to '${2:LOCATOR}'"
+    ],
+    "description": "I append '${1:STRING}' to '${2:LOCATOR}'"
+  }
+}

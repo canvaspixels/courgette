@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thennotbordercolour",
+    "body": [
+      "I expect the bottom|top|left|right border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+    ],
+    "description": "I expect the bottom|top|left|right border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+  }
+}

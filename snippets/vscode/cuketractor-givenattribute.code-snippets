@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenattribute",
+    "body": [
+      "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+    ],
+    "description": "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  }
+}

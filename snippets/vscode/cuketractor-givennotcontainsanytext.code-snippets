@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givennotcontainsanytext",
+    "body": [
+      "the '${1:LOCATOR}' does not contain any text"
+    ],
+    "description": "the '${1:LOCATOR}' does not contain any text"
+  }
+}

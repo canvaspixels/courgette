@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenenabled",
+    "body": [
+      "I expect the '${1:LOCATOR}' to be enabled"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to be enabled"
+  }
+}

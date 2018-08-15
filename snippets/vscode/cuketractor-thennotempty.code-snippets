@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thennotempty",
+    "body": [
+      "I expect the '${1:LOCATOR}' to not be empty"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to not be empty"
+  }
+}

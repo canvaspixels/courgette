@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenappendreact",
+    "body": [
+      "I append '${1:STRING}' to react field '${2:LOCATOR}'"
+    ],
+    "description": "I append '${1:STRING}' to react field '${2:LOCATOR}'"
+  }
+}

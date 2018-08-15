@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whensetreact",
+    "body": [
+      "I set react field '${1:LOCATOR}' to '${2:STRING}'"
+    ],
+    "description": "I set react field '${1:LOCATOR}' to '${2:STRING}'"
+  }
+}

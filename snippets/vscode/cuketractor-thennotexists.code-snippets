@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thennotexists",
+    "body": [
+      "I expect the '${1:LOCATOR}' to not exist"
+    ],
+    "description": "I expect the '${1:LOCATOR}' to not exist"
+  }
+}
