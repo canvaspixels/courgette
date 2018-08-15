@@ -31,6 +31,8 @@ if (!fs.existsSync(ideSnippetsFolder)) {
 
 const snippetCodes = {};
 
+/* eslint-disable indent */
+
 const genSnippet = (matcher, code) => {
   const snippet = `{
   "Print to console": {
@@ -42,13 +44,7 @@ const genSnippet = (matcher, code) => {
   }
 }`;
 
-//   const snippet = `<snippet>
-//   <content><![CDATA[
-// ${matcher.replace(/\((.*)\)/g, '$1')}
-// ]]></content>
-//   <tabTrigger>${code}</tabTrigger>
-// </snippet>`;
-
+  /* eslint-enable indent */
 
   if (!argv.justForIDE) {
     fs.writeFileSync(`${snippetsFolder}/cuketractor-${code}.code-snippets`, snippet);
