@@ -143,7 +143,7 @@ npm run ct --confFile=staging.conf.js
 
 ## Snippets
 
-Snippets are available for Sublime Text 3 and Atom. Webstorm to come in the future. To add them to your editor do the following.
+Snippets are available for Sublime Text 3, Webstorm (live templates), VSCode and Atom. To add them to your editor do the following.
 
 For Sublime Text 3:
 
@@ -161,6 +161,12 @@ For VSCode:
 
 ```console
 node node_modules/cucumber-protractor/scripts/generateSnippetsVSCode.js --genFiles --justForIDE
+```
+
+For Webstorm:
+
+```console
+node node_modules/cucumber-protractor/scripts/generateSnippetsWebstorm.js --genFiles --justForIDE
 ```
 
 ## A side note
