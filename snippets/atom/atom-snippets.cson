@@ -13,18 +13,18 @@
   "animations are disabled":
     'prefix': 'givendisableAnimations'
     'body': "animations are disabled"
-  "the '${1:LOCATOR}' is (visible)":
+  "the '${1:LOCATOR}' is visible":
     'prefix': 'givenvisible'
-    'body': "the '${1:LOCATOR}' is (visible)"
-  "the '${1:LOCATOR}' is (hidden)":
+    'body': "the '${1:LOCATOR}' is visible"
+  "the '${1:LOCATOR}' is hidden":
     'prefix': 'givenhidden'
-    'body': "the '${1:LOCATOR}' is (hidden)"
-  "the '${1:LOCATOR}' is (enabled)":
+    'body': "the '${1:LOCATOR}' is hidden"
+  "the '${1:LOCATOR}' is enabled":
     'prefix': 'givenenabled'
-    'body': "the '${1:LOCATOR}' is (enabled)"
-  "the '${1:LOCATOR}' is (disabled)":
+    'body': "the '${1:LOCATOR}' is enabled"
+  "the '${1:LOCATOR}' is disabled":
     'prefix': 'givendisabled'
-    'body': "the '${1:LOCATOR}' is (disabled)"
+    'body': "the '${1:LOCATOR}' is disabled"
   "the '${1:LOCATOR}' is selected":
     'prefix': 'givenselected'
     'body': "the '${1:LOCATOR}' is selected"
@@ -49,18 +49,18 @@
   "the title is not '${1:STRING}'":
     'prefix': 'givennottitle'
     'body': "the title is not '${1:STRING}'"
-  "the '${1:LOCATOR}' (contains) the text '${2:STRING}'":
+  "the '${1:LOCATOR}' contains the text '${2:STRING}'":
     'prefix': 'givencontainstext'
-    'body': "the '${1:LOCATOR}' (contains) the text '${2:STRING}'"
-  "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'":
+    'body': "the '${1:LOCATOR}' contains the text '${2:STRING}'"
+  "the '${1:LOCATOR}' does not contain the text '${2:STRING}'":
     'prefix': 'givennotcontainstext'
-    'body': "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'"
-  "the '${1:LOCATOR}' (contains) any text":
+    'body': "the '${1:LOCATOR}' does not contain the text '${2:STRING}'"
+  "the '${1:LOCATOR}' contains any text":
     'prefix': 'givencontainsanytext'
-    'body': "the '${1:LOCATOR}' (contains) any text"
-  "the '${1:LOCATOR}' (does not contain) any text":
+    'body': "the '${1:LOCATOR}' contains any text"
+  "the '${1:LOCATOR}' does not contain any text":
     'prefix': 'givennotcontainsanytext'
-    'body': "the '${1:LOCATOR}' (does not contain) any text"
+    'body': "the '${1:LOCATOR}' does not contain any text"
   "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'givenattribute'
     'body': "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
@@ -133,12 +133,12 @@
   "I expect the url '${1:URL}' is opened in a new tab":
     'prefix': 'thenurlnewtab'
     'body': "I expect the url '${1:URL}' is opened in a new tab"
-  "I expect the '${1:LOCATOR}' to be (visible)":
+  "I expect the '${1:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
-    'body': "I expect the '${1:LOCATOR}' to be (visible)"
-  "I expect the '${1:LOCATOR}' to be (hidden)":
+    'body': "I expect the '${1:LOCATOR}' to be visible"
+  "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
-    'body': "I expect the '${1:LOCATOR}' to be (hidden)"
+    'body': "I expect the '${1:LOCATOR}' to be hidden"
   "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
     'prefix': 'thenbordercolour'
     'body': "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
@@ -157,12 +157,12 @@
   "I expect the title to not be '${1:STRING}'":
     'prefix': 'thennottitle'
     'body': "I expect the title to not be '${1:STRING}'"
-  "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'":
+  "I expect the '${1:LOCATOR}' to contain the text '${2:STRING}'":
     'prefix': 'thencontainstext'
-    'body': "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'"
-  "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'":
+    'body': "I expect the '${1:LOCATOR}' to contain the text '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'":
     'prefix': 'thennotcontainstext'
-    'body': "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'"
+    'body': "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'"
   "I expect the '${1:LOCATOR}' to contain any text":
     'prefix': 'thencontainsanytext'
     'body': "I expect the '${1:LOCATOR}' to contain any text"
@@ -193,12 +193,12 @@
   "I expect the '${1:LOCATOR}' to not be selected":
     'prefix': 'thennotselected'
     'body': "I expect the '${1:LOCATOR}' to not be selected"
-  "I expect the '${1:LOCATOR}' to be (enabled)":
+  "I expect the '${1:LOCATOR}' to be enabled":
     'prefix': 'thenenabled'
-    'body': "I expect the '${1:LOCATOR}' to be (enabled)"
-  "I expect the '${1:LOCATOR}' to be (disabled)":
+    'body': "I expect the '${1:LOCATOR}' to be enabled"
+  "I expect the '${1:LOCATOR}' to be disabled":
     'prefix': 'thendisabled'
-    'body': "I expect the '${1:LOCATOR}' to be (disabled)"
+    'body': "I expect the '${1:LOCATOR}' to be disabled"
   "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'":
     'prefix': 'thencookiecontain'
     'body': "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'"
@@ -251,18 +251,18 @@
   "animations are disabled":
     'prefix': 'givendisableAnimations'
     'body': "animations are disabled"
-  "the '${1:LOCATOR}' is (visible)":
+  "the '${1:LOCATOR}' is visible":
     'prefix': 'givenvisible'
-    'body': "the '${1:LOCATOR}' is (visible)"
-  "the '${1:LOCATOR}' is (hidden)":
+    'body': "the '${1:LOCATOR}' is visible"
+  "the '${1:LOCATOR}' is hidden":
     'prefix': 'givenhidden'
-    'body': "the '${1:LOCATOR}' is (hidden)"
-  "the '${1:LOCATOR}' is (enabled)":
+    'body': "the '${1:LOCATOR}' is hidden"
+  "the '${1:LOCATOR}' is enabled":
     'prefix': 'givenenabled'
-    'body': "the '${1:LOCATOR}' is (enabled)"
-  "the '${1:LOCATOR}' is (disabled)":
+    'body': "the '${1:LOCATOR}' is enabled"
+  "the '${1:LOCATOR}' is disabled":
     'prefix': 'givendisabled'
-    'body': "the '${1:LOCATOR}' is (disabled)"
+    'body': "the '${1:LOCATOR}' is disabled"
   "the '${1:LOCATOR}' is selected":
     'prefix': 'givenselected'
     'body': "the '${1:LOCATOR}' is selected"
@@ -287,18 +287,18 @@
   "the title is not '${1:STRING}'":
     'prefix': 'givennottitle'
     'body': "the title is not '${1:STRING}'"
-  "the '${1:LOCATOR}' (contains) the text '${2:STRING}'":
+  "the '${1:LOCATOR}' contains the text '${2:STRING}'":
     'prefix': 'givencontainstext'
-    'body': "the '${1:LOCATOR}' (contains) the text '${2:STRING}'"
-  "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'":
+    'body': "the '${1:LOCATOR}' contains the text '${2:STRING}'"
+  "the '${1:LOCATOR}' does not contain the text '${2:STRING}'":
     'prefix': 'givennotcontainstext'
-    'body': "the '${1:LOCATOR}' (does not contain) the text '${2:STRING}'"
-  "the '${1:LOCATOR}' (contains) any text":
+    'body': "the '${1:LOCATOR}' does not contain the text '${2:STRING}'"
+  "the '${1:LOCATOR}' contains any text":
     'prefix': 'givencontainsanytext'
-    'body': "the '${1:LOCATOR}' (contains) any text"
-  "the '${1:LOCATOR}' (does not contain) any text":
+    'body': "the '${1:LOCATOR}' contains any text"
+  "the '${1:LOCATOR}' does not contain any text":
     'prefix': 'givennotcontainsanytext'
-    'body': "the '${1:LOCATOR}' (does not contain) any text"
+    'body': "the '${1:LOCATOR}' does not contain any text"
   "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'givenattribute'
     'body': "the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
@@ -371,12 +371,12 @@
   "I expect the url '${1:URL}' is opened in a new tab":
     'prefix': 'thenurlnewtab'
     'body': "I expect the url '${1:URL}' is opened in a new tab"
-  "I expect the '${1:LOCATOR}' to be (visible)":
+  "I expect the '${1:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
-    'body': "I expect the '${1:LOCATOR}' to be (visible)"
-  "I expect the '${1:LOCATOR}' to be (hidden)":
+    'body': "I expect the '${1:LOCATOR}' to be visible"
+  "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
-    'body': "I expect the '${1:LOCATOR}' to be (hidden)"
+    'body': "I expect the '${1:LOCATOR}' to be hidden"
   "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
     'prefix': 'thenbordercolour'
     'body': "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
@@ -395,12 +395,12 @@
   "I expect the title to not be '${1:STRING}'":
     'prefix': 'thennottitle'
     'body': "I expect the title to not be '${1:STRING}'"
-  "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'":
+  "I expect the '${1:LOCATOR}' to contain the text '${2:STRING}'":
     'prefix': 'thencontainstext'
-    'body': "I expect the '${1:LOCATOR}' to (contain) the text '${2:STRING}'"
-  "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'":
+    'body': "I expect the '${1:LOCATOR}' to contain the text '${2:STRING}'"
+  "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'":
     'prefix': 'thennotcontainstext'
-    'body': "I expect the '${1:LOCATOR}' to (not contain) the text '${2:STRING}'"
+    'body': "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'"
   "I expect the '${1:LOCATOR}' to contain any text":
     'prefix': 'thencontainsanytext'
     'body': "I expect the '${1:LOCATOR}' to contain any text"
@@ -431,12 +431,12 @@
   "I expect the '${1:LOCATOR}' to not be selected":
     'prefix': 'thennotselected'
     'body': "I expect the '${1:LOCATOR}' to not be selected"
-  "I expect the '${1:LOCATOR}' to be (enabled)":
+  "I expect the '${1:LOCATOR}' to be enabled":
     'prefix': 'thenenabled'
-    'body': "I expect the '${1:LOCATOR}' to be (enabled)"
-  "I expect the '${1:LOCATOR}' to be (disabled)":
+    'body': "I expect the '${1:LOCATOR}' to be enabled"
+  "I expect the '${1:LOCATOR}' to be disabled":
     'prefix': 'thendisabled'
-    'body': "I expect the '${1:LOCATOR}' to be (disabled)"
+    'body': "I expect the '${1:LOCATOR}' to be disabled"
   "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'":
     'prefix': 'thencookiecontain'
     'body': "I expect cookie '${1:COOKIE_NAME}' to contain '${2:STRING}'"
