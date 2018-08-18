@@ -169,6 +169,14 @@ For Webstorm:
 node node_modules/cucumber-protractor/scripts/generateSnippetsWebstorm.js --genFiles --justForIDE
 ```
 
+For IntelliJ:
+
+```console
+node node_modules/cucumber-protractor/scripts/generateSnippetsIntelliJ.js --genFiles --justForIDE
+```
+
+You may need to restart after running the commands for the JetBrains IDEs.
+
 ## A side note
 
 While the gherkin step examples in this repo are all single action or assertions, you can easily combine a number of steps into one.
