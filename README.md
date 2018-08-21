@@ -177,7 +177,7 @@ node node_modules/cucumber-protractor/scripts/generateSnippetsIntelliJ.js --genF
 
 You may need to restart after running the commands for the JetBrains IDEs.
 
-## A side note
+## Combining steps
 
 While the gherkin step examples in this repo are all single action or assertions, you can easily combine a number of steps into one.
 
