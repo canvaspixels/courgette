@@ -1,10 +1,11 @@
 const createPage = require('../../uiTestHelpers/createPage');
+const banner = require('../components/banner');
 const fileName = createPage.getFileName(__filename);
 
 module.exports = (world) => {
   const pagePath = '/';
   const locators = {
-    'main container': by.css('[data-test="landing-container"]'),
+    'main container': by.css('[data-test="home-container"]'),
     'bullets': by.css('[data-test="list-item"]'),
     'Go to other page by react router link': by.css('[data-test="rr-link"]'),
     'Go to other page link': by.css('[data-test="other-page-link"]'),
@@ -25,5 +26,6 @@ module.exports = (world) => {
     'Go to home page by react router link': by.css('[data-test="go-to-home-link"]'), // doesn't actually exist on this page, just using to test that it doesn't exist
   };
 
-  return createPage(fileName, world, pagePath, locators);
+  return createPage(fileName, world, pagePath, locators)
+    .addComponents([banner]);
 };

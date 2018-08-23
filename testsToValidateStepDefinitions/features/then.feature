@@ -135,7 +135,7 @@ Feature: Testing Then steps
 
   @then-steps-class-name
   Scenario: Then the class name
-    Then I expect the 'main container' to have the class 'Landing'
+    Then I expect the 'main container' to have the class 'Home'
 
   @then-steps-class-name-not
   Scenario: Then the class name doesn't have

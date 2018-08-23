@@ -1,3 +1,5 @@
+const path = require('path');
+
 const EC = protractor.ExpectedConditions;
 
 module.exports = (name, world, elLocators, type = 'component', customMethods = {}) => {
@@ -16,13 +18,13 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
     type,
     locators,
 
-    addComponents(...args) {
+    addComponents(args) {
       args.forEach((component) => {
         const componentInstance = component(world);
         const componentName = componentInstance.name;
         components[componentName] = componentInstance;
 
-        Object.keys(components.locators).forEach((locatorName) => {
+        Object.keys(componentInstance.locators).forEach((locatorName) => {
           if (locators[locatorName]) {
             // eslint-disable-next-line no-console
             console.error(`Error: Cannot add component "${componentName}" ${componentInstance.type} into the ${name} ${type} because there is an element name locator conflict.`);
@@ -80,3 +82,6 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
     },
   }, customMethods);
 };
+
+module.exports.getFileName = (fileName) =>
+  path.basename(fileName).replace(/\.js$/, '');

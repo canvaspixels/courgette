@@ -1,14 +1,16 @@
 module.exports = function checkContainsText(locatorKey, containsStr, expectedText) {
   return this.getCurrentPage().getElementWhenInDOM(locatorKey)
-    .then((el) => (
-      containsStr.indexOf('contain') === 0 || containsStr === true ?
-        expect(el.getText()).to.eventually.equal(expectedText) :
-        el.getText().then((text) => {
-          return expect(text, `
+    .then((el) =>
+      el.getText().then((text) => {
+        if (containsStr.indexOf('contain') === 0 || containsStr === true) {
+          return expect(text).to.include(expectedText);
+        }
+
+        return expect(text, `
 Actual: ${text}
 Expected: ${expectedText}
-            `)
-            .to.not.equal(expectedText)
-        })
-    ));
+          `)
+          .to.not.include(expectedText)
+      })
+    );
 };

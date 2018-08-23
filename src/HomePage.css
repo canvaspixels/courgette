@@ -1,30 +1,30 @@
-.Landing {
+.Home {
   text-align: center;
   background: rgba(220, 220, 220, 1);
   padding: 10px;
 }
 
-.Landing-logo {
-  animation: Landing-logo-spin infinite 20s linear;
+.Home-logo {
+  animation: Home-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.Landing-header {
+.Home-header {
   padding: 10px;
   border: 1px solid rgba(255, 0, 255, 1);
   display: inline-block;
   color: rgba(13, 105, 227, 1);
 }
 
-.Landing-title {
+.Home-title {
   font-size: 1.5em;
 }
 
-.Landing-intro {
+.Home-intro {
   font-size: large;
 }
 
-@keyframes Landing-logo-spin {
+@keyframes Home-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }

@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
 import { Route, Switch } from 'react-router-dom';
 import asyncComponent from './AsyncComponent';
-const AsyncLanding = asyncComponent(() => import('./Landing'));
+const AsyncHomePage = asyncComponent(() => import('./HomePage'));
 const AsyncOtherPage = asyncComponent(() => import('./OtherPage'));
 
 const Routes = ({ childProps }) =>
@@ -12,7 +12,7 @@ const Routes = ({ childProps }) =>
     <Route
       path="/"
       exact
-      component={AsyncLanding}
+      component={AsyncHomePage}
       props={childProps}
     />
     <Route

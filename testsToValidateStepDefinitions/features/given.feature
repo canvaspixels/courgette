@@ -79,6 +79,10 @@ Feature: Testing Given steps
   Scenario: Given the page contains text
     And the 'main heading' contains the text 'Home page'
 
+  @given-steps-component-element-contains-text
+  Scenario: Given the component element contains text
+    And the 'main banner' contains the text 'React App for validating step definitions'
+
   @given-steps-does-not-contain-text
   Scenario: Given the
     And the 'main heading' does not contain the text 'foo'

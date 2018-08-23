@@ -31,7 +31,6 @@ After(function screenshotAfterHook(scenarioResult, callback) {
       callback();
     });
   } else {
-    console.log(msg); // TODO check this
     callback();
   }
 });

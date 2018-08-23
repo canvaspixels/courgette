@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Landing.css';
+import './HomePage.css';
+import Banner from './Banner';
 
-const Landing = () => (
-  <div className="Landing" data-test="landing-container">
-    <h1 className="Landing-header" data-test="main-heading">Home page</h1>
-    <p className="Landing-intro">
+const Home = () => (
+  <div className="Home" data-test="home-container">
+    <Banner />
+    <h1 className="Home-header" data-test="main-heading">Home page</h1>
+    <p className="Home-intro">
       <Link to="/other-page" data-test="rr-link">Go to other page by react router</Link>
     </p>
     <p><a href="/other-page" data-test="other-page-link">Go to other page with full page load</a></p>
@@ -62,4 +64,4 @@ const Landing = () => (
   </div>
 );
 
-export default Landing;
+export default Home;
