@@ -227,15 +227,15 @@ and we'll add our logIn method to a new pageMethods object we'll create (see twi
 const pageMethods = {
   async logIn() {
     await world.goToPage('twitter login');
-    await world.setInputFieldValue('username', 'YOUR_USERNAME');
-    await world.setInputFieldValue('password', 'YOUR_PASSWORD');
+    await world.setInputFieldValue('username', 'foo@bar.com');
+    await world.setInputFieldValue('password', 'password~1');
     await world.submitForm('login form');
     return await world.checkUrlIs('https://twitter.com');
   },
 };
 ```
 
-Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/7ebf04a018e8f27ff25a76ac84b593e04221f455/uiTestHelpers/hooks/addMethodsBefore.js#L43) that you can use to combine your steps.
+Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/master/METHODS_FOR_COMBINING.md) that you can use to combine your steps.
 
 ## Contributing
 
