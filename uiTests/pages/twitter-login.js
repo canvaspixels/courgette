@@ -9,15 +9,5 @@ module.exports = (world) => {
     'login form': by.css('.js-signin'),
   };
 
-  const pageMethods = {
-    async logIn() {
-      await world.goToPage('twitter login');
-      await world.setInputFieldValue('username', 'YOUR_USERNAME');
-      await world.setInputFieldValue('password', 'YOUR_PASSWORD');
-      await world.submitForm('login form');
-      return await world.checkUrlIs('https://twitter.com');
-    },
-  };
-
-  return createPage(fileName, world, pagePath, locators, pageMethods);
+  return createPage(fileName, world, pagePath, locators);
 };

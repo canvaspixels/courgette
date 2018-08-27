@@ -121,6 +121,16 @@ OR SIMPLY JUST
 npm run ct @google-home-feeling-lucky,@google-home-another-thing
 ```
 
+## Viewing your test run
+
+If you get an error, you'll see a screenshot for each step error inside the `uiTestResult` folder and a link to each one from the console output in your terminal. However, if you want to view the browser running each step, you can put disableHeadless=true before the cuketractor command like this:
+
+```console
+disableHeadless=true npm run ct
+```
+
+That'll launch Chrome by default and you'll be able to see your tests run.
+
 ## conf.js file
 
 The conf file allows you to specify the following:
@@ -181,61 +191,56 @@ You may need to restart after running the commands for the JetBrains IDEs.
 
 While the gherkin step examples in this repo are all single action or assertions, you can easily combine a number of steps into one.
 
-For example instead of this:
+For example in a scenario that has the following steps:
 
 ```gherkin
-Given I am on the 'login' page
-When I set 'username' to 'foo@bar.com'
-And I set 'password' to 'password~1'
-And I submit the 'login form'
-Then I expect to eventually be on the 'dashboard' page
-When I click the 'dashboard menu'
-Then I expect the 'dashboard menu items' to be visible
+Scenario: I expect to see items in the dashboard menu
+  Given I am on the 'twitter login' page
+  When I set 'username' to 'peoplesvote_uk'
+  And I set 'password' to 'password~1'
+  And I submit the 'login form'
+  Then I expect to eventually be on the 'dashboard' page
+  When I click the 'dashboard menu'
+  Then I expect the 'dashboard menu items' to be visible
 ```
 
-we can simplify the 5 login steps by combining them into one:
+we could simplify it by combining them into one so that it is more obvious what we are intending to test:
 
 ```gherkin
-Given I am logged in
-When I click the 'dashboard menu'
-Then I expect the 'dashboard menu items' to be visible
+Scenario: I expect to see items in the dashboard menu
+  Given I am logged in
+  When I click the 'dashboard menu'
+  Then I expect the 'dashboard menu items' to be visible
 ```
 
-To do this we’ll need to create our own custom step definition. Add this at the bottom of common-step-defintions.js:
+This allows you to stop repeating yourself with the login steps, making them more reusable, and also it makes the test much more readable and focusses on the subject in test. It is a precondition that we need to be logged in, not really what we are testing. If you are in control of your mocks and are able to mock out a logged in state, say with cookies, then that is preferable as it'll take a lot less time to run, but if you are doing system tests on a staging environment for example then you may have to login how a user would, via the login form. Remember to keep your credentials out of your repository!
+
+To add a `Given I am logged in` step we’ll need to create our own custom step definition. Add this at the bottom of common-step-defintions.js (changing the username and password for your twitter credentials):
 
 ```js
-Given(/^I am logged in$/, function() {
-  return this.getCurrentPage().logIn();
+Given(/^I am logged in$/, async function() {
+  await this.goToPage('twitter login');
+  await this.setInputFieldValue('username', 'peoplesvote_uk');
+  await this.setInputFieldValue('password', 'password~1');
+  await this.submitForm('login form');
+  return await this.checkUrlIs('https://twitter.com');
 });
 ```
 
-Then see in the page object (twitter-login.js in our sample) we change:
+Create yourself a new feature file, let's call it `twitter-dashboard-menu.feature` and save it in the `uiTests/features` folder. Paste the following into it:
 
-```js
-return createPage(fileName, world, pagePath, locators);
+```gherkin
+@twitter-dashboard-menu
+Feature: Test feature
+
+  @twitter-dashboard-menu-items
+  Scenario: I expect to see items in the dashboard menu
+    Given I am logged in
 ```
 
-to:
+Then run that scenario: `npm run ct @twitter-dashboard-menu-items`
 
-```js
-return createPage(fileName, world, pagePath, locators, pageMethods);
-```
-
-and we'll add our logIn method to a new pageMethods object we'll create (see twitter-login.js in uiTests/stepDefinitions):
-
-```js
-const pageMethods = {
-  async logIn() {
-    await world.goToPage('twitter login');
-    await world.setInputFieldValue('username', 'foo@bar.com');
-    await world.setInputFieldValue('password', 'password~1');
-    await world.submitForm('login form');
-    return await world.checkUrlIs('https://twitter.com');
-  },
-};
-```
-
-Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/master/METHODS_FOR_COMBINING.md) that you can use to combine your steps.
+Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/master/METHODS_FOR_COMBINING.md#methods-for-combining-actions-and-assertions) that you can use to combine your steps.
 
 ## Contributing
 
