@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenonpage",
+    "body": [
+      "I expect to eventually be on the '${1:PAGE_NAME}' page"
+    ],
+    "description": "I expect to eventually be on the '${1:PAGE_NAME}' page"
+  }
+}

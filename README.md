@@ -215,7 +215,7 @@ Scenario: I expect to see items in the dashboard menu
 
 This allows you to stop repeating yourself with the login steps, making them more reusable, and also it makes the test much more readable and focusses on the subject in test. It is a precondition that we need to be logged in, not really what we are testing. If you are in control of your mocks and are able to mock out a logged in state, say with cookies, then that is preferable as it'll take a lot less time to run, but if you are doing system tests on a staging environment for example then you may have to login how a user would, via the login form. Remember to keep your credentials out of your repository!
 
-To add a `Given I am logged in` step we’ll need to create our own custom step definition. Add this at the bottom of common-step-defintions.js (changing the username and password for your twitter credentials):
+To add a `Given I am logged in` step we’ll need to create our own custom step definition. Add this to the bottom of `uiTests/stepDefinitions/common-step-defintions.js` and change the username and password twitter credentials:
 
 ```js
 Given(/^I am logged in$/, async function() {

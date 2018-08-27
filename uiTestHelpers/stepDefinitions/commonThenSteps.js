@@ -12,7 +12,7 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   { matcher: "I expect to eventually be on the 'PAGE_NAME' page", path: './checks/checkEventualUrlFromPOM',
-    notes: 'Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page', code: 'eventuallyonpage' },
+    notes: 'Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page', code: 'onpage' },
   { matcher: "I expect the url to contain 'STRING'", path: './checks/checkUrlContainsString', code: 'urlcontains' },
   { matcher: "I expect the url to( not)* be 'STRING'", path: './checks/checkUrl', code: 'url' },
   { matcher: "I expect the url 'URL' is opened in a new tab", path: './checks/checkIsOpenedInNewWindow', code: 'urlnewtab' },
@@ -36,7 +36,7 @@ const steps = [
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },
-  { matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'", path: './checks/checkInputValue', code: 'value' },
+  { matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'", path: './checks/checkInputValue', code: 'value', notes: 'Used for getting the value of an input' },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
 ];
 

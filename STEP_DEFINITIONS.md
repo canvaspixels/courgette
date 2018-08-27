@@ -55,7 +55,7 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I expect to eventually be on the 'PAGE_NAME' page | theneventuallyonpage | Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page |
+| I expect to eventually be on the 'PAGE_NAME' page | thenonpage | Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page |
 | I expect the url to contain 'STRING' | thenurlcontains |  |
 | I expect the url to be 'STRING' | thenurl |  |
 | I expect the url to not be 'STRING' | thennoturl |  |
@@ -91,7 +91,7 @@ Note that the words in italics are optional.
 | I expect _the_ 'LOCATOR' to be focused | thenfocused |  |
 | I expect _the_ 'LOCATOR' to be empty | thenempty |  |
 | I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
-| I expect the value of _the_ 'LOCATOR' to be 'STRING' | thenvalue |  |
-| I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue |  |
+| I expect the value of _the_ 'LOCATOR' to be 'STRING' | thenvalue | Used for getting the value of an input |
+| I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue | Used for getting the value of an input |
 | I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenattribute |  |
 | fail step and take screenshot | thendie |  |
