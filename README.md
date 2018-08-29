@@ -189,7 +189,7 @@ You may need to restart after running the commands for the JetBrains IDEs.
 
 ## Combining steps
 
-While the gherkin step examples in this repo are all single action or assertions, you can easily combine a number of steps into one.
+While the gherkin step examples in this repo are all single actions and assertions, you can easily combine a number of steps into one.
 
 For example in a scenario that has the following steps:
 
@@ -213,7 +213,7 @@ Scenario: I expect to see items in the dashboard menu
   Then I expect the 'dashboard menu items' to be visible
 ```
 
-This allows you to stop repeating yourself with the login steps, making them more reusable, and also it makes the test much more readable and focusses on the subject in test. It is a precondition that we need to be logged in, not really what we are testing. If you are in control of your mocks and are able to mock out a logged in state, say with cookies, then that is preferable as it'll take a lot less time to run, but if you are doing system tests on a staging environment for example then you may have to login how a user would, via the login form. Remember to keep your credentials out of your repository!
+This allows you to stop repeating yourself with the login steps, making them more reusable. Also it makes the test much more readable and focusses on the subject in test. It is a precondition that we need to be logged in and not really what we are testing. If you are in control of your mocks and are able to mock out a logged-in state, say with cookies, then that is preferable as it'll take a lot less time to run. But if you are doing system tests on a staging environment for example then you may have to login how a user would do, via the login form. Remember to keep your credentials out of your repository!
 
 To add a `Given I am logged in` step we’ll need to create our own custom step definition. Add this to the bottom of `uiTests/stepDefinitions/common-step-defintions.js` and change the username and password twitter credentials:
 
@@ -223,7 +223,7 @@ Given(/^I am logged in$/, async function() {
   await this.setInputFieldValue('username', 'peoplesvote_uk');
   await this.setInputFieldValue('password', 'password~1');
   await this.submitForm('login form');
-  return await this.checkUrlIs('https://twitter.com');
+  await this.checkUrlIs('https://twitter.com');
 });
 ```
 
