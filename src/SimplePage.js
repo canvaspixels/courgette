@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Banner from './Banner';
+import Footer from './Footer';
 
 const OtherPage = () => (
   <div className="Home">
@@ -10,6 +11,7 @@ const OtherPage = () => (
     <p className="Home-intro">
       <Link to="/" data-test="go-to-home-link">Go to Home page</Link>
     </p>
+    <Footer />
   </div>
 );
 

@@ -10,6 +10,7 @@ const timeoutInSeconds = pomConfig.timeoutInSeconds || 8;
 const timeoutInMS = timeoutInSeconds * 1000;
 setDefaultTimeout(timeoutInMS);
 
-Before(function setCucumberTimeout() {
+Before(function setCucumberTimeoutBeforeHook() {
+  this.attach('Hook Step: setCucumberTimeoutBeforeHook');
   this.cucumberTimeout = timeoutInMS;
 });

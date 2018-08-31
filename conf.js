@@ -13,7 +13,7 @@ exports.pomConfig = {
   outputPath,
   timeoutInSeconds: 3,
   pagesPath: `${specsPathAbs}/pages`,
-  componentsPath: `${specsPathAbs}/pages/components`,
+  componentsPath: `${specsPathAbs}/components`,
   baseUrl: 'http://localhost:3000',
 };
 

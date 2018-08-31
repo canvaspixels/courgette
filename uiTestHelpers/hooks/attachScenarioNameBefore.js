@@ -2,7 +2,8 @@ const path = require('path');
 
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
-Before(function beforeHook(scenarioResult) {
+Before(function attachScenariosNameBeforeHook(scenarioResult) {
+  this.attach('Hook Step: attachScenariosNameBeforeHook');
   return browser.getCapabilities().then((caps) => {
     const platformName = caps.get('platformName');
     const version = caps.get('version');
@@ -14,6 +15,5 @@ Before(function beforeHook(scenarioResult) {
     }
   }).then(() => {
     this.attach(this.scenarioName);
-    console.log(`Starting ${this.scenarioName}`);
   });
 });

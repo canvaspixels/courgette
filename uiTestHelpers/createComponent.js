@@ -8,8 +8,7 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
 
   const locatorErrorCheck = (locator) => {
     if (!locators[locator]) {
-      // eslint-disable-next-line no-console
-      console.log(`Error: The locator named ${locator} does not exist for the ${name} ${type}`);
+      console.log(`Error: The locator named "${locator}" does not exist for the ${name} ${type}`);
     }
   };
 
@@ -26,9 +25,7 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
 
         Object.keys(componentInstance.locators).forEach((locatorName) => {
           if (locators[locatorName]) {
-            // eslint-disable-next-line no-console
             console.error(`Error: Cannot add component "${componentName}" ${componentInstance.type} into the ${name} ${type} because there is an element name locator conflict.`);
-            // eslint-disable-next-line no-console
             console.error(`Both have the same locator name "${locatorName}"`);
           }
 
@@ -41,7 +38,6 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
 
     getComponent(componentName) {
       if (!components[componentName]) {
-        // eslint-disable-next-line no-console
         console.error(`Error: getComponent(): No component named ${componentName} ${type} has been added`);
       }
 

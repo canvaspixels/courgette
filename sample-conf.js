@@ -10,7 +10,7 @@ exports.pomConfig = {
   outputPath,
   timeoutInSeconds: 10,
   pagesPath: `${specsPathAbs}/pages`,
-  componentsPath: `${specsPathAbs}/pages/components`,
+  componentsPath: `${specsPathAbs}/components`,
   baseUrl: 'http://localhost:3000', // <------------ SET THE URL TO YOUR PROJECT HERE
 };
 

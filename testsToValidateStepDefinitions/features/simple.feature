@@ -11,3 +11,10 @@ Feature: simple page feature
     Given I am on the 'simple' page
     Then I expect 'main heading' to contain the text 'Simple page'
 
+  @simplepage-components
+  Scenario: Testing .page file for components
+    Given I am on the 'simple' page
+    Then I expect the 'main banner' to be visible
+    Then I expect the 'footer wrapper' to be visible
+    Then I expect the 'footer item 1' to be visible
+    Then I expect the 'footer item 2' to be visible

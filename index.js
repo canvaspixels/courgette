@@ -12,7 +12,6 @@ const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
 
 const log = (...args) => {
-  // eslint-disable-next-line no-console
   console.log(...args);
 };
 

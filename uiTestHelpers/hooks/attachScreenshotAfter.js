@@ -5,8 +5,10 @@ const { After } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
-After(function screenshotAfterHook(scenarioResult, callback) {
-  const msg = `Screenshot of ${this.scenarioName}\n`;
+After(function attachScreenshotAfterHook(scenarioResult, callback) {
+  this.attach('Hook Step: attachScreenshotAfterHook');
+
+  const msg = `Screenshot of: ${this.scenarioName}\n`;
   if (scenarioResult.result.status === 'failed' || scenarioResult.result.status === 'undefined') {
     let bufferedImage;
 
@@ -14,9 +16,7 @@ After(function screenshotAfterHook(scenarioResult, callback) {
     browser.takeScreenshot().then((png) => {
       const screenshotFilePath = path.join(pomConfig.outputPath, `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}.png`);
       const stream = fs.createWriteStream(screenshotFilePath);
-      console.log('-------------------------------------');
-      console.log('*************************************');
-      console.log('ScreenshotFilePath:');
+      console.log('*************************************\nScreenshotFilePath:');
       console.log(screenshotFilePath);
       this.attach(`ScreenshotFilePath: ${screenshotFilePath}`);
       console.log('*************************************');

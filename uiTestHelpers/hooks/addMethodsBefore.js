@@ -40,6 +40,7 @@ const checkUrlContainsString = require('../../uiTestHelpers/stepDefinitions/chec
 const checkVisibility = require('../../uiTestHelpers/stepDefinitions/checks/checkVisibility');
 
 Before(function addMethodsBeforeHook() {
+  this.attach('Hook Step: addMethodsBeforeHook');
   this.appendInputFieldValue = appendInputFieldValue; // args: (value, locatorKey)
   this.appendReactInputFieldValue = appendReactInputFieldValue; // args: (text, locatorKey)
   this.clearInputFieldValue = clearInputFieldValue; // args: (locatorKey)

@@ -4,10 +4,17 @@ class CucumberStepFormatter extends cucumber.Formatter {
   constructor(options) {
     super(options);
     options.eventBroadcaster
+      .on('test-step-attachment', this.attached.bind(this))
       .on('test-case-started', this.logTestCaseName.bind(this))
       .on('test-step-finished', this.logTestStep.bind(this))
       .on('test-case-finished', this.logSeparator.bind(this))
       .on('test-run-finished', this.logTestRunResult.bind(this));
+  }
+
+  attached({ data }) {
+    if (data.includes('Hook Step:')) {
+      this.hookStep = data;
+    }
   }
 
   logTestCaseName({ sourceLocation }) {
@@ -24,13 +31,16 @@ class CucumberStepFormatter extends cucumber.Formatter {
     let text;
 
     if (pickleStep) {
-      text = `${gherkinKeyword}${pickleStep.text} ---> ${result.status.toUpperCase()}`;
+      text = `${gherkinKeyword}${pickleStep.text} ---> ${result.status.toUpperCase()}\n`;
     } else {
-      text = `Hook - ${result.status.toUpperCase()}`;
+      const statusUpper = result.status.toUpperCase();
+      text = statusUpper === 'FAILED' ? `${this.hookStep} - FAILED\n\n` : '';
     }
 
-    const colouredText = this.colorFns[result.status](text);
-    this.log(`${colouredText}\n`);
+    if (text) {
+      const colouredText = this.colorFns[result.status](text);
+      this.log(colouredText);
+    }
   }
 
   logSeparator() {

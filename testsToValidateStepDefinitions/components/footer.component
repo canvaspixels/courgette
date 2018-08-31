@@ -1,0 +1,6 @@
+selectors:
+  footer wrapper: '.footer'
+
+components:
+  - footer-item1
+  - footer-item2
