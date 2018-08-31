@@ -1,0 +1,4 @@
+path: https://www.google.com/
+
+selectors:
+  I’m Feeling Lucky: '[value="I\'m Feeling Lucky"]'

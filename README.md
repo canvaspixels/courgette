@@ -56,6 +56,17 @@ module.exports = (world) => {
 };
 ```
 
+...or for most use cases you can do without the boilerplate with a simple yaml file called `google-home.page` (again kebab-case is important):
+
+```yaml
+path: https://www.google.com/;
+
+selectors:
+  I’m Feeling Lucky: '[value="I\'m Feeling Lucky"]'
+```
+
+Note that a `.page` file will take precedence over a `.js` page object file.
+
 You don't need to write any page object methods, nor step definitions. How easy is that!!?
 
 It's important that the page object name is kebab-case and lowercase. E.g. `about-us.js` or `about-something-else.js` or `google-home.js` as in the sample. `Given I am on the 'Google Home' page` sets the current page object and `Google Home` gets translated behind the scenes to `google-home.js` so make sure `Google Home` has the space in it.
