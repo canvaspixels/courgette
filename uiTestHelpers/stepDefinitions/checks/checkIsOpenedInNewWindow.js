@@ -4,10 +4,7 @@ module.exports = function checkIsOpenedInNewWindow(href) {
       handles.map((handle) =>
         browser.switchTo().window(handle)
           .then(() =>
-            browser.getCurrentUrl()
-          )
-      )
-    );
+            browser.getCurrentUrl())));
 
   return openTabHandles
     .then((urlPromises) => Promise.all(urlPromises))

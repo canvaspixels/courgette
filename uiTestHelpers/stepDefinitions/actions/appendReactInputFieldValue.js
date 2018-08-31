@@ -6,44 +6,42 @@
 module.exports = function appendReactInputFieldValue(text, locatorKey) {
   return this.getCurrentPage()
     .getElementWhenInDOM(locatorKey)
-    .then((element) => {
-      return browser.executeScript(function(domEl, val) {
-        const domElement = domEl;
-        const valueFromDescriptor = Object.getOwnPropertyDescriptor(domElement, 'value');
-        const elProto = Object.getPrototypeOf(domElement);
-        const valueFromProtoDescriptor = Object.getOwnPropertyDescriptor(elProto, 'value');
+    .then((element) => browser.executeScript((domEl, val) => {
+      const domElement = domEl;
+      const valueFromDescriptor = Object.getOwnPropertyDescriptor(domElement, 'value');
+      const elProto = Object.getPrototypeOf(domElement);
+      const valueFromProtoDescriptor = Object.getOwnPropertyDescriptor(elProto, 'value');
 
-        let existingVal;
+      let existingVal;
 
-        if (valueFromDescriptor && valueFromDescriptor.get &&
+      if (valueFromDescriptor && valueFromDescriptor.get &&
           valueFromProtoDescriptor && valueFromProtoDescriptor.get &&
           valueFromDescriptor.get !== valueFromProtoDescriptor.get) {
-          existingVal = valueFromProtoDescriptor.get.call(domElement, val);
-        } else {
-          existingVal = domElement.value;
-        }
+        existingVal = valueFromProtoDescriptor.get.call(domElement, val);
+      } else {
+        existingVal = domElement.value;
+      }
 
-        const newVal = existingVal + val;
+      const newVal = existingVal + val;
 
-        if (valueFromDescriptor && valueFromDescriptor.set &&
+      if (valueFromDescriptor && valueFromDescriptor.set &&
           valueFromProtoDescriptor && valueFromProtoDescriptor.set &&
           valueFromDescriptor.set !== valueFromProtoDescriptor.set) {
-          valueFromProtoDescriptor.set.call(domElement, newVal);
-        } else {
-          domElement.value = newVal;
-        }
+        valueFromProtoDescriptor.set.call(domElement, newVal);
+      } else {
+        domElement.value = newVal;
+      }
 
-        // react 15 - ie11
-        window.event = document.createEvent('HTMLEvents');
-        window.event.initEvent('propertychange', false, false);
-        window.event.propertyname = 'value';
-        domElement.dispatchEvent(window.event);
+      // react 15 - ie11
+      window.event = document.createEvent('HTMLEvents');
+      window.event.initEvent('propertychange', false, false);
+      window.event.propertyname = 'value';
+      domElement.dispatchEvent(window.event);
 
-        // react 15 - browsers other than ie
-        // react 16 - ie10, ie11, browsers other than ie
-        window.event = document.createEvent('HTMLEvents');
-        window.event.initEvent('input', true, false);
-        domElement.dispatchEvent(window.event);
-      }, element, text);
-    });
+      // react 15 - browsers other than ie
+      // react 16 - ie10, ie11, browsers other than ie
+      window.event = document.createEvent('HTMLEvents');
+      window.event.initEvent('input', true, false);
+      domElement.dispatchEvent(window.event);
+    }, element, text));
 };

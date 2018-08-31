@@ -7,16 +7,12 @@ module.exports = function setSelectValueByOptionText(locatorKey, itemText) {
       element.click();
 
       return element.$$('option')
-        .then(function findMatchingOption(options) {
-          return Promise.all(options.map(function(option) {
-              return option.getText().then(function doesOptionMatch(text) {
-                if (itemText === text) {
-                  desiredOption = option;
-                }
-              });
-          }));
-        })
-        .then(function() {
+        .then((options) => Promise.all(options.map((option) => option.getText().then((text) => {
+          if (itemText === text) {
+            desiredOption = option;
+          }
+        }))))
+        .then(() => {
           if (desiredOption) {
             return desiredOption.click();
           }

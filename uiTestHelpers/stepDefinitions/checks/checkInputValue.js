@@ -8,5 +8,4 @@ module.exports = function checkInputValue(locatorKey, isNot, expectedVal) {
         expect(elValuePromise).to.not.eventually.equal(expectedValue) :
         expect(elValuePromise).to.eventually.equal(expectedValue);
     });
-
 };

@@ -15,18 +15,14 @@ module.exports = function checkFocus(locatorKey) {
   const activeEl = browser.driver.switchTo().activeElement();
 
   return Promise.all([el.getId(), activeEl.getId(), activeEl])
-    .then(([expectedElementId, activeElementId, theActiveEl]) => {
-      return browser.executeScript(function(activeElArg, elementArg) {
-        return { activeEl: activeElArg.attributes, element: elementArg.attributes };
-      }, theActiveEl, el)
-        .then((attrsObj) => {
-          return expect(expectedElementId, `
+    .then(([expectedElementId, activeElementId, theActiveEl]) =>
+      browser.executeScript((activeElArg, elementArg) =>
+        ({ activeEl: activeElArg.attributes, element: elementArg.attributes }), theActiveEl, el)
+        .then((attrsObj) => expect(expectedElementId, `
 
 Actual: ${JSON.stringify(getAttributesMap(attrsObj.activeEl))}
 Expected: ${JSON.stringify(getAttributesMap(attrsObj.element))}
 
             `)
-            .to.equal(activeElementId);
-        })
-    })
+          .to.equal(activeElementId)));
 };

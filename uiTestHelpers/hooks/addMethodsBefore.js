@@ -1,4 +1,5 @@
 const path = require('path');
+
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
 const appendInputFieldValue = require('../../uiTestHelpers/stepDefinitions/actions/appendInputFieldValue');
@@ -52,102 +53,102 @@ Before(function addMethodsBeforeHook() {
   this.setSelectValueByOptionText = setSelectValueByOptionText; // args: (locatorKey, itemText)
   this.submitForm = submitForm; // args: (locatorKey)
   this.checkAttribute = checkAttribute; // args: (locatorKey, expectedAttribute, expectedValue)
-  this.hasClass = function(locatorKey, className) {
+  this.hasClass = function (locatorKey, className) {
     return checkClass.call(this, locatorKey, false, className);
   };
-  this.doesNotHaveClass = function(locatorKey, className) {
+  this.doesNotHaveClass = function (locatorKey, className) {
     return checkClass.call(this, locatorKey, true, className);
   };
   this.checkColour = checkColour; // args: (locatorKey, expectedColour, property)
-  this.checkContainsAnyText = function(locatorKey) {
+  this.checkContainsAnyText = function (locatorKey) {
     return checkContainsAnyText.call(this, locatorKey, false);
   };
-  this.checkDoesNotContainAnyText = function(locatorKey) {
+  this.checkDoesNotContainAnyText = function (locatorKey) {
     return checkContainsAnyText.call(this, locatorKey, true);
   };
-  this.checkContainsText = function(locatorKey, expectedText) {
+  this.checkContainsText = function (locatorKey, expectedText) {
     return checkContainsText.call(this, locatorKey, true, expectedText);
   };
-  this.checkDoesNotContainText = function(locatorKey, expectedText) {
+  this.checkDoesNotContainText = function (locatorKey, expectedText) {
     return checkContainsText.call(this, locatorKey, false, expectedText);
   };
-  this.checkCookieContains = function(cookieName, expectedValue) {
+  this.checkCookieContains = function (cookieName, expectedValue) {
     return checkCookieContains.call(this, cookieName, false, expectedValue);
   };
-  this.checkCookieDoesNotContain = function(cookieName, expectedValue) {
+  this.checkCookieDoesNotContain = function (cookieName, expectedValue) {
     return checkCookieContains.call(this, cookieName, true, expectedValue);
   };
-  this.checkCookieContent = function(cookieName, expectedValue) {
+  this.checkCookieContent = function (cookieName, expectedValue) {
     return checkCookieContent.call(this, cookieName, false, expectedValue);
   };
-  this.checkCookieValueIsNot = function(cookieName, expectedValue) {
+  this.checkCookieValueIsNot = function (cookieName, expectedValue) {
     return checkCookieContent.call(this, cookieName, true, expectedValue);
   };
-  this.checkCookieExists = function(cookieName) {
+  this.checkCookieExists = function (cookieName) {
     return checkCookieExists.call(this, cookieName, false);
   };
-  this.checkCookieDoesNotExist = function(cookieName) {
+  this.checkCookieDoesNotExist = function (cookieName) {
     return checkCookieExists.call(this, cookieName, true);
   };
   this.checkElementBackgroundColour = checkElementBackgroundColour; // args: (locatorKey, expectedColour)
   this.checkElementBorderColour = checkElementBorderColour; // args: (position, locatorKey, expectedColour)
   this.checkElementColour = checkElementColour; // args: (locatorKey, expectedColour)
-  this.checkElementExists = function(locatorKey) {
+  this.checkElementExists = function (locatorKey) {
     return checkElementExists.call(this, locatorKey, false);
   };
-  this.checkElementDoesNotExist = function(locatorKey) {
+  this.checkElementDoesNotExist = function (locatorKey) {
     return checkElementExists.call(this, locatorKey, true);
   };
-  this.checkElementExistsNTimes = function(locatorKey, count) {
+  this.checkElementExistsNTimes = function (locatorKey, count) {
     return checkElementExistsNTimes.call(this, locatorKey, false, count);
   };
-  this.checkElementDoesNotExistNTimes = function(locatorKey, count) {
+  this.checkElementDoesNotExistNTimes = function (locatorKey, count) {
     return checkElementExistsNTimes.call(this, locatorKey, true, count);
   };
   this.checkEventualUrlFromPOM = checkEventualUrlFromPOM; // args: (pageName)
   this.checkFocus = checkFocus; // args: (locatorKey)
-  this.checkInputIsEmpty = function(locatorKey) {
+  this.checkInputIsEmpty = function (locatorKey) {
     return checkInputIsEmpty.call(this, locatorKey, false);
   };
-  this.checkInputIsNotEmpty = function(locatorKey) {
+  this.checkInputIsNotEmpty = function (locatorKey) {
     return checkInputIsEmpty.call(this, locatorKey, true);
   };
-  this.checkInputValue = function(locatorKey, expectedValue) {
+  this.checkInputValue = function (locatorKey, expectedValue) {
     return checkInputValue.call(this, locatorKey, false, expectedValue);
   };
-  this.checkInputValueIsNot = function(locatorKey, expectedValue) {
+  this.checkInputValueIsNot = function (locatorKey, expectedValue) {
     return checkInputValue.call(this, locatorKey, true, expectedValue);
   };
-  this.checkIsEnabled = function(locatorKey) {
+  this.checkIsEnabled = function (locatorKey) {
     return checkIsEnabled.call(this, locatorKey, 'enabled');
   };
-  this.checkIsDisabled = function(locatorKey) {
+  this.checkIsDisabled = function (locatorKey) {
     return checkIsEnabled.call(this, locatorKey);
   };
   this.checkIsOpenedInNewWindow = checkIsOpenedInNewWindow; // args: (href)
-  this.checkIsSelected = function(locatorKey) {
+  this.checkIsSelected = function (locatorKey) {
     return checkIsSelected.call(this, locatorKey, false);
   };
-  this.checkIsDeselected = function(locatorKey) {
+  this.checkIsDeselected = function (locatorKey) {
     return checkIsSelected.call(this, locatorKey, true);
   };
-  this.checkTitle = function(expectedTitle) {
+  this.checkTitle = function (expectedTitle) {
     return checkTitle.call(this, false, expectedTitle);
   };
-  this.checkTitleIsNot = function(expectedTitle) {
+  this.checkTitleIsNot = function (expectedTitle) {
     return checkTitle.call(this, true, expectedTitle);
   };
-  this.checkUrlIs = function(url) {
+  this.checkUrlIs = function (url) {
     return checkUrl.call(this, false, url);
   };
-  this.checkUrlIsNot = function(url) {
+  this.checkUrlIsNot = function (url) {
     return checkUrl.call(this, true, url);
   };
   this.checkUrlContainsString = checkUrlContainsString; // args: (expectedUrlPart)
-  this.checkVisible = function(locatorKey) {
+  this.checkVisible = function (locatorKey) {
     return checkVisibility.call(this, locatorKey, 'visible');
   };
-  this.checkHidden = function(locatorKey) {
+  this.checkHidden = function (locatorKey) {
     return checkVisibility.call(this, locatorKey, 'hidden');
   };
 });

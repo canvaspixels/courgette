@@ -1,6 +1,4 @@
 node_modules
 src/registerServiceWorker.js
-*.css
-*.svg
 src/index.js
 uiTests

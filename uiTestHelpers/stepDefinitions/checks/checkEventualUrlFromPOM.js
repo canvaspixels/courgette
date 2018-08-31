@@ -11,7 +11,7 @@ module.exports = function checkUrl(pageName) {
 
         if (currentUrlNoTrailingSlash === expectedUrlNoTrailingSlash) {
           resolve();
-        } else if (Date.now() > (timestamp + waitTimeout - 100)) {
+        } else if (Date.now() > ((timestamp + waitTimeout) - 100)) {
           reject();
         }
 

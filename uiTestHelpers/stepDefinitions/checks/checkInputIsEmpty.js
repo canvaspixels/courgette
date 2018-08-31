@@ -6,5 +6,4 @@ module.exports = function checkInputIsEmpty(locatorKey, isNotEmpty) {
         expect(elValuePromise).to.not.eventually.equal('') :
         expect(elValuePromise).to.eventually.equal('');
     });
-
 };

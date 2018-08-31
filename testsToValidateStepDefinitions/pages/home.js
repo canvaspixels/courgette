@@ -1,5 +1,6 @@
 const createPage = require('../../uiTestHelpers/createPage');
 const banner = require('../components/banner');
+
 const fileName = createPage.getFileName(__filename);
 
 module.exports = (world) => {

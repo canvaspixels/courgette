@@ -6,32 +6,30 @@
 module.exports = function setReactInputFieldValue(locatorKey, text) {
   return this.getCurrentPage()
     .getElementWhenInDOM(locatorKey)
-    .then((element) => {
-      return browser.executeScript(function(domEl, val) {
-        const domElement = domEl;
-        const valueFromDescriptor = Object.getOwnPropertyDescriptor(domElement, 'value');
-        const elProto = Object.getPrototypeOf(domElement);
-        const valueFromProtoDescriptor = Object.getOwnPropertyDescriptor(elProto, 'value');
+    .then((element) => browser.executeScript((domEl, val) => {
+      const domElement = domEl;
+      const valueFromDescriptor = Object.getOwnPropertyDescriptor(domElement, 'value');
+      const elProto = Object.getPrototypeOf(domElement);
+      const valueFromProtoDescriptor = Object.getOwnPropertyDescriptor(elProto, 'value');
 
-        if (valueFromDescriptor && valueFromDescriptor.set &&
+      if (valueFromDescriptor && valueFromDescriptor.set &&
           valueFromProtoDescriptor && valueFromProtoDescriptor.set &&
           valueFromDescriptor.set !== valueFromProtoDescriptor.set) {
-          valueFromProtoDescriptor.set.call(domElement, val);
-        } else {
-          domElement.value = val;
-        }
+        valueFromProtoDescriptor.set.call(domElement, val);
+      } else {
+        domElement.value = val;
+      }
 
-        // react 15 - ie11
-        window.event = document.createEvent('HTMLEvents');
-        window.event.initEvent('propertychange', false, false);
-        window.event.propertyname = 'value';
-        domElement.dispatchEvent(window.event);
+      // react 15 - ie11
+      window.event = window.document.createEvent('HTMLEvents');
+      window.event.initEvent('propertychange', false, false);
+      window.event.propertyname = 'value';
+      domElement.dispatchEvent(window.event);
 
-        // react 15 - browsers other than ie
-        // react 16 - ie10, ie11, browsers other than ie
-        window.event = document.createEvent('HTMLEvents');
-        window.event.initEvent('input', true, false);
-        domElement.dispatchEvent(window.event);
-      }, element, text);
-    });
+      // react 15 - browsers other than ie
+      // react 16 - ie10, ie11, browsers other than ie
+      window.event = window.document.createEvent('HTMLEvents');
+      window.event.initEvent('input', true, false);
+      domElement.dispatchEvent(window.event);
+    }, element, text));
 };

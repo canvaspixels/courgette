@@ -4,5 +4,5 @@ module.exports = {
       return rgbString.replace('rgb(', 'rgba(').replace(')', ', 1)');
     }
     return rgbString.replace('rgba(0, 0, 0, 0)', 'transparent');
-  }
+  },
 };

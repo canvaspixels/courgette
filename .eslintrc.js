@@ -3,7 +3,11 @@ module.exports = {
     "plugins": [
         "react"
     ],
+    "env": {
+      "browser": true,
+    },
     "globals": {
+        "expect": true,
         "protractor": true,
         "by": true,
         "it": true,
@@ -15,6 +19,8 @@ module.exports = {
       "arrow-parens": ["error", "always"],
       "no-useless-escape": "off",
       "global-require": "off",
+      "no-console": "off",
+      "import/no-dynamic-require": "off",
       "jsx-a11y/anchor-is-valid": "off",
       "jsx-a11y/label-has-for": "off",
       "react/jsx-filename-extension": "off",

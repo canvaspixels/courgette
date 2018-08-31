@@ -3,6 +3,6 @@ module.exports = function setCookie(name, value) {
     name,
     value,
     path: '/',
-    expiry: new Date(Date.now() + (10 * 60 * 1000))
+    expiry: new Date(Date.now() + (10 * 60 * 1000)),
   });
 };

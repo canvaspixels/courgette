@@ -32,7 +32,6 @@ Before(function pomBeforeHook() {
     const name = componentName.replace(/ /g, '-').toLowerCase();
 
     try {
-      // eslint-disable-next-line import/no-dynamic-require, global-require
       const component = require(path.resolve(pomConfig.componentsPath, name));
       return component(this);
     } catch (err) {
@@ -58,7 +57,6 @@ Before(function pomBeforeHook() {
       console.log('No .page file found called here: ', yamlPagePath);
       console.log('Let’s see if a .js page object exists');
       try {
-        // eslint-disable-next-line import/no-dynamic-require, global-require
         const page = require(path.resolve(pomConfig.pagesPath, name));
 
         if (updateCurrentPage) {
@@ -71,7 +69,6 @@ Before(function pomBeforeHook() {
         throw new Error(`Page object ${name} not found at ${pomConfig.pagesPath}/${name}`);
       }
     }
-
   };
 
   this.getCurrentPage = () => {
