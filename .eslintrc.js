@@ -19,5 +19,19 @@ module.exports = {
       "react/jsx-filename-extension": "off",
       "react/no-did-mount-set-state": "off",
       "max-len": ["error", { "code": 200 }]
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "*.js"
+        ],
+        "env": {
+          "mocha": true,
+          "jest/globals": true
+        },
+        "rules": {
+          "func-names": "off" // <-- Avoids "unexpected unnamed async function" in async mocha tests
+        }
+      }
+    ]
 };
