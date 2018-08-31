@@ -35,7 +35,7 @@ const protractorConfig = {
     },
   },
   cucumberOpts: {
-    require: [
+    'require': [
       // `${specsPath}/helpers/globals.js`,
       `${cukeTractorPath}/globals.js`,
       `${cukeTractorPath}/hooks/attachScenarioNameBefore.js`,
@@ -47,12 +47,12 @@ const protractorConfig = {
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,
     ],
-    tags: ['~ignore'].concat(cukeTags || []),
-    format: [
+    'tags': ['~ignore'].concat(cukeTags || []),
+    'format': [
       'node_modules/cucumber-protractor/cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
     ],
-    profile: false,
+    'profile': false,
     'no-source': true,
   },
   onPrepare: () => { browser.ignoreSynchronization = true; },

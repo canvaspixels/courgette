@@ -3,3 +3,4 @@ src/registerServiceWorker.js
 *.css
 *.svg
 src/index.js
+uiTests
