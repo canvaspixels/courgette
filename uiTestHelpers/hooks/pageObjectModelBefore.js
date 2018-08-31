@@ -1,6 +1,31 @@
 const path = require('path');
+const yaml = require('js-yaml');
+const fs = require('fs');
+
+const createPage = require('../../uiTestHelpers/createPage');
+
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
+
+
+const createPageObject = (world, fileName, pagePath, cssSelectors = {}, xPaths = {}) => {
+  const cssLocators = Object.assign({}, cssSelectors);
+  Object.keys(cssSelectors)
+    .forEach((selectorKey) => {
+      cssLocators[selectorKey] = by.css(cssLocators[selectorKey]);
+    });
+
+  const xPathLocators = Object.assign({}, xPaths);
+  Object.keys(xPathLocators)
+    .forEach((xPathKey) => {
+      xPathLocators[xPathKey] = by.xpath(xPathLocators[xPathKey]);
+    });
+
+  const locators = Object.assign({}, cssLocators, xPathLocators);
+
+  return createPage(fileName, world, pagePath, locators);
+};
+
 
 Before(function pomBeforeHook() {
   this.getComponent = (componentName) => {
@@ -19,19 +44,34 @@ Before(function pomBeforeHook() {
   this.getPage = (pageName, updateCurrentPage = true) => {
     const name = pageName.replace(/ /g, '-').toLowerCase();
 
+    const yamlPagePath = path.resolve(pomConfig.pagesPath, `${name}.page`);
     try {
-      // eslint-disable-next-line import/no-dynamic-require, global-require
-      const page = require(path.resolve(pomConfig.pagesPath, name));
+      const doc = yaml.safeLoad(fs.readFileSync(yamlPagePath, 'utf8'));
+      const page = createPageObject(this, name, doc.path, doc.selectors, doc.XPaths);
 
-      if(updateCurrentPage) {
-        this.currentPage = page(this);
+      if (updateCurrentPage) {
+        this.currentPage = page;
       }
-      return page(this);
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
-      throw new Error(`Page object ${name} not found at ${pomConfig.pagesPath}/${name}`);
+      return page;
+    } catch (e) {
+      console.log(e);
+      console.log('No .page file found called here: ', yamlPagePath);
+      console.log('Let’s see if a .js page object exists');
+      try {
+        // eslint-disable-next-line import/no-dynamic-require, global-require
+        const page = require(path.resolve(pomConfig.pagesPath, name));
+
+        if (updateCurrentPage) {
+          this.currentPage = page(this);
+        }
+        return page(this);
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
+        throw new Error(`Page object ${name} not found at ${pomConfig.pagesPath}/${name}`);
+      }
     }
+
   };
 
   this.getCurrentPage = () => {

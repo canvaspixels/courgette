@@ -18,20 +18,7 @@ module.exports = {
       "jsx-a11y/label-has-for": "off",
       "react/jsx-filename-extension": "off",
       "react/no-did-mount-set-state": "off",
-      "max-len": ["error", { "code": 200 }]
+      "max-len": ["error", { "code": 200 }],
+      "func-names": "off", // <-- Avoids "unexpected unnamed async function" in async mocha tests
     },
-    "overrides": [
-      {
-        "files": [
-          "*.js"
-        ],
-        "env": {
-          "mocha": true,
-          "jest/globals": true
-        },
-        "rules": {
-          "func-names": "off" // <-- Avoids "unexpected unnamed async function" in async mocha tests
-        }
-      }
-    ]
 };

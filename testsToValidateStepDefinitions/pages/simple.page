@@ -1,0 +1,7 @@
+path: /simple-page
+
+selectors:
+  Go to home page by react router link: '[data-test="go-to-home-link"]'
+
+XPaths:
+  main heading: //*[contains(@class, "main-heading")]

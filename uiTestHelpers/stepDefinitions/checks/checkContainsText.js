@@ -10,7 +10,6 @@ module.exports = function checkContainsText(locatorKey, containsStr, expectedTex
 Actual: ${text}
 Expected: ${expectedText}
           `)
-          .to.not.include(expectedText)
-      })
-    );
+          .to.not.include(expectedText);
+      }));
 };
