@@ -238,7 +238,7 @@
   "fail step and take screenshot":
     'prefix': 'thendie'
     'body': "fail step and take screenshot"
-".text.feature":
+".feature":
   "I am on the '${1:PAGE_NAME}' page":
     'prefix': 'givenonpage'
     'body': "I am on the '${1:PAGE_NAME}' page"

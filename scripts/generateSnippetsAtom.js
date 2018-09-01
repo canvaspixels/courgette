@@ -79,7 +79,7 @@ snippets += '".text.plain":\n';
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
-snippets += '".text.feature":\n';
+snippets += '".feature":\n';
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
