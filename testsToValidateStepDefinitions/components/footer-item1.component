@@ -1,2 +1,2 @@
 selectors:
-  footer item 1: '.footer-item1'
+  footer item 1: .footer-item1

@@ -1,9 +1,10 @@
 path: /simple-page
 
 selectors:
-  Go to home page by react router link: '[data-test="go-to-home-link"]'
-  some other element selected by class: '.my-class'
+  Go to home page by react router link: [data-test="go-to-home-link"]
+  some other element selected by class: .my-class
   some other element selected by id: '#my-class'
+  simple page wrapper: '#Simple-Page-Wrapper'
 
 XPaths:
   main heading: //*[contains(@class, "main-heading")]

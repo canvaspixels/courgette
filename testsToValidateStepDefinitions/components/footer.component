@@ -1,5 +1,5 @@
 selectors:
-  footer wrapper: '.footer'
+  footer wrapper: .footer
 
 components:
   - footer-item1

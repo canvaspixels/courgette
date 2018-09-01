@@ -15,6 +15,7 @@ Feature: simple page feature
   Scenario: Testing .page file for components
     Given I am on the 'simple' page
     Then I expect the 'main banner' to be visible
+    Then I expect the 'simple page wrapper' to be visible
     Then I expect the 'footer wrapper' to be visible
     Then I expect the 'footer item 1' to be visible
     Then I expect the 'footer item 2' to be visible

@@ -5,7 +5,7 @@ import Banner from './Banner';
 import Footer from './Footer';
 
 const OtherPage = () => (
-  <div className="Home">
+  <div id="Simple-Page-Wrapper">
     <Banner />
     <h1 className="main-heading">Simple page</h1>
     <p className="Home-intro">
