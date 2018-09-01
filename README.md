@@ -62,7 +62,7 @@ module.exports = (world) => {
 path: https://www.google.com/;
 
 selectors:
-  I’m Feeling Lucky: '[value="I\'m Feeling Lucky"]'
+  I’m Feeling Lucky: [value="I'm Feeling Lucky"]
 ```
 
 Note that a `.page` file will take precedence over a `.js` page object file.
@@ -161,6 +161,57 @@ To point to a different configuration file:
 ```console
 npm run ct --confFile=staging.conf.js
 ```
+
+## .page files and .component files
+
+### .page file example
+
+Example of a page object located at `uiTests/pages/simple.page`:
+
+```yaml
+path: /simple-page
+
+selectors:
+  Go to home page by react router link: [data-test="go-to-home-link"]
+  some other element selected by class: .my-class
+  some other element selected by id: '#my-class'
+
+XPaths:
+  main heading: //*[contains(@class, "main-heading")]
+  another element: //*[contains(@class, "something-else")]
+
+components:
+  - banner
+  - footer
+```
+
+A .page file is made up of:
+
+* path - the page's path, navigated to when you use the `Given I am on the 'simple' page` step
+* selectors - css selectors, the name on the left side of the : is what you put in your gherkin steps, the selector on the right references your html element. Note if you use id selectors (with a hash) you need to put it in quotes '' or the yaml file will think it's a comment
+* XPaths - same as selectors but using XPath selectors instead
+* components - a list of components which will be loaded in from the `uiTests/components` folder and composed into the page object (see .component file example of the footer component)
+
+
+### .component file example
+
+Example of a component object located at `uiTests/components/footer.component`:
+
+```yaml
+selectors:
+  footer wrapper: .footer
+
+components:
+  - footer-item1
+  - footer-item2
+```
+
+A .component file is made up of:
+
+* selectors - css selectors, the name on the left side of the : is what you put in your gherkin steps, the selector on the right references your html element. Note if you use id selectors (with a hash) you need to put it in quotes '' or the yaml file will think it's a comment
+* XPaths - same as selectors but using XPath selectors instead
+* components - a list of components which will be loaded in from the `uiTests/components` folder and composed into the component object
+
 
 ## Snippets
 
