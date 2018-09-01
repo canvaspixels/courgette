@@ -40,7 +40,16 @@ Feature: Test feature
     Then I expect the url to contain 'google.com'
 ```
 
-Note that all you need to be able to run that is a page object that looks like this inside a kebab-case file e.g. `google-home.js`:
+All you need to be able to run the scenario above is a page object that looks like this inside a kebab-case yaml file e.g. `google-home.page`, placed in the `uiTests/pages` folder:
+
+```yaml
+path: https://www.google.com/
+
+selectors:
+  I’m Feeling Lucky: [value="I'm Feeling Lucky"]
+```
+
+...or if you want the boilerplate js code and need more flexibility place the following in `google-home.js` in the same folder (again kebab-case is important):
 
 ```js
 const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
@@ -54,15 +63,6 @@ module.exports = (world) => {
 
   return createPage(fileName, world, pagePath, locators);
 };
-```
-
-...or for most use cases you can do without the boilerplate with a simple yaml file called `google-home.page` (again kebab-case is important):
-
-```yaml
-path: https://www.google.com/;
-
-selectors:
-  I’m Feeling Lucky: [value="I'm Feeling Lucky"]
 ```
 
 Note that a `.page` file will take precedence over a `.js` page object file.
