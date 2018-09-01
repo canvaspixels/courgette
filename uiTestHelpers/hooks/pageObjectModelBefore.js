@@ -1,5 +1,5 @@
 const path = require('path');
-const yaml = require('js-yaml');
+const yaml = require('yaml-page-objects').default;
 const fs = require('fs');
 
 const createPage = require('../../uiTestHelpers/createPage');
@@ -12,7 +12,7 @@ let createComponentObject;
 const getComponent = (name) => {
   const yamlComponentPath = path.resolve(pomConfig.componentsPath, `${name}.component`);
   try {
-    const doc = yaml.safeLoad(fs.readFileSync(yamlComponentPath, 'utf8'));
+    const doc = yaml.parse(fs.readFileSync(yamlComponentPath, 'utf8'));
     return (world) => createComponentObject(world, name, doc.components, doc.selectors, doc.XPaths);
   } catch (e) {
     let noDotComponentFile;
@@ -102,7 +102,7 @@ Before(function pomBeforeHook() {
 
     const yamlPagePath = path.resolve(pomConfig.pagesPath, `${name}.page`);
     try {
-      const doc = yaml.safeLoad(fs.readFileSync(yamlPagePath, 'utf8'));
+      const doc = yaml.parse(fs.readFileSync(yamlPagePath, 'utf8'));
       const page = createPageObject(this, name, doc.path, doc.components, doc.selectors, doc.XPaths);
 
       if (updateCurrentPage) {
