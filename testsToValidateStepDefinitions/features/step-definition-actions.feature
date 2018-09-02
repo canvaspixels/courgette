@@ -30,4 +30,14 @@ Feature: Testing combined actions
   #   And I have submitted the form by pressing enter and gone back to the homepage
   #   Then I expect to eventually be on the 'home' page
 
+  @step-definition-actions-set-cookie
+  Scenario: I have set the cookie
+    And I have set the cookie
+    Then I expect cookie 'cookieName' to contain 'cookieValue'
+
+  @step-definition-actions-set-select-by-option-text
+  Scenario: I have set the select by option text
+    And I have set select by option text
+    Then I expect the value of the 'age field' to be '26+'
+
 

@@ -1,4 +1,4 @@
-const { Given } = require('cucumber');
+const { Given, Then } = require('cucumber');
 
 Given(/^I have set and appended a field$/, async function () {
   await this.goToPage('home');
@@ -22,6 +22,49 @@ Given(/^I have submitted the form and gone back to the homepage$/, async functio
   await this.clickElement('Go to home page by react router link');
 });
 
+Given(/^I have set the cookie$/, async function () {
+  await this.setCookie('cookieName', 'cookieValue');
+});
+
+Given(/^I have set select by option text$/, async function () {
+  await this.setSelectValueByOptionText('age field', '26+');
+});
+
+Then(/^I am checking a bunch of stuff$/, async function () {
+  await this.checkAttribute('age field', 'name', 'age');
+  await this.doesNotHaveClass('main heading', 'digery-doo');
+  await this.hasClass('main heading', 'Home-header');
+  await this.checkContainsAnyText('main heading');
+  await this.checkDoesNotContainAnyText('empty div');
+  await this.checkContainsText('main heading', 'Home page');
+  await this.checkDoesNotContainText('main heading', 'foo');
+  await this.checkElementBackgroundColour('main container', 'rgba(220, 220, 220, 1)');
+  await this.checkElementBorderColour(null, 'main heading', 'rgba(255, 0, 255, 1)');
+  await this.checkElementColour('main heading', 'rgba(13, 105, 227, 1)');
+  await this.checkElementExists('main heading');
+  await this.checkElementDoesNotExist('non-existant element');
+  await this.checkElementExistsNTimes('bullets', 3);
+  await this.checkElementDoesNotExistNTimes('bullets', 4);
+  await this.checkInputIsEmpty('fullname');
+  await this.checkInputIsNotEmpty('email');
+  await this.checkInputValue('email', 'hi@hello.com');
+  await this.checkInputValueIsNot('email', 'hi@hello.con');
+  await this.checkIsEnabled('button');
+  await this.checkIsDisabled('disabled button');
+  await this.checkIsSelected('newsletter checkbox');
+  await this.checkIsDeselected('you ok checkbox');
+  await this.checkTitle('React App'); // todo:add check title contains
+  await this.checkTitleIsNot('React Appp');
+  await this.checkUrlIs('http://localhost:3000/');
+  await this.checkUrlIsNot('http://localhost:30000/');
+  await this.checkUrlContainsString('localhost');
+  await this.checkVisible('main heading');
+  await this.checkHidden('hidden field');
+});
+
+Then(/^all the cookie functions work$/, async function () {
+  await this.checkCookieContains('');
+});
 // todo add a focus
 // Given(/^I have submitted the form by pressing enter and gone back to the homepage$/, async function () {
 //   await this.pressKey('main form');
@@ -31,45 +74,17 @@ Given(/^I have submitted the form and gone back to the homepage$/, async functio
 
 
 // pressKey // args: (key)
-// setCookie // args: (name, value)
-// setSelectValueByOptionText // args: (locatorKey, itemText)
 
-// checkAttribute // args: (locatorKey, expectedAttribute, expectedValue)
-// hasClass // args: (locatorKey, className)
-// doesNotHaveClass // args: (locatorKey, className)
-// checkColour // args: (locatorKey, expectedColour, property)
-// checkContainsAnyText // args: (locatorKey)
-// checkDoesNotContainAnyText // args: (locatorKey)
-// checkContainsText // args: (locatorKey, expectedText)
-// checkDoesNotContainText // args: (locatorKey, expectedText)
 // checkCookieContains // args: (cookieName, expectedValue)
 // checkCookieDoesNotContain // args: (cookieName, expectedValue)
 // checkCookieContent // args: (cookieName, expectedValue)
 // checkCookieValueIsNot // args: (cookieName, expectedValue)
 // checkCookieExists // args: (cookieName)
 // checkCookieDoesNotExist // args: (cookieName)
-// checkElementBackgroundColour // args: (locatorKey, expectedColour)
-// checkElementBorderColour // args: (position, locatorKey, expectedColour)
-// checkElementColour // args: (locatorKey, expectedColour)
-// checkElementExists // args: (locatorKey)
-// checkElementDoesNotExist // args: (locatorKey)
-// checkElementExistsNTimes // args: (locatorKey, count)
-// checkElementDoesNotExistNTimes // args: (locatorKey, count)
+
 // checkEventualUrlFromPOM // args: (pageName)
+
 // checkFocus // args: (locatorKey)
-// checkInputIsEmpty // args: (locatorKey)
-// checkInputIsNotEmpty // args: (locatorKey)
-// checkInputValue // args: (locatorKey, expectedValue)
-// checkInputValueIsNot // args: (locatorKey, expectedValue)
-// checkIsEnabled // args: (locatorKey)
-// checkIsDisabled // args: (locatorKey)
+
 // checkIsOpenedInNewWindow // args: (href)
-// checkIsSelected // args: (locatorKey)
-// checkIsDeselected // args: (locatorKey)
-// checkTitle // args: (expectedTitle)
-// checkTitleIsNot // args: (expectedTitle)
-// checkUrlIs // args: (url)
-// checkUrlIsNot // args: (url)
-// checkUrlContainsString // args: (expectedUrlPart)
-// checkVisible // args: (locatorKey)
-// checkHidden // args: (locatorKey)
+

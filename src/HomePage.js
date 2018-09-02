@@ -6,6 +6,7 @@ import Banner from './Banner';
 const Home = () => (
   <div className="Home" data-test="home-container">
     <Banner />
+    <div data-test="empty-div" />
     <h1 className="Home-header" data-test="main-heading">Home page</h1>
     <p className="Home-intro">
       <Link to="/other-page" data-test="rr-link">Go to other page by react router</Link>

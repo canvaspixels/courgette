@@ -7,6 +7,7 @@ module.exports = (world) => {
   const pagePath = '/';
   const locators = {
     'main container': by.css('[data-test="home-container"]'),
+    'empty div': by.css('[data-test="empty-div"]'),
     'bullets': by.css('[data-test="list-item"]'),
     'Go to other page by react router link': by.css('[data-test="rr-link"]'),
     'Go to other page link': by.css('[data-test="other-page-link"]'),
