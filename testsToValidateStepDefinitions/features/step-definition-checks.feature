@@ -9,7 +9,7 @@ Feature: Testing combined checks
     Then I am checking a bunch of stuff
 
   @step-definition-checks-cookies
-  Scenario: I am checking a bunch of cookies
+  # Scenario: I am checking a bunch of cookies
     And the cookie 'cookieName' is set to 'cookieValue'
     Then all the cookie functions work
 
