@@ -18,7 +18,9 @@
     "postinstall": "webdriver-manager update --gecko=false --versions.chrome 2.35",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "uitests": "node index.js"
+    "uitests": "node index.js",
+    "ct": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor",
+    "cuketractor": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"
   },
   "bin": {
     "uitests": "./index.js",

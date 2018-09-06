@@ -1,13 +1,24 @@
 #! /usr/bin/env node
 const ncp = require('ncp').ncp;
+const path = require('path');
 
-ncp('node_modules/cucumber-protractor/uiTests', 'uuiTests');
-ncp('node_modules/cucumber-protractor/sample-conf.js', 'cconf.js');
+ncp(path.join(__dirname, '..', 'uiTests'), path.resolve('uiTests'), function (err) {
+ if (err) {
+   return console.error(err);
+ }
+ console.log('uiTests folder created');
+});
+ncp(path.join(__dirname, '..', 'sample-conf.js'), path.resolve('conf.js'), function (err) {
+ if (err) {
+   return console.error(err);
+ }
+ console.log('conf.js created');
+});
 
 const childProcess = require('child_process');
 
 function runScript(scriptPath, args, callback) {
-    const invoked = false;
+    let invoked = false;
 
     const process = childProcess.fork(scriptPath, args);
 
@@ -25,15 +36,15 @@ function runScript(scriptPath, args, callback) {
     });
 }
 
-const addScriptToPackageJson = 'node_modules/cucumber-protractor/scripts/add-script-to-packagejson.js';
+const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
 const scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor';
 
 runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
   if (err) throw err;
-  console.log('added ct script');
+  console.log('added ct script to your package.json');
 
   runScript(addScriptToPackageJson, ['cuketractor', scriptToAdd], (err) => {
     if (err) throw err;
-    console.log('added cuketractor script');
+    console.log('added cuketractor script to your package.json');
   });
 });
