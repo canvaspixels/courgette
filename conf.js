@@ -1,19 +1,19 @@
-// eslint-disable-next-line
-require('babel-register');
+const path = require('path');
+require('babel-core/register');
 
 // This config file is used to validate the pre-defined
 // reusable generic step definitions in this repo
 
 const specsPath = 'testsToValidateStepDefinitions';
-const specsPathAbs = `${process.cwd()}/${specsPath}`;
+const specsPathAbs = path.resolve(specsPath);
 const outputPath = 'uiTestResult';
 const cukeTractorPath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
   timeoutInSeconds: 3,
-  pagesPath: `${specsPathAbs}/pages`,
-  componentsPath: `${specsPathAbs}/components`,
+  pagesPath: path.resolve(specsPath, 'pages'),
+  componentsPath: path.resolve(specsPath, 'components'),
   baseUrl: 'http://localhost:3000',
 };
 

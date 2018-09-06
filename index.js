@@ -7,7 +7,7 @@ const Table = require('cli-table');
 require('colors');
 
 // eslint-disable-next-line
-const { pomConfig } = require(path.join(process.cwd(), argv.confFile || process.env.confFile || 'conf.js'));
+const { pomConfig } = require(path.resolve(argv.confFile || process.env.confFile || 'conf.js'));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
 
@@ -20,7 +20,7 @@ log('Brm brm... off we go!');
 const rmDir = function rmDir(dir, rmSelf) {
   let files;
   const isSelf = (rmSelf === undefined) ? true : rmSelf;
-  const directory = `${dir}/`;
+  const directory = dir;
   try {
     files = fs.readdirSync(directory);
   } catch (e) {
@@ -29,7 +29,7 @@ const rmDir = function rmDir(dir, rmSelf) {
   }
   if (files.length > 0) {
     files.forEach((x) => {
-      const newPath = `${directory}${x}`;
+      const newPath = path.join(directory, x);
       if (fs.statSync(newPath).isDirectory()) {
         rmDir(newPath);
       } else {

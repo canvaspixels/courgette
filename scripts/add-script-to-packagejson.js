@@ -17,7 +17,7 @@ function NoPackageJsonExists() {
 NoPackageJsonExists.prototype = new Error();
 NoPackageJsonExists.prototype.constructor = NoPackageJsonExists;
 
-const packageJsonFilePath = path.join(process.cwd(), 'package.json');
+const packageJsonFilePath = path.resolve('package.json');
 
 try {
   const key = process.argv[2];

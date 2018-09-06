@@ -40,6 +40,7 @@
     "cucumber": "^4.2.1",
     "cucumber-html-reporter": "^4.0.3",
     "jsonfile": "^4.0.0",
+    "ncp": "^2.0.0",
     "protractor": "^5.4.0",
     "protractor-cucumber-framework": "^5.0.0",
     "yaml-page-objects": "0.0.0",
