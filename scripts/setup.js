@@ -1,39 +1,39 @@
 #! /usr/bin/env node
-const ncp = require('ncp').ncp;
+const { ncp } = require('ncp');
 const path = require('path');
 
-ncp(path.join(__dirname, '..', 'uiTests'), path.resolve('uiTests'), function (err) {
- if (err) {
-   return console.error(err);
- }
- console.log('uiTests folder created');
+ncp(path.join(__dirname, '..', 'uiTests'), path.resolve('uiTests'), (err) => {
+  if (err) {
+    return console.error(err);
+  }
+  return console.log('uiTests folder created');
 });
-ncp(path.join(__dirname, '..', 'sample-conf.js'), path.resolve('conf.js'), function (err) {
- if (err) {
-   return console.error(err);
- }
- console.log('conf.js created');
+ncp(path.join(__dirname, '..', 'sample-conf.js'), path.resolve('conf.js'), (err) => {
+  if (err) {
+    return console.error(err);
+  }
+  return console.log('conf.js created');
 });
 
 const childProcess = require('child_process');
 
 function runScript(scriptPath, args, callback) {
-    let invoked = false;
+  let invoked = false;
 
-    const process = childProcess.fork(scriptPath, args);
+  const process = childProcess.fork(scriptPath, args);
 
-    process.on('error', function (err) {
-        if (invoked) return;
-        invoked = true;
-        callback(err);
-    });
+  process.on('error', (err) => {
+    if (invoked) return;
+    invoked = true;
+    callback(err);
+  });
 
-    process.on('exit', function (code) {
-        if (invoked) return;
-        invoked = true;
-        const err = code === 0 ? null : new Error('exit code ' + code);
-        callback(err);
-    });
+  process.on('exit', (code) => {
+    if (invoked) return;
+    invoked = true;
+    const err = code === 0 ? null : new Error(`exit code ${code}`);
+    callback(err);
+  });
 }
 
 const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
@@ -41,10 +41,13 @@ const scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketra
 
 runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
   if (err) throw err;
+
   console.log('added ct script to your package.json');
 
-  runScript(addScriptToPackageJson, ['cuketractor', scriptToAdd], (err) => {
-    if (err) throw err;
-    console.log('added cuketractor script to your package.json');
+  runScript(addScriptToPackageJson, ['cuketractor', scriptToAdd], (err2) => {
+    if (err2) throw err2;
+    return console.log('added cuketractor script to your package.json');
   });
+
+  return true;
 });

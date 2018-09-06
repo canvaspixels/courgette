@@ -2,7 +2,6 @@ const path = require('path');
 require('babel-core/register');
 
 const specsPath = 'uiTests';
-const specsPathAbs = path.resolve(specsPath);
 const outputPath = 'uiTestResult';
 const cukeTractorPath = 'node_modules/cucumber-protractor/uiTestHelpers';
 

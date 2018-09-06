@@ -5,7 +5,6 @@ require('babel-core/register');
 // reusable generic step definitions in this repo
 
 const specsPath = 'testsToValidateStepDefinitions';
-const specsPathAbs = path.resolve(specsPath);
 const outputPath = 'uiTestResult';
 const cukeTractorPath = 'uiTestHelpers';
 
