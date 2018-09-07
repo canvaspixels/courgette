@@ -5,9 +5,11 @@ const path = require('path');
 const { argv } = require('yargs');
 const Table = require('cli-table');
 require('colors');
+const os = require('os');
 
 // eslint-disable-next-line
-const { pomConfig } = require(path.resolve(argv.confFile || process.env.confFile || 'conf.js'));
+const confFile = argv.confFile || process.env.confFile || 'conf.js';
+const { pomConfig } = require(path.resolve(confFile));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
 
@@ -52,21 +54,22 @@ if (!fs.existsSync(outputPath)) {
 }
 const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
-const cmd = 'node_modules/.bin/protractor';
-const args = ['./conf.js'];
+
+const cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+const args = [confFile];
 const firstArg = process.argv && process.argv[2];
 const tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
     cukeTags: (tags || argv.tags || '').replace(',', ' or '),
-    confFile: argv.confFile || process.env.confFile || 'conf.js',
+    confFile,
   }),
 });
 
 const cucumberHtmlReporterConfig = Object.assign({
   theme: 'bootstrap',
-  jsonDir: `${outputPath}/`,
-  output: `${outputPath}/cucumberReport.html`,
+  jsonDir: outputPath,
+  output: path.join(outputPath, 'cucumberReport.html'),
   reportSuiteAsScenarios: true,
   launchReport: false,
 }, pomConfig.cucumberHtmlReporterConfig);

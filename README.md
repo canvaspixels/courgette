@@ -8,11 +8,11 @@
 
 ### Setup
 
-This assumes that you have an npm project. If you don't then make a new one with `npm init`. It also assumes you are on a Mac and have node 8+ and npm 6+ installed. If you are on Windows and would like to get involved please make contact.
+This assumes that you have an npm project. If you don't then make a new one with `npm init`. It also assumes you are on a Mac or Windows and have node 8+, npm 6+, and the latest version of Chrome installed.
 
-1. Install the package: `npm install cucumber-protractor`
-2. Copy the sample file structure and config file. Type: `./node_modules/cucumber-protractor/scripts/setup.sh` into your terminal. This will create a `uiTests` folder with the sample in it, a sample config and add the `ct` and `cuketractor` scripts (both do the same thing) to your package.json.
-3. Run the sample, type `npm run ct` in your terminal.
+1. Install the package: type `npm install cucumber-protractor` into your terminal
+2. Copy the sample file structure and config file. Type: `node node_modules/cucumber-protractor/scripts/setup.js` into your terminal. This will create a `uiTests` folder with the sample in it, a sample config and add the `ct` and `cuketractor` scripts (both do the same thing) to your package.json.
+3. Run the sample, type `npm run ct` into your terminal.
 
 ### Futher tips:
 
