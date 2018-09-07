@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 const { ncp } = require('ncp');
 const path = require('path');
+const os = require('os');
 
 ncp(path.join(__dirname, '..', 'uiTests'), path.resolve('uiTests'), (err) => {
   if (err) {
@@ -37,7 +38,11 @@ function runScript(scriptPath, args, callback) {
 }
 
 const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
-const scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor';
+let scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor';
+
+if (os.type().toLowerCase().includes('windows')) {
+  scriptToAdd = 'set NODE_OPTIONS=--no-deprecation | cuketractor';
+}
 
 runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
   if (err) throw err;
