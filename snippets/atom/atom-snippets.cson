@@ -139,12 +139,9 @@
   "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "I expect the '${1:LOCATOR}' to be hidden"
-  "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+  "I expect the bottom|top|left|right border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
     'prefix': 'thenbordercolour'
-    'body': "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
-  "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
-    'prefix': 'thennotbordercolour'
-    'body': "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+    'body': "I expect the bottom|top|left|right border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
   "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'":
     'prefix': 'thencolour'
     'body': "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'"
@@ -380,12 +377,9 @@
   "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "I expect the '${1:LOCATOR}' to be hidden"
-  "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
+  "I expect the bottom|top|left|right border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
     'prefix': 'thenbordercolour'
-    'body': "I expect the border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
-  "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'":
-    'prefix': 'thennotbordercolour'
-    'body': "I expect the (bottom|top|left|right) border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
+    'body': "I expect the bottom|top|left|right border colour of the '${1:LOCATOR}' to be '${2:STRING}'"
   "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'":
     'prefix': 'thencolour'
     'body': "I expect the colour of the '${1:LOCATOR}' to be '${2:STRING}'"

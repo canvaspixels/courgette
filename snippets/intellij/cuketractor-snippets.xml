@@ -288,14 +288,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenbordercolour" value="I expect the border colour of the '$var1$' to be '$var2$'$END$" shortcut="TAB" description="I expect the border colour of the '$var1$' to be '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotbordercolour" value="I expect the (bottom|top|left|right) border colour of the '$var1$' to be '$var2$'$END$" shortcut="TAB" description="I expect the (bottom|top|left|right) border colour of the '$var1$' to be '$var2$'" toReformat="false" toShortenFQNames="true">
+  <template name="thenbordercolour" value="I expect the bottom|top|left|right border colour of the '$var1$' to be '$var2$'$END$" shortcut="TAB" description="I expect the bottom|top|left|right border colour of the '$var1$' to be '$var2$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
     <context>

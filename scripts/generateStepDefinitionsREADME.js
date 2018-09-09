@@ -32,16 +32,17 @@ const createStepDefLines = (steps, type) => {
   const newStepDefLines = [];
   steps.forEach((step) => {
     const code = generateSnippetsSublime[type][stepDefNum++]; // eslint-disable-line no-plusplus
-    const zeroOrManyMatcher = /\((.*)\)\*/;
+    const zeroOrManyNotMatcher = /\((.*not.*)\)\*/;
     const newMatcher = step.matcher
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
+      .replace(/\|/g, ' OR ')
       .replace(/\(\?\:(.*)\)/g, '$1');
 
-    const matcher = newMatcher.replace(zeroOrManyMatcher, '');
+    const matcher = newMatcher.replace(zeroOrManyNotMatcher, '');
     newStepDefLines.push(createStepDefLine(matcher, code, step.notes));
 
-    if (newMatcher.match(zeroOrManyMatcher)) {
-      const matcher2 = newMatcher.replace(zeroOrManyMatcher, '$1');
+    if (newMatcher.match(zeroOrManyNotMatcher)) {
+      const matcher2 = newMatcher.replace(zeroOrManyNotMatcher, '$1');
       const code2 = generateSnippetsSublime[type][stepDefNum++]; // eslint-disable-line no-plusplus
       newStepDefLines.push(createStepDefLine(matcher2, code2, step.notes));
     }

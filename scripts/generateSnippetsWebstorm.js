@@ -57,7 +57,7 @@ const genSnippets = (steps, type) => {
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var4$\''; })
       .replace(/\(\?\:(.*)\)\?/g, '$1');
 
-    const zeroOrManyMatcher = /\((.*)\)\*/g;
+    const zeroOrManyNotMatcher = /\((.*not.*)\)\*/g;
 
     const newMatcher = step.matcher
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
@@ -67,14 +67,14 @@ const genSnippets = (steps, type) => {
       step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
 
     const matcher = matcherWithReplacedPlaceholders
-      .replace(zeroOrManyMatcher, '')
+      .replace(zeroOrManyNotMatcher, '')
       .replace(/\((.*)\)\*/g, '$1')
       .replace(/\((.*)\)/g, '$1');
     const newCode = `${type}${step.code || generatedCode}`;
     snippetCodes[type].push(newCode);
     genSnippet(matcher, newCode, varPlaceholders);
 
-    if (newMatcher.match(zeroOrManyMatcher)) {
+    if (newMatcher.match(zeroOrManyNotMatcher)) {
       const newCode2 = `${type}not${step.code || generatedCode}`;
       const matcher2 = matcherWithReplacedPlaceholders
         .replace(/\((.*)\)\*/g, '$1');

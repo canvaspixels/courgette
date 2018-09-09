@@ -62,8 +62,7 @@ Note that the words in italics are optional.
 | I expect the url 'URL' is opened in a new tab | thenurlnewtab |  |
 | I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
 | I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |
-| I expect the border colour of the 'LOCATOR' to be 'STRING' | thenbordercolour |  |
-| I expect the bottom|top|left|right border colour of the 'LOCATOR' to be 'STRING' | thennotbordercolour |  |
+| I expect the (bottom OR top OR left OR right)* border colour of the 'LOCATOR' to be 'STRING' | thenbordercolour | Pick a side (bottom, top, left, or right) or remove the expected side. |
 | I expect the colour of the 'LOCATOR' to be 'STRING' | thencolour |  |
 | I expect the background colour of the 'LOCATOR' to be 'STRING' | thenbackgroundcolour |  |
 | I expect the title to be 'STRING' | thentitle |  |

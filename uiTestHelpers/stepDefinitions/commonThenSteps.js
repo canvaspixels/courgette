@@ -32,7 +32,12 @@ const steps = [
   { matcher: "I expect the url 'URL' is opened in a new tab", path: './checks/checkIsOpenedInNewWindow', code: 'urlnewtab' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (hidden)", path: './checks/checkVisibility', code: 'hidden' },
-  { matcher: "I expect the( (bottom|top|left|right))* border colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementBorderColour', code: 'bordercolour' },
+  {
+    matcher: "I expect the( (bottom|top|left|right))* border colour of the 'LOCATOR' to be 'STRING'",
+    path: './checks/checkElementBorderColour',
+    code: 'bordercolour',
+    notes: 'Pick a side (bottom, top, left, or right) or remove the expected side.',
+  },
   { matcher: "I expect the colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementColour', code: 'colour' },
   { matcher: "I expect the background colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementBackgroundColour', code: 'backgroundcolour' },
   { matcher: "I expect the title to( not)* be 'STRING'", path: './checks/checkTitle', code: 'title' },
