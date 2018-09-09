@@ -4,10 +4,10 @@ Feature: Testing Then steps
   Background: I am on the homepage
     Given I am on the 'Home' page
 
-  @then-steps-eventually-be-on-page
+  @then-steps-be-on-page
   Scenario: Then I go to the home page
     When I click the 'Go to other page link'
-    Then I expect to eventually be on the 'Other' page
+    Then I expect to be on the 'Other' page
 
   @then-steps-url-to-contain
   Scenario: Then the url contains

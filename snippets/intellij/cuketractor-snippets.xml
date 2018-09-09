@@ -246,7 +246,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenonpage" value="I expect to eventually be on the '$var1$' page$END$" shortcut="TAB" description="I expect to eventually be on the '$var1$' page" toReformat="false" toShortenFQNames="true">
+  <template name="thenonpage" value="I expect to be on the '$var1$' page$END$" shortcut="TAB" description="I expect to be on the '$var1$' page" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />

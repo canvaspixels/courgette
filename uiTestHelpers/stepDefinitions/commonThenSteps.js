@@ -12,13 +12,23 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   {
-    matcher: "I expect to eventually be on the 'PAGE_NAME' page",
+    matcher: "I expect to be on the 'PAGE_NAME' page",
     path: './checks/checkEventualUrlFromPOM',
-    notes: 'Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page',
+    notes: 'Using this means any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object',
     code: 'onpage',
   },
-  { matcher: "I expect the url to contain 'STRING'", path: './checks/checkUrlContainsString', code: 'urlcontains' },
-  { matcher: "I expect the url to( not)* be 'STRING'", path: './checks/checkUrl', code: 'url' },
+  {
+    matcher: "I expect the url to contain 'STRING'",
+    path: './checks/checkUrlContainsString',
+    notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
+    code: 'urlcontains',
+  },
+  {
+    matcher: "I expect the url to( not)* be 'STRING'",
+    path: './checks/checkUrl',
+    notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
+    code: 'url',
+  },
   { matcher: "I expect the url 'URL' is opened in a new tab", path: './checks/checkIsOpenedInNewWindow', code: 'urlnewtab' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (hidden)", path: './checks/checkVisibility', code: 'hidden' },

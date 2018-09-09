@@ -118,9 +118,9 @@
   "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'":
     'prefix': 'whenoption'
     'body': "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'"
-  "I expect to eventually be on the '${1:PAGE_NAME}' page":
+  "I expect to be on the '${1:PAGE_NAME}' page":
     'prefix': 'thenonpage'
-    'body': "I expect to eventually be on the '${1:PAGE_NAME}' page"
+    'body': "I expect to be on the '${1:PAGE_NAME}' page"
   "I expect the url to contain '${1:STRING}'":
     'prefix': 'thenurlcontains'
     'body': "I expect the url to contain '${1:STRING}'"
@@ -356,9 +356,9 @@
   "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'":
     'prefix': 'whenoption'
     'body': "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'"
-  "I expect to eventually be on the '${1:PAGE_NAME}' page":
+  "I expect to be on the '${1:PAGE_NAME}' page":
     'prefix': 'thenonpage'
-    'body': "I expect to eventually be on the '${1:PAGE_NAME}' page"
+    'body': "I expect to be on the '${1:PAGE_NAME}' page"
   "I expect the url to contain '${1:STRING}'":
     'prefix': 'thenurlcontains'
     'body': "I expect the url to contain '${1:STRING}'"

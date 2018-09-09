@@ -23,12 +23,12 @@ Feature: Testing combined actions
   @step-definition-actions-submit-click
   Scenario: I have submitted the form and gone back to the homepage
     And I have submitted the form and gone back to the homepage
-    Then I expect to eventually be on the 'home' page
+    Then I expect to be on the 'home' page
 
   # @step-definition-actions-submit-with-enter-click
   # Scenario: I have submitted the form by pressing enter and gone back to the homepage
   #   And I have submitted the form by pressing enter and gone back to the homepage
-  #   Then I expect to eventually be on the 'home' page
+  #   Then I expect to be on the 'home' page
 
   @step-definition-actions-set-cookie
   Scenario: I have set the cookie

@@ -261,7 +261,7 @@ Scenario: I expect to see items in the dashboard menu
   When I set 'username' to 'peoplesvote_uk'
   And I set 'password' to 'password~1'
   And I submit the 'login form'
-  Then I expect to eventually be on the 'dashboard' page
+  Then I expect to be on the 'dashboard' page
   When I click the 'dashboard menu'
   Then I expect the 'dashboard menu items' to be visible
 ```

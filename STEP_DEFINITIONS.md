@@ -55,10 +55,10 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I expect to eventually be on the 'PAGE_NAME' page | thenonpage | Using this changes the page object to the PAGE_NAME so any subsequent steps in that scenario will be pointing to that page |
-| I expect the url to contain 'STRING' | thenurlcontains |  |
-| I expect the url to be 'STRING' | thenurl |  |
-| I expect the url to not be 'STRING' | thennoturl |  |
+| I expect to be on the 'PAGE_NAME' page | thenonpage | Using this means any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object |
+| I expect the url to contain 'STRING' | thenurlcontains | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
+| I expect the url to be 'STRING' | thenurl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
+| I expect the url to not be 'STRING' | thennoturl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
 | I expect the url 'URL' is opened in a new tab | thenurlnewtab |  |
 | I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
 | I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |
