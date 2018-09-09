@@ -1,3 +1,6 @@
+## 1.3.1
+Adding take a screenshot step
+
 ## 1.2.0
 Windows is now supported
 

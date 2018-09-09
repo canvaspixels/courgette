@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
 module.exports = function takeScreenshot(callback) {

@@ -496,6 +496,11 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="thenscreenshot" value="take a screenshot$END$" shortcut="TAB" description="take a screenshot" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="thendie" value="fail step and take screenshot$END$" shortcut="TAB" description="fail step and take screenshot" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="OTHER" value="true" />

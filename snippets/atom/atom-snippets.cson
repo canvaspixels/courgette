@@ -235,6 +235,9 @@
   "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'thenattribute'
     'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  "take a screenshot":
+    'prefix': 'thenscreenshot'
+    'body': "take a screenshot"
   "fail step and take screenshot":
     'prefix': 'thendie'
     'body': "fail step and take screenshot"
@@ -473,6 +476,9 @@
   "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'thenattribute'
     'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+  "take a screenshot":
+    'prefix': 'thenscreenshot'
+    'body': "take a screenshot"
   "fail step and take screenshot":
     'prefix': 'thendie'
     'body': "fail step and take screenshot"
