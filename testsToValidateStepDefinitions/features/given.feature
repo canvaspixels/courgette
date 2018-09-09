@@ -8,6 +8,7 @@ Feature: Testing Given steps
   Scenario: React router link
     When I click the 'Go to other page by react router link'
     Then I expect the url to contain '/other-page'
+    And take a screenshot
 
   @given-steps-routing-link
   Scenario: Link
