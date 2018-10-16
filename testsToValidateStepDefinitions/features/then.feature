@@ -5,9 +5,14 @@ Feature: Testing Then steps
     Given I am on the 'Home' page
 
   @then-steps-be-on-page
-  Scenario: Then I go to the home page
+  Scenario: Then I go to the Other page, changing page object and asserting the url
     When I click the 'Go to other page link'
     Then I expect to be on the 'Other' page
+
+  @then-steps-be-on-page
+  Scenario: Then I go to the Other page, changing page object and NOT asserting the url
+    When I click the 'another simple page react link'
+    Then I expect to be on the 'Another simple' page
 
   @then-steps-url-to-contain
   Scenario: Then the url contains

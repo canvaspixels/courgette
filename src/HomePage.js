@@ -13,6 +13,7 @@ const Home = () => (
     </p>
     <p><a href="/other-page" data-test="other-page-link">Go to other page with full page load</a></p>
     <p><a href="/other-page" data-test="other-page-link-new-tab" target="_blank">Go to other page in new tab</a></p>
+    <p><Link to="/another-simple-page" data-test="another-simple-page-react-link">Go to another simple page</Link></p>
     <ul>
       <li data-test="list-item">bullet 1</li>
       <li data-test="list-item">bullet 2</li>

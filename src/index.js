@@ -28,6 +28,14 @@ const Routes = ({ childProps }) =>
       component={AsyncSimplePage}
       props={childProps}
     />
+
+    {/* another-simple-page is another route to tests a page object with a path */}
+    <Route
+      path="/another-simple-page"
+      exact
+      component={AsyncSimplePage}
+      props={childProps}
+    />
   </Switch>
 
 

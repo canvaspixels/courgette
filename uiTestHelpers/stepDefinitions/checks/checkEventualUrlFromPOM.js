@@ -1,5 +1,14 @@
 module.exports = function checkUrl(pageName) {
-  const expectedUrl = this.getPage(pageName).getPageFullUrl();
+  // update the page object
+  const newPageObject = this.getPage(pageName);
+
+  if (newPageObject.getPagePath() === undefined) {
+    // don't bother to assert the page path if no page path exists
+    return Promise.resolve();
+  }
+
+  // continue to assert the page path if a page path exists
+  const expectedUrl = newPageObject.getPageFullUrl();
   const waitTimeout = this.cucumberTimeout || 3000;
   let currentUrlNoTrailingSlash;
   const expectedUrlNoTrailingSlash = expectedUrl.replace(/\/$/, '');
