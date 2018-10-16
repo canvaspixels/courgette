@@ -94,21 +94,26 @@ if (!argv.justForIDE) {
   fs.writeFileSync(`${snippetsFolder}/cuketractor-snippets.xml`, snippets);
 }
 
-const homedir = os.homedir();
-const prefsFolder = `${homedir}/Library/Preferences`;
-const files = fs.readdirSync(prefsFolder);
-// eslint-disable-next-line
-const webstormFile = files.find((file) => {
-  if (fs.statSync(`${prefsFolder}/${file}`).isDirectory() && file.toLowerCase().includes('webstorm')) {
-    return file;
+
+try {
+  const homedir = os.homedir();
+  const prefsFolder = `${homedir}/Library/Preferences`;
+  const files = fs.readdirSync(prefsFolder);
+  // eslint-disable-next-line
+  const webstormFile = files.find((file) => {
+    if (fs.statSync(`${prefsFolder}/${file}`).isDirectory() && file.toLowerCase().includes('webstorm')) {
+      return file;
+    }
+  });
+
+  const templatesFolder = `${prefsFolder}/${webstormFile}/templates`;
+  if (!fs.existsSync(templatesFolder)) {
+    fs.mkdirSync(templatesFolder);
   }
-});
 
-const templatesFolder = `${prefsFolder}/${webstormFile}/templates`;
-if (!fs.existsSync(templatesFolder)) {
-  fs.mkdirSync(templatesFolder);
+  fs.writeFileSync(`${prefsFolder}/${webstormFile}/templates/cuketractor-snippets.xml`, snippets);
+
+  console.log(`Live templates added to: ${prefsFolder}/${webstormFile}/templates/cuketractor-snippets.xml`);
+} catch (e) {
+  console.log('webstorm not installed on your mac');
 }
-
-fs.writeFileSync(`${prefsFolder}/${webstormFile}/templates/cuketractor-snippets.xml`, snippets);
-
-console.log(`Live templates added to: ${prefsFolder}/${webstormFile}/templates/cuketractor-snippets.xml`);

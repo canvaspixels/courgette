@@ -55,7 +55,7 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I expect to be on the 'PAGE_NAME' page | thenonpage | Using this means any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object |
+| I expect to be on the 'PAGE_NAME' page | thenonpage | This step does 2 things: it changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists. |
 | I expect the url to contain 'STRING' | thenurlcontains | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
 | I expect the url to be 'STRING' | thenurl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
 | I expect the url to not be 'STRING' | thennoturl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |

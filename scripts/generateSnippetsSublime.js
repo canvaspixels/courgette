@@ -42,7 +42,12 @@ ${matcher.replace(/\((.*)\)/g, '$1')}
   if (!argv.justForIDE) {
     fs.writeFileSync(`${snippetsFolder}/${code}.sublime-snippet`, snippet);
   }
-  fs.writeFileSync(`${sublimeSnippetsFolder}/${code}.sublime-snippet`, snippet);
+
+  try {
+    fs.writeFileSync(`${sublimeSnippetsFolder}/${code}.sublime-snippet`, snippet);
+  } catch (e) {
+    console.log('Sublime not installed on your mac');
+  }
 };
 
 const genSnippets = (steps, type) => {

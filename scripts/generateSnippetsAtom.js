@@ -91,6 +91,10 @@ if (!argv.justForIDE) {
 
 const homedir = os.homedir();
 const atomSnippetsFile = `${homedir}/.atom/snippets.cson`;
-const snippetsFile = fs.readFileSync(atomSnippetsFile, 'utf-8');
-const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### cuketractor snippets start 0-o[^~]*###### cuketractor snippets end 0-o$/m, '');
-fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCukeTrackor}${snippets}`);
+try {
+  const snippetsFile = fs.readFileSync(atomSnippetsFile, 'utf-8');
+  const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### cuketractor snippets start 0-o[^~]*###### cuketractor snippets end 0-o$/m, '');
+  fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCukeTrackor}${snippets}`);
+} catch (e) {
+  console.log('Atom not installed on your mac');
+}

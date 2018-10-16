@@ -94,21 +94,25 @@ if (!argv.justForIDE) {
   fs.writeFileSync(`${snippetsFolder}/cuketractor-snippets.xml`, snippets);
 }
 
-const homedir = os.homedir();
-const prefsFolder = `${homedir}/Library/Preferences`;
-const files = fs.readdirSync(prefsFolder);
-// eslint-disable-next-line
-const intelliJFile = files.find((file) => {
-  if (fs.statSync(`${prefsFolder}/${file}`).isDirectory() && file.toLowerCase().includes('intellij')) {
-    return file;
-  }
-});
+try {
+  const homedir = os.homedir();
+  const prefsFolder = `${homedir}/Library/Preferences`;
+  const files = fs.readdirSync(prefsFolder);
+  // eslint-disable-next-line
+  const intelliJFile = files.find((file) => {
+    if (fs.statSync(`${prefsFolder}/${file}`).isDirectory() && file.toLowerCase().includes('intellij')) {
+      return file;
+    }
+  });
 
-const templatesFolder = `${prefsFolder}/${intelliJFile}/templates`;
-if (!fs.existsSync(templatesFolder)) {
-  fs.mkdirSync(templatesFolder);
+  const templatesFolder = `${prefsFolder}/${intelliJFile}/templates`;
+  if (!fs.existsSync(templatesFolder)) {
+    fs.mkdirSync(templatesFolder);
+  }
+
+  fs.writeFileSync(`${prefsFolder}/${intelliJFile}/templates/cuketractor-snippets.xml`, snippets);
+  console.log(`Live templates added to: ${prefsFolder}/${intelliJFile}/templates/cuketractor-snippets.xml`);
+} catch (e) {
+  console.log('intellij not installed on your mac');
 }
 
-fs.writeFileSync(`${prefsFolder}/${intelliJFile}/templates/cuketractor-snippets.xml`, snippets);
-
-console.log(`Live templates added to: ${prefsFolder}/${intelliJFile}/templates/cuketractor-snippets.xml`);

@@ -13,7 +13,8 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-const ideSnippetsFolder = `${os.homedir()}/Library/Application Support/Code/User/snippets`;
+let ideSnippetsFolder;
+let ideInstalled = true;
 
 const snippetsFolder = 'snippets/vscode';
 
@@ -25,8 +26,14 @@ if (!fs.existsSync(snippetsFolder)) {
 }
 
 
-if (!fs.existsSync(ideSnippetsFolder)) {
-  fs.mkdirSync(ideSnippetsFolder);
+try {
+  ideSnippetsFolder = `${os.homedir()}/Library/Application Support/Code/User/snippets`;
+  if (!fs.existsSync(ideSnippetsFolder)) {
+    fs.mkdirSync(ideSnippetsFolder);
+  }
+} catch (e) {
+  console.log('VSCode not installed on your mac');
+  ideInstalled = false;
 }
 
 const snippetCodes = {};
@@ -49,7 +56,10 @@ const genSnippet = (matcher, code) => {
   if (!argv.justForIDE) {
     fs.writeFileSync(`${snippetsFolder}/cuketractor-${code}.code-snippets`, snippet);
   }
-  fs.writeFileSync(`${ideSnippetsFolder}/cuketractor-${code}.code-snippets`, snippet);
+
+  if (ideInstalled) {
+    fs.writeFileSync(`${ideSnippetsFolder}/cuketractor-${code}.code-snippets`, snippet);
+  }
 };
 
 const genSnippets = (steps, type) => {
