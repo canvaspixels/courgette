@@ -67,7 +67,7 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
         return console.log('added postinstall script to your package.json');
       });
 
-      runScript(isWindows ? 'npm.cmd' : 'npm', ['run' 'install-chromedriver'], (err4) => {
+      runScript(isWindows ? 'npm.cmd' : 'npm', ['run', 'install-chromedriver'], (err4) => {
         console.log('If for some reason this looks like it hasn’t install properly, you may be behind a corporate proxy. You may have to add the --proxy flag to webdriver-manager in your package json.');
         if (err4) {
           throw err4
