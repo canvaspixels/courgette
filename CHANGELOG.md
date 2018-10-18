@@ -1,4 +1,4 @@
-## 2.0.1
+## 2.0.3
 adding install-chromedriver script and postinstall script to your project's package.json when you run the setup script
 
 ## 2.0.0

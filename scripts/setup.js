@@ -37,6 +37,31 @@ function runScript(scriptPath, args, callback) {
   });
 }
 
+function spawnScript(scriptPath, args, callback) {
+  let invoked = false;
+
+  const spawnedProcess = childProcess.spawn(scriptPath, args);
+
+  spawnedProcess.stdout.on('data', (data) => {
+    console.log(data.toString());
+  });
+
+  spawnedProcess.on('error', (err) => {
+    console.log('seffef');
+    if (invoked) return;
+    invoked = true;
+    callback(err);
+  });
+
+  spawnedProcess.on('exit', (code) => {
+    if (invoked) return;
+    invoked = true;
+    console.log(code);
+    const err = code === 0 ? null : new Error(`exit code ${code}`);
+    callback(err);
+  });
+}
+
 
 
 const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
@@ -48,7 +73,7 @@ if (os.type().toLowerCase().includes('windows')) {
   isWindows = true;
 }
 
-const installChromedriver = './node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35"';
+const installChromedriver = './node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35';
 
 runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
   if (err) throw err;
@@ -56,23 +81,30 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
 
   runScript(addScriptToPackageJson, ['cuketractor', scriptToAdd], (err2) => {
     if (err2) throw err2;
-    return console.log('added cuketractor script to your package.json');
+    console.log('added cuketractor script to your package.json');
 
     runScript(addScriptToPackageJson, ['install-chromedriver', installChromedriver], (err3) => {
       if (err3) throw err3;
-      return console.log('added installChromedriver to your package.json');
+      console.log('added installChromedriver to your package.json');
 
       runScript(addScriptToPackageJson, ['postinstall', 'npm run install-chromedriver'], (err4) => {
         if (err4) throw err4;
-        return console.log('added postinstall script to your package.json');
-      });
+        console.log('added postinstall script to your package.json');
 
-      runScript(isWindows ? 'npm.cmd' : 'npm', ['run', 'install-chromedriver'], (err4) => {
-        console.log('If for some reason this looks like it hasn’t install properly, you may be behind a corporate proxy. You may have to add the --proxy flag to webdriver-manager in your package json.');
-        if (err4) {
-          throw err4
-        };
-        return console.log('ChromeDriver Installed');
+        runScript('./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --gecko=false --versions.chrome 2.35'.split(' '), (err5) => {
+          if (err5) {
+            console.log(' ');
+            console.log('!!!!!!!!!!!-----------IMPORTANT----------!!!!!!!!!!!!!!!');
+            console.log('It looks like it hasn’t install properly, you may be behind a corporate proxy. You may have to add the --proxy flag to webdriver-manager in your package json.');
+            console.log('e.g. "install-chromedriver": "./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35 --proxy http://127.0.0.1",');
+            console.log('Then run:');
+            console.log('npm run install-chromedriver');
+            console.log(' ');
+            throw err5
+          } else {
+            return console.log('ChromeDriver Installed');
+          }
+        });
       });
     });
   });
