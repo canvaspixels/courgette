@@ -1,3 +1,9 @@
+## 2.0.1
+adding install-chromedriver script and postinstall script to your project's package.json when you run the setup script
+
+## 2.0.0
+removed the postinstall script from cuketractor's package.json as it causes issues if behind a proxy
+
 ## 1.3.1
 Adding take a screenshot step
 
