@@ -37,40 +37,13 @@ function runScript(scriptPath, args, callback) {
   });
 }
 
-function spawnScript(scriptPath, args, callback) {
-  let invoked = false;
-
-  const spawnedProcess = childProcess.spawn(scriptPath, args);
-
-  spawnedProcess.stdout.on('data', (data) => {
-    console.log(data.toString());
-  });
-
-  spawnedProcess.on('error', (err) => {
-    console.log('seffef');
-    if (invoked) return;
-    invoked = true;
-    callback(err);
-  });
-
-  spawnedProcess.on('exit', (code) => {
-    if (invoked) return;
-    invoked = true;
-    console.log(code);
-    const err = code === 0 ? null : new Error(`exit code ${code}`);
-    callback(err);
-  });
-}
-
-
-
 const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
 let scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor';
 
-let isWindows = false;
+// let isWindows = false;
 if (os.type().toLowerCase().includes('windows')) {
   scriptToAdd = 'set NODE_OPTIONS=--no-deprecation | cuketractor';
-  isWindows = true;
+  // isWindows = true;
 }
 
 const installChromedriver = './node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35';
@@ -96,11 +69,12 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
             console.log(' ');
             console.log('!!!!!!!!!!!-----------IMPORTANT----------!!!!!!!!!!!!!!!');
             console.log('It looks like it hasn’t install properly, you may be behind a corporate proxy. You may have to add the --proxy flag to webdriver-manager in your package json.');
-            console.log('e.g. "install-chromedriver": "./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35 --proxy http://127.0.0.1",');
+            const eg = '"./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35 --proxy http://127.0.0.1"';
+            console.log(`e.g. "install-chromedriver": ${eg},`);
             console.log('Then run:');
             console.log('npm run install-chromedriver');
             console.log(' ');
-            throw err5
+            throw err5;
           } else {
             return console.log('ChromeDriver Installed');
           }

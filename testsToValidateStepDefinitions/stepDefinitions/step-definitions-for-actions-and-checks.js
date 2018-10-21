@@ -68,8 +68,8 @@ Then(/^all the cookie functions work$/, async function () {
   await this.checkCookieContent('foo', 'bar');
   await this.checkCookieValueIsNot('foo', 'bobs');
   await this.checkCookieExists('foo');
-
 });
+
 // todo add a focus
 // Given(/^I have submitted the form by pressing enter and gone back to the homepage$/, async function () {
 //   await this.pressKey('main form');
