@@ -63,7 +63,12 @@ Then(/^I am checking a bunch of stuff$/, async function () {
 });
 
 Then(/^all the cookie functions work$/, async function () {
-  await this.checkCookieContains('');
+  await this.checkCookieContains('foo', 'bar');
+  await this.checkCookieContains('foo', 'ba');
+  await this.checkCookieContent('foo', 'bar');
+  await this.checkCookieValueIsNot('foo', 'bobs');
+  await this.checkCookieExists('foo');
+
 });
 // todo add a focus
 // Given(/^I have submitted the form by pressing enter and gone back to the homepage$/, async function () {
@@ -75,10 +80,8 @@ Then(/^all the cookie functions work$/, async function () {
 
 // pressKey // args: (key)
 
-// checkCookieContains // args: (cookieName, expectedValue)
-// checkCookieDoesNotContain // args: (cookieName, expectedValue)
-// checkCookieContent // args: (cookieName, expectedValue)
-// checkCookieValueIsNot // args: (cookieName, expectedValue)
+
+// todo: checkCookieValueIsNot // args: (cookieName, expectedValue)
 // checkCookieExists // args: (cookieName)
 // checkCookieDoesNotExist // args: (cookieName)
 
