@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenscreenshotcalled",
+    "body": [
+      "take a screenshot called '${1:STRING}'"
+    ],
+    "description": "take a screenshot called '${1:STRING}'"
+  }
+}

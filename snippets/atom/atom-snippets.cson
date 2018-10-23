@@ -236,7 +236,7 @@
     'prefix': 'thenscreenshot'
     'body': "take a screenshot"
   "take a screenshot called '${1:STRING}'":
-    'prefix': 'thenscreenshot'
+    'prefix': 'thenscreenshotcalled'
     'body': "take a screenshot called '${1:STRING}'"
   "fail step and take screenshot":
     'prefix': 'thendie'
@@ -477,7 +477,7 @@
     'prefix': 'thenscreenshot'
     'body': "take a screenshot"
   "take a screenshot called '${1:STRING}'":
-    'prefix': 'thenscreenshot'
+    'prefix': 'thenscreenshotcalled'
     'body': "take a screenshot called '${1:STRING}'"
   "fail step and take screenshot":
     'prefix': 'thendie'

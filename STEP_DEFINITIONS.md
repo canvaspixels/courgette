@@ -94,5 +94,5 @@ Note that the words in italics are optional.
 | I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue | Used for getting the value of an input |
 | I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenattribute |  |
 | take a screenshot | thenscreenshot |  |
-| take a screenshot called 'STRING' | thenscreenshot |  |
+| take a screenshot called 'STRING' | thenscreenshotcalled |  |
 | fail step and take screenshot | thendie |  |

@@ -494,7 +494,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenscreenshot" value="take a screenshot called '$var1$'$END$" shortcut="TAB" description="take a screenshot called '$var1$'" toReformat="false" toShortenFQNames="true">
+  <template name="thenscreenshotcalled" value="take a screenshot called '$var1$'$END$" shortcut="TAB" description="take a screenshot called '$var1$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />

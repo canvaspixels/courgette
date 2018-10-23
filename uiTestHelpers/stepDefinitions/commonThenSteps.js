@@ -61,7 +61,7 @@ const steps = [
   },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
   { matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot' },
-  { matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshot' },
+  { matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshotcalled' },
 ];
 
 if (!argv.genFiles) {

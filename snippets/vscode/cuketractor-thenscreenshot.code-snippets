@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thenscreenshot",
     "body": [
-      "take a screenshot called '${1:STRING}'"
+      "take a screenshot"
     ],
-    "description": "take a screenshot called '${1:STRING}'"
+    "description": "take a screenshot"
   }
 }
