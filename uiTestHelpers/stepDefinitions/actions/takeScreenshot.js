@@ -3,11 +3,13 @@ const path = require('path');
 
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
-module.exports = function takeScreenshot(callback) {
+module.exports = function takeScreenshot(filename, callback) {
   let bufferedImage;
 
   browser.takeScreenshot().then((png) => {
-    const screenshotFilePath = path.join(pomConfig.outputPath, `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}.png`);
+    const screenshotName = filename || `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}`;
+    const screenshotStepPath = (pomConfig.screenshotStepPath || 'stepDefinitionScreenshots');
+    const screenshotFilePath = path.join(pomConfig.outputPath, screenshotStepPath, `${}.png`);
     const stream = fs.createWriteStream(screenshotFilePath);
     console.log('ScreenshotFilePath: ', screenshotFilePath);
     this.attach(`ScreenshotFilePath: ${screenshotFilePath}`);

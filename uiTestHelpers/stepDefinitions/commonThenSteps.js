@@ -60,7 +60,8 @@ const steps = [
     matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'", path: './checks/checkInputValue', code: 'value', notes: 'Used for getting the value of an input',
   },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
-  { matcher: 'take a screenshot', path: './actions/takeScreenshot', code: 'screenshot' },
+  { matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot' },
+  { matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshot' },
 ];
 
 if (!argv.genFiles) {
