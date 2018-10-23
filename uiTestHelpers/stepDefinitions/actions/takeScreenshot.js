@@ -9,7 +9,11 @@ module.exports = function takeScreenshot(filename, callback) {
   browser.takeScreenshot().then((png) => {
     const screenshotName = filename || `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}`;
     const screenshotStepPath = (pomConfig.screenshotStepPath || 'stepDefinitionScreenshots');
-    const screenshotFilePath = path.join(pomConfig.outputPath, screenshotStepPath, `${screenshotName}.png`);
+    const screenshotsDir = path.join(pomConfig.outputPath, screenshotStepPath);
+    if (!fs.existsSync(screenshotsDir)) {
+      fs.mkdirSync(screenshotsDir);
+    }
+    const screenshotFilePath = path.join(screenshotsDir, `${screenshotName}.png`);
     const stream = fs.createWriteStream(screenshotFilePath);
     console.log('ScreenshotFilePath: ', screenshotFilePath);
     this.attach(`ScreenshotFilePath: ${screenshotFilePath}`);
