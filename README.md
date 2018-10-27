@@ -59,6 +59,11 @@ An example of a specification:
 
 ```gherkin
 Scenario: Refunded items should be returned to stock
+  Given I am on the 'login' page
+  When I set 'email' to 'userThatHasJustBoughtABlackSweater@email.com'
+  And I set 'password' to 'Password~1'
+  And I submit the 'login form'
+  Then I expect to be on the 'home' page
   Given I am on the 'black sweaters' page
   And the 'amount of items in stock' contains the text '3 in stock'
   When I go to 'my account' page
@@ -66,7 +71,7 @@ Scenario: Refunded items should be returned to stock
   And I click 'return black sweater link'
   Then I expect to be on the 'returns' page
   When I click the 'confirm button'
-  THen I expect to be on the 'item returned confirmation' page
+  Then I expect to be on the 'item returned confirmation' page
   When I go to 'black sweaters' page
   Then the 'amount of items in stock' contains the text '4 in stock'
 ```
@@ -81,15 +86,30 @@ Inside the stepDefinitions folder add a new file with the following:
 const { Given, When, Then } = require('cucumber');
 
 Given(/^that a customer previously bought a black sweater from me$/, async function() {
+  Given I am on the 'login' page
+  When I set 'email' to 'userThatHasJustBoughtABlackSweater@email.com'
+  And I set 'password' to 'Password~1'
+  And I submit the 'login form'
+  Then I expect to be on the 'home' page
 });
 
 Given(/^I have three black sweaters in stock.$/, async function() {
+  Given I am on the 'black sweaters' page
+  And the 'amount of items in stock' contains the text '3 in stock'
 });
 
-When(/^I have three black sweaters in stock.$/, async function() {
+When(/^they return the black sweater for a refund$/, async function() {
+  When I go to 'my account' page
+  And I click the 'my orders link'
+  And I click 'return black sweater link'
+  Then I expect to be on the 'returns' page
+  When I click the 'confirm button'
+  Then I expect to be on the 'item returned confirmation' page
 });
 
 Then(/^I should have four black sweaters in stock.$/, async function() {
+  Given I go to 'black sweaters' page
+  Then the 'amount of items in stock' contains the text '4 in stock'
 });
 ```
 
