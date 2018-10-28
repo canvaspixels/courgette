@@ -12,6 +12,7 @@
 * a step for named screenshots
 * an HTML report
 * a Cucumber formatter for nice output in the terminal
+* a Cucumber formatter for step definition usage
 * an error report summary in the terminal output
 * Windows, Mac, Linux support
 * ability to DRY out selectors with .component (YAML) files
