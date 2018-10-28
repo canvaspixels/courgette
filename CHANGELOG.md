@@ -1,3 +1,8 @@
+## 2.2.0
+* improved documentation for BDD
+* renamed checkEventualUrlFromPOM to setPageObjectThenCheckUrl
+* load of small fixes
+
 ## 2.0.3
 adding install-chromedriver script and postinstall script to your project's package.json when you run the setup script
 
