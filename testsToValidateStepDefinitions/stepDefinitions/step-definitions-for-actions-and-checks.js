@@ -85,7 +85,7 @@ Then(/^all the cookie functions work$/, async function () {
 // checkCookieExists // args: (cookieName)
 // checkCookieDoesNotExist // args: (cookieName)
 
-// checkEventualUrlFromPOM // args: (pageName)
+// setPageObjectThenCheckUrl // args: (pageName)
 
 // checkFocus // args: (locatorKey)
 

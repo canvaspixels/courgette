@@ -60,10 +60,22 @@ An example of a specification:
 ```gherkin
 Scenario: Refunded items should be returned to stock
   Given I am on the 'login' page
-  When I set 'email' to 'userThatHasJustBoughtABlackSweater@email.com'
+  When I set 'email' to 'user@email.com'
   And I set 'password' to 'Password~1'
   And I submit the 'login form'
   Then I expect to be on the 'home' page
+  Given I am on the 'black sweaters' page
+  When I click the 'buy now button'
+  Then I expect to be on the 'checkout' page
+  When I set 'first name' to 'Jill'
+  And I set 'last name' to 'McGillis'
+  And I set 'address' to '44 Test Road'
+  And I set 'postcode' to 'N44 9GG'
+  And I set 'card number' to '4111 1111 1111 1111'
+  And I set 'cvv number' to '444'
+  And I set 'expiry date' to '04/22'
+  And I submit the 'purchase form'
+  Then I expect to be on the 'confirmation' page
   Given I am on the 'black sweaters' page
   And the 'amount of items in stock' contains the text '3 in stock'
   When I go to 'my account' page
@@ -76,7 +88,7 @@ Scenario: Refunded items should be returned to stock
   Then the 'amount of items in stock' contains the text '4 in stock'
 ```
 
-As you can see, the user story is shorter and more readable for the business however requires a bit more development effort (but not __much__ more with Cuketractor). With the specification example, you have the implementation details all in place and the scenario will run straight away without further effort. If the tests are just for yourself and you want some quick smoke tests, this may be preferred. If you're writing lots of similar tests to test edges, the user story might be preferred as writing the step definitions to support them will actually DRY out your steps.
+As you can see, the user story is shorter and more readable for the business however requires a bit more development effort (but not __much__ more with Cuketractor). With the specification example, you have the implementation details all in place and the scenario will run straight away without further effort. If the tests are just for yourself and you want some quick smoke tests, this may be preferred. If you're writing lots of similar tests to test edge cases, the user story might be preferred as writing the step definitions to support them will actually make your steps DRY.
 
 Here's how to achieve an automated version of the user story:
 
@@ -86,33 +98,61 @@ Inside the stepDefinitions folder add a new file with the following:
 const { Given, When, Then } = require('cucumber');
 
 Given(/^that a customer previously bought a black sweater from me$/, async function() {
-  Given I am on the 'login' page
-  When I set 'email' to 'userThatHasJustBoughtABlackSweater@email.com'
-  And I set 'password' to 'Password~1'
-  And I submit the 'login form'
-  Then I expect to be on the 'home' page
+  await this.goToPage('login');
+  await this.setInputFieldValue('email', 'user@email.com');
+  await this.setInputFieldValue('password', 'Password~1');
+  await this.submitForm('login form');
+  await this.setPageObjectThenCheckUrl('home');
+  await this.goToPage('black sweaters');
+  await this.clickElement('buy now button');
+  await this.setPageObjectThenCheckUrl('checkout');
+  await this.setInputFieldValue('first name', 'Jill');
+  await this.setInputFieldValue('last name', 'McGillis');
+  await this.setInputFieldValue('address', '44 Test Road');
+  await this.setInputFieldValue('postcode', 'N44 9GG');
+  await this.setInputFieldValue('card number', '4111 1111 1111 1111');
+  await this.setInputFieldValue('cvv number', '444');
+  await this.setInputFieldValue('expiry date', '04/22');
+  await this.submitForm('purchase form');
+  await this.setPageObjectThenCheckUrl('confirmation');
 });
 
 Given(/^I have three black sweaters in stock.$/, async function() {
-  Given I am on the 'black sweaters' page
-  And the 'amount of items in stock' contains the text '3 in stock'
+  await this.goToPage('black sweaters');
+  await this.setSelectValueByOptionText('amount of items in stock', '3 in stock');
 });
 
 When(/^they return the black sweater for a refund$/, async function() {
-  When I go to 'my account' page
-  And I click the 'my orders link'
-  And I click 'return black sweater link'
-  Then I expect to be on the 'returns' page
-  When I click the 'confirm button'
-  Then I expect to be on the 'item returned confirmation' page
+  await this.goToPage('my account');
+  await this.clickElement('my orders link');
+  await this.clickElement('return black sweater link');
+  await this.setPageObjectThenCheckUrl('returns');
+  await this.clickElement('confirm button');
+  await this.setPageObjectThenCheckUrl('item returned confirmation');
 });
 
 Then(/^I should have four black sweaters in stock.$/, async function() {
-  Given I go to 'black sweaters' page
-  Then the 'amount of items in stock' contains the text '4 in stock'
+  await this.goToPage('black sweaters');
+  await this.setSelectValueByOptionText('amount of items in stock', '4 in stock');
 });
 ```
 
+Both the user story and specification styles of BDD will require supporting page objects. So for example the `checkout.page` file will contain the selectors `'first name'` and `'card number'` etc.
+
+To take the above one step further, we can remove the duplication in checking the amount in stock.
+
+```js
+const { Given, When, Then } = require('cucumber');
+
+async function goToPageAndCheckItemsInStock(numberOfItems) {
+  await this.goToPage('black sweaters');
+  await this.setSelectValueByOptionText('amount of items in stock', `${numberOfItems} in stock`);
+}
+
+Given(/^I have (.*) black sweaters in stock.$/, goToPageAndCheckItemsInStock);
+
+Then(/^I should have (.*) black sweaters in stock.$/, goToPageAndCheckItemsInStock);
+```
 
 ## Feature file by example
 
@@ -293,7 +333,7 @@ A .component file is made up of:
 
 By default all your .feature files will run in parallel to speed up running all your tests. This means that across your .feature files your tests should not conflict, i.e. you won't be able to do setup in one feature file such as adding a todo item to your todo app, and teardown in another .feature file such as deleting that same todo item as you'll get a race condition. A suggestion is that if you're logging into your app for example that you use a different user account for each .feature file to avoid conflicting.
 
-If you run `linearise=1 npm run ct` then they won't run in parallel, nor will they if you’re running just one scenario or feature with an @tag.
+If you run `linearise=1 npm run ct` then they won't run in parallel, nor will they if you’re running just one scenario or feature with a @tag.
 
 `maxInstances: 4` in the conf can be altered depending on how much load your computer can handle.
 

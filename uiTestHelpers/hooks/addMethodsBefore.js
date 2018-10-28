@@ -27,7 +27,7 @@ const checkElementBorderColour = require('../../uiTestHelpers/stepDefinitions/ch
 const checkElementColour = require('../../uiTestHelpers/stepDefinitions/checks/checkElementColour');
 const checkElementExists = require('../../uiTestHelpers/stepDefinitions/checks/checkElementExists');
 const checkElementExistsNTimes = require('../../uiTestHelpers/stepDefinitions/checks/checkElementExistsNTimes');
-const checkEventualUrlFromPOM = require('../../uiTestHelpers/stepDefinitions/checks/checkEventualUrlFromPOM');
+const setPageObjectThenCheckUrl = require('../../uiTestHelpers/stepDefinitions/checks/setPageObjectThenCheckUrl');
 const checkFocus = require('../../uiTestHelpers/stepDefinitions/checks/checkFocus');
 const checkInputIsEmpty = require('../../uiTestHelpers/stepDefinitions/checks/checkInputIsEmpty');
 const checkInputValue = require('../../uiTestHelpers/stepDefinitions/checks/checkInputValue');
@@ -106,7 +106,7 @@ Before(function addMethodsBeforeHook() {
   this.checkElementDoesNotExistNTimes = function (locatorKey, count) {
     return checkElementExistsNTimes.call(this, locatorKey, true, count);
   };
-  this.checkEventualUrlFromPOM = checkEventualUrlFromPOM; // args: (pageName)
+  this.setPageObjectThenCheckUrl = setPageObjectThenCheckUrl; // args: (pageName)
   this.checkFocus = checkFocus; // args: (locatorKey)
   this.checkInputIsEmpty = function (locatorKey) {
     return checkInputIsEmpty.call(this, locatorKey, false);
