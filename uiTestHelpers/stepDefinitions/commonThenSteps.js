@@ -5,7 +5,7 @@ const { Then } = require(path.join(process.cwd(), 'node_modules/cucumber')); // 
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 // TODO:
-// Then(/^I expect to be on the 'LOCATOR' page$/, checkEventualUrlFromPOM);
+// Then(/^I expect to be on the 'LOCATOR' page$/, setPageObjectThenCheckUrl);
 // Then(/^I expect a new (?:window|tab) has( not)* been opened$/, checkNewWindow);
 // Then(/^I expect the url to evenually (be|contain) 'URL'$/, checkEventualUrl);
 // Then(/^I expect the path to ( not)* be 'URL'$/, checkURLPath);
@@ -13,7 +13,7 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 const steps = [
   {
     matcher: "I expect to be on the 'PAGE_NAME' page",
-    path: './checks/checkEventualUrlFromPOM',
+    path: './checks/setPageObjectThenCheckUrl',
     notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use locators / sel' +
       'ectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists.',
     code: 'onpage',
