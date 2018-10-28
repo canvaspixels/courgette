@@ -12,7 +12,12 @@ const steps = [
   { matcher: "I append 'STRING' to react field 'LOCATOR'", path: './actions/appendReactInputFieldValue', code: 'appendreact' },
   { matcher: "I set react field 'LOCATOR' to 'STRING'", path: './actions/setReactInputFieldValue', code: 'setreact' },
   { matcher: "I submit the(?: form)? 'LOCATOR'", path: './actions/submitForm', code: 'submit' },
-  { matcher: "I press 'KEY'", path: './actions/pressKey', code: 'key' },
+  {
+    matcher: "I press 'KEY'",
+    path: './actions/pressKey',
+    code: 'key',
+    notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022)'
+  },
   { matcher: "I clear(?: the)? 'LOCATOR'", path: './actions/clearInputFieldValue', code: 'clear' },
   { matcher: "I select the option for select element 'LOCATOR' with the text 'VALUE'", path: './actions/setSelectValueByOptionText', code: 'option' },
 ];

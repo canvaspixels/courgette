@@ -13,7 +13,7 @@ const steps = [
     code: 'onpage',
   },
   { matcher: "the page url is( not)* 'URL'", path: './checks/checkUrl', code: 'pageurl' },
-  { matcher: 'animations are disabled', path: './actions/disableAnimations' },
+  { matcher: 'animations are disabled', path: './actions/disableAnimations', notes: 'Disables CSS animations' },
   { matcher: "(?:the )?'LOCATOR' is (visible)", path: './checks/checkVisibility', code: 'visible' },
   { matcher: "(?:the )?'LOCATOR' is (hidden)", path: './checks/checkVisibility', code: 'hidden' },
   { matcher: "(?:the )?'LOCATOR' is (enabled)", path: './checks/checkIsEnabled', code: 'enabled' },
