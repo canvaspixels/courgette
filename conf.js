@@ -29,7 +29,7 @@ const protractorConfig = {
   capabilities: {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
     acceptInsecureCerts: false,
-    shardTestFiles: !process.env.cukeTags && !process.env.debug,
+    shardTestFiles: !process.env.cukeTags && !process.env.linearise,
     maxInstances: 4,
     browserName: 'chrome',
     chromeOptions: {

@@ -26,7 +26,7 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    shardTestFiles: !cukeTags && !process.env.debug,
+    shardTestFiles: !cukeTags && !process.env.linearise,
     maxInstances: 4,
     browserName: 'chrome',
     chromeOptions: {

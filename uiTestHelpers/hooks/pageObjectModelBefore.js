@@ -8,12 +8,33 @@ const createComponent = require('../../uiTestHelpers/createComponent');
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
+const validateKeys = (doc, path, validKeysOpt, isComponent) => {
+  let valid = true;
+  const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'xpaths'];
+  Object.keys(doc).forEach((key) => {
+    if (!validKeys.includes(key.toLowerCase())) {
+      throw new Error(`"${key}" is not valid inside ${path}. The only valid items for a ${isComponent ? 'component' : 'page'} object are: \n\t${validKeys.join('\n\t')}\n\n`);
+    }
+  });
+}
+
+const getObjFromDoc = (doc, keyToFind) => {
+  const foundKey = Object.keys(doc).find((key) => keyToFind === key.toLowerCase());
+  if (foundKey) {
+    return doc[foundKey];
+  }
+}
+
 let createComponentObject;
 const getComponent = (name) => {
   const yamlComponentPath = path.resolve(pomConfig.componentsPath, `${name}.component`);
   try {
     const doc = yaml.parse(fs.readFileSync(yamlComponentPath, 'utf8'));
-    return (world) => createComponentObject(world, name, doc.components, doc.selectors, doc.XPaths);
+    validateKeys(doc, yamlComponentPath, ['components', 'selectors', 'xpaths'], true);
+    const components = getObjFromDoc(doc, 'components');
+    const selectors = getObjFromDoc(doc, 'selectors');
+    const xpaths = getObjFromDoc(doc, 'xpaths');
+    return (world) => createComponentObject(world, name, components, selectors, xpaths);
   } catch (e) {
     let noDotComponentFile;
     if (e.message.includes('ENOENT: no such file or directory')) {
@@ -103,16 +124,21 @@ Before(function pomBeforeHook() {
     const yamlPagePath = path.resolve(pomConfig.pagesPath, `${name}.page`);
     try {
       const doc = yaml.parse(fs.readFileSync(yamlPagePath, 'utf8'));
-      const page = createPageObject(this, name, doc.path, doc.components, doc.selectors, doc.XPaths);
+      validateKeys(doc, yamlPagePath);
+      const path = getObjFromDoc(doc, 'path');
+      const components = getObjFromDoc(doc, 'components');
+      const selectors = getObjFromDoc(doc, 'selectors');
+      const xpaths = getObjFromDoc(doc, 'xpaths');
+      const page = createPageObject(this, name, path, components, selectors, xpaths);
 
       if (updateCurrentPage) {
         this.currentPage = page;
       }
       return page;
     } catch (e) {
-      let noDotComponentFile;
+      let noDotPageFile;
       if (e.message.includes('ENOENT: no such file or directory')) {
-        noDotComponentFile = true;
+        noDotPageFile = true;
       } else {
         console.log(e);
       }
@@ -124,7 +150,7 @@ Before(function pomBeforeHook() {
         }
         return page(this);
       } catch (err) {
-        if (noDotComponentFile) {
+        if (noDotPageFile) {
           console.log('No .page file found called: ', yamlPagePath);
         }
         console.log(err);

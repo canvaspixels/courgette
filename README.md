@@ -189,33 +189,21 @@ Feature: Test feature
 
 Continuing on from the examples above...
 
-To run just one feature:
+To run just one feature (assuming the @tag is at the top of the file):
 
 ```console
-npm run ct --tags=@google-home
-
-OR SIMPLY JUST
-
 npm run ct @google-home
 ```
 
-To run just one scenario:
+To run just one scenario (assuming you’ve added the @tag above your scenario):
 
 ```console
-npm run ct --tags=@google-home-another-thing
-
-OR SIMPLY JUST
-
 npm run ct @google-home-another-thing
 ```
 
 To run a couple (comma separate):
 
 ```console
-npm run ct --tags=@google-home-feeling-lucky,@google-home-another-thing
-
-OR SIMPLY JUST
-
 npm run ct @google-home-feeling-lucky,@google-home-another-thing
 ```
 
@@ -298,6 +286,16 @@ A .component file is made up of:
 * selectors - css selectors, the name on the left side of the : is what you put in your gherkin steps, the selector on the right references your html element. Note if you use id selectors (with a hash) you need to put it in quotes '' or the yaml file will think it's a comment
 * XPaths - same as selectors but using XPath selectors instead
 * components - a list of components which will be loaded in from the `uiTests/components` folder and composed into the component object
+
+## Parallelisation
+
+By default all your .feature files will run in parallel to speed up running all your tests. This means that across your .feature files your tests should not conflict, i.e. you won't be able to do setup in one feature file such as adding a todo item to your todo app, and teardown in another .feature file such as deleting that same todo item as you'll get a race condition. A suggestion is that if you're logging into your app for example that you use a different user account for each .feature file to avoid conflicting.
+
+If you run `linearise=1 npm run ct` then they won't run in parallel, nor will they if you’re running just one scenario or feature with an @tag.
+
+`maxInstances: 4` in the conf can be altered depending on how much load your computer can handle.
+
+If you've just setup Cuketractor with the setup script this will work, otherwise search for linearise inside the [sample conf](https://github.com/canvaspixels/cucumber-protractor/blob/master/sample-conf.js)
 
 
 ## Snippets
