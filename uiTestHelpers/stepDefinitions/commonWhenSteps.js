@@ -9,14 +9,21 @@ const steps = [
   { matcher: "I append 'STRING' to 'LOCATOR'", path: './actions/appendInputFieldValue', code: 'append' },
   // { matcher: "I set select 'LOCATOR' to 'STRING'", path: './actions/setSelectFieldValue', code: 'set' },
   { matcher: "I set 'LOCATOR' to 'STRING'", path: './actions/setInputFieldValue', code: 'set' },
-  { matcher: "I append 'STRING' to react field 'LOCATOR'", path: './actions/appendReactInputFieldValue', code: 'appendreact' },
-  { matcher: "I set react field 'LOCATOR' to 'STRING'", path: './actions/setReactInputFieldValue', code: 'setreact' },
+  {
+    matcher: "I append 'STRING' to react field 'LOCATOR'",
+    path: './actions/appendReactInputFieldValue',
+    code: 'appendreact',
+    notes: 'Sets the value to the input then fires React’s version of the onChange event, so that any actions fire',
+  },
+  {
+    matcher: "I set react field 'LOCATOR' to 'STRING'", path: './actions/setReactInputFieldValue', code: 'setreact', notes: 'Similar to append in react above',
+  },
   { matcher: "I submit the(?: form)? 'LOCATOR'", path: './actions/submitForm', code: 'submit' },
   {
     matcher: "I press 'KEY'",
     path: './actions/pressKey',
     code: 'key',
-    notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022)'
+    notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022)',
   },
   { matcher: "I clear(?: the)? 'LOCATOR'", path: './actions/clearInputFieldValue', code: 'clear' },
   { matcher: "I select the option for select element 'LOCATOR' with the text 'VALUE'", path: './actions/setSelectValueByOptionText', code: 'option' },
