@@ -29,7 +29,7 @@ const protractorConfig = {
   capabilities: {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
     acceptInsecureCerts: false,
-    shardTestFiles: !process.env.cukeTags && !process.env.linearise,
+    shardTestFiles: !process.env.cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     maxInstances: 4,
     browserName: 'chrome',
     chromeOptions: {
@@ -55,7 +55,7 @@ const protractorConfig = {
     'format': [
       'cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
-    ],
+    ].concat(process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
     'profile': false,
     'no-source': true,
   },

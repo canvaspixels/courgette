@@ -59,10 +59,12 @@ const cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase
 const args = [confFile];
 const firstArg = process.argv && process.argv[2];
 const tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
+
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
     cukeTags: (tags || argv.tags || '').replace(',', ' or '),
     confFile,
+    showStepDefinitionUsage: process.env.showStepDefinitionUsage || argv.showStepDefinitionUsage || '',
   }),
 });
 

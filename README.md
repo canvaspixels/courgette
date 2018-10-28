@@ -236,7 +236,7 @@ The conf file allows you to specify the following:
 To point to a different configuration file:
 
 ```console
-npm run ct --confFile=staging.conf.js
+npm run ct -- --confFile=staging.conf.js
 ```
 
 ## .page files and .component files
@@ -390,6 +390,14 @@ Feature: Test feature
 Then run that scenario: `npm run ct @twitter-dashboard-menu-items`
 
 Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/master/METHODS_FOR_COMBINING.md#methods-for-combining-actions-and-assertions) that you can use to combine your steps.
+
+## Tidying up unused step definitions
+
+To run all your tests then print out a summary of the usage of your step definitions run:
+
+```console
+npm run ct -- --showStepDefinitionUsage
+```
 
 ## Contributing
 

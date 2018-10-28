@@ -15,15 +15,16 @@ const placeholders = require('../placeholders');
 
 const sublimeSnippetsFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User/sublime-snippets-cuketractor`;
 
+
 const snippetsFolder = 'snippets/sublime';
-
-if (!fs.existsSync('snippets')) {
-  fs.mkdirSync('snippets');
+if (!argv.justForIDE) {
+  if (!fs.existsSync('snippets')) {
+    fs.mkdirSync('snippets');
+  }
+  if (!fs.existsSync(snippetsFolder)) {
+    fs.mkdirSync(snippetsFolder);
+  }
 }
-if (!fs.existsSync(snippetsFolder)) {
-  fs.mkdirSync(snippetsFolder);
-}
-
 
 if (!fs.existsSync(sublimeSnippetsFolder)) {
   fs.mkdirSync(sublimeSnippetsFolder);
