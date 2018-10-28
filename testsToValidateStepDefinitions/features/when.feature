@@ -15,6 +15,11 @@ Feature: Testing When steps
   #   Then I expect the value of the 'age field' to be '18-88'
   # todo create
 
+  @when-steps-clear-then-set-value
+  Scenario: When I append to a field
+    When I set 'email' to 'hello'
+    Then I expect the value of the 'email' to be 'hello'
+
   @when-steps-set-value
   Scenario: When I set text in the field
     When I set 'fullname' to 'foo'
@@ -30,6 +35,11 @@ Feature: Testing When steps
     When I set react field 'fullname' to 'foo'
     Then I expect the value of the 'fullname' to be 'foo'
 
+  @when-steps-clear-then-set-react-value
+  Scenario: When I append to a field
+    When I set react field 'email' to 'hello'
+    Then I expect the value of the 'email' to be 'hello'
+
   @when-steps-submit-form
   Scenario: When I submit a form
     When I submit the 'main form'
@@ -40,7 +50,6 @@ Feature: Testing When steps
     When I set 'fullname' to 'foo'
     And I press 'ENTER'
     Then I expect the url to be 'http://localhost:3000/other-page'
-    # todo document pressing keys
 
   @when-steps-clear
   Scenario: When I clear a field

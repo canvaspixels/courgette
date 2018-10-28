@@ -17,12 +17,13 @@ let ideSnippetsFolder;
 let ideInstalled = true;
 
 const snippetsFolder = 'snippets/vscode';
-
-if (!fs.existsSync('snippets')) {
-  fs.mkdirSync('snippets');
-}
-if (!fs.existsSync(snippetsFolder)) {
-  fs.mkdirSync(snippetsFolder);
+if (!argv.justForIDE) {
+  if (!fs.existsSync('snippets')) {
+    fs.mkdirSync('snippets');
+  }
+  if (!fs.existsSync(snippetsFolder)) {
+    fs.mkdirSync(snippetsFolder);
+  }
 }
 
 

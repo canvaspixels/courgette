@@ -26,7 +26,7 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    shardTestFiles: !cukeTags && !process.env.debug,
+    shardTestFiles: !cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     maxInstances: 4,
     browserName: 'chrome',
     chromeOptions: {
@@ -50,7 +50,7 @@ const protractorConfig = {
     'format': [
       'node_modules/cucumber-protractor/cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
-    ],
+    ].concat(process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
     'profile': false,
     'no-source': true,
   },

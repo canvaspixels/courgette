@@ -1,8 +1,23 @@
-# POM CukeTractor - Cucumber Protractor Runner with Setup for Page Object Model
+# CukeTractor Framework - Bringing sanity to test automation with this Cucumber Protractor Runner
 
 [![Build Status](https://travis-ci.org/canvaspixels/cucumber-protractor.svg?branch=master)](https://travis-ci.org/canvaspixels/cucumber-protractor)
 
 ![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
+
+## CukeTractor gives you:
+
+* a load of generic step definitions for you to begin writing Given When Then scenarios that will run as soon as you add the CSS or XPath selectors to the .page (YAML) file
+* snippets or live templates for intellisense in your favourite IDE to write those steps accurately and quickly
+* screenshots on error for debugging
+* a step for named screenshots
+* an HTML report
+* a Cucumber formatter for nice output in the terminal
+* a Cucumber formatter for step definition usage
+* an error report summary in the terminal output
+* Windows, Mac, Linux support
+* ability to DRY out selectors with .component (YAML) files
+* ability to run against cloud services that provide a selenium grid
+
 
 ## Create easy-to-read, functioning scenarios in seconds:
 
@@ -26,6 +41,119 @@ alias ct="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"
 ```
 
 This is the same command that was added to your package.json. This means you don't have to put npm run each time.
+
+## BDD (Behaviour-Driven Developement) user stories vs specifications
+
+With Cuketractor, you have the option to either write user stories, specifications, or a mixture of the both.
+
+An example of a user story:
+
+```gherkin
+Scenario: Refunded items should be returned to stock
+  Given that a customer previously bought a black sweater from me
+  And I have three black sweaters in stock.
+  When they return the black sweater for a refund
+  Then I should have four black sweaters in stock.
+```
+
+An example of a specification:
+
+```gherkin
+Scenario: Refunded items should be returned to stock
+  Given I am on the 'login' page
+  When I set 'email' to 'user@email.com'
+  And I set 'password' to 'Password~1'
+  And I submit the 'login form'
+  Then I expect to be on the 'home' page
+  Given I am on the 'black sweaters' page
+  When I click the 'buy now button'
+  Then I expect to be on the 'checkout' page
+  When I set 'first name' to 'Jill'
+  And I set 'last name' to 'McGillis'
+  And I set 'address' to '44 Test Road'
+  And I set 'postcode' to 'N44 9GG'
+  And I set 'card number' to '4111 1111 1111 1111'
+  And I set 'cvv number' to '444'
+  And I set 'expiry date' to '04/22'
+  And I submit the 'purchase form'
+  Then I expect to be on the 'confirmation' page
+  Given I am on the 'black sweaters' page
+  And the 'amount of items in stock' contains the text '3 in stock'
+  When I go to 'my account' page
+  And I click the 'my orders link'
+  And I click 'return black sweater link'
+  Then I expect to be on the 'returns' page
+  When I click the 'confirm button'
+  Then I expect to be on the 'item returned confirmation' page
+  When I go to 'black sweaters' page
+  Then the 'amount of items in stock' contains the text '4 in stock'
+```
+
+As you can see, the user story is shorter and more readable for the business however requires a bit more development effort (but not __much__ more with Cuketractor). With the specification example, you have the implementation details all in place and the scenario will run straight away without further effort. If the tests are just for yourself and you want some quick smoke tests, this may be preferred. If you're writing lots of similar tests to test edge cases, the user story might be preferred as writing the step definitions to support them will actually make your steps DRY.
+
+Here's how to achieve an automated version of the user story:
+
+Inside the stepDefinitions folder add a new file with the following:
+
+```js
+const { Given, When, Then } = require('cucumber');
+
+Given(/^that a customer previously bought a black sweater from me$/, async function() {
+  await this.goToPage('login');
+  await this.setInputFieldValue('email', 'user@email.com');
+  await this.setInputFieldValue('password', 'Password~1');
+  await this.submitForm('login form');
+  await this.setPageObjectThenCheckUrl('home');
+  await this.goToPage('black sweaters');
+  await this.clickElement('buy now button');
+  await this.setPageObjectThenCheckUrl('checkout');
+  await this.setInputFieldValue('first name', 'Jill');
+  await this.setInputFieldValue('last name', 'McGillis');
+  await this.setInputFieldValue('address', '44 Test Road');
+  await this.setInputFieldValue('postcode', 'N44 9GG');
+  await this.setInputFieldValue('card number', '4111 1111 1111 1111');
+  await this.setInputFieldValue('cvv number', '444');
+  await this.setInputFieldValue('expiry date', '04/22');
+  await this.submitForm('purchase form');
+  await this.setPageObjectThenCheckUrl('confirmation');
+});
+
+Given(/^I have three black sweaters in stock.$/, async function() {
+  await this.goToPage('black sweaters');
+  await this.setSelectValueByOptionText('amount of items in stock', '3 in stock');
+});
+
+When(/^they return the black sweater for a refund$/, async function() {
+  await this.goToPage('my account');
+  await this.clickElement('my orders link');
+  await this.clickElement('return black sweater link');
+  await this.setPageObjectThenCheckUrl('returns');
+  await this.clickElement('confirm button');
+  await this.setPageObjectThenCheckUrl('item returned confirmation');
+});
+
+Then(/^I should have four black sweaters in stock.$/, async function() {
+  await this.goToPage('black sweaters');
+  await this.setSelectValueByOptionText('amount of items in stock', '4 in stock');
+});
+```
+
+Both the user story and specification styles of BDD will require supporting page objects. So for example the `checkout.page` file will contain the selectors `'first name'` and `'card number'` etc.
+
+To take the above one step further, we can remove the duplication in checking the amount in stock.
+
+```js
+const { Given, When, Then } = require('cucumber');
+
+async function goToPageAndCheckItemsInStock(numberOfItems) {
+  await this.goToPage('black sweaters');
+  await this.setSelectValueByOptionText('amount of items in stock', `${numberOfItems} in stock`);
+}
+
+Given(/^I have (.*) black sweaters in stock.$/, goToPageAndCheckItemsInStock);
+
+Then(/^I should have (.*) black sweaters in stock.$/, goToPageAndCheckItemsInStock);
+```
 
 ## Feature file by example
 
@@ -69,6 +197,8 @@ Note that a `.page` file will take precedence over a `.js` page object file.
 
 You don't need to write any page object methods, nor step definitions. How easy is that!!?
 
+The indentation in YAML (the .page / .component files) is important. The keys such as path, components, selectors, xpaths need to always be on the far left as per the examples on this page.
+
 It's important that the page object name is kebab-case and lowercase. E.g. `about-us.js` or `about-something-else.js` or `google-home.js` as in the sample. `Given I am on the 'Google Home' page` sets the current page object and `Google Home` gets translated behind the scenes to `google-home.js` so make sure `Google Home` has the space in it.
 
 It’s advisable when writing your features to add a tag at the top of the Feature file and a tag to the beginning of each Scenario. A tag starts with a @. As a convention you can prefix each Scenario tag with whatever you've used at the top of the file (in this case @google-home). Try and keep them unique for your ease of use.
@@ -102,33 +232,21 @@ Feature: Test feature
 
 Continuing on from the examples above...
 
-To run just one feature:
+To run just one feature (assuming the @tag is at the top of the file):
 
 ```console
-npm run ct --tags=@google-home
-
-OR SIMPLY JUST
-
 npm run ct @google-home
 ```
 
-To run just one scenario:
+To run just one scenario (assuming you’ve added the @tag above your scenario):
 
 ```console
-npm run ct --tags=@google-home-another-thing
-
-OR SIMPLY JUST
-
 npm run ct @google-home-another-thing
 ```
 
 To run a couple (comma separate):
 
 ```console
-npm run ct --tags=@google-home-feeling-lucky,@google-home-another-thing
-
-OR SIMPLY JUST
-
 npm run ct @google-home-feeling-lucky,@google-home-another-thing
 ```
 
@@ -159,7 +277,7 @@ The conf file allows you to specify the following:
 To point to a different configuration file:
 
 ```console
-npm run ct --confFile=staging.conf.js
+npm run ct -- --confFile=staging.conf.js
 ```
 
 ## .page files and .component files
@@ -211,6 +329,16 @@ A .component file is made up of:
 * selectors - css selectors, the name on the left side of the : is what you put in your gherkin steps, the selector on the right references your html element. Note if you use id selectors (with a hash) you need to put it in quotes '' or the yaml file will think it's a comment
 * XPaths - same as selectors but using XPath selectors instead
 * components - a list of components which will be loaded in from the `uiTests/components` folder and composed into the component object
+
+## Parallelisation
+
+By default all your .feature files will run in parallel to speed up running all your tests. This means that across your .feature files your tests should not conflict, i.e. you won't be able to do setup in one feature file such as adding a todo item to your todo app, and teardown in another .feature file such as deleting that same todo item as you'll get a race condition. A suggestion is that if you're logging into your app for example that you use a different user account for each .feature file to avoid conflicting.
+
+If you run `linearise=1 npm run ct` then they won't run in parallel, nor will they if you’re running just one scenario or feature with a @tag.
+
+`maxInstances: 4` in the conf can be altered depending on how much load your computer can handle.
+
+If you've just setup Cuketractor with the setup script this will work, otherwise search for linearise inside the [sample conf](https://github.com/canvaspixels/cucumber-protractor/blob/master/sample-conf.js)
 
 
 ## Snippets
@@ -304,8 +432,20 @@ Then run that scenario: `npm run ct @twitter-dashboard-menu-items`
 
 Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/master/METHODS_FOR_COMBINING.md#methods-for-combining-actions-and-assertions) that you can use to combine your steps.
 
+## Tidying up unused step definitions
+
+To run all your tests then print out a summary of the usage of your step definitions run:
+
+```console
+npm run ct -- --showStepDefinitionUsage
+```
+
 ## Contributing
 
 Please get in touch if you'd like to contribute to this project.
 
 To create the STEP_DEFINITIONS.md and snippets files, run the script: `npm run build-readme-and-snippets`
+
+## Useful links
+
+* [Behaviour-Driven Developement](https://en.wikipedia.org/wiki/Behavior-driven_development)

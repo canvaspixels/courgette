@@ -13,15 +13,6 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-const snippetsFolder = 'snippets/intellij';
-
-if (!fs.existsSync('snippets')) {
-  fs.mkdirSync('snippets');
-}
-if (!fs.existsSync(snippetsFolder)) {
-  fs.mkdirSync(snippetsFolder);
-}
-
 const snippetCodes = {};
 
 let snippets = '<templateSet group="CukeTractor">\n';
@@ -91,6 +82,14 @@ genSnippets(thenSteps, 'then');
 snippets += '</templateSet>';
 
 if (!argv.justForIDE) {
+  const snippetsFolder = 'snippets/intellij';
+
+  if (!fs.existsSync('snippets')) {
+    fs.mkdirSync('snippets');
+  }
+  if (!fs.existsSync(snippetsFolder)) {
+    fs.mkdirSync(snippetsFolder);
+  }
   fs.writeFileSync(`${snippetsFolder}/cuketractor-snippets.xml`, snippets);
 }
 

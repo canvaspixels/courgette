@@ -1,5 +1,4 @@
 module.exports = function checkUrl(isNot, expectedUrl) {
-  // TODO: improve error message on no match
   const waitTimeout = this.cucumberTimeout || 3000;
   let currentUrlNoTrailingSlash;
   const expectedUrlNoTrailingSlash = expectedUrl.replace(/\/$/, '');

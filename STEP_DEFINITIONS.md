@@ -9,7 +9,7 @@ Note that the words in italics are optional.
 | I am on the 'PAGE_NAME' page | givenonpage | PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object |
 | the page url is 'URL' | givenpageurl |  |
 | the page url is not 'URL' | givennotpageurl |  |
-| animations are disabled | givendisableAnimations |  |
+| animations are disabled | givendisableAnimations | Disables CSS animations |
 | _the_ 'LOCATOR' is visible | givenvisible |  |
 | _the_ 'LOCATOR' is hidden | givenhidden |  |
 | _the_ 'LOCATOR' is enabled | givenenabled |  |
@@ -44,10 +44,10 @@ Note that the words in italics are optional.
 | I click _the_ 'LOCATOR' | whenclick |  |
 | I append 'STRING' to 'LOCATOR' | whenappend |  |
 | I set 'LOCATOR' to 'STRING' | whenset |  |
-| I&nbsp;append&nbsp;'STRING'&nbsp;to&nbsp;react&nbsp;field&nbsp;'LOCATOR' | whenappendreact |  |
-| I set react field 'LOCATOR' to 'STRING' | whensetreact |  |
+| I&nbsp;append&nbsp;'STRING'&nbsp;to&nbsp;react&nbsp;field&nbsp;'LOCATOR' | whenappendreact | Sets the value to the input then fires React’s version of the onChange event, so that any actions fire |
+| I set react field 'LOCATOR' to 'STRING' | whensetreact | Similar to append in react above |
 | I submit the _form_ 'LOCATOR' | whensubmit |  |
-| I press 'KEY' | whenkey |  |
+| I press 'KEY' | whenkey | [See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) |
 | I clear _the_ 'LOCATOR' | whenclear |  |
 | I select the option for select element 'LOCATOR' with the text 'VALUE' | whenoption |  |
 

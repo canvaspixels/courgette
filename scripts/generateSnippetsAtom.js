@@ -13,15 +13,6 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-const snippetsFolder = 'snippets/atom';
-
-if (!fs.existsSync('snippets')) {
-  fs.mkdirSync('snippets');
-}
-if (!fs.existsSync(snippetsFolder)) {
-  fs.mkdirSync(snippetsFolder);
-}
-
 const snippetCodes = {};
 
 let snippets = '###### cuketractor snippets start 0-o\n\n';
@@ -86,6 +77,14 @@ genSnippets(thenSteps, 'then');
 snippets += '###### cuketractor snippets end 0-o';
 
 if (!argv.justForIDE) {
+  const snippetsFolder = 'snippets/atom';
+
+  if (!fs.existsSync('snippets')) {
+    fs.mkdirSync('snippets');
+  }
+  if (!fs.existsSync(snippetsFolder)) {
+    fs.mkdirSync(snippetsFolder);
+  }
   fs.writeFileSync(`${snippetsFolder}/atom-snippets.cson`, snippets);
 }
 

@@ -35,7 +35,6 @@
 | checkElementDoesNotExist | (locatorKey) |
 | checkElementExistsNTimes | (locatorKey, count) |
 | checkElementDoesNotExistNTimes | (locatorKey, count) |
-| checkEventualUrlFromPOM | (pageName) |
 | checkFocus | (locatorKey) |
 | checkInputIsEmpty | (locatorKey) |
 | checkInputIsNotEmpty | (locatorKey) |
@@ -48,6 +47,7 @@
 | checkIsDeselected | (locatorKey) |
 | checkTitle | (expectedTitle) |
 | checkTitleIsNot | (expectedTitle) |
+| setPageObjectThenCheckUrl | (pageName) |
 | checkUrlIs | (url) |
 | checkUrlIsNot | (url) |
 | checkUrlContainsString | (expectedUrlPart) |
