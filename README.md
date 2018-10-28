@@ -156,6 +156,8 @@ Note that a `.page` file will take precedence over a `.js` page object file.
 
 You don't need to write any page object methods, nor step definitions. How easy is that!!?
 
+The indentation in YAML (the .page / .component files) is important. The keys such as path, components, selectors, xpaths need to always be on the far left as per the examples on this page.
+
 It's important that the page object name is kebab-case and lowercase. E.g. `about-us.js` or `about-something-else.js` or `google-home.js` as in the sample. `Given I am on the 'Google Home' page` sets the current page object and `Google Home` gets translated behind the scenes to `google-home.js` so make sure `Google Home` has the space in it.
 
 It’s advisable when writing your features to add a tag at the top of the Feature file and a tag to the beginning of each Scenario. A tag starts with a @. As a convention you can prefix each Scenario tag with whatever you've used at the top of the file (in this case @google-home). Try and keep them unique for your ease of use.
