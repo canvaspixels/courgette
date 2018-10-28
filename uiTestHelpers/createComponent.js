@@ -27,6 +27,8 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
           if (locators[locatorName]) {
             console.error(`Error: Cannot add component "${componentName}" ${componentInstance.type} into the ${name} ${type} because there is an element name locator conflict.`);
             console.error(`Both have the same locator name "${locatorName}"`);
+            throw new Error(`Cannot add component "${componentName}" ${componentInstance.type} into the ${name} ${type} because there is an element name locator conflict.
+              Both have the same locator name "${locatorName}"\n`);
           }
 
           locators[locatorName] = componentInstance.locators[locatorName];

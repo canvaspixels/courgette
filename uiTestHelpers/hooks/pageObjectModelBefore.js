@@ -8,22 +8,22 @@ const createComponent = require('../../uiTestHelpers/createComponent');
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
-const validateKeys = (doc, path, validKeysOpt, isComponent) => {
-  let valid = true;
+const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
   const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'xpaths'];
   Object.keys(doc).forEach((key) => {
     if (!validKeys.includes(key.toLowerCase())) {
-      throw new Error(`"${key}" is not valid inside ${path}. The only valid items for a ${isComponent ? 'component' : 'page'} object are: \n\t${validKeys.join('\n\t')}\n\n`);
+      throw new Error(`"${key}" is not valid inside ${objPath}. The only valid items for a ${isComponent ? 'component' : 'page'} object are: \n\t${validKeys.join('\n\t')}\n\n`);
     }
   });
-}
+};
 
 const getObjFromDoc = (doc, keyToFind) => {
   const foundKey = Object.keys(doc).find((key) => keyToFind === key.toLowerCase());
   if (foundKey) {
     return doc[foundKey];
   }
-}
+  return undefined;
+};
 
 let createComponentObject;
 const getComponent = (name) => {
@@ -125,11 +125,11 @@ Before(function pomBeforeHook() {
     try {
       const doc = yaml.parse(fs.readFileSync(yamlPagePath, 'utf8'));
       validateKeys(doc, yamlPagePath);
-      const path = getObjFromDoc(doc, 'path');
+      const pagePath = getObjFromDoc(doc, 'path');
       const components = getObjFromDoc(doc, 'components');
       const selectors = getObjFromDoc(doc, 'selectors');
       const xpaths = getObjFromDoc(doc, 'xpaths');
-      const page = createPageObject(this, name, path, components, selectors, xpaths);
+      const page = createPageObject(this, name, pagePath, components, selectors, xpaths);
 
       if (updateCurrentPage) {
         this.currentPage = page;
