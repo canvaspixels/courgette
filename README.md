@@ -91,9 +91,9 @@ Scenario: Refunded items should be returned to stock
 
 As you can see, the user story is shorter and more readable for the business however requires a bit more development effort (but not __much__ more with Cuketractor). With the specification example, you have the implementation details all in place and the scenario will run straight away without further effort. If the tests are just for yourself and you want some quick smoke tests, this may be preferred. If you're writing lots of similar tests to test edge cases, the user story might be preferred as writing the step definitions to support them will actually make your steps DRY.
 
-Here's how to achieve an automated version of the user story:
+Both the user story and specification styles of BDD will require supporting page objects. So for example the `checkout.page` file will contain the selectors `'first name'` and `'card number'` etc.
 
-Inside the stepDefinitions folder add a new file with the following:
+Here's how to achieve an automated version of the user story... Inside the `stepDefinitions` folder, add a new `.js` file with the following:
 
 ```js
 const { Given, When, Then } = require('cucumber');
@@ -138,7 +138,6 @@ Then(/^I should have four black sweaters in stock.$/, async function() {
 });
 ```
 
-Both the user story and specification styles of BDD will require supporting page objects. So for example the `checkout.page` file will contain the selectors `'first name'` and `'card number'` etc.
 
 To take the above one step further, we can remove the duplication in checking the amount in stock.
 
