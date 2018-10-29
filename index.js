@@ -157,11 +157,26 @@ const output = (data) => {
   logStream.write(data.toString().replace(/\x1b\[\d\dm/g, ''));
 };
 
+const deleteEmptyJSONS = (outputPath) => {
+  fs.readdirSync(outputPath).forEach((file) => {
+    if (file.includes('.json')) {
+      const filePath = path.join(outputPath, file);
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      if (fileContents === '[]') {
+        console.log('deleting empty file: ', file);
+        fs.unlinkSync(filePath);
+      }
+    }
+  })
+}
+
 spawnedProcess.stdout.on('data', output);
 spawnedProcess.stderr.on('data', output);
 
 spawnedProcess.on('exit', () => {
   logStream.end();
+
+  deleteEmptyJSONS(pomConfig.outputPath);
 
   cucumberHtmlReporter.generate(cucumberHtmlReporterConfig);
 
