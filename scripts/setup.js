@@ -56,11 +56,11 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
     if (err2) throw err2;
     console.log('added cuketractor script to your package.json');
 
-    runScript(addScriptToPackageJson, ['install-chromedriver', installChromedriver], (err3) => {
+    runScript(addScriptToPackageJson, ['install-geckodriver', installChromedriver], (err3) => {
       if (err3) throw err3;
       console.log('added installChromedriver to your package.json');
 
-      runScript(addScriptToPackageJson, ['postinstall', 'npm run install-chromedriver'], (err4) => {
+      runScript(addScriptToPackageJson, ['postinstall', 'npm run install-geckodriver'], (err4) => {
         if (err4) throw err4;
         console.log('added postinstall script to your package.json');
 
@@ -70,9 +70,9 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
             console.log('!!!!!!!!!!!-----------IMPORTANT----------!!!!!!!!!!!!!!!');
             console.log('It looks like it hasn’t install properly, you may be behind a corporate proxy. You may have to add the --proxy flag to webdriver-manager in your package json.');
             const eg = '"./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35 --proxy http://127.0.0.1"';
-            console.log(`e.g. "install-chromedriver": ${eg},`);
+            console.log(`e.g. "install-geckodriver": ${eg},`);
             console.log('Then run:');
-            console.log('npm run install-chromedriver');
+            console.log('npm run install-geckodriver');
             console.log(' ');
             throw err5;
           } else {
