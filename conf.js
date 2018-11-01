@@ -38,7 +38,7 @@ const capabilities = {
   },
 };
 
-const browserCapability = capabilities[process.env.browser || 'chrome']
+const browserCapability = capabilities[process.env.browser || 'chrome'];
 
 const protractorConfig = {
   directConnect: true,
@@ -53,7 +53,7 @@ const protractorConfig = {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
     'shardTestFiles': !process.env.cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     'maxInstances': 4,
-    ...browserCapability
+    ...browserCapability,
   },
   cucumberOpts: {
     'require': [
