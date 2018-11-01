@@ -15,10 +15,11 @@ Feature: Testing Given steps
     When I click the 'Go to other page link'
     Then I expect the url to contain '/other-page'
 
-  @given-steps-routing-link-new-tab
-  Scenario: Link to open in new tab
-    When I click the 'Go to other page in new tab link'
-    Then I expect the url 'http://localhost:3000/other-page' is opened in a new tab
+  # TODO: fix in https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # @given-steps-routing-link-new-tab
+  # Scenario: Link to open in new tab
+  #   When I click the 'Go to other page in new tab link'
+  #   Then I expect the url 'http://localhost:3000/other-page' is opened in a new tab
 
   @given-steps-routing-given-url
   Scenario: Given the url is x

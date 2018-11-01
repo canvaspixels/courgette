@@ -6,6 +6,7 @@ const { argv } = require('yargs');
 const Table = require('cli-table');
 require('colors');
 const os = require('os');
+const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
 // eslint-disable-next-line
 const confFile = argv.confFile || process.env.confFile || 'conf.js';
@@ -76,7 +77,7 @@ const cucumberHtmlReporterConfig = Object.assign({
   launchReport: false,
 }, pomConfig.cucumberHtmlReporterConfig);
 
-const printCukeErrors = (el, step) => {
+const printCukeErrors = (el, step, feature) => {
   const red = '\x1b[31m%s\x1b[0m';
   const yellow = '\x1b[33m%s\x1b[0m';
   if (step.result.error_message) {
@@ -84,6 +85,7 @@ const printCukeErrors = (el, step) => {
     log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
     log(yellow, `Step: ${step.keyword}${step.name}`);
     log(yellow, `Location: ${step.match.location}`);
+    log(yellow, `Feature: ${feature.uri}${el.tags && el.tags.length ? ':'+el.tags[el.tags.length - 1].line : ''}`);
     log(yellow, `Error message: ${step.result.error_message}`);
   } else if (step.result.status === 'undefined') {
     log(red, `\n------------------ Scenario Undefined Step Definition --------------- ${el.name}`);
@@ -114,35 +116,37 @@ const loopThroughReport = () => new Promise((resolve, reject) => {
     // eslint-disable-next-line
     const features = JSON.parse(fs.readFileSync(`${cucumberHtmlReporterConfig.output}.json`, 'utf8'));
 
-    const elements = features.reduce((arr, scenario) => arr.concat(scenario.elements), []);
+    // const elements = features.reduce((arr, scenario) => arr.concat(scenario.elements), []);
 
     let successCount = 0;
     let failureCount = 0;
     let totalCount = 0;
 
-    elements.forEach((el) => {
-      let scenarioStatus = 'passed';
-      el.steps.forEach((step) => {
-        const { status } = step.result;
-        const { keyword } = step;
+    features.forEach((feature) => {
+      feature.elements.forEach((el) => {
+        let scenarioStatus = 'passed';
+        el.steps.forEach((step) => {
+          const { status } = step.result;
+          const { keyword } = step;
 
-        if (!keyword.includes('After') && !keyword.includes('Before')) {
-          if (status === 'failed' || scenarioStatus !== 'failed') {
-            scenarioStatus = status;
+          if (!keyword.includes('After') && !keyword.includes('Before')) {
+            if (status === 'failed' || scenarioStatus !== 'failed') {
+              scenarioStatus = status;
+            }
           }
+
+          printCukeErrors(el, step, feature);
+
+          return step.result.status;
+        });
+
+        if (scenarioStatus === 'passed') {
+          successCount += 1;
+        } else {
+          failureCount += 1;
         }
-
-        printCukeErrors(el, step);
-
-        return step.result.status;
+        totalCount += 1;
       });
-
-      if (scenarioStatus === 'passed') {
-        successCount += 1;
-      } else {
-        failureCount += 1;
-      }
-      totalCount += 1;
     });
 
     resolve({ successCount, failureCount, totalCount });
@@ -157,13 +161,30 @@ const output = (data) => {
   logStream.write(data.toString().replace(/\x1b\[\d\dm/g, ''));
 };
 
+const deleteEmptyJSONS = (outputPath) => {
+  fs.readdirSync(outputPath).forEach((file) => {
+    if (file.includes('.json')) {
+      const filePath = path.join(outputPath, file);
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      if (fileContents === '[]') {
+        console.log('deleting empty file: ', file);
+        fs.unlinkSync(filePath);
+      }
+    }
+  })
+}
+
 spawnedProcess.stdout.on('data', output);
 spawnedProcess.stderr.on('data', output);
 
 spawnedProcess.on('exit', () => {
   logStream.end();
 
+  deleteEmptyJSONS(pomConfig.outputPath);
+
   cucumberHtmlReporter.generate(cucumberHtmlReporterConfig);
+
+  generateScreenshotViewer();
 
   loopThroughReport()
     .then(({ successCount, failureCount, totalCount }) => {

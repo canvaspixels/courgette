@@ -1,6 +1,6 @@
 {
   "name": "cucumber-protractor",
-  "version": "2.3.1",
+  "version": "2.3.2",
   "description": "POM CukeTractor - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "build-readme": "node scripts/generateStepDefinitionsREADME.js --genFiles",
     "build-readme-and-snippets": "rm -rf snippets && npm run build-snippets:atom && npm run build-snippets:sublime && npm run build-snippets:vscode && npm run build-snippets:webstorm && npm run build-snippets:intellij && npm run build-readme",
     "install-chromedriver": "./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35",
+    "install-geckodriver": "./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update",
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "uitests": "node index.js",

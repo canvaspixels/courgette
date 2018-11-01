@@ -27,14 +27,23 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
+    // acceptInsecureCerts: true, // uncomment to ignore SSL warnings
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
-    acceptInsecureCerts: false,
     shardTestFiles: !process.env.cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     maxInstances: 4,
-    browserName: 'chrome',
-    chromeOptions: {
-      args: ['--window-size=1100,800']
-        .concat(process.env.disableHeadless ? [] : ['--headless', '--disable-gpu']),
+    // browserName: 'chrome',
+    // chromeOptions: {
+    //   args: ['--window-size=1100,800']
+    //     .concat(process.env.disableHeadless ? [] : ['--headless', '--disable-gpu']),
+    // },
+    browserName: 'firefox',
+    'moz:firefoxOptions': {
+      args: [].concat(
+        process.env.disableHeadless ? [] : ['-headless']
+      ),
+      prefs: {
+        'general.useragent.override': 'Automated tests'
+      },
     },
   },
   cucumberOpts: {
