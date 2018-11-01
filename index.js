@@ -85,7 +85,7 @@ const printCukeErrors = (el, step, feature) => {
     log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
     log(yellow, `Step: ${step.keyword}${step.name}`);
     log(yellow, `Location: ${step.match.location}`);
-    log(yellow, `Feature: ${feature.uri}${el.tags && el.tags.length ? ':'+el.tags[el.tags.length - 1].line : ''}`);
+    log(yellow, `Feature: ${feature.uri}${el.tags && el.tags.length ? `:${el.tags[el.tags.length - 1].line}` : ''}`);
     log(yellow, `Error message: ${step.result.error_message}`);
   } else if (step.result.status === 'undefined') {
     log(red, `\n------------------ Scenario Undefined Step Definition --------------- ${el.name}`);
@@ -161,18 +161,18 @@ const output = (data) => {
   logStream.write(data.toString().replace(/\x1b\[\d\dm/g, ''));
 };
 
-const deleteEmptyJSONS = (outputPath) => {
-  fs.readdirSync(outputPath).forEach((file) => {
+const deleteEmptyJSONS = (jsonOutputPath) => {
+  fs.readdirSync(jsonOutputPath).forEach((file) => {
     if (file.includes('.json')) {
-      const filePath = path.join(outputPath, file);
+      const filePath = path.join(jsonOutputPath, file);
       const fileContents = fs.readFileSync(filePath, 'utf8');
       if (fileContents === '[]') {
         console.log('deleting empty file: ', file);
         fs.unlinkSync(filePath);
       }
     }
-  })
-}
+  });
+};
 
 spawnedProcess.stdout.on('data', output);
 spawnedProcess.stderr.on('data', output);

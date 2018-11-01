@@ -30,7 +30,12 @@ const steps = [
     notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
     code: 'url',
   },
-  { matcher: "I expect the url 'URL' is opened in a new tab", path: './checks/checkIsOpenedInNewWindow', code: 'urlnewtab', notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/cucumber-protractor/issues/16)' },
+  {
+    matcher: "I expect the url 'URL' is opened in a new tab",
+    path: './checks/checkIsOpenedInNewWindow',
+    code: 'urlnewtab',
+    notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/cucumber-protractor/issues/16)',
+  },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (hidden)", path: './checks/checkVisibility', code: 'hidden' },
   {

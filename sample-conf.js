@@ -27,19 +27,17 @@ const protractorConfig = {
   ],
   capabilities: {
     // acceptInsecureCerts: true, // uncomment to ignore SSL warnings
-    shardTestFiles: !cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
-    maxInstances: 4,
+    'shardTestFiles': !cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
+    'maxInstances': 4,
     // browserName: 'chrome',
     // chromeOptions: {
     //   args: ['--window-size=1100,800'].concat(process.env.disableHeadless ? [] : ['--headless', '--disable-gpu']),
     // },
-    browserName: 'firefox',
+    'browserName': 'firefox',
     'moz:firefoxOptions': {
-      args: [].concat(
-        process.env.disableHeadless ? [] : ['-headless']
-      ),
+      args: [].concat(process.env.disableHeadless ? [] : ['-headless']),
       prefs: {
-        'general.useragent.override': 'Automated tests'
+        'general.useragent.override': 'Automated tests',
       },
     },
   },
