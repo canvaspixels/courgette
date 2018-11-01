@@ -28,10 +28,11 @@ Feature: Testing Then steps
   Scenario: Then the url is not
     Then I expect the url to not be 'http://localhost:3000/foo'
 
-  @then-steps-url-opens-in-new-tab
-  Scenario: Then the url is opened in a new tab
-    When I click the 'Go to other page in new tab link'
-    Then I expect the url 'http://localhost:3000/other-page' is opened in a new tab
+  # TODO: fix in https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # @then-steps-url-opens-in-new-tab
+  # Scenario: Then the url is opened in a new tab
+  #   When I click the 'Go to other page in new tab link'
+  #   Then I expect the url 'http://localhost:3000/other-page' is opened in a new tab
   # todo improve to not check current tab
 
   @then-steps-is-visible
@@ -146,10 +147,11 @@ Feature: Testing Then steps
   Scenario: Then the class name doesn't have
     Then I expect the 'main container' to not have the class 'foo'
 
-  @then-steps-focused
-  Scenario: Then the element is focused
-    When I press 'TAB'
-    Then I expect the 'Go to other page by react router link' to be focused
+  # see comment in https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # @then-steps-focused
+  # Scenario: Then the element is focused
+  #   When I press 'TAB'
+  #   Then I expect the 'Go to other page by react router link' to be focused
 
   @then-steps-empty
   Scenario: Then the element is empty

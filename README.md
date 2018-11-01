@@ -23,7 +23,7 @@
 
 ### Setup
 
-This assumes that you have an npm project. If you don't then make a new one with `npm init`. It also assumes you are on a Mac or Windows and have node 8+, npm 6+, and the latest version of Chrome installed.
+This assumes that you have an npm project. If you don't then make a new one with `npm init`. It also assumes you are on a Mac, Linux or Windows and have node 8+, npm 6+, and the latest version of Firefox installed.
 
 1. Install the package: type `npm install cucumber-protractor` into your terminal
 2. Copy: `node node_modules/cucumber-protractor/scripts/setup.js` into your terminal. This will create a `uiTests` folder with the sample in it, a sample config and add the `ct` script to your package.json. Note it's `node node_modules\cucumber-protractor\scripts\setup.js` on Windows.
@@ -257,7 +257,7 @@ If you get an error, you'll see a screenshot for each step error inside the `uiT
 disableHeadless=true npm run ct
 ```
 
-That'll launch Chrome by default and you'll be able to see your tests run.
+That'll launch Firefox by default and you'll be able to see your tests run.
 
 ## conf.js file
 
@@ -271,7 +271,7 @@ The conf file allows you to specify the following:
     - hooks
 * step timeoutInSeconds - how long a step will wait to complete before it times out
 * baseUrl - the hostname will prefix the paths you set in your page objects
-* capabilities for different browsers, Chrome is the default. You can point to services like browserstack or saucelabs to test a matrix of platforms and browsers
+* capabilities for different browsers, Firefox is the default. You can point to services like browserstack or saucelabs to test a matrix of platforms and browsers
 
 To point to a different configuration file:
 

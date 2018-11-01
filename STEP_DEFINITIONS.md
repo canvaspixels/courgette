@@ -46,8 +46,8 @@ Note that the words in italics are optional.
 | I set 'LOCATOR' to 'STRING' | whenset |  |
 | I&nbsp;append&nbsp;'STRING'&nbsp;to&nbsp;react&nbsp;field&nbsp;'LOCATOR' | whenappendreact | Sets the value to the input then fires React’s version of the onChange event, so that any actions fire |
 | I set react field 'LOCATOR' to 'STRING' | whensetreact | Similar to append in react above |
-| I submit the _form_ 'LOCATOR' | whensubmit |  |
-| I press 'KEY' | whenkey | [See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) |
+| I submit the _form_ 'LOCATOR' | whensubmit | [This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359) |
+| I press 'KEY' | whenkey | [See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/cucumber-protractor/issues/16) |
 | I clear _the_ 'LOCATOR' | whenclear |  |
 | I select the option for select element 'LOCATOR' with the text 'VALUE' | whenoption |  |
 
@@ -59,7 +59,7 @@ Note that the words in italics are optional.
 | I expect the url to contain 'STRING' | thenurlcontains | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
 | I expect the url to be 'STRING' | thenurl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
 | I expect the url to not be 'STRING' | thennoturl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
-| I expect the url 'URL' is opened in a new tab | thenurlnewtab |  |
+| I expect the url 'URL' is opened in a new tab | thenurlnewtab | [Currently not working in FirefoxDriver](https://github.com/canvaspixels/cucumber-protractor/issues/16) |
 | I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
 | I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |
 | I expect the (bottom OR top OR left OR right)* border colour of the 'LOCATOR' to be 'STRING' | thenbordercolour | Pick a side (bottom, top, left, or right) or remove the expected side. |

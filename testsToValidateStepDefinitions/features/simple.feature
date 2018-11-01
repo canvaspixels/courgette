@@ -5,11 +5,13 @@ Feature: simple page feature
   Scenario: Testing .page file for css selectors
     Given I am on the 'simple' page
     When I click the 'Go to home page by react router link'
+    And take a screenshot called 'home page'
 
   @simplepage-heading-text
   Scenario: Testing .page file for xpath selectors
     Given I am on the 'simple' page
     Then I expect 'main heading' to contain the text 'Simple page'
+    And take a screenshot called 'simple page'
 
   @simplepage-components
   Scenario: Testing .page file for components
