@@ -10,11 +10,10 @@ install:
   - nvm install 8
   - nvm alias default 8
   - npm install
-  - npm run install-geckodriver
 before_script:
     - sudo chown root /opt/google/chrome/chrome-sandbox
     - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
     - export DISPLAY=:99.0
     - sh -e /etc/init.d/xvfb start
 script:
-    - npm run ci
+    - npm run install-geckodriver && npm run ci
