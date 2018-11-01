@@ -5,6 +5,8 @@ Feature: simple page feature
   Scenario: Testing .page file for css selectors
     Given I am on the 'simple' page
     When I click the 'Go to home page by react router link'
+    Then I expect to be on the 'home' page
+    Then I expect the 'main container' to be visible
     And take a screenshot called 'home page'
 
   @simplepage-heading-text
