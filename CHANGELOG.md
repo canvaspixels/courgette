@@ -1,3 +1,7 @@
+## 2.4.0
+* moved to FirefoxDriver by default
+* added screenshot viewer for screenshots taken by steps (not error screenshots)
+
 ## 2.2.0
 * improved documentation for BDD
 * renamed checkEventualUrlFromPOM to setPageObjectThenCheckUrl
