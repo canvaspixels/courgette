@@ -329,6 +329,10 @@ A .component file is made up of:
 * XPaths - same as selectors but using XPath selectors instead
 * components - a list of components which will be loaded in from the `uiTests/components` folder and composed into the component object
 
+Example site with a .page containing two site-wide components:
+
+![.page file with two .component files](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/yaml-files.jpg)
+
 ## Parallelisation
 
 By default all your .feature files will run in parallel to speed up running all your tests. This means that across your .feature files your tests should not conflict, i.e. you won't be able to do setup in one feature file such as adding a todo item to your todo app, and teardown in another .feature file such as deleting that same todo item as you'll get a race condition. A suggestion is that if you're logging into your app for example that you use a different user account for each .feature file to avoid conflicting.
