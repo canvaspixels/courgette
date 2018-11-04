@@ -81,5 +81,4 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
   }, customMethods);
 };
 
-module.exports.getFileName = (fileName) =>
-  path.basename(fileName).replace(/\.js$/, '');
+module.exports.getFileName = (fileName) => path.basename(fileName).replace(/\.js$/, '');

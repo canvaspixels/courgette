@@ -66,12 +66,11 @@ const genSnippets = (steps, type) => {
 
     const zeroOrManyNotMatcher = /\((.*not.*)\)\*/g;
     const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) =>
-        p1.replace(/([^ ]+)/, '_$1_'))
+      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\(\?\:(.*)\)/g, '$1');
 
-    const generatedCode = `${step.path ?
-      step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
+    const generatedCode = `${step.path
+      ? step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
 
     const matcher = matcherWithReplacedPlaceholders
       .replace(zeroOrManyNotMatcher, '')

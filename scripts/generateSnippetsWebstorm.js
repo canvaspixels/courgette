@@ -18,16 +18,16 @@ const snippetCodes = {};
 let snippets = '<templateSet group="CukeTractor">\n';
 
 const genSnippet = (matcher, code, varPlaceholders) => {
-  snippets +=
-`  <template name="${code}" value="${matcher}$END$" shortcut="TAB" description="${matcher}" toReformat="false" toShortenFQNames="true">
+  snippets
++= `  <template name="${code}" value="${matcher}$END$" shortcut="TAB" description="${matcher}" toReformat="false" toShortenFQNames="true">
 `;
   varPlaceholders.forEach((placeholder, i) => {
-    snippets +=
-`    <variable name="var${i + 1}" expression="&quot;${placeholder}&quot;" defaultValue="" alwaysStopAt="true" />
+    snippets
++= `    <variable name="var${i + 1}" expression="&quot;${placeholder}&quot;" defaultValue="" alwaysStopAt="true" />
 `;
   });
-  snippets +=
-`    <context>
+  snippets
++= `    <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
@@ -54,8 +54,8 @@ const genSnippets = (steps, type) => {
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\(\?\:(.*)\)/g, '$1');
 
-    const generatedCode = `${step.path ?
-      step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
+    const generatedCode = `${step.path
+      ? step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
 
     const matcher = matcherWithReplacedPlaceholders
       .replace(zeroOrManyNotMatcher, '')

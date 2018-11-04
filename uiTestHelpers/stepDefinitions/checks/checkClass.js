@@ -3,8 +3,7 @@ module.exports = function checkClass(locatorKey, doesNotContain, className) {
     .getAttribute('class');
 
   return classNameToBeChecked
-    .then((actualClasses) =>
-      (doesNotContain ?
-        expect(actualClasses).to.not.include(className) :
-        expect(actualClasses).to.be.include(className)));
+    .then((actualClasses) => (doesNotContain
+      ? expect(actualClasses).to.not.include(className)
+      : expect(actualClasses).to.be.include(className)));
 };

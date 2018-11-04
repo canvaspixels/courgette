@@ -18,8 +18,8 @@ const snippetCodes = {};
 let snippets = '###### cuketractor snippets start 0-o\n\n';
 
 const genSnippet = (matcher, code) => {
-  snippets +=
-`  "${matcher}":
+  snippets
++= `  "${matcher}":
     'prefix': '${code}'
     'body': "${matcher}"
 `;
@@ -44,8 +44,8 @@ const genSnippets = (steps, type) => {
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\(\?\:(.*)\)/g, '$1');
 
-    const generatedCode = `${step.path ?
-      step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
+    const generatedCode = `${step.path
+      ? step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
 
     const matcher = matcherWithReplacedPlaceholders
       .replace(zeroOrManyNotMatcher, '')

@@ -90,4 +90,3 @@ Then(/^all the cookie functions work$/, async function () {
 // checkFocus // args: (locatorKey)
 
 // checkIsOpenedInNewWindow // args: (href)
-

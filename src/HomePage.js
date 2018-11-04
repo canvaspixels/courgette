@@ -21,12 +21,28 @@ const Home = () => (
     </ul>
 
     <form action="" data-test="form" onSubmit={(e) => { global.location.href = 'http://localhost:3000/other-page'; e.preventDefault(); }}>
-      <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
-      <p><label>Email <input type="text" name="email" data-test="email" defaultValue="hi@hello.com" /></label></p>
-      <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} /></label></p>
       <p>
-        <label>Age
-          <select name="age" data-test="age-field">
+        <label htmlFor="fullname">
+Name
+          <input type="text" id="fullname" name="fullname" data-test="fullname" />
+        </label>
+      </p>
+      <p>
+        <label htmlFor="email">
+Email
+          <input type="text" id="email" name="email" data-test="email" defaultValue="hi@hello.com" />
+        </label>
+      </p>
+      <p>
+        <label htmlFor="hidden-field">
+Hidden field
+          <input type="text" id="hidden-field" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} />
+        </label>
+      </p>
+      <p>
+        <label htmlFor="age1">
+Age
+          <select id="age1" name="age" data-test="age-field">
             <option value="18-25" data-test="age-18to25">18-25</option>
             <option value="26+" data-test="age-26plus">26+</option>
           </select>
@@ -34,32 +50,32 @@ const Home = () => (
       </p>
       <fieldset>
         <legend>Gender</legend>
-        <label>
-          <input type="radio" name="gender" value="male" checked onChange={() => {}} data-test="male-radio" />
+        <label htmlFor="gender1">
+          <input type="radio" id="gender1" name="gender" value="male" checked onChange={() => {}} data-test="male-radio" />
           Male
         </label>
-        <label>
-          <input type="radio" name="gender" value="female" data-test="female-radio" />
+        <label htmlFor="gender2">
+          <input type="radio" id="gender2" name="gender" value="female" data-test="female-radio" />
           Female
         </label>
-        <label>
-          <input type="radio" name="gender" value="other" data-test="other-gender-radio" />
+        <label htmlFor="gender3">
+          <input type="radio" id="gender3" name="gender" value="other" data-test="other-gender-radio" />
           Other
         </label>
       </fieldset>
       <p>
-        <label>
-          <input type="checkbox" name="newsletter-uncheck" value="true" checked onChange={() => {}} data-test="newsletter-checkbox" />
+        <label htmlFor="newsletter-uncheck">
+          <input type="checkbox" id="newsletter-uncheck" name="newsletter-uncheck" value="true" checked onChange={() => {}} data-test="newsletter-checkbox" />
           Uncheck if you don’t wish to not receive the newsletter
         </label>
       </p>
       <p>
-        <label>
-          <input type="checkbox" name="you-ok" value="ok" data-test="you-ok-checkbox" />
+        <label htmlFor="you-ok">
+          <input type="checkbox" id="you-ok" name="you-ok" value="ok" data-test="you-ok-checkbox" />
           Are you ok? Tick the box if so.
         </label>
       </p>
-      <p><button data-test="submit-button">Submit Button</button></p>
+      <p><button data-test="submit-button" type="button">Submit Button</button></p>
       <p><button type="button" data-test="button">Button</button></p>
       <p><button type="button" disabled data-test="disabled-button">Disabled Button</button></p>
     </form>

@@ -6,13 +6,13 @@ const { argv } = require('yargs');
 const Table = require('cli-table');
 require('colors');
 const os = require('os');
-const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
 // eslint-disable-next-line
 const confFile = argv.confFile || process.env.confFile || 'conf.js';
 const { pomConfig } = require(path.resolve(confFile));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
+const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
 const log = (...args) => {
   console.log(...args);
@@ -94,17 +94,15 @@ const printCukeErrors = (el, step, feature) => {
   }
 
   if (step.result.error_message || step.result.status === 'undefined') {
-    const screenshotStep = el.steps.find((stp) =>
-      stp.keyword === 'After' &&
-        stp.match &&
-        stp.match.location &&
-        stp.match.location.includes('attachScreenshotAfter'));
+    const screenshotStep = el.steps.find((stp) => stp.keyword === 'After'
+        && stp.match
+        && stp.match.location
+        && stp.match.location.includes('attachScreenshotAfter'));
 
-    const screenshotFilePath = screenshotStep &&
-      screenshotStep.embeddings &&
-      screenshotStep.embeddings
-        .find((embed) =>
-          embed.data && embed.data.includes('ScreenshotFilePath'));
+    const screenshotFilePath = screenshotStep
+      && screenshotStep.embeddings
+      && screenshotStep.embeddings
+        .find((embed) => embed.data && embed.data.includes('ScreenshotFilePath'));
     log('-----SCREENSHOT - hold cmd (on mac) and click .png below if using iterm ----');
     log(screenshotFilePath ? screenshotFilePath.data : '');
     log('---------');

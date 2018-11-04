@@ -14,9 +14,9 @@ module.exports = function appendReactInputFieldValue(text, locatorKey) {
 
       let existingVal;
 
-      if (valueFromDescriptor && valueFromDescriptor.get &&
-          valueFromProtoDescriptor && valueFromProtoDescriptor.get &&
-          valueFromDescriptor.get !== valueFromProtoDescriptor.get) {
+      if (valueFromDescriptor && valueFromDescriptor.get
+          && valueFromProtoDescriptor && valueFromProtoDescriptor.get
+          && valueFromDescriptor.get !== valueFromProtoDescriptor.get) {
         existingVal = valueFromProtoDescriptor.get.call(domElement, val);
       } else {
         existingVal = domElement.value;
@@ -24,9 +24,9 @@ module.exports = function appendReactInputFieldValue(text, locatorKey) {
 
       const newVal = existingVal + val;
 
-      if (valueFromDescriptor && valueFromDescriptor.set &&
-          valueFromProtoDescriptor && valueFromProtoDescriptor.set &&
-          valueFromDescriptor.set !== valueFromProtoDescriptor.set) {
+      if (valueFromDescriptor && valueFromDescriptor.set
+          && valueFromProtoDescriptor && valueFromProtoDescriptor.set
+          && valueFromDescriptor.set !== valueFromProtoDescriptor.set) {
         valueFromProtoDescriptor.set.call(domElement, newVal);
       } else {
         domElement.value = newVal;

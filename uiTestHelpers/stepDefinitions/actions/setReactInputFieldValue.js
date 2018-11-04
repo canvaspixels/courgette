@@ -12,9 +12,9 @@ module.exports = function setReactInputFieldValue(locatorKey, text) {
       const elProto = Object.getPrototypeOf(domElement);
       const valueFromProtoDescriptor = Object.getOwnPropertyDescriptor(elProto, 'value');
 
-      if (valueFromDescriptor && valueFromDescriptor.set &&
-          valueFromProtoDescriptor && valueFromProtoDescriptor.set &&
-          valueFromDescriptor.set !== valueFromProtoDescriptor.set) {
+      if (valueFromDescriptor && valueFromDescriptor.set
+          && valueFromProtoDescriptor && valueFromProtoDescriptor.set
+          && valueFromDescriptor.set !== valueFromProtoDescriptor.set) {
         valueFromProtoDescriptor.set.call(domElement, val);
       } else {
         domElement.value = val;

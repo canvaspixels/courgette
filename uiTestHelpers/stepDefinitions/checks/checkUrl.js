@@ -8,8 +8,8 @@ module.exports = function checkUrl(isNot, expectedUrl) {
       .then((currentUrl) => {
         currentUrlNoTrailingSlash = currentUrl.replace(/\/$/, '');
 
-        if ((!isNot && (currentUrlNoTrailingSlash === expectedUrlNoTrailingSlash)) ||
-            (isNot && currentUrlNoTrailingSlash !== expectedUrlNoTrailingSlash)) {
+        if ((!isNot && (currentUrlNoTrailingSlash === expectedUrlNoTrailingSlash))
+            || (isNot && currentUrlNoTrailingSlash !== expectedUrlNoTrailingSlash)) {
           resolve();
         } else if (Date.now() > timestamp + waitTimeout) {
           reject();

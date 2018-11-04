@@ -14,8 +14,8 @@ const steps = [
   {
     matcher: "I expect to be on the 'PAGE_NAME' page",
     path: './checks/setPageObjectThenCheckUrl',
-    notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use locators / sel' +
-      'ectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists.',
+    notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use locators / sel'
+      + 'ectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists.',
     code: 'onpage',
   },
   {

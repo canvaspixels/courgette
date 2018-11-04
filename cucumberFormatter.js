@@ -25,8 +25,7 @@ class CucumberStepFormatter extends cucumber.Formatter {
   }
 
   logTestStep({ testCase, index, result }) {
-    const { gherkinKeyword, pickleStep } =
-      this.eventDataCollector.getTestStepData({ testCase, index });
+    const { gherkinKeyword, pickleStep } = this.eventDataCollector.getTestStepData({ testCase, index });
 
     let text;
 

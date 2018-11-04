@@ -23,9 +23,10 @@ module.exports = {
       "import/no-dynamic-require": "off",
       "jsx-a11y/anchor-is-valid": "off",
       "jsx-a11y/label-has-for": "off",
+      "jsx-a11y/label-has-associated-control": "off",
       "react/jsx-filename-extension": "off",
       "react/no-did-mount-set-state": "off",
-      "max-len": ["error", { "code": 200 }],
+      "max-len": ["error", { "code": 300 }],
       "quote-props": ["error", "consistent"],
       "func-names": "off", // <-- Avoids "unexpected unnamed async function" in async mocha tests
     },
