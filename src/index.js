@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import asyncComponent from './AsyncComponent';
 const AsyncHomePage = asyncComponent(() => import('./HomePage'));
 const AsyncOtherPage = asyncComponent(() => import('./OtherPage'));
+const AsyncWebComponentsPage = asyncComponent(() => import('./WebComponentsPage'));
 const AsyncSimplePage = asyncComponent(() => import('./SimplePage'));
 
 const Routes = ({ childProps }) =>
@@ -26,6 +27,12 @@ const Routes = ({ childProps }) =>
       path="/simple-page"
       exact
       component={AsyncSimplePage}
+      props={childProps}
+    />
+    <Route
+      path="/web-components"
+      exact
+      component={AsyncWebComponentsPage}
       props={childProps}
     />
 
