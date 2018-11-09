@@ -7,6 +7,9 @@ selectors:
   simple page wrapper: '#Simple-Page-Wrapper'
 
 XPaths:
+  name field: //*[@data-test="fullname"]
+  go home link: //*[@data-test="go-to-home-link"]
+  main container: //*[@id="Simple-Page-Wrapper"]
   main heading: //*[contains(@class, "main-heading")]
   another element: //*[contains(@class, "something-else")]
 
