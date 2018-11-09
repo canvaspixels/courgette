@@ -9,7 +9,7 @@ const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
 
 const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
-  const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'xpaths'];
+  const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'xpaths', 'deepselectors'];
   Object.keys(doc).forEach((key) => {
     if (!validKeys.includes(key.toLowerCase())) {
       throw new Error(`"${key}" is not valid inside ${objPath}. The only valid items for a ${isComponent ? 'component' : 'page'} object are: \n\t${validKeys.join('\n\t')}\n\n`);
@@ -34,7 +34,8 @@ const getComponent = (name) => {
     const components = getObjFromDoc(doc, 'components');
     const selectors = getObjFromDoc(doc, 'selectors');
     const xpaths = getObjFromDoc(doc, 'xpaths');
-    return (world) => createComponentObject(world, name, components, selectors, xpaths);
+    const deepselectors = getObjFromDoc(doc, 'deepselectors');
+    return (world) => createComponentObject(world, name, components, selectors, xpaths, deepselectors);
   } catch (e) {
     let noDotComponentFile;
     if (e.message.includes('ENOENT: no such file or directory')) {
@@ -54,7 +55,7 @@ const getComponent = (name) => {
   }
 };
 
-createComponentObject = (world, fileName, components, cssSelectors = {}, xPaths = {}) => {
+createComponentObject = (world, fileName, components, cssSelectors = {}, xPaths = {}, deepSelectors = {}) => {
   const cssLocators = Object.assign({}, cssSelectors);
   Object.keys(cssSelectors)
     .forEach((selectorKey) => {
@@ -67,7 +68,13 @@ createComponentObject = (world, fileName, components, cssSelectors = {}, xPaths 
       xPathLocators[xPathKey] = by.xpath(xPathLocators[xPathKey]);
     });
 
-  const locators = Object.assign({}, cssLocators, xPathLocators);
+  const deepLocators = Object.assign({}, deepSelectors);
+  Object.keys(deepLocators)
+    .forEach((deepSelectorKey) => {
+      deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
+    });
+
+  const locators = Object.assign({}, cssLocators, xPathLocators, deepLocators);
 
   const component = createComponent(fileName, world, locators);
 
@@ -79,7 +86,7 @@ createComponentObject = (world, fileName, components, cssSelectors = {}, xPaths 
   return component;
 };
 
-const createPageObject = (world, fileName, pagePath, components, cssSelectors = {}, xPaths = {}) => {
+const createPageObject = (world, fileName, pagePath, components, cssSelectors = {}, xPaths = {}, deepSelectors = {}) => {
   const cssLocators = Object.assign({}, cssSelectors);
   Object.keys(cssSelectors)
     .forEach((selectorKey) => {
@@ -92,7 +99,13 @@ const createPageObject = (world, fileName, pagePath, components, cssSelectors = 
       xPathLocators[xPathKey] = by.xpath(xPathLocators[xPathKey]);
     });
 
-  const locators = Object.assign({}, cssLocators, xPathLocators);
+  const deepLocators = Object.assign({}, deepSelectors);
+  Object.keys(deepLocators)
+    .forEach((deepSelectorKey) => {
+      deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
+    });
+
+  const locators = Object.assign({}, cssLocators, xPathLocators, deepLocators);
 
   const page = createPage(fileName, world, pagePath, locators);
 
@@ -129,7 +142,8 @@ Before(function pomBeforeHook() {
       const components = getObjFromDoc(doc, 'components');
       const selectors = getObjFromDoc(doc, 'selectors');
       const xpaths = getObjFromDoc(doc, 'xpaths');
-      const page = createPageObject(this, name, pagePath, components, selectors, xpaths);
+      const deepselectors = getObjFromDoc(doc, 'deepselectors');
+      const page = createPageObject(this, name, pagePath, components, selectors, xpaths, deepselectors);
 
       if (updateCurrentPage) {
         this.currentPage = page;

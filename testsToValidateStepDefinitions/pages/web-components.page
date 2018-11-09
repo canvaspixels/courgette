@@ -1,0 +1,4 @@
+path: /web-components
+
+deepSelectors:
+  hello world: .hello-world

@@ -1,3 +1,6 @@
+## 2.5.0
+Added support for web components
+
 ## 2.4.0
 * moved to FirefoxDriver by default
 * added screenshot viewer for screenshots taken by steps (not error screenshots)

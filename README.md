@@ -196,7 +196,7 @@ Note that a `.page` file will take precedence over a `.js` page object file.
 
 You don't need to write any page object methods, nor step definitions. How easy is that!!?
 
-The indentation in YAML (the .page / .component files) is important. The keys such as path, components, selectors, xpaths need to always be on the far left as per the examples on this page.
+The indentation in YAML (the .page / .component files) is important. The keys such as path, components, selectors, xpaths, deepSelectors need to always be on the far left as per the examples on this page.
 
 It's important that the page object name is kebab-case and lowercase. E.g. `about-us.js` or `about-something-else.js` or `google-home.js` as in the sample. `Given I am on the 'Google Home' page` sets the current page object and `Google Home` gets translated behind the scenes to `google-home.js` so make sure `Google Home` has the space in it.
 
@@ -297,6 +297,9 @@ XPaths:
   main heading: //*[contains(@class, "main-heading")]
   another element: //*[contains(@class, "something-else")]
 
+deepSelectors:
+  my web component: .inside-custom-web-component
+
 components:
   - banner
   - footer
@@ -328,6 +331,10 @@ A .component file is made up of:
 * selectors - css selectors, the name on the left side of the : is what you put in your gherkin steps, the selector on the right references your html element. Note if you use id selectors (with a hash) you need to put it in quotes '' or the yaml file will think it's a comment
 * XPaths - same as selectors but using XPath selectors instead
 * components - a list of components which will be loaded in from the `uiTests/components` folder and composed into the component object
+
+Example site with a .page containing two site-wide components:
+
+![.page file with two .component files](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/yaml-files.jpg)
 
 ## Parallelisation
 
