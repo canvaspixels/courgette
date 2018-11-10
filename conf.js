@@ -18,7 +18,6 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
-
 const capabilities = {
   chrome: {
     browserName: 'chrome',

@@ -64,7 +64,7 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
         if (err4) throw err4;
         console.log('added postinstall script to your package.json');
 
-        runScript('./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --gecko=false --versions.chrome 2.35'.split(' '), (err5) => {
+        runScript('./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --standalone=false'.split(' '), (err5) => {
           if (err5) {
             console.log(' ');
             console.log('!!!!!!!!!!!-----------IMPORTANT----------!!!!!!!!!!!!!!!');
