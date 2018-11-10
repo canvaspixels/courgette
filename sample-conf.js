@@ -34,7 +34,7 @@ const capabilities = {
   },
 };
 
-const browserCapability = capabilities[process.env.browser || 'chrome'];
+const browserCapability = capabilities[process.env.browser || 'firefox'];
 
 const cukeTags = process.env.cukeTags ? process.env.cukeTags.replace(',', ' or ') : '';
 
