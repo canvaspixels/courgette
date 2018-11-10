@@ -4,7 +4,7 @@ This project was formerly known as Cuketractor (formerly cucumber-protractor on 
 
 [![Build Status](https://travis-ci.org/canvaspixels/courgette.svg?branch=master)](https://travis-ci.org/canvaspixels/courgette)
 
-![courgette](https://raw.githubusercontent.com/canvaspixels/courgette/master/courgette.png)
+![courgette](https://raw.githubusercontent.com/canvaspixels/courgette/master/courgette.jpg)
 
 ## Courgette gives you:
 
