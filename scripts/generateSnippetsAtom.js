@@ -15,7 +15,7 @@ const placeholders = require('../placeholders');
 
 const snippetCodes = {};
 
-let snippets = '###### cuketractor snippets start 0-o\n\n';
+let snippets = '###### courgette snippets start 0-o\n\n';
 
 const genSnippet = (matcher, code) => {
   snippets +=
@@ -74,7 +74,7 @@ snippets += '".feature":\n';
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
-snippets += '###### cuketractor snippets end 0-o';
+snippets += '###### courgette snippets end 0-o';
 
 if (!argv.justForIDE) {
   const snippetsFolder = 'snippets/atom';
@@ -92,7 +92,7 @@ const homedir = os.homedir();
 const atomSnippetsFile = `${homedir}/.atom/snippets.cson`;
 try {
   const snippetsFile = fs.readFileSync(atomSnippetsFile, 'utf-8');
-  const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### cuketractor snippets start 0-o[^~]*###### cuketractor snippets end 0-o$/m, '');
+  const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### courgette snippets start 0-o[^~]*###### courgette snippets end 0-o$/m, '');
   fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCukeTrackor}${snippets}`);
 } catch (e) {
   console.log('Atom not installed on your mac');

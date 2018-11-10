@@ -13,7 +13,7 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-const sublimeSnippetsFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User/sublime-snippets-cuketractor`;
+const sublimeSnippetsFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User/sublime-snippets-courgette`;
 
 
 const snippetsFolder = 'snippets/sublime';

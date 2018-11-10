@@ -38,11 +38,11 @@ function runScript(scriptPath, args, callback) {
 }
 
 const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
-let scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor';
+let scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette';
 
 // let isWindows = false;
 if (os.type().toLowerCase().includes('windows')) {
-  scriptToAdd = 'set NODE_OPTIONS=--no-deprecation | cuketractor';
+  scriptToAdd = 'set NODE_OPTIONS=--no-deprecation | courgette';
   // isWindows = true;
 }
 
@@ -52,9 +52,9 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
   if (err) throw err;
   console.log('added ct script to your package.json');
 
-  runScript(addScriptToPackageJson, ['cuketractor', scriptToAdd], (err2) => {
+  runScript(addScriptToPackageJson, ['courgette', scriptToAdd], (err2) => {
     if (err2) throw err2;
-    console.log('added cuketractor script to your package.json');
+    console.log('added courgette script to your package.json');
 
     runScript(addScriptToPackageJson, ['install-geckodriver', installChromedriver], (err3) => {
       if (err3) throw err3;

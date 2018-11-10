@@ -25,7 +25,7 @@ try {
   const packageJson = jsonfile.readFileSync(packageJsonFilePath);
   if (!packageJson.scripts) packageJson.scripts = {};
   if (packageJson.scripts[key]) {
-    console.error('cuketractor script already exists');
+    console.error('courgette script already exists');
   }
   packageJson.scripts[key] = value;
   jsonfile.writeFileSync(packageJsonFilePath, packageJson, { spaces: 2 });

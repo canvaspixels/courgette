@@ -20,13 +20,13 @@ Feature: Testing combined actions
     And I have cleared and appended a field
     Then I expect the value of the 'email' to be 'test@test.com'
 
-  # see comment in: https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # see comment in: https://github.com/canvaspixels/courgette/issues/16
   # @step-definition-actions-submit-click
   # Scenario: I have submitted the form and gone back to the homepage
   #   And I have submitted the form and gone back to the homepage
   #   Then I expect to be on the 'home' page
 
-  # see comment in: https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # see comment in: https://github.com/canvaspixels/courgette/issues/16
   # @step-definition-actions-submit-with-enter-click
   # Scenario: I have submitted the form by pressing enter and gone back to the homepage
   #   And I have submitted the form by pressing enter and gone back to the homepage

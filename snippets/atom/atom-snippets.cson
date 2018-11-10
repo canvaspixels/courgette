@@ -1,4 +1,4 @@
-###### cuketractor snippets start 0-o
+###### courgette snippets start 0-o
 
 ".text.plain":
   "I am on the '${1:PAGE_NAME}' page":
@@ -482,4 +482,4 @@
   "fail step and take screenshot":
     'prefix': 'thendie'
     'body': "fail step and take screenshot"
-###### cuketractor snippets end 0-o
+###### courgette snippets end 0-o

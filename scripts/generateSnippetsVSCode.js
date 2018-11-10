@@ -55,11 +55,11 @@ const genSnippet = (matcher, code) => {
   /* eslint-enable indent */
 
   if (!argv.justForIDE) {
-    fs.writeFileSync(`${snippetsFolder}/cuketractor-${code}.code-snippets`, snippet);
+    fs.writeFileSync(`${snippetsFolder}/courgette-${code}.code-snippets`, snippet);
   }
 
   if (ideInstalled) {
-    fs.writeFileSync(`${ideSnippetsFolder}/cuketractor-${code}.code-snippets`, snippet);
+    fs.writeFileSync(`${ideSnippetsFolder}/courgette-${code}.code-snippets`, snippet);
   }
 };
 

@@ -15,7 +15,7 @@ Feature: Testing Given steps
     When I click the 'Go to other page link'
     Then I expect the url to contain '/other-page'
 
-  # TODO: fix in https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # TODO: fix in https://github.com/canvaspixels/courgette/issues/16
   # @given-steps-routing-link-new-tab
   # Scenario: Link to open in new tab
   #   When I click the 'Go to other page in new tab link'

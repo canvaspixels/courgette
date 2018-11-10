@@ -3,7 +3,7 @@ require('babel-core/register');
 
 const specsPath = 'uiTests';
 const outputPath = 'uiTestResult';
-const cukeTractorPath = 'node_modules/cucumber-protractor/uiTestHelpers';
+const cukeTractorPath = 'node_modules/courgette/uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
@@ -56,7 +56,7 @@ const protractorConfig = {
     ],
     'tags': ['~ignore'].concat(cukeTags || []),
     'format': [
-      'node_modules/cucumber-protractor/cucumberFormatter.js',
+      'node_modules/courgette/cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
     ].concat(process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
     'profile': false,

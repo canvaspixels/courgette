@@ -1,4 +1,4 @@
-const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
+const createPage = require('courgette/uiTestHelpers/createPage');
 const fileName = createPage.getFileName(__filename);
 
 module.exports = (world) => {

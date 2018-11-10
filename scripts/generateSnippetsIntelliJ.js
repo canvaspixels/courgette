@@ -15,7 +15,7 @@ const placeholders = require('../placeholders');
 
 const snippetCodes = {};
 
-let snippets = '<templateSet group="CukeTractor">\n';
+let snippets = '<templateSet group="Courgette">\n';
 
 const genSnippet = (matcher, code, varPlaceholders) => {
   snippets +=
@@ -90,7 +90,7 @@ if (!argv.justForIDE) {
   if (!fs.existsSync(snippetsFolder)) {
     fs.mkdirSync(snippetsFolder);
   }
-  fs.writeFileSync(`${snippetsFolder}/cuketractor-snippets.xml`, snippets);
+  fs.writeFileSync(`${snippetsFolder}/courgette-snippets.xml`, snippets);
 }
 
 try {
@@ -109,8 +109,8 @@ try {
     fs.mkdirSync(templatesFolder);
   }
 
-  fs.writeFileSync(`${prefsFolder}/${intelliJFile}/templates/cuketractor-snippets.xml`, snippets);
-  console.log(`Live templates added to: ${prefsFolder}/${intelliJFile}/templates/cuketractor-snippets.xml`);
+  fs.writeFileSync(`${prefsFolder}/${intelliJFile}/templates/courgette-snippets.xml`, snippets);
+  console.log(`Live templates added to: ${prefsFolder}/${intelliJFile}/templates/courgette-snippets.xml`);
 } catch (e) {
   console.log('intellij not installed on your mac');
 }

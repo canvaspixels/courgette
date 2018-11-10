@@ -28,7 +28,7 @@ Feature: Testing Then steps
   Scenario: Then the url is not
     Then I expect the url to not be 'http://localhost:3000/foo'
 
-  # TODO: fix in https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # TODO: fix in https://github.com/canvaspixels/courgette/issues/16
   # @then-steps-url-opens-in-new-tab
   # Scenario: Then the url is opened in a new tab
   #   When I click the 'Go to other page in new tab link'
@@ -147,7 +147,7 @@ Feature: Testing Then steps
   Scenario: Then the class name doesn't have
     Then I expect the 'main container' to not have the class 'foo'
 
-  # see comment in https://github.com/canvaspixels/cucumber-protractor/issues/16
+  # see comment in https://github.com/canvaspixels/courgette/issues/16
   # @then-steps-focused
   # Scenario: Then the element is focused
   #   When I press 'TAB'

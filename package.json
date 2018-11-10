@@ -20,17 +20,17 @@
     "start": "react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "uitests": "node index.js",
-    "ct": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor",
-    "cuketractor": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"
+    "ct": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette",
+    "courgette": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette"
   },
   "bin": {
     "uitests": "./index.js",
-    "cuketractor": "./index.js",
+    "courgette": "./index.js",
     "brmbrm": "./index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/canvaspixels/cucumber-protractor.git"
+    "url": "https://github.com/canvaspixels/courgette.git"
   },
   "author": "Alex Rogers",
   "license": "MIT",

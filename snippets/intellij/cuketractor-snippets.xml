@@ -1,4 +1,4 @@
-<templateSet group="CukeTractor">
+<templateSet group="Courgette">
   <template name="givenonpage" value="I am on the '$var1$' page$END$" shortcut="TAB" description="I am on the '$var1$' page" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <context>

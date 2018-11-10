@@ -1,10 +1,12 @@
-# CukeTractor Framework - Bringing sanity to test automation with this Cucumber Protractor Runner
+# Courgette Framework - Bringing sanity to test automation with this Cucumber Protractor Runner
 
-[![Build Status](https://travis-ci.org/canvaspixels/cucumber-protractor.svg?branch=master)](https://travis-ci.org/canvaspixels/cucumber-protractor)
+This project was formerly known as Cuketractor (formerly cucumber-protractor on npm)
 
-![POM Cuke Tractor](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/pomCukeTractor.png)
+[![Build Status](https://travis-ci.org/canvaspixels/courgette.svg?branch=master)](https://travis-ci.org/canvaspixels/courgette)
 
-## CukeTractor gives you:
+![courgette](https://raw.githubusercontent.com/canvaspixels/courgette/master/courgette.png)
+
+## Courgette gives you:
 
 * a load of generic step definitions for you to begin writing Given When Then scenarios that will run as soon as you add the CSS or XPath selectors to the .page (YAML) file
 * snippets or live templates for intellisense in your favourite IDE to write those steps accurately and quickly
@@ -25,26 +27,26 @@
 
 This assumes that you have an npm project. If you don't then make a new one with `npm init`. It also assumes you are on a Mac, Linux or Windows and have node 8+, npm 6+, and the latest version of Firefox installed.
 
-1. Install the package: type `npm install cucumber-protractor` into your terminal
-2. Copy: `node node_modules/cucumber-protractor/scripts/setup.js` into your terminal. This will create a `uiTests` folder with the sample in it, a sample config and add the `ct` script to your package.json. Note it's `node node_modules\cucumber-protractor\scripts\setup.js` on Windows.
+1. Install the package: type `npm install courgette` into your terminal
+2. Copy: `node node_modules/courgette/scripts/setup.js` into your terminal. This will create a `uiTests` folder with the sample in it, a sample config and add the `ct` script to your package.json. Note it's `node node_modules\courgette\scripts\setup.js` on Windows.
 3. Run the sample, type `npm run ct` into your terminal.
 
 ### Futher tips:
 
-1. To improve organisation and scalability, easily compose Page Objects and Component Objects. Page Objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. The only difference between a Page Object and a Component Object is a Component Object does not have an URL. Use the [step definitions provided](https://github.com/canvaspixels/cucumber-protractor/blob/master/STEP_DEFINITIONS.md#step-definitions) (or create your own) to write your own first scenario.
+1. To improve organisation and scalability, easily compose Page Objects and Component Objects. Page Objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. The only difference between a Page Object and a Component Object is a Component Object does not have an URL. Use the [step definitions provided](https://github.com/canvaspixels/courgette/blob/master/STEP_DEFINITIONS.md#step-definitions) (or create your own) to write your own first scenario.
 2. If you're using source control such as git, add `uiTestResult` to your .gitignore file
-3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `cuketractor` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:
+3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `courgette` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:
 
 ```
-alias cuketractor="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"
-alias ct="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation cuketractor"
+alias courgette="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette"
+alias ct="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette"
 ```
 
 This is the same command that was added to your package.json. This means you don't have to put npm run each time.
 
 ## BDD (Behaviour-Driven Developement) user stories vs specifications
 
-With Cuketractor, you have the option to either write user stories, specifications, or a mixture of the both.
+With Courgette, you have the option to either write user stories, specifications, or a mixture of the both.
 
 An example of a user story:
 
@@ -89,7 +91,7 @@ Scenario: Refunded items should be returned to stock
   Then the 'amount of items in stock' contains the text '4 in stock'
 ```
 
-As you can see, the user story is shorter and more readable for the business however requires a bit more development effort, but not much more with Cuketractor. With the specification example, you have the implementation details all in place and the scenario will run straight away without further effort. If the tests are just for yourself and you want some quick smoke tests, this may be preferred. If you're writing lots of similar tests to test edge cases, the user story might be preferred as writing the step definitions to support them will actually make your steps DRY.
+As you can see, the user story is shorter and more readable for the business however requires a bit more development effort, but not much more with Courgette. With the specification example, you have the implementation details all in place and the scenario will run straight away without further effort. If the tests are just for yourself and you want some quick smoke tests, this may be preferred. If you're writing lots of similar tests to test edge cases, the user story might be preferred as writing the step definitions to support them will actually make your steps DRY.
 
 Both the user story and specification styles of BDD will require supporting page objects. So for example the `checkout.page` file will contain the selectors `'first name'` and `'card number'` etc.
 
@@ -179,7 +181,7 @@ selectors:
 ...or if you want the boilerplate js code and need more flexibility place the following in `google-home.js` in the same folder (again kebab-case is important):
 
 ```js
-const createPage = require('cucumber-protractor/uiTestHelpers/createPage');
+const createPage = require('courgette/uiTestHelpers/createPage');
 const fileName = createPage.getFileName(__filename);
 
 module.exports = (world) => {
@@ -251,7 +253,7 @@ npm run ct @google-home-feeling-lucky,@google-home-another-thing
 
 ## Viewing your test run
 
-If you get an error, you'll see a screenshot for each step error inside the `uiTestResult` folder and a link to each one from the console output in your terminal. However, if you want to view the browser running each step, you can put disableHeadless=true before the cuketractor command like this:
+If you get an error, you'll see a screenshot for each step error inside the `uiTestResult` folder and a link to each one from the console output in your terminal. However, if you want to view the browser running each step, you can put disableHeadless=true before the courgette command like this:
 
 ```console
 disableHeadless=true npm run ct
@@ -334,7 +336,7 @@ A .component file is made up of:
 
 Example site with a .page containing two site-wide components:
 
-![.page file with two .component files](https://raw.githubusercontent.com/canvaspixels/cucumber-protractor/master/yaml-files.jpg)
+![.page file with two .component files](https://raw.githubusercontent.com/canvaspixels/courgette/master/yaml-files.jpg)
 
 ## Parallelisation
 
@@ -344,7 +346,7 @@ If you run `linearise=1 npm run ct` then they won't run in parallel, nor will th
 
 `maxInstances: 4` in the conf can be altered depending on how much load your computer can handle.
 
-If you've just setup Cuketractor with the setup script this will work, otherwise search for linearise inside the [sample conf](https://github.com/canvaspixels/cucumber-protractor/blob/master/sample-conf.js)
+If you've just setup Courgette with the setup script this will work, otherwise search for linearise inside the [sample conf](https://github.com/canvaspixels/courgette/blob/master/sample-conf.js)
 
 
 ## Snippets
@@ -354,31 +356,31 @@ Snippets are available for Sublime Text 3, Webstorm (live templates), VSCode and
 For Sublime Text 3:
 
 ```console
-node node_modules/cucumber-protractor/scripts/generateSnippetsSublime.js --genFiles --justForIDE
+node node_modules/courgette/scripts/generateSnippetsSublime.js --genFiles --justForIDE
 ```
 
 For Atom:
 
 ```console
-node node_modules/cucumber-protractor/scripts/generateSnippetsAtom.js --genFiles --justForIDE
+node node_modules/courgette/scripts/generateSnippetsAtom.js --genFiles --justForIDE
 ```
 
 For VSCode:
 
 ```console
-node node_modules/cucumber-protractor/scripts/generateSnippetsVSCode.js --genFiles --justForIDE
+node node_modules/courgette/scripts/generateSnippetsVSCode.js --genFiles --justForIDE
 ```
 
 For Webstorm:
 
 ```console
-node node_modules/cucumber-protractor/scripts/generateSnippetsWebstorm.js --genFiles --justForIDE
+node node_modules/courgette/scripts/generateSnippetsWebstorm.js --genFiles --justForIDE
 ```
 
 For IntelliJ:
 
 ```console
-node node_modules/cucumber-protractor/scripts/generateSnippetsIntelliJ.js --genFiles --justForIDE
+node node_modules/courgette/scripts/generateSnippetsIntelliJ.js --genFiles --justForIDE
 ```
 
 You may need to restart after running the commands for the JetBrains IDEs.
@@ -436,7 +438,7 @@ Feature: Test feature
 
 Then run that scenario: `npm run ct @twitter-dashboard-menu-items`
 
-Have a look at the [available methods](https://github.com/canvaspixels/cucumber-protractor/blob/master/METHODS_FOR_COMBINING.md#methods-for-combining-actions-and-assertions) that you can use to combine your steps.
+Have a look at the [available methods](https://github.com/canvaspixels/courgette/blob/master/METHODS_FOR_COMBINING.md#methods-for-combining-actions-and-assertions) that you can use to combine your steps.
 
 ## Tidying up unused step definitions
 
