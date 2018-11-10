@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenelinsideelvisible",
+    "body": [
+      "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible"
+    ],
+    "description": "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible"
+  }
+}

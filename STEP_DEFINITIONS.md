@@ -42,9 +42,11 @@ Note that the words in italics are optional.
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I click _the_ 'LOCATOR' | whenclick |  |
+| I click _the)?_ 'LOCATOR' inside(?: the 'LOCATOR' | whenclickelinsideel | This currently only works with XPaths |
 | I append 'STRING' to 'LOCATOR' | whenappend |  |
 | I set 'LOCATOR' to 'STRING' | whenset |  |
-| I&nbsp;append&nbsp;'STRING'&nbsp;to&nbsp;react&nbsp;field&nbsp;'LOCATOR' | whenappendreact | Sets the value to the input then fires React’s version of the onChange event, so that any actions fire |
+| I&nbsp;set&nbsp;_the)?_&nbsp;'LOCATOR'&nbsp;inside(?:&nbsp;the&nbsp;'LOCATOR'&nbsp;to&nbsp;'STRING' | whensetelinsideel | This currently only works with XPaths |
+| I append 'STRING' to react field 'LOCATOR' | whenappendreact | Sets the value to the input then fires React’s version of the onChange event, so that any actions fire |
 | I set react field 'LOCATOR' to 'STRING' | whensetreact | Similar to append in react above |
 | I submit the _form_ 'LOCATOR' | whensubmit | [This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359) |
 | I press 'KEY' | whenkey | [See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16) |
@@ -61,6 +63,7 @@ Note that the words in italics are optional.
 | I expect the url to not be 'STRING' | thennoturl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
 | I expect the url 'URL' is opened in a new tab | thenurlnewtab | [Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16) |
 | I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
+| I expect _the)?_ 'LOCATOR' inside the 'LOCATOR' to be (visible | thenelinsideelvisible | This currently only works with XPaths |
 | I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |
 | I expect the (bottom OR top OR left OR right)* border colour of the 'LOCATOR' to be 'STRING' | thenbordercolour | Pick a side (bottom, top, left, or right) or remove the expected side. |
 | I expect the colour of the 'LOCATOR' to be 'STRING' | thencolour |  |
@@ -69,6 +72,7 @@ Note that the words in italics are optional.
 | I expect the title to not be 'STRING' | thennottitle |  |
 | I expect _the_ 'LOCATOR' to contain the text 'STRING' | thencontainstext |  |
 | I expect _the_ 'LOCATOR' to not contain the text 'STRING' | thennotcontainstext |  |
+| I expect _the)?_ 'LOCATOR' inside the 'LOCATOR' to (contain the text 'STRING' | thenelinsideelcontainstext |  |
 | I expect _the_ 'LOCATOR' to contain any text | thencontainsanytext |  |
 | I expect _the_ 'LOCATOR' to not contain any text | thennotcontainsanytext |  |
 | I expect _the_ 'LOCATOR' to appear exactly 'NUMBER' times | thenappearexactly |  |
@@ -92,6 +96,7 @@ Note that the words in italics are optional.
 | I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
 | I expect the value of _the_ 'LOCATOR' to be 'STRING' | thenvalue | Used for getting the value of an input |
 | I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue | Used for getting the value of an input |
+| I expect the value of _the)?_ 'LOCATOR' inside the 'LOCATOR' to( not* be 'STRING' | thenelinsideelvalue | This currently only works with XPaths |
 | I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenattribute |  |
 | take a screenshot | thenscreenshot |  |
 | take a screenshot called 'STRING' | thenscreenshotcalled |  |

@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenclickelinsideel",
+    "body": [
+      "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'"
+    ],
+    "description": "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'"
+  }
+}

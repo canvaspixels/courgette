@@ -37,6 +37,12 @@ const steps = [
     notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16)',
   },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
+  {
+    matcher: "I expect(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to be (visible)",
+    path: './checks/checkElementInsideElementVisibility',
+    code: 'elinsideelvisible',
+    notes: 'This currently only works with XPaths',
+  },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (hidden)", path: './checks/checkVisibility', code: 'hidden' },
   {
     matcher: "I expect the( (bottom|top|left|right))* border colour of the 'LOCATOR' to be 'STRING'",
@@ -49,6 +55,7 @@ const steps = [
   { matcher: "I expect the title to( not)* be 'STRING'", path: './checks/checkTitle', code: 'title' },
   { matcher: "I expect(?: the)? 'LOCATOR' to (contain) the text 'STRING'", path: './checks/checkContainsText', code: 'containstext' },
   { matcher: "I expect(?: the)? 'LOCATOR' to (not contain) the text 'STRING'", path: './checks/checkContainsText', code: 'notcontainstext' },
+  { matcher: "I expect(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to (contain) the text 'STRING'", path: './checks/checkElementInsideElementContainsText', code: 'elinsideelcontainstext' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* contain any text", path: './checks/checkContainsAnyText', code: 'containsanytext' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* appear exactly 'NUMBER' times", path: './checks/checkElementExistsNTimes', code: 'appearexactly' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* exist", path: './checks/checkElementExists', code: 'exists' },
@@ -62,7 +69,16 @@ const steps = [
   { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },
   {
-    matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'", path: './checks/checkInputValue', code: 'value', notes: 'Used for getting the value of an input',
+    matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'",
+    path: './checks/checkInputValue',
+    code: 'value',
+    notes: 'Used for getting the value of an input',
+  },
+  {
+    matcher: "I expect the value of(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to( not)* be 'STRING'",
+    path: './checks/checkElementInsideElementInputValue',
+    code: 'elinsideelvalue',
+    notes: 'This currently only works with XPaths',
   },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
   { matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot' },

@@ -52,15 +52,36 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return element(locators[locator]);
     },
 
+    getElementInsideElement(...ltors) {
+      // TODO get working with CSS selectors
+      // if (locators[ltors[0]].using === 'css selector') {
+      //   return $(ltors[0]).$$(ltors[1]).first();
+      // }
+      // concatenates xpaths together
+      const xpaths = ltors.map((locator) => {
+        locatorErrorCheck(locator);
+        return locators[locator].value;
+      });
+
+      return element(by.xpath(xpaths.join('')));
+    },
+
     getElements(locator) {
       locatorErrorCheck(locator);
 
       return element.all(locators[locator]);
     },
 
-    getElementWhenInDOM(locator) {
-      const el = this.getElement(locator);
+    getElementWhenInDOM(locator, ...other) {
+      let el;
 
+      if (other.length) {
+        el = this.getElementInsideElement(locator, ...other);
+      } else {
+        el = this.getElement(locator);
+      }
+      // TODO add error
+      // `${locator} not found`
       // todo see syntax without EC
       return browser.wait(EC.presenceOf(el)).then(() => el);
     },
