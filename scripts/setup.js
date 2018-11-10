@@ -46,7 +46,7 @@ if (os.type().toLowerCase().includes('windows')) {
   // isWindows = true;
 }
 
-const installChromedriver = './node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35';
+const installFirefoxDriver = './node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --chrome=false';
 
 runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
   if (err) throw err;
@@ -56,20 +56,20 @@ runScript(addScriptToPackageJson, ['ct', scriptToAdd], (err) => {
     if (err2) throw err2;
     console.log('added courgette script to your package.json');
 
-    runScript(addScriptToPackageJson, ['install-geckodriver', installChromedriver], (err3) => {
+    runScript(addScriptToPackageJson, ['install-firefoxdriver', installFirefoxDriver], (err3) => {
       if (err3) throw err3;
-      console.log('added installChromedriver to your package.json');
+      console.log('added installFirefoxDriver to your package.json');
 
-      runScript(addScriptToPackageJson, ['postinstall', 'npm run install-geckodriver'], (err4) => {
+      runScript(addScriptToPackageJson, ['postinstall', 'npm run install-firefoxdriver'], (err4) => {
         if (err4) throw err4;
         console.log('added postinstall script to your package.json');
 
-        runScript('./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --standalone=false'.split(' '), (err5) => {
+        runScript('./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '), (err5) => {
           if (err5) {
             console.log(' ');
             console.log('!!!!!!!!!!!-----------IMPORTANT----------!!!!!!!!!!!!!!!');
             console.log('It looks like it hasn’t install properly, you may be behind a corporate proxy. You may have to add the --proxy flag to webdriver-manager in your package json.');
-            const eg = '"./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --standalone=false --versions.chrome 2.35 --proxy http://127.0.0.1"';
+            const eg = '"./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35 --proxy http://127.0.0.1"';
             console.log(`e.g. "install-geckodriver": ${eg},`);
             console.log('Then run:');
             console.log('npm run install-geckodriver');
