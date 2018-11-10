@@ -1,4 +1,4 @@
-# Courgette Framework - Bringing sanity to test automation with Selenium
+# Courgette - Bringing sanity to test automation with Selenium
 
 This project was formerly known as Cuketractor (formerly cucumber-protractor on npm)
 
