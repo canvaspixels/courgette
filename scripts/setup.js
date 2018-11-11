@@ -4,9 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const uiTestPath = path.resolve('uiTests');
-console.log(path.join(__dirname, '..', 'uiTests'), '+++++');
-console.log(uiTestPath, '----------');
+const uiTestPath = path.join(__dirname, '..', '..', '..', 'uiTests');
 if (!fs.existsSync(uiTestPath)) {
   ncp(path.join(__dirname, '..', 'uiTests'), uiTestPath, (err) => {
     if (err) {
@@ -18,7 +16,7 @@ if (!fs.existsSync(uiTestPath)) {
   console.log('uiTests folder already exists');
 }
 
-const confPath = path.resolve('courgette-conf.js');
+const confPath = path.join(__dirname, '..', '..', '..', 'courgette-conf.js');
 if (!fs.existsSync(confPath)) {
   ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), confPath, (err) => {
     if (err) {
@@ -90,7 +88,7 @@ const setupScripts = async function() {
   }
 
   try {
-    await runScript('./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '))
+    await runScript('../../node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '))
     console.log('FirefoxDriver Installed');
   } catch (err) {
     console.log(' ');
