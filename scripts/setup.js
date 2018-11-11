@@ -6,7 +6,7 @@ const os = require('os');
 
 const uiTestPath = path.join(__dirname, '..', 'uiTests');
 if (!fs.existsSync(uiTestPath)) {
-  ncp(, path.resolve('uiTests'), (err) => {
+  ncp(uiTestPath, path.resolve('uiTests'), (err) => {
     if (err) {
       return console.error(err);
     }
