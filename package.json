@@ -8,6 +8,7 @@
     "ci": "npm run install-chromedriver && npm run start & npm run lint && npm run uitests",
     "eject": "react-scripts eject",
     "lint": "eslint '**/*.js'",
+    "postinstall": "scripts/setup.js",
     "build-snippets:atom": "node scripts/generateSnippetsAtom.js --genFiles",
     "build-snippets:sublime": "node scripts/generateSnippetsSublime.js --genFiles",
     "build-snippets:vscode": "node scripts/generateSnippetsVSCode.js --genFiles",

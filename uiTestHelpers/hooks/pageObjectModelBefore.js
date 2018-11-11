@@ -6,7 +6,7 @@ const createPage = require('../../uiTestHelpers/createPage');
 const createComponent = require('../../uiTestHelpers/createComponent');
 
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
   const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'xpaths', 'deepselectors'];

@@ -1,7 +1,7 @@
 const path = require('path');
 const createComponent = require('./createComponent');
 // eslint-disable-next-line
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 
 module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>

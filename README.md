@@ -204,7 +204,7 @@ It's important that the page object name is kebab-case and lowercase. E.g. `abou
 
 It’s advisable when writing your features to add a tag at the top of the Feature file and a tag to the beginning of each Scenario. A tag starts with a @. As a convention you can prefix each Scenario tag with whatever you've used at the top of the file (in this case @google-home). Try and keep them unique for your ease of use.
 
-Note you can add more than one tag to each scenario and you could tag them when a hook tag that you can hook into Before or After each scenario. [Read more about hooks](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/hooks.md) just add hooks to the existing ones in your conf.js file.
+Note you can add more than one tag to each scenario and you could tag them when a hook tag that you can hook into Before or After each scenario. [Read more about hooks](https://github.com/cucumber/cucumber-js/blob/master/docs/support_files/hooks.md) just add hooks to the existing ones in your courgette-conf.js file.
 
 ```gherkin
 @google-home
@@ -261,7 +261,7 @@ disableHeadless=true npm run ct
 
 That'll launch Firefox by default and you'll be able to see your tests run.
 
-## conf.js file
+## courgette-conf.js file
 
 The conf file allows you to specify the following:
 
@@ -278,7 +278,7 @@ The conf file allows you to specify the following:
 To point to a different configuration file:
 
 ```console
-npm run ct -- --confFile=staging.conf.js
+npm run ct -- --confFile=staging.courgette-conf.js
 ```
 
 ## .page files and .component files
@@ -346,7 +346,7 @@ If you run `linearise=1 npm run ct` then they won't run in parallel, nor will th
 
 `maxInstances: 4` in the conf can be altered depending on how much load your computer can handle.
 
-If you've just setup Courgette with the setup script this will work, otherwise search for linearise inside the [sample conf](https://github.com/canvaspixels/courgette/blob/master/sample-conf.js)
+If you've just setup Courgette with the setup script this will work, otherwise search for linearise inside the [sample conf](https://github.com/canvaspixels/courgette/blob/master/sample-courgette-conf.js)
 
 
 ## Snippets
