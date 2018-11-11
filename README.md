@@ -27,15 +27,32 @@ This project was formerly known as Cuketractor (formerly cucumber-protractor on 
 
 This assumes that you have an npm project. If you don't then make a new one with `npm init`. It also assumes you are on a Mac, Linux or Windows and have node 8+, npm 6+, and the latest version of Firefox installed.
 
-1. Install the package: type `npm install courgette` into your terminal
-2. Copy: `node node_modules/courgette/scripts/setup.js` into your terminal. This will create a `uiTests` folder with the sample in it, a sample config and add the `ct` script to your package.json. Note it's `node node_modules\courgette\scripts\setup.js` on Windows.
-3. Run the sample, type `npm run ct` into your terminal.
+Type this into your terminal:
+
+```
+npm install courgette
+```
+
+This will create a `uiTests` folder with the sample in it, a sample `courgette-conf.js` file and adds the `ct`, `postinstall`, and `install-firefoxdriver` scripts to your package.json.
+
+Run the sample, type into your terminal:
+
+```
+npm run ct
+```
 
 ### Futher tips:
 
 1. To improve organisation and scalability, easily compose Page Objects and Component Objects. Page Objects and Component Objects are composed of [Locators](https://www.protractortest.org/#/locators), custom methods, and other Component Objects. Components can compose Components which compose Components etc. The only difference between a Page Object and a Component Object is a Component Object does not have an URL. Use the [step definitions provided](https://github.com/canvaspixels/courgette/blob/master/STEP_DEFINITIONS.md#step-definitions) (or create your own) to write your own first scenario.
-2. If you're using source control such as git, add `uiTestResult` to your .gitignore file
-3. As an improvement, to suppress deprecation warnings (if running node > 8) and also to type `courgette` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:
+2. If you're using git for source control, add `uiTestResult` to your .gitignore file. If I’m on a fresh project i'll run: `git init && BR=$'\n' && echo "node_modules${BR}uiTestResult" > .gitignore && git add . && git commit -am 'init commit'` at the root of my new project folder in terminal.
+
+As a shortcut, to create yourself a new npm project, initialise npm (create package.json), install and setup Courgette, initialise git and create a commit, paste the following into your terminal:
+
+```
+mkdir yourProjectName && cd $_ && npm init -y && npm i courgette && git init && echo 'node_modules' >> .gitignore && echo 'uiTestResult' >> .gitignore && git add . && git commit -am 'init commit'
+```
+
+3. As an improvement, to suppress deprecation warnings (if running node >= 8) and also to type `courgette` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:
 
 ```
 alias courgette="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette"
