@@ -4,28 +4,32 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const uiTestPath = path.join(__dirname, '..', '..', '..', 'uiTests');
-if (!fs.existsSync(uiTestPath)) {
-  ncp(path.join(__dirname, '..', 'uiTests'), uiTestPath, (err) => {
+const targetUiTestPath = path.join(__dirname, '..', '..', '..', 'uiTests');
+const targetConfPath = path.join(__dirname, '..', '..', '..', 'courgette-conf.js');
+if (!fs.existsSync(targetUiTestPath)) {
+  ncp(path.join(__dirname, '..', 'uiTests'), targetUiTestPath, (err) => {
     if (err) {
       return console.error(err);
     }
     return console.log('uiTests folder created');
   });
 } else {
-  console.log('uiTests folder already exists');
+  console.log('uiTests folder already exists. The Courgette setup script has already been run');
+  process.exitCode = 0
+  return
 }
 
-const confPath = path.join(__dirname, '..', '..', '..', 'courgette-conf.js');
-if (!fs.existsSync(confPath)) {
-  ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), confPath, (err) => {
+if (!fs.existsSync(targetConfPath)) {
+  ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), targetConfPath, (err) => {
     if (err) {
       return console.error(err);
     }
     return console.log('courgette-conf.js created');
   });
 } else {
-  console.log('courgette-conf.js already exists');
+  console.log('courgette-conf.js already exists. The Courgette setup script has already been run');
+  process.exitCode = 0
+  return
 }
 
 const childProcess = require('child_process');
@@ -62,7 +66,6 @@ function runScript(scriptPath, args) {
 }
 
 const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
-console.log(addScriptToPackageJson, '00000---addScriptToPackageJsonaddScriptToPackageJson');
 let scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette';
 
 // let isWindows = false;
