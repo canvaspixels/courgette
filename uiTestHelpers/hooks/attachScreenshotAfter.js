@@ -3,7 +3,7 @@ const path = require('path');
 
 const { After } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 After(function attachScreenshotAfterHook(scenarioResult, callback) {
   this.attach('Hook Step: attachScreenshotAfterHook');

@@ -9,7 +9,7 @@ const os = require('os');
 const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
 // eslint-disable-next-line
-const confFile = argv.confFile || process.env.confFile || 'conf.js';
+const confFile = argv.confFile || process.env.confFile || 'courgette-conf.js';
 const { pomConfig } = require(path.resolve(confFile));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');

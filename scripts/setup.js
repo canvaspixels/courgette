@@ -3,18 +3,27 @@ const { ncp } = require('ncp');
 const path = require('path');
 const os = require('os');
 
-ncp(path.join(__dirname, '..', 'uiTests'), path.resolve('uiTests'), (err) => {
-  if (err) {
-    return console.error(err);
-  }
-  return console.log('uiTests folder created');
-});
-ncp(path.join(__dirname, '..', 'sample-conf.js'), path.resolve('conf.js'), (err) => {
-  if (err) {
-    return console.error(err);
-  }
-  return console.log('conf.js created');
-});
+const uiTestPath = path.join(__dirname, '..', 'uiTests');
+if (!fs.existsSync(uiTestPath)) {
+  ncp(, path.resolve('uiTests'), (err) => {
+    if (err) {
+      return console.error(err);
+    }
+    return console.log('uiTests folder created');
+  });
+} else {
+  console.log('uiTests folder already exists');
+}
+if (!fs.existsSync(path.resolve('courgette-conf.js'))) {
+  ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), path.resolve('courgette-conf.js'), (err) => {
+    if (err) {
+      return console.error(err);
+    }
+    return console.log('courgette-conf.js created');
+  });
+} else {
+  console.log('courgette-conf.js already exists');
+}
 
 const childProcess = require('child_process');
 
