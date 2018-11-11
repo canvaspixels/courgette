@@ -1,3 +1,7 @@
+## 2.8.0
+* Officially Cuketractor has been renamed to Courgette
+* Setup script is now in the postinstall so all that is needed for setup is `npm i courgette`
+
 ## 2.5.0
 Added support for web components
 
