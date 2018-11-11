@@ -6,6 +6,8 @@ const os = require('os');
 
 const targetUiTestPath = path.join(__dirname, '..', '..', '..', 'uiTests');
 const targetConfPath = path.join(__dirname, '..', '..', '..', 'courgette-conf.js');
+
+let shouldInstall = true;
 if (!fs.existsSync(targetUiTestPath)) {
   ncp(path.join(__dirname, '..', 'uiTests'), targetUiTestPath, (err) => {
     if (err) {
@@ -15,8 +17,8 @@ if (!fs.existsSync(targetUiTestPath)) {
   });
 } else {
   console.log('uiTests folder already exists. The Courgette setup script has already been run');
-  process.exitCode = 0
-  return
+  process.exitCode = 0;
+  shouldInstall = false;
 }
 
 if (!fs.existsSync(targetConfPath)) {
@@ -28,8 +30,8 @@ if (!fs.existsSync(targetConfPath)) {
   });
 } else {
   console.log('courgette-conf.js already exists. The Courgette setup script has already been run');
-  process.exitCode = 0
-  return
+  process.exitCode = 0;
+  shouldInstall = false;
 }
 
 const childProcess = require('child_process');
@@ -42,8 +44,8 @@ function runScript(scriptPath, args) {
   return new Promise((resolve, reject) => {
     process.on('error', (err) => {
       if (invoked) {
-        reject('error already invoked')
-        return
+        reject(new Error('error already invoked'));
+        return;
       }
       invoked = true;
       reject(err);
@@ -51,13 +53,13 @@ function runScript(scriptPath, args) {
 
     process.on('exit', (code) => {
       if (invoked) {
-        reject('exit already invoked')
-        return
+        reject(new Error('exit already invoked'));
+        return;
       }
       invoked = true;
 
       if (code === 0) {
-        resolve()
+        resolve();
       } else {
         reject(new Error(`exit code ${code}`));
       }
@@ -76,22 +78,22 @@ if (os.type().toLowerCase().includes('windows')) {
 
 const installFirefoxDriver = './node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --chrome=false';
 
-const setupScripts = async function() {
+const setupScripts = async function () {
   try {
-    await runScript(addScriptToPackageJson, ['ct', scriptToAdd])
+    await runScript(addScriptToPackageJson, ['ct', scriptToAdd]);
     console.log('added ct script to your package.json');
-    await runScript(addScriptToPackageJson, ['courgette', scriptToAdd])
+    await runScript(addScriptToPackageJson, ['courgette', scriptToAdd]);
     console.log('added courgette script to your package.json');
-    await runScript(addScriptToPackageJson, ['install-firefoxdriver', installFirefoxDriver])
+    await runScript(addScriptToPackageJson, ['install-firefoxdriver', installFirefoxDriver]);
     console.log('added install-firefoxdriver to your package.json');
-    await runScript(addScriptToPackageJson, ['postinstall', 'npm run install-firefoxdriver'])
+    await runScript(addScriptToPackageJson, ['postinstall', 'npm run install-firefoxdriver']);
     console.log('added postinstall script to your package.json');
   } catch (err) {
     throw err;
   }
 
   try {
-    await runScript('../../node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '))
+    await runScript('../../node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '));
     console.log('FirefoxDriver Installed');
   } catch (err) {
     console.log(' ');
@@ -104,6 +106,8 @@ const setupScripts = async function() {
     console.log(' ');
     throw err;
   }
-}
+};
 
-setupScripts();
+if (shouldInstall) {
+  setupScripts();
+}
