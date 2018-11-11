@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 const { ncp } = require('ncp');
+const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
