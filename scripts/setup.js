@@ -5,6 +5,8 @@ const path = require('path');
 const os = require('os');
 
 const uiTestPath = path.resolve('uiTests');
+console.log(path.join(__dirname, '..', 'uiTests'), '+++++');
+console.log(uiTestPath, '----------');
 if (!fs.existsSync(uiTestPath)) {
   ncp(path.join(__dirname, '..', 'uiTests'), uiTestPath, (err) => {
     if (err) {
@@ -62,6 +64,7 @@ function runScript(scriptPath, args) {
 }
 
 const addScriptToPackageJson = path.resolve(__dirname, 'add-script-to-packagejson.js');
+console.log(addScriptToPackageJson, '00000---addScriptToPackageJsonaddScriptToPackageJson');
 let scriptToAdd = 'PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette';
 
 // let isWindows = false;
