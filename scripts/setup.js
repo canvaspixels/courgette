@@ -9,6 +9,8 @@ const targetConfPath = path.join(__dirname, '..', 'courgette-conf.js');
 
 const childProcess = require('child_process');
 
+console.log(process.cwd(), 'process.cwd()')
+
 function runScript(scriptPath, args) {
   let invoked = false;
 
