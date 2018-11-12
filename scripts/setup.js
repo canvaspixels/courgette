@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const targetUiTestPath = path.join(__dirname, '..', 'uiTests');
-const targetConfPath = path.join(__dirname, '..', 'courgette-conf.js');
+const targetUiTestPath = path.join(__dirname, '..', '..', '..', 'uiTests');
+const targetConfPath = path.join(__dirname, '..', '..', '..', 'courgette-conf.js');
 
 const childProcess = require('child_process');
 
