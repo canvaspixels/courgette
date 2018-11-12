@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const targetUiTestPath = path.join(__dirname, '..', '..', '..', 'uiTests');
-const targetConfPath = path.join(__dirname, '..', '..', '..', 'courgette-conf.js');
+const targetUiTestPath = path.join(__dirname, '..', 'uiTests');
+const targetConfPath = path.join(__dirname, '..', 'courgette-conf.js');
 
 const childProcess = require('child_process');
 
@@ -110,7 +110,7 @@ const setupPackageJsonScripts = async function () {
 
 const setupDrivers = async function () {
   try {
-    await runScript('../../node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '));
+    await runScript('node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '));
     console.log('FirefoxDriver Installed');
   } catch (err) {
     console.log(' ');

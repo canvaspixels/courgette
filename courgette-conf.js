@@ -48,7 +48,6 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    // acceptInsecureCerts: true, // uncomment to ignore SSL warnings
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
     'shardTestFiles': !process.env.cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     'maxInstances': 4,
