@@ -13,8 +13,10 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-const sublimeSnippetsFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User/sublime-snippets-courgette`;
+const ideFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User`;
+const ideSnippetsFolder = `${ideFolder}/sublime-snippets-courgette`;
 
+let ideInstalled = true;
 
 const snippetsFolder = 'snippets/sublime';
 if (!argv.justForIDE) {
@@ -26,9 +28,13 @@ if (!argv.justForIDE) {
   }
 }
 
-if (!fs.existsSync(sublimeSnippetsFolder)) {
-  fs.mkdirSync(sublimeSnippetsFolder);
+if (!fs.existsSync(ideFolder)) {
+  ideInstalled = false;
+  if (!fs.existsSync(ideSnippetsFolder)) {
+    fs.mkdirSync(ideSnippetsFolder);
+  }
 }
+
 
 const snippetCodes = {};
 
@@ -44,10 +50,8 @@ ${matcher.replace(/\((.*)\)/g, '$1')}
     fs.writeFileSync(`${snippetsFolder}/${code}.sublime-snippet`, snippet);
   }
 
-  try {
-    fs.writeFileSync(`${sublimeSnippetsFolder}/${code}.sublime-snippet`, snippet);
-  } catch (e) {
-    console.log('Sublime not installed on your mac');
+  if (ideInstalled) {
+    fs.writeFileSync(`${ideSnippetsFolder}/${code}.sublime-snippet`, snippet);
   }
 };
 
@@ -96,5 +100,11 @@ const genSnippets = (steps, type) => {
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
+
+if (ideInstalled) {
+  console.log(`Snippets added to ${ideSnippetsFolder}`);
+} else {
+  console.log('Sublime not installed on your mac so no snippets were added to sublime');
+}
 
 module.exports = snippetCodes;

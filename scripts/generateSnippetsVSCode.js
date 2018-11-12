@@ -13,7 +13,8 @@ const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
-let ideSnippetsFolder;
+const ideFolder = `${os.homedir()}/Library/Application Support/Code/User`;
+const ideSnippetsFolder = `${ideFolder}/snippets`;
 let ideInstalled = true;
 
 const snippetsFolder = 'snippets/vscode';
@@ -26,14 +27,11 @@ if (!argv.justForIDE) {
   }
 }
 
-
 try {
-  ideSnippetsFolder = `${os.homedir()}/Library/Application Support/Code/User/snippets`;
   if (!fs.existsSync(ideSnippetsFolder)) {
     fs.mkdirSync(ideSnippetsFolder);
   }
 } catch (e) {
-  console.log('VSCode not installed on your mac');
   ideInstalled = false;
 }
 
@@ -108,5 +106,11 @@ const genSnippets = (steps, type) => {
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
+
+if (ideInstalled) {
+  console.log(`Snippets added to ${ideSnippetsFolder}`);
+} else {
+  console.log('VSCode not installed on your mac so no snippets were added to VSCode');
+}
 
 module.exports = snippetCodes;

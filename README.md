@@ -33,7 +33,7 @@ Type this into your terminal:
 npm install courgette
 ```
 
-This will create a `uiTests` folder with the sample in it, a sample `courgette-conf.js` file and adds the `ct`, `postinstall`, and `install-firefoxdriver` scripts to your package.json.
+This will create a `uiTests` folder with the sample in it, a sample `courgette-conf.js` file, adds the `ct`, `postinstall`, and `install-firefoxdriver` scripts to your package.json, and adds snippets/Live templates to your IDE.
 
 Run the sample, type into your terminal:
 
@@ -366,41 +366,17 @@ If you run `linearise=1 npm run ct` then they won't run in parallel, nor will th
 If you've just setup Courgette with the setup script this will work, otherwise search for linearise inside the [sample conf](https://github.com/canvaspixels/courgette/blob/master/sample-courgette-conf.js)
 
 
-## Snippets
+## Snippets / Live templates
 
-Snippets are available for Sublime Text 3, Webstorm (live templates), VSCode and Atom. To add them to your editor do the following.
+Snippets are available for Sublime Text 3, Webstorm (live templates), VSCode and Atom. They are added to your IDEs automatically on OSX. If you're on other operating systems you can copy them from inside the snippets folder in this project.
 
-For Sublime Text 3:
+To not add them to your IDE automatically add this environment variable when you install:
 
-```console
-node node_modules/courgette/scripts/generateSnippetsSublime.js --genFiles --justForIDE
+```
+IGNORE_IDE_SETUP=1 npm install courgette
 ```
 
-For Atom:
-
-```console
-node node_modules/courgette/scripts/generateSnippetsAtom.js --genFiles --justForIDE
-```
-
-For VSCode:
-
-```console
-node node_modules/courgette/scripts/generateSnippetsVSCode.js --genFiles --justForIDE
-```
-
-For Webstorm:
-
-```console
-node node_modules/courgette/scripts/generateSnippetsWebstorm.js --genFiles --justForIDE
-```
-
-For IntelliJ:
-
-```console
-node node_modules/courgette/scripts/generateSnippetsIntelliJ.js --genFiles --justForIDE
-```
-
-You may need to restart after running the commands for the JetBrains IDEs.
+You may need to restart your IDE to refresh the snippets.
 
 ## Combining steps
 

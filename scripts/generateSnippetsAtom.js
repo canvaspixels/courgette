@@ -94,6 +94,7 @@ try {
   const snippetsFile = fs.readFileSync(atomSnippetsFile, 'utf-8');
   const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### courgette snippets start 0-o[^~]*###### courgette snippets end 0-o$/m, '');
   fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCukeTrackor}${snippets}`);
+  console.log(`Snippets added to ${atomSnippetsFile}`);
 } catch (e) {
-  console.log('Atom not installed on your mac');
+  console.log('Atom not installed on your mac so no snippets were added to atom');
 }

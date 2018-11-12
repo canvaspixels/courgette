@@ -111,3 +111,18 @@ const setupScripts = async function () {
 if (shouldInstall) {
   setupScripts();
 }
+
+const setupSnippets = async function () {
+  console.log(' ');
+  console.log('Adding snippets...');
+  await runScript(path.resolve(__dirname, './generateSnippetsSublime.js'), '--genFiles --justForIDE'.split(' '));
+  await runScript(path.resolve(__dirname, './generateSnippetsVSCode.js'), '--genFiles --justForIDE'.split(' '));
+  await runScript(path.resolve(__dirname, './generateSnippetsAtom.js'), '--genFiles --justForIDE'.split(' '));
+  await runScript(path.resolve(__dirname, './generateSnippetsWebstorm.js'), '--genFiles --justForIDE'.split(' '));
+  await runScript(path.resolve(__dirname, './generateSnippetsIntelliJ.js'), '--genFiles --justForIDE'.split(' '));
+  console.log(' ');
+};
+
+if (!process.env.IGNORE_IDE_SETUP) {
+  setupSnippets();
+}
