@@ -9,8 +9,6 @@ const targetConfPath = path.join(__dirname, '..', 'courgette-conf.js');
 
 const childProcess = require('child_process');
 
-console.log(process.cwd(), 'process.cwd()')
-
 function runScript(scriptPath, args) {
   let invoked = false;
 
@@ -42,22 +40,6 @@ function runScript(scriptPath, args) {
   });
 }
 
-const setupSnippets = async function () {
-  console.log(' ');
-  console.log('Adding snippets...');
-  await runScript(path.resolve(__dirname, './generateSnippetsSublime.js'), '--genFiles --justForIDE'.split(' '));
-  await runScript(path.resolve(__dirname, './generateSnippetsVSCode.js'), '--genFiles --justForIDE'.split(' '));
-  await runScript(path.resolve(__dirname, './generateSnippetsAtom.js'), '--genFiles --justForIDE'.split(' '));
-  await runScript(path.resolve(__dirname, './generateSnippetsWebstorm.js'), '--genFiles --justForIDE'.split(' '));
-  await runScript(path.resolve(__dirname, './generateSnippetsIntelliJ.js'), '--genFiles --justForIDE'.split(' '));
-  console.log(' ');
-};
-
-if (!process.env.IGNORE_COURGETTE_IDE_SETUP) {
-  setupSnippets();
-}
-
-
 let shouldInstall = true;
 if (!fs.existsSync(targetUiTestPath) && !process.env.IGNORE_COURGETTE_SAMPLE_SETUP) {
   ncp(path.join(__dirname, '..', 'uiTests'), targetUiTestPath, (err) => {
@@ -67,9 +49,8 @@ if (!fs.existsSync(targetUiTestPath) && !process.env.IGNORE_COURGETTE_SAMPLE_SET
     return console.log('uiTests folder created');
   });
 } else {
-  console.log('uiTests folder already exists. The Courgette setup script has already been run');
+  console.log('uiTests folder already exists. Cannot create a new one');
   shouldInstall = false;
-  process.exitCode = 0;
 }
 
 if (!fs.existsSync(targetConfPath) && !process.env.IGNORE_COURGETTE_CONF_SETUP) {
@@ -80,8 +61,7 @@ if (!fs.existsSync(targetConfPath) && !process.env.IGNORE_COURGETTE_CONF_SETUP) 
     return console.log('courgette-conf.js created');
   });
 } else {
-  console.log('courgette-conf.js already exists. The Courgette setup script has already been run');
-  process.exitCode = 0;
+  console.log('courgette-conf.js already exists');
   shouldInstall = false;
 }
 
@@ -105,10 +85,12 @@ const setupPackageJsonScripts = async function () {
     console.log('added install-firefoxdriver to your package.json');
     await runScript(addScriptToPackageJson, ['postinstall', 'npm run install-firefoxdriver']);
     console.log('added postinstall script to your package.json');
+    await runScript(addScriptToPackageJson, ['setup-courgette-snippets', './node_modules/courgette/scripts/setupSnippets.js']);
+    console.log('added setup-courgette-snippets script to your package.json');
   } catch (err) {
     throw err;
   }
-}
+};
 
 const setupDrivers = async function () {
   try {

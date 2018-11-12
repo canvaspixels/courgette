@@ -47,7 +47,7 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    acceptInsecureCerts: true, // ignores SSL warnings
+    'acceptInsecureCerts': true, // ignores SSL warnings
     'shardTestFiles': !cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     'maxInstances': 4,
     ...browserCapability,

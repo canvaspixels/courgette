@@ -30,7 +30,7 @@ This assumes that you have an npm project. If you don't then make a new one with
 Type this into your terminal:
 
 ```
-npm install courgette
+npm install courgette && npm run setup-courgette-snippets
 ```
 
 This will create a `uiTests` folder with the sample in it, a sample `courgette-conf.js` file, adds the `ct`, `postinstall`, and `install-firefoxdriver` scripts to your package.json, and adds snippets/Live templates to your IDE.
@@ -39,6 +39,16 @@ Run the sample, type into your terminal:
 
 ```
 npm run ct
+```
+
+To just install the courgette package without any of the postinstall steps (not recommended but there if you need to) you can run install with the following environment variables set:
+
+```
+export IGNORE_COURGETTE_SAMPLE_SETUP=1
+export IGNORE_COURGETTE_PACKAGE_JSON_SCRIPTS=1
+export IGNORE_COURGETTE_CONF_SETUP=1
+export IGNORE_COURGETTE_INSTALL_DRIVERS=1
+npm install courgette
 ```
 
 ### Futher tips:
@@ -370,16 +380,10 @@ If you've just setup Courgette with the setup script this will work, otherwise s
 
 Snippets are available for Sublime Text 3, Webstorm (live templates), VSCode and Atom. They are added to your IDEs automatically on OSX. If you're on other operating systems you can copy them from inside the snippets folder in this project.
 
-To not add them to your IDE automatically add this environment variable when you install:
+To add them to your IDE run:
 
 ```
-IGNORE_COURGETTE_IDE_SETUP=1 npm install courgette
-```
-
-To not add the sample setup you can also add this environment variable when you install:
-
-```
-IGNORE_COURGETTE_SAMPLE_SETUP=1 npm install courgette
+npm run setup-courgette-snippets
 ```
 
 You may need to restart your IDE to refresh the snippets.
