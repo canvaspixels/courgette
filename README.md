@@ -373,7 +373,13 @@ Snippets are available for Sublime Text 3, Webstorm (live templates), VSCode and
 To not add them to your IDE automatically add this environment variable when you install:
 
 ```
-IGNORE_IDE_SETUP=1 npm install courgette
+IGNORE_COURGETTE_IDE_SETUP=1 npm install courgette
+```
+
+To not add the sample setup you can also add this environment variable when you install:
+
+```
+IGNORE_COURGETTE_SAMPLE_SETUP=1 npm install courgette
 ```
 
 You may need to restart your IDE to refresh the snippets.
