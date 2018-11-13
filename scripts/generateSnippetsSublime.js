@@ -30,10 +30,8 @@ if (!argv.justForIDE) {
 
 if (!fs.existsSync(ideFolder)) {
   ideInstalled = false;
-} else {
-  if (!fs.existsSync(ideSnippetsFolder)) {
-    fs.mkdirSync(ideSnippetsFolder);
-  }
+} else if (!fs.existsSync(ideSnippetsFolder)) {
+  fs.mkdirSync(ideSnippetsFolder);
 }
 
 
