@@ -12,11 +12,11 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   {
-    matcher: "I expect to be on the 'PAGE_NAME' page",
-    path: './checks/setPageObjectThenCheckUrl',
-    notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use locators / sel' +
-      'ectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists.',
-    code: 'onpage',
+    matcher: "I expect page to contain 'STRING'",
+    path: './checks/checkPageContainsText',
+    notes: 'This looks in the whole document for STRING',
+    code: 'pagecontainstext',
+    pageObjectNotRequired: true,
   },
   {
     matcher: "I expect the url to( not)* be 'STRING'",
@@ -38,6 +38,13 @@ const steps = [
     code: 'urlnewtab',
     notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16)',
     pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I expect to be on the 'PAGE_NAME' page",
+    path: './checks/setPageObjectThenCheckUrl',
+    notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use locators / sel' +
+      'ectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists.',
+    code: 'onpage',
   },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
   {
