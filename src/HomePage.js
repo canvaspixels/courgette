@@ -11,6 +11,12 @@ const Home = () => (
     <p className="Home-intro">
       <Link to="/other-page" data-test="rr-link">Go to other page by react router</Link>
     </p>
+    <p className="Home-intro">
+      <Link to="/other-page">some link text</Link>
+    </p>
+    <p className="Home-intro">
+      <Link to="/simple-page">some link text</Link>
+    </p>
     <p><a href="/other-page" data-test="other-page-link">Go to other page with full page load</a></p>
     <p><a href="/other-page" data-test="other-page-link-new-tab" target="_blank">Go to other page in new tab</a></p>
     <p><Link to="/another-simple-page" data-test="another-simple-page-react-link">Go to another simple page</Link></p>
