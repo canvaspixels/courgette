@@ -1,4 +1,5 @@
 const placeholders = [
+  'NTH',
   'PAGE_NAME',
   'URL',
   'STRING',

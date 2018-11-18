@@ -10,7 +10,7 @@ const cukeTractorPath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
-  timeoutInSeconds: 3,
+  timeoutInSeconds: process.env.timeout || 3,
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   baseUrl: 'http://localhost:3000',

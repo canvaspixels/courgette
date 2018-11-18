@@ -10,6 +10,7 @@ const OtherPage = () => (
     <p className="Home-intro">
       <Link to="/" data-test="go-to-home-link">Go to Home page</Link>
     </p>
+    <p>Some content on the other page</p>
   </div>
 );
 

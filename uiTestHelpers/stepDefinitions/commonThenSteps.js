@@ -19,22 +19,25 @@ const steps = [
     code: 'onpage',
   },
   {
-    matcher: "I expect the url to contain 'STRING'",
-    path: './checks/checkUrlContainsString',
-    notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
-    code: 'urlcontains',
-  },
-  {
     matcher: "I expect the url to( not)* be 'STRING'",
     path: './checks/checkUrl',
     notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
     code: 'url',
+    pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I expect the url to contain 'STRING'",
+    path: './checks/checkUrlContainsString',
+    notes: 'Using this just checks the URL, it does not change the page object.',
+    code: 'urlcontains',
+    pageObjectNotRequired: true,
   },
   {
     matcher: "I expect the url 'URL' is opened in a new tab",
     path: './checks/checkIsOpenedInNewWindow',
     code: 'urlnewtab',
     notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16)',
+    pageObjectNotRequired: true,
   },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
   {
@@ -63,8 +66,8 @@ const steps = [
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be selected", path: './checks/checkIsSelected', code: 'selected' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (enabled)", path: './checks/checkIsEnabled', code: 'enabled' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (disabled)", path: './checks/checkIsEnabled', code: 'disabled' },
-  { matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain' },
-  { matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists' },
+  { matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain', pageObjectNotRequired: true },
+  { matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists', pageObjectNotRequired: true },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },
@@ -81,8 +84,8 @@ const steps = [
     notes: 'This currently only works with XPaths',
   },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
-  { matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot' },
-  { matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshotcalled' },
+  { matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot', pageObjectNotRequired: true },
+  { matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshotcalled', pageObjectNotRequired: true },
 ];
 
 if (!argv.genFiles) {

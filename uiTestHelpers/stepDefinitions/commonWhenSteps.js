@@ -5,6 +5,8 @@ const { When } = require(path.join(process.cwd(), 'node_modules/cucumber')); // 
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
+  { matcher: "I click(?: the)?(?: 'NTH')? element with the text 'VALUE'", path: './actions/clickElementWithText', code: 'clickelwithtext' },
+  // { matcher: "I click(?: the)? element that contains the text 'VALUE'", path: './actions/clickElement', code: 'clickelcontainstext' },
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
   {
     matcher: "I click(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR'", path: './actions/clickElementInsideElement', code: 'clickelinsideel', notes: 'This currently only works with XPaths',
@@ -32,6 +34,7 @@ const steps = [
     path: './actions/pressKey',
     code: 'key',
     notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16)', // eslint-disable-line
+    pageObjectNotRequired: true,
   },
   { matcher: "I clear(?: the)? 'LOCATOR'", path: './actions/clearInputFieldValue', code: 'clear' },
   { matcher: "I select the option for select element 'LOCATOR' with the text 'VALUE'", path: './actions/setSelectValueByOptionText', code: 'option' },
