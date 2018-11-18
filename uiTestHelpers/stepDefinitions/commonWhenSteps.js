@@ -6,7 +6,7 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   { matcher: "I click(?: the)?(?: 'NTH')? element with the text 'VALUE'", path: './actions/clickElementWithText', code: 'clickelwithtext' },
-  // { matcher: "I click(?: the)? element that contains the text 'VALUE'", path: './actions/clickElement', code: 'clickelcontainstext' },
+  { matcher: "I click(?: the)?(?: 'NTH')? element that contains the text 'VALUE'", path: './actions/clickElementThatContainsText', code: 'clickelcontainstext' },
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
   {
     matcher: "I click(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR'", path: './actions/clickElementInsideElement', code: 'clickelinsideel', notes: 'This currently only works with XPaths',
