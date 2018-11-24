@@ -8,10 +8,7 @@ const fs = require('fs');
 const os = require('os');
 const { argv } = require('yargs');
 
-const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
-const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
-const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
-const placeholders = require('../placeholders');
+const snippetsCollection = require('./createSnippetsCollection');
 
 const ideFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User`;
 const ideSnippetsFolder = `${ideFolder}/sublime-snippets-courgette`;
@@ -54,51 +51,13 @@ ${matcher.replace(/\((.*)\)/g, '$1')}
   }
 };
 
-const genSnippets = (steps, type) => {
-  if (!snippetCodes[type]) {
-    snippetCodes[type] = [];
-  }
-  steps.forEach((step) => {
-    const allPlaceholders = placeholders.join('|');
-    const matcherWithReplacedPlaceholders = step.matcher
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${1:${p1}\}'`)
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${2:${p1}\}'`)
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${3:${p1}\}'`)
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${4:${p1}\}'`)
-      .replace(/\(\?\:(.*)\)\?/g, '$1');
-
-    const zeroOrManyNotMatcher = /\((.*not.*)\)\*/g;
-    const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) =>
-        p1.replace(/([^ ]+)/, '_$1_'))
-      .replace(/\(\?\:(.*)\)/g, '$1');
-
-    const generatedCode = `${step.path ?
-      step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
-
-    const matcher = matcherWithReplacedPlaceholders
-      .replace(zeroOrManyNotMatcher, '')
-      .replace(/\((.*)\)\*/g, '$1');
-
-    const newCode = `${type}${step.code || generatedCode}`;
-    snippetCodes[type].push(newCode);
-    genSnippet(matcher, newCode);
-
-    if (newMatcher.match(zeroOrManyNotMatcher)) {
-      const newCode2 = `${type}not${step.code || generatedCode}`;
-      const matcher2 = matcherWithReplacedPlaceholders
-        .replace(/\((.*)\)\*/g, '$1');
-      snippetCodes[type].push(newCode2);
-      genSnippet(matcher2, newCode2);
-    }
-
-    // console.log(`${type}${step.code || generatedCode}`);
+const genSnippets = () => {
+  snippetsCollection.forEach(({ description, code, snippet }) => {
+    genSnippet(description, code, snippet);
   });
 };
 
-genSnippets(givenSteps, 'given');
-genSnippets(whenSteps, 'when');
-genSnippets(thenSteps, 'then');
+genSnippets();
 
 if (ideInstalled) {
   console.log(`Snippets added to ${ideSnippetsFolder}`);
