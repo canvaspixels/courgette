@@ -5,6 +5,12 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="givengotourl" value="I am on the page with url '$var1$'$END$" shortcut="TAB" description="I am on the page with url '$var1$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="givenpageurl" value="the page url is '$var1$'$END$" shortcut="TAB" description="the page url is '$var1$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -12,6 +18,12 @@
     </context>
   </template>
   <template name="givennotpageurl" value="the page url is not '$var1$'$END$" shortcut="TAB" description="the page url is not '$var1$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givenurlcontains" value="the page url contains '$var1$'$END$" shortcut="TAB" description="the page url contains '$var1$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
@@ -187,6 +199,20 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="whenclickelwithtext" value="I click the)?(?: '$var1$' element with the text '$var2$'$END$" shortcut="TAB" description="I click the)?(?: '$var1$' element with the text '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenclickelcontainstext" value="I click the)?(?: '$var1$' element that contains the text '$var2$'$END$" shortcut="TAB" description="I click the)?(?: '$var1$' element that contains the text '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="whenclick" value="I click the '$var1$'$END$" shortcut="TAB" description="I click the '$var1$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -261,13 +287,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenonpage" value="I expect to be on the '$var1$' page$END$" shortcut="TAB" description="I expect to be on the '$var1$' page" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenurlcontains" value="I expect the url to contain '$var1$'$END$" shortcut="TAB" description="I expect the url to contain '$var1$'" toReformat="false" toShortenFQNames="true">
+  <template name="thenpagecontainstext" value="I expect page to contain '$var1$'$END$" shortcut="TAB" description="I expect page to contain '$var1$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
@@ -285,8 +305,20 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="thenurlcontains" value="I expect the url to contain '$var1$'$END$" shortcut="TAB" description="I expect the url to contain '$var1$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="thenurlnewtab" value="I expect the url '$var1$' is opened in a new tab$END$" shortcut="TAB" description="I expect the url '$var1$' is opened in a new tab" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenonpage" value="I expect to be on the '$var1$' page$END$" shortcut="TAB" description="I expect to be on the '$var1$' page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>

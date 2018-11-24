@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "givenurlcontains",
+    "body": [
+      "the page url contains '${1:URL}'"
+    ],
+    "description": "the page url contains '${1:URL}'"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thenpagecontainstext",
+    "body": [
+      "I expect page to contain '${1:STRING}'"
+    ],
+    "description": "I expect page to contain '${1:STRING}'"
+  }
+}

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+the page url contains '${1:URL}'
+]]></content>
+  <tabTrigger>givenurlcontains</tabTrigger>
+</snippet>

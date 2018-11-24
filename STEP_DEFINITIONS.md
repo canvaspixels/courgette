@@ -7,8 +7,10 @@ Note that the words in italics are optional.
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I am on the 'PAGE_NAME' page | givenonpage | PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object |
-| the page url is 'URL' | givenpageurl |  |
-| the page url is not 'URL' | givennotpageurl |  |
+| I am on the page with url 'URL' | givengotourl | Goes to a page by URL |
+| the page url is 'URL' | givenpageurl | Checks the page url |
+| the page url is not 'URL' | givennotpageurl | Checks the page url |
+| the page url contains 'URL' | givenurlcontains | Checks the page url contains |
 | animations are disabled | givendisableAnimations | Disables CSS animations |
 | _the_ 'LOCATOR' is visible | givenvisible |  |
 | _the_ 'LOCATOR' is hidden | givenhidden |  |
@@ -41,6 +43,8 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
+| I click _the)?(?:_ 'NTH' element with the text 'VALUE' | whenclickelwithtext |  |
+| I click _the)?(?:_ 'NTH' element that contains the text 'VALUE' | whenclickelcontainstext |  |
 | I click _the_ 'LOCATOR' | whenclick |  |
 | I click _the)?_ 'LOCATOR' inside(?: the 'LOCATOR' | whenclickelinsideel | This currently only works with XPaths |
 | I append 'STRING' to 'LOCATOR' | whenappend |  |
@@ -57,11 +61,12 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I expect to be on the 'PAGE_NAME' page | thenonpage | This step does 2 things: it changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists. |
-| I expect the url to contain 'STRING' | thenurlcontains | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
+| I expect page to contain 'STRING' | thenpagecontainstext | This looks in the whole document for STRING |
 | I expect the url to be 'STRING' | thenurl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
 | I expect the url to not be 'STRING' | thennoturl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
+| I expect the url to contain 'STRING' | thenurlcontains | Using this just checks the URL, it does not change the page object. |
 | I expect the url 'URL' is opened in a new tab | thenurlnewtab | [Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16) |
+| I expect to be on the 'PAGE_NAME' page | thenonpage | This step does 2 things: it changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists. |
 | I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
 | I expect _the)?_ 'LOCATOR' inside the 'LOCATOR' to be (visible | thenelinsideelvisible | This currently only works with XPaths |
 | I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |

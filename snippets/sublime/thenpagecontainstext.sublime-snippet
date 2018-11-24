@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+I expect page to contain '${1:STRING}'
+]]></content>
+  <tabTrigger>thenpagecontainstext</tabTrigger>
+</snippet>
