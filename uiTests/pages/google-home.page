@@ -1,4 +1,4 @@
-path: https://www.google.com/
+path: /
 
 selectors:
   I’m Feeling Lucky: [value="I'm Feeling Lucky"]

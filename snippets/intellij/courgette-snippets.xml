@@ -213,6 +213,12 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="whenkey" value="I press '$var1$'$END$" shortcut="TAB" description="I press '$var1$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;KEY&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="whenclick" value="I click the '$var1$'$END$" shortcut="TAB" description="I click the '$var1$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -264,12 +270,6 @@
   </template>
   <template name="whensubmit" value="I submit the form '$var1$'$END$" shortcut="TAB" description="I submit the form '$var1$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenkey" value="I press '$var1$'$END$" shortcut="TAB" description="I press '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;KEY&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>

@@ -10,6 +10,7 @@ const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotView
 
 // eslint-disable-next-line
 const confFile = argv.confFile || process.env.confFile || 'courgette-conf.js';
+console.log('Loading confFile: ', confFile);
 const { pomConfig } = require(path.resolve(confFile));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
@@ -18,7 +19,7 @@ const log = (...args) => {
   console.log(...args);
 };
 
-log('Brm brm... off we go!');
+log('Nom nom... off we go!');
 
 const rmDir = function rmDir(dir, rmSelf) {
   let files;

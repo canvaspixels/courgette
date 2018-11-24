@@ -52,16 +52,21 @@ const createStepDefLines = (steps, type) => {
     .map((newStepDefLine) => `| ${newStepDefLine.join(' | ')} |`);
 };
 
+const noPORequiredFilter = (step) => step.pageObjectNotRequired;
+const pORequiredFilter = (step) => !step.pageObjectNotRequired;
+
 const givenStepDefLines = [
-  '## Step Definitions',
+  '# Step Definitions',
   '',
   'Note that the words in italics are optional.',
+  '',
+  '## Step definitions that **don’t** require page objects to work',
   '',
   '### Given...',
   '',
   '| Step definition | Snippet Code | Notes |',
   '| --- | --- | --- |',
-].concat(createStepDefLines(givenSteps, 'given'));
+].concat(createStepDefLines(givenSteps.filter(noPORequiredFilter), 'given'));
 
 const whenStepDefLines = [
   '',
@@ -69,7 +74,7 @@ const whenStepDefLines = [
   '',
   '| Step definition | Snippet Code | Notes |',
   '| --- | --- | --- |',
-].concat(createStepDefLines(whenSteps, 'when'));
+].concat(createStepDefLines(whenSteps.filter(noPORequiredFilter), 'when'));
 
 const thenStepDefLines = [
   '',
@@ -77,7 +82,40 @@ const thenStepDefLines = [
   '',
   '| Step definition | Snippet Code | Notes |',
   '| --- | --- | --- |',
-].concat(createStepDefLines(thenSteps, 'then'));
+].concat(createStepDefLines(thenSteps.filter(noPORequiredFilter), 'then'));
 
-const fileContents = [].concat(givenStepDefLines, whenStepDefLines, thenStepDefLines).join('\n');
+const givenPOStepDefLines = [
+  '',
+  '## Step definitions that require page objects to work',
+  '',
+  '### Given...',
+  '',
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(givenSteps.filter(pORequiredFilter), 'given'));
+
+const whenPOStepDefLines = [
+  '',
+  '### When...',
+  '',
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(whenSteps.filter(pORequiredFilter), 'when'));
+
+const thenPOStepDefLines = [
+  '',
+  '### Then...',
+  '',
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(thenSteps.filter(pORequiredFilter), 'then'));
+
+const fileContents = [].concat(
+  givenStepDefLines,
+  whenStepDefLines,
+  thenStepDefLines,
+  givenPOStepDefLines,
+  whenPOStepDefLines,
+  thenPOStepDefLines,
+).join('\n');
 fs.writeFileSync('./STEP_DEFINITIONS.md', fileContents);

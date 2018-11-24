@@ -103,6 +103,9 @@
   "I click the '${1:NTH}' element that contains the text '${2:VALUE}'":
     'prefix': 'whenclickelcontainstext'
     'body': "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
+  "I press '${1:KEY}'":
+    'prefix': 'whenkey'
+    'body': "I press '${1:KEY}'"
   "I click the '${1:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "I click the '${1:LOCATOR}'"
@@ -127,9 +130,6 @@
   "I submit the form '${1:LOCATOR}'":
     'prefix': 'whensubmit'
     'body': "I submit the form '${1:LOCATOR}'"
-  "I press '${1:KEY}'":
-    'prefix': 'whenkey'
-    'body': "I press '${1:KEY}'"
   "I clear the '${1:LOCATOR}'":
     'prefix': 'whenclear'
     'body': "I clear the '${1:LOCATOR}'"
@@ -374,6 +374,9 @@
   "I click the '${1:NTH}' element that contains the text '${2:VALUE}'":
     'prefix': 'whenclickelcontainstext'
     'body': "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
+  "I press '${1:KEY}'":
+    'prefix': 'whenkey'
+    'body': "I press '${1:KEY}'"
   "I click the '${1:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "I click the '${1:LOCATOR}'"
@@ -398,9 +401,6 @@
   "I submit the form '${1:LOCATOR}'":
     'prefix': 'whensubmit'
     'body': "I submit the form '${1:LOCATOR}'"
-  "I press '${1:KEY}'":
-    'prefix': 'whenkey'
-    'body': "I press '${1:KEY}'"
   "I clear the '${1:LOCATOR}'":
     'prefix': 'whenclear'
     'body': "I clear the '${1:LOCATOR}'"
