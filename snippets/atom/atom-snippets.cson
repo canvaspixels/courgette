@@ -97,27 +97,27 @@
   "the cookie '${1:COOKIE_NAME}' is not set":
     'prefix': 'givennotcookieset'
     'body': "the cookie '${1:COOKIE_NAME}' is not set"
-  "I click the)?(?: '${1:NTH}' element with the text '${2:VALUE}'":
+  "I click the '${1:NTH}' element with the text '${2:VALUE}'":
     'prefix': 'whenclickelwithtext'
-    'body': "I click the)?(?: '${1:NTH}' element with the text '${2:VALUE}'"
-  "I click the)?(?: '${1:NTH}' element that contains the text '${2:VALUE}'":
+    'body': "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+  "I click the '${1:NTH}' element that contains the text '${2:VALUE}'":
     'prefix': 'whenclickelcontainstext'
-    'body': "I click the)?(?: '${1:NTH}' element that contains the text '${2:VALUE}'"
+    'body': "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
   "I click the '${1:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "I click the '${1:LOCATOR}'"
-  "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'":
+  "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'":
     'prefix': 'whenclickelinsideel'
-    'body': "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'"
+    'body': "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'"
   "I append '${1:STRING}' to '${2:LOCATOR}'":
     'prefix': 'whenappend'
     'body': "I append '${1:STRING}' to '${2:LOCATOR}'"
   "I set '${1:LOCATOR}' to '${2:STRING}'":
     'prefix': 'whenset'
     'body': "I set '${1:LOCATOR}' to '${2:STRING}'"
-  "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'":
+  "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'":
     'prefix': 'whensetelinsideel'
-    'body': "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'"
+    'body': "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'"
   "I append '${1:STRING}' to react field '${2:LOCATOR}'":
     'prefix': 'whenappendreact'
     'body': "I append '${1:STRING}' to react field '${2:LOCATOR}'"
@@ -157,9 +157,9 @@
   "I expect the '${1:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
     'body': "I expect the '${1:LOCATOR}' to be visible"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible":
     'prefix': 'thenelinsideelvisible'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible"
   "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "I expect the '${1:LOCATOR}' to be hidden"
@@ -184,9 +184,9 @@
   "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'":
     'prefix': 'thennotcontainstext'
     'body': "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'":
     'prefix': 'thenelinsideelcontainstext'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'"
   "I expect the '${1:LOCATOR}' to contain any text":
     'prefix': 'thencontainsanytext'
     'body': "I expect the '${1:LOCATOR}' to contain any text"
@@ -256,9 +256,9 @@
   "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'":
     'prefix': 'thennotvalue'
     'body': "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
-  "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'":
+  "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'":
     'prefix': 'thenelinsideelvalue'
-    'body': "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'"
+    'body': "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'"
   "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'thenattribute'
     'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
@@ -368,27 +368,27 @@
   "the cookie '${1:COOKIE_NAME}' is not set":
     'prefix': 'givennotcookieset'
     'body': "the cookie '${1:COOKIE_NAME}' is not set"
-  "I click the)?(?: '${1:NTH}' element with the text '${2:VALUE}'":
+  "I click the '${1:NTH}' element with the text '${2:VALUE}'":
     'prefix': 'whenclickelwithtext'
-    'body': "I click the)?(?: '${1:NTH}' element with the text '${2:VALUE}'"
-  "I click the)?(?: '${1:NTH}' element that contains the text '${2:VALUE}'":
+    'body': "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+  "I click the '${1:NTH}' element that contains the text '${2:VALUE}'":
     'prefix': 'whenclickelcontainstext'
-    'body': "I click the)?(?: '${1:NTH}' element that contains the text '${2:VALUE}'"
+    'body': "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
   "I click the '${1:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "I click the '${1:LOCATOR}'"
-  "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'":
+  "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'":
     'prefix': 'whenclickelinsideel'
-    'body': "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'"
+    'body': "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'"
   "I append '${1:STRING}' to '${2:LOCATOR}'":
     'prefix': 'whenappend'
     'body': "I append '${1:STRING}' to '${2:LOCATOR}'"
   "I set '${1:LOCATOR}' to '${2:STRING}'":
     'prefix': 'whenset'
     'body': "I set '${1:LOCATOR}' to '${2:STRING}'"
-  "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'":
+  "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'":
     'prefix': 'whensetelinsideel'
-    'body': "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'"
+    'body': "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'"
   "I append '${1:STRING}' to react field '${2:LOCATOR}'":
     'prefix': 'whenappendreact'
     'body': "I append '${1:STRING}' to react field '${2:LOCATOR}'"
@@ -428,9 +428,9 @@
   "I expect the '${1:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
     'body': "I expect the '${1:LOCATOR}' to be visible"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible":
     'prefix': 'thenelinsideelvisible'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible"
   "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "I expect the '${1:LOCATOR}' to be hidden"
@@ -455,9 +455,9 @@
   "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'":
     'prefix': 'thennotcontainstext'
     'body': "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'":
     'prefix': 'thenelinsideelcontainstext'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'"
   "I expect the '${1:LOCATOR}' to contain any text":
     'prefix': 'thencontainsanytext'
     'body': "I expect the '${1:LOCATOR}' to contain any text"
@@ -527,9 +527,9 @@
   "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'":
     'prefix': 'thennotvalue'
     'body': "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
-  "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'":
+  "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'":
     'prefix': 'thenelinsideelvalue'
-    'body': "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'"
+    'body': "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'"
   "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'thenattribute'
     'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"

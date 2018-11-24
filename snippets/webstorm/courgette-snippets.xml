@@ -199,14 +199,14 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="whenclickelwithtext" value="I click the)?(?: '$var1$' element with the text '$var2$'$END$" shortcut="TAB" description="I click the)?(?: '$var1$' element with the text '$var2$'" toReformat="false" toShortenFQNames="true">
+  <template name="whenclickelwithtext" value="I click the '$var1$' element with the text '$var2$'$END$" shortcut="TAB" description="I click the '$var1$' element with the text '$var2$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="whenclickelcontainstext" value="I click the)?(?: '$var1$' element that contains the text '$var2$'$END$" shortcut="TAB" description="I click the)?(?: '$var1$' element that contains the text '$var2$'" toReformat="false" toShortenFQNames="true">
+  <template name="whenclickelcontainstext" value="I click the '$var1$' element that contains the text '$var2$'$END$" shortcut="TAB" description="I click the '$var1$' element that contains the text '$var2$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -219,7 +219,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="whenclickelinsideel" value="I click the)? '$var1$' inside(?: the '$var2$'$END$" shortcut="TAB" description="I click the)? '$var1$' inside(?: the '$var2$'" toReformat="false" toShortenFQNames="true">
+  <template name="whenclickelinsideel" value="I click the '$var1$' inside the '$var2$'$END$" shortcut="TAB" description="I click the '$var1$' inside the '$var2$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -240,7 +240,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="whensetelinsideel" value="I set the)? '$var1$' inside(?: the '$var2$' to '$var3$'$END$" shortcut="TAB" description="I set the)? '$var1$' inside(?: the '$var2$' to '$var3$'" toReformat="false" toShortenFQNames="true">
+  <template name="whensetelinsideel" value="I set the '$var1$' inside the '$var2$' to '$var3$'$END$" shortcut="TAB" description="I set the '$var1$' inside the '$var2$' to '$var3$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
@@ -329,7 +329,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenelinsideelvisible" value="I expect the)? '$var1$' inside?: the '$var2$' to be (visible$END$" shortcut="TAB" description="I expect the)? '$var1$' inside?: the '$var2$' to be (visible" toReformat="false" toShortenFQNames="true">
+  <template name="thenelinsideelvisible" value="I expect the '$var1$' inside the '$var2$' to be visible$END$" shortcut="TAB" description="I expect the '$var1$' inside the '$var2$' to be visible" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
@@ -389,7 +389,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenelinsideelcontainstext" value="I expect the)? '$var1$' inside?: the '$var2$' to (contain the text '$var3$'$END$" shortcut="TAB" description="I expect the)? '$var1$' inside?: the '$var2$' to (contain the text '$var3$'" toReformat="false" toShortenFQNames="true">
+  <template name="thenelinsideelcontainstext" value="I expect the '$var1$' inside the '$var2$' to contain the text '$var3$'$END$" shortcut="TAB" description="I expect the '$var1$' inside the '$var2$' to contain the text '$var3$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
@@ -543,7 +543,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenelinsideelvalue" value="I expect the value of the)? '$var1$' inside be '$var3$'$END$" shortcut="TAB" description="I expect the value of the)? '$var1$' inside be '$var3$'" toReformat="false" toShortenFQNames="true">
+  <template name="thenelinsideelvalue" value="I expect the value of the '$var1$' inside the '$var2$' to be '$var3$'$END$" shortcut="TAB" description="I expect the value of the '$var1$' inside the '$var2$' to be '$var3$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />

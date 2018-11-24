@@ -50,8 +50,9 @@ try {
   const snippetsFileNoCourgette = snippetsFile
     .replace(/^###### cuketractor snippets start 0-o[^~]*###### cuketractor snippets end 0-o$/m, '')
     .replace(/^###### courgette snippets start 0-o[^~]*###### courgette snippets end 0-o$/m, '');
-  fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCukeTrackor}${snippets}`);
+  fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCourgette}${snippets}`);
   console.log(`Snippets added to ${atomSnippetsFile}`);
 } catch (e) {
+  console.log(e);
   console.log('Atom not installed on your mac so no snippets were added to atom');
 }

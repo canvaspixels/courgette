@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thenelinsideelcontainstext",
     "body": [
-      "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'"
+      "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'"
     ],
-    "description": "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'"
+    "description": "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'"
   }
 }

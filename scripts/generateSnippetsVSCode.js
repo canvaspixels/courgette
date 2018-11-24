@@ -5,6 +5,7 @@
 // node scripts/generateSnippetsVSCode.js --genFiles --justForIDE
 
 const fs = require('fs');
+const path = require('path');
 const os = require('os');
 const { argv } = require('yargs');
 
@@ -14,7 +15,9 @@ const ideFolder = `${os.homedir()}/Library/Application Support/Code/User`;
 const ideSnippetsFolder = `${ideFolder}/snippets`;
 let ideInstalled = true;
 
+
 const snippetsFolder = 'snippets/vscode';
+
 if (!argv.justForIDE) {
   if (!fs.existsSync('snippets')) {
     fs.mkdirSync('snippets');
@@ -61,6 +64,16 @@ const genSnippets = () => {
     genSnippet(description, code, snippet);
   });
 };
+
+if (ideInstalled && fs.existsSync(ideSnippetsFolder)) {
+  fs.readdirSync(ideSnippetsFolder).forEach((file) => {
+    if (file.startsWith('courgette-') || file.startsWith('cuketractor-')) {
+      const filePath = path.join(ideSnippetsFolder, file);
+      // console.log('deleting old file: ', filePath);
+      fs.unlinkSync(filePath);
+    }
+  });
+}
 
 genSnippets();
 

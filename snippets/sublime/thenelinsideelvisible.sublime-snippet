@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible
+I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible
 ]]></content>
   <tabTrigger>thenelinsideelvisible</tabTrigger>
 </snippet>

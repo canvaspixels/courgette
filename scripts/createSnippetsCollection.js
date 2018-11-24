@@ -35,7 +35,7 @@ const genSnippets = (steps, type) => {
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var2$\''; })
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var3$\''; })
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var4$\''; })
-      .replace(/\(\?\:(.*)\)\?/g, '$1');
+      .replace(/\(\?\:(.*?)\)\?/g, '$1');
 
     const zeroOrManyNotMatcher = /\((.*not.*)\)\*/g;
 
@@ -51,7 +51,7 @@ const genSnippets = (steps, type) => {
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${2:${p1}\}'`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${3:${p1}\}'`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${4:${p1}\}'`)
-      .replace(/\(\?\:(.*)\)\?/g, '$1');
+      .replace(/\(\?\:(.*?)\)\?/g, '$1');
 
     const matcher = matcherWithReplacedPlaceholders
       .replace(zeroOrManyNotMatcher, '')
