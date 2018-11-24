@@ -2,9 +2,7 @@ const fs = require('fs');
 const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
 const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
-const generateSnippetsSublime = require('./generateSnippetsSublime');
-
-// console.log(generateSnippetsSublime);
+const createSnippetsCollection = require('./createSnippetsCollection');
 
 const createStepDefLine = (matcher, code, notes) =>
   [`${matcher.replace(/\((.*)\)/g, '$1')}`, code, notes || ''];
@@ -31,7 +29,7 @@ const createStepDefLines = (steps, type) => {
   let stepDefNum = 0;
   const newStepDefLines = [];
   steps.forEach((step) => {
-    const code = generateSnippetsSublime[type][stepDefNum++]; // eslint-disable-line no-plusplus
+    const code = createSnippetsCollection.snippetCodes[type][stepDefNum++]; // eslint-disable-line no-plusplus
     const zeroOrManyNotMatcher = /\((.*not.*)\)\*/;
     const newMatcher = step.matcher
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
@@ -43,7 +41,7 @@ const createStepDefLines = (steps, type) => {
 
     if (newMatcher.match(zeroOrManyNotMatcher)) {
       const matcher2 = newMatcher.replace(zeroOrManyNotMatcher, '$1');
-      const code2 = generateSnippetsSublime[type][stepDefNum++]; // eslint-disable-line no-plusplus
+      const code2 = createSnippetsCollection.snippetCodes[type][stepDefNum++]; // eslint-disable-line no-plusplus
       newStepDefLines.push(createStepDefLine(matcher2, code2, step.notes));
     }
   });

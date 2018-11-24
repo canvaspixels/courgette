@@ -8,7 +8,7 @@ const fs = require('fs');
 const os = require('os');
 const { argv } = require('yargs');
 
-const snippetsCollection = require('./createSnippetsCollection');
+const createSnippetsCollection = require('./createSnippetsCollection');
 
 let snippets = '###### courgette snippets start 0-o\n\n';
 
@@ -21,7 +21,7 @@ const genSnippet = (description, code, snippet) => {
 };
 
 const genSnippets = () => {
-  snippetsCollection.forEach(({ description, code, snippet }) => {
+  createSnippetsCollection.snippetsCollection.forEach(({ description, code, snippet }) => {
     genSnippet(description, code, snippet);
   });
 };
@@ -47,7 +47,9 @@ const homedir = os.homedir();
 const atomSnippetsFile = `${homedir}/.atom/snippets.cson`;
 try {
   const snippetsFile = fs.readFileSync(atomSnippetsFile, 'utf-8');
-  const snippetsFileNoCukeTrackor = snippetsFile.replace(/^###### courgette snippets start 0-o[^~]*###### courgette snippets end 0-o$/m, '');
+  const snippetsFileNoCourgette = snippetsFile
+    .replace(/^###### cuketractor snippets start 0-o[^~]*###### cuketractor snippets end 0-o$/m, '')
+    .replace(/^###### courgette snippets start 0-o[^~]*###### courgette snippets end 0-o$/m, '');
   fs.writeFileSync(atomSnippetsFile, `${snippetsFileNoCukeTrackor}${snippets}`);
   console.log(`Snippets added to ${atomSnippetsFile}`);
 } catch (e) {

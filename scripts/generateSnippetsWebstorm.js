@@ -8,7 +8,7 @@ const fs = require('fs');
 const os = require('os');
 const { argv } = require('yargs');
 
-const snippetsCollection = require('./createSnippetsCollection');
+const createSnippetsCollection = require('./createSnippetsCollection');
 
 let snippets = '<templateSet group="Courgette">\n';
 
@@ -30,7 +30,7 @@ const genSnippet = (matcher, code, varPlaceholders) => {
 };
 
 const genSnippets = () => {
-  snippetsCollection.forEach(({ snippetForXML, code, varPlaceholders }) => {
+  createSnippetsCollection.snippetsCollection.forEach(({ snippetForXML, code, varPlaceholders }) => {
     genSnippet(snippetForXML, code, varPlaceholders);
   });
 };

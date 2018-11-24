@@ -82,4 +82,7 @@ genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
 
-module.exports = snippetsCollection;
+module.exports = {
+  snippetsCollection,
+  snippetCodes,
+};

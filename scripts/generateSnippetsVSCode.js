@@ -8,7 +8,7 @@ const fs = require('fs');
 const os = require('os');
 const { argv } = require('yargs');
 
-const snippetsCollection = require('./createSnippetsCollection');
+const createSnippetsCollection = require('./createSnippetsCollection');
 
 const ideFolder = `${os.homedir()}/Library/Application Support/Code/User`;
 const ideSnippetsFolder = `${ideFolder}/snippets`;
@@ -31,8 +31,6 @@ try {
 } catch (e) {
   ideInstalled = false;
 }
-
-const snippetCodes = {};
 
 /* eslint-disable indent */
 
@@ -59,7 +57,7 @@ const genSnippet = (description, code, snippet) => {
 };
 
 const genSnippets = () => {
-  snippetsCollection.forEach(({ description, code, snippet }) => {
+  createSnippetsCollection.snippetsCollection.forEach(({ description, code, snippet }) => {
     genSnippet(description, code, snippet);
   });
 };
@@ -71,5 +69,3 @@ if (ideInstalled) {
 } else {
   console.log('VSCode not installed on your mac so no snippets were added to VSCode');
 }
-
-module.exports = snippetCodes;

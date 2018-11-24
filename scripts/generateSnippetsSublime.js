@@ -8,7 +8,7 @@ const fs = require('fs');
 const os = require('os');
 const { argv } = require('yargs');
 
-const snippetsCollection = require('./createSnippetsCollection');
+const createSnippetsCollection = require('./createSnippetsCollection');
 
 const ideFolder = `${os.homedir()}/Library/Application Support/Sublime Text 3/Packages/User`;
 const ideSnippetsFolder = `${ideFolder}/sublime-snippets-courgette`;
@@ -32,8 +32,6 @@ if (!fs.existsSync(ideFolder)) {
 }
 
 
-const snippetCodes = {};
-
 const genSnippet = (matcher, code) => {
   const snippet = `<snippet>
   <content><![CDATA[
@@ -52,7 +50,7 @@ ${matcher.replace(/\((.*)\)/g, '$1')}
 };
 
 const genSnippets = () => {
-  snippetsCollection.forEach(({ description, code, snippet }) => {
+  createSnippetsCollection.snippetsCollection.forEach(({ description, code, snippet }) => {
     genSnippet(description, code, snippet);
   });
 };
@@ -64,5 +62,3 @@ if (ideInstalled) {
 } else {
   console.log('Sublime not installed on your mac so no snippets were added to sublime');
 }
-
-module.exports = snippetCodes;
