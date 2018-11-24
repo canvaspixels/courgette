@@ -20,7 +20,7 @@ const genSnippet = (matcher, code, snippetForXML, varPlaceholders) => {
     description: matcher,
     snippetForXML,
     varPlaceholders, // used for jetbrains IDEs
-  })
+  });
 };
 
 const genSnippets = (steps, type) => {

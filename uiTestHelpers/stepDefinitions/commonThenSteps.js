@@ -73,8 +73,12 @@ const steps = [
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be selected", path: './checks/checkIsSelected', code: 'selected' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (enabled)", path: './checks/checkIsEnabled', code: 'enabled' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (disabled)", path: './checks/checkIsEnabled', code: 'disabled' },
-  { matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain', pageObjectNotRequired: true },
-  { matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists', pageObjectNotRequired: true },
+  {
+    matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists', pageObjectNotRequired: true,
+  },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },
@@ -91,8 +95,12 @@ const steps = [
     notes: 'This currently only works with XPaths',
   },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
-  { matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot', pageObjectNotRequired: true },
-  { matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshotcalled', pageObjectNotRequired: true },
+  {
+    matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshotcalled', pageObjectNotRequired: true,
+  },
 ];
 
 if (!argv.genFiles) {
