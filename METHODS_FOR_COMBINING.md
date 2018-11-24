@@ -1,5 +1,7 @@
 ## Methods for combining actions and assertions
 
+Methods that don't require page objects
+
 | Method name | Args |
 | --- | --- |
 | setCookie | (name, value) |
@@ -8,17 +10,6 @@
 | disableAnimations | none |
 | clickElementWithText | (text) |
 | clickElementThatContainsText | (text) |
-
-| goToPage | (pageName) |
-| appendInputFieldValue | (value, locatorKey) |
-| appendReactInputFieldValue | (text, locatorKey) |
-| clearInputFieldValue | (locatorKey) |
-| clickElement | (locatorKey) |
-| clickElementInsideElement | (locatorKey) |
-| setInputFieldValue | (locatorKey, value) |
-| setReactInputFieldValue | (locatorKey, text) |
-| setSelectValueByOptionText | (locatorKey, itemText) |
-| submitForm | (locatorKey) |
 
 | checkTitle | (expectedTitle) |
 | checkTitleIsNot | (expectedTitle) |
@@ -31,6 +22,21 @@
 | checkCookieValueIsNot | (cookieName, expectedValue) |
 | checkCookieExists | (cookieName) |
 | checkCookieDoesNotExist | (cookieName) |
+
+Methods that require page objects
+
+| Method name | Args |
+| --- | --- |
+| goToPage | (pageName) |
+| appendInputFieldValue | (value, locatorKey) |
+| appendReactInputFieldValue | (text, locatorKey) |
+| clearInputFieldValue | (locatorKey) |
+| clickElement | (locatorKey) |
+| clickElementInsideElement | (locatorKey) |
+| setInputFieldValue | (locatorKey, value) |
+| setReactInputFieldValue | (locatorKey, text) |
+| setSelectValueByOptionText | (locatorKey, itemText) |
+| submitForm | (locatorKey) |
 
 | checkAttribute | (locatorKey, expectedAttribute, expectedValue) |
 | hasClass | (locatorKey, className) |
