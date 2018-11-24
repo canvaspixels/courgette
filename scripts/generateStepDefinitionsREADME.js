@@ -56,11 +56,11 @@ const noPORequiredFilter = (step) => step.pageObjectNotRequired;
 const pORequiredFilter = (step) => !step.pageObjectNotRequired;
 
 const givenStepDefLines = [
-  '# Step Definitions',
+  '# Available Step Definitions',
   '',
   'Note that the words in italics are optional.',
   '',
-  '## Step definitions that __don’t__ require page objects to work',
+  '## Step definitions that _don’t_ require page objects to work',
   '',
   '### Given...',
   '',
