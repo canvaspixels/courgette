@@ -2,7 +2,7 @@
 
 Note that the words in italics are optional.
 
-## Step definitions that **don’t** require page objects to work
+## Step definitions that __don’t__ require page objects to work
 
 ### Given...
 
@@ -25,8 +25,8 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I&nbsp;click&nbsp;_the)?(?:_&nbsp;'NTH'&nbsp;element&nbsp;with&nbsp;the&nbsp;text&nbsp;'VALUE' | whenclickelwithtext |  |
-| I click _the)?(?:_ 'NTH' element that contains the text 'VALUE' | whenclickelcontainstext |  |
+| I&nbsp;click&nbsp;_the_&nbsp;_'NTH'_&nbsp;element&nbsp;with&nbsp;the&nbsp;text&nbsp;'VALUE' | whenclickelwithtext |  |
+| I click _the_ _'NTH'_ element that contains the text 'VALUE' | whenclickelcontainstext |  |
 | I press 'KEY' | whenkey | [See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16) |
 
 ### Then...
@@ -44,6 +44,7 @@ Note that the words in italics are optional.
 | I expect cookie 'COOKIE_NAME' to not exist | thenhidden |  |
 | take a screenshot | thenbordercolour |  |
 | take a screenshot called 'STRING' | thencolour |  |
+
 
 ## Step definitions that require page objects to work
 
@@ -77,10 +78,10 @@ Note that the words in italics are optional.
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I click _the_ 'LOCATOR' | whenclickelwithtext |  |
-| I click _the)?_ 'LOCATOR' inside(?: the 'LOCATOR' | whenclickelcontainstext | This currently only works with XPaths |
+| I click _the_ 'LOCATOR' inside _the_ 'LOCATOR' | whenclickelcontainstext | This currently only works with XPaths |
 | I append 'STRING' to 'LOCATOR' | whenkey |  |
 | I set 'LOCATOR' to 'STRING' | whenclick |  |
-| I&nbsp;set&nbsp;_the)?_&nbsp;'LOCATOR'&nbsp;inside(?:&nbsp;the&nbsp;'LOCATOR'&nbsp;to&nbsp;'STRING' | whenclickelinsideel | This currently only works with XPaths |
+| I&nbsp;set&nbsp;_the_&nbsp;'LOCATOR'&nbsp;inside&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;'STRING' | whenclickelinsideel | This currently only works with XPaths |
 | I append 'STRING' to react field 'LOCATOR' | whenappend | Sets the value to the input then fires React’s version of the onChange event, so that any actions fire |
 | I set react field 'LOCATOR' to 'STRING' | whenset | Similar to append in react above |
 | I submit the _form_ 'LOCATOR' | whensetelinsideel | [This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359) |
@@ -93,7 +94,7 @@ Note that the words in italics are optional.
 | --- | --- | --- |
 | I expect to be on the 'PAGE_NAME' page | thenpagecontainstext | This step does 2 things: it changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists. |
 | I expect _the_ 'LOCATOR' to be visible | thenurl |  |
-| I expect _the)?_ 'LOCATOR' inside the 'LOCATOR' to be (visible | thennoturl | This currently only works with XPaths |
+| I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be visible | thennoturl | This currently only works with XPaths |
 | I expect _the_ 'LOCATOR' to be hidden | thenurlcontains |  |
 | I expect the (bottom OR top OR left OR right)* border colour of the 'LOCATOR' to be 'STRING' | thenurlnewtab | Pick a side (bottom, top, left, or right) or remove the expected side. |
 | I expect the colour of the 'LOCATOR' to be 'STRING' | thenonpage |  |
@@ -102,7 +103,7 @@ Note that the words in italics are optional.
 | I expect the title to not be 'STRING' | thenhidden |  |
 | I expect _the_ 'LOCATOR' to contain the text 'STRING' | thenbordercolour |  |
 | I expect _the_ 'LOCATOR' to not contain the text 'STRING' | thencolour |  |
-| I expect _the)?_ 'LOCATOR' inside the 'LOCATOR' to (contain the text 'STRING' | thenbackgroundcolour |  |
+| I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to contain the text 'STRING' | thenbackgroundcolour |  |
 | I expect _the_ 'LOCATOR' to contain any text | thentitle |  |
 | I expect _the_ 'LOCATOR' to not contain any text | thennottitle |  |
 | I expect _the_ 'LOCATOR' to appear exactly 'NUMBER' times | thencontainstext |  |
@@ -122,6 +123,7 @@ Note that the words in italics are optional.
 | I expect _the_ 'LOCATOR' to not be empty | thendisabled |  |
 | I expect the value of _the_ 'LOCATOR' to be 'STRING' | thencookiecontain | Used for getting the value of an input |
 | I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotcookiecontain | Used for getting the value of an input |
-| I expect the value of _the)?_ 'LOCATOR' inside the 'LOCATOR' to( not* be 'STRING' | thencookieexists | This currently only works with XPaths |
-| I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thennotcookieexists |  |
-| fail step and take screenshot | thenclassname |  |
+| I expect the value of _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be 'STRING' | thencookieexists | This currently only works with XPaths |
+| I expect the value of _the_ 'LOCATOR' inside _the_ 'LOCATOR' to not be 'STRING' | thennotcookieexists | This currently only works with XPaths |
+| I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenclassname |  |
+| fail step and take screenshot | thennotclassname |  |

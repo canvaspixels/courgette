@@ -32,7 +32,7 @@ const createStepDefLines = (steps, type) => {
     const code = createSnippetsCollection.snippetCodes[type][stepDefNum++]; // eslint-disable-line no-plusplus
     const zeroOrManyNotMatcher = /\((.*not.*)\)\*/;
     const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
+      .replace(/\(\?\:(.*?)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\|/g, ' OR ')
       .replace(/\(\?\:(.*)\)/g, '$1');
 
@@ -60,7 +60,7 @@ const givenStepDefLines = [
   '',
   'Note that the words in italics are optional.',
   '',
-  '## Step definitions that **don’t** require page objects to work',
+  '## Step definitions that __don’t__ require page objects to work',
   '',
   '### Given...',
   '',
@@ -85,6 +85,7 @@ const thenStepDefLines = [
 ].concat(createStepDefLines(thenSteps.filter(noPORequiredFilter), 'then'));
 
 const givenPOStepDefLines = [
+  '',
   '',
   '## Step definitions that require page objects to work',
   '',
