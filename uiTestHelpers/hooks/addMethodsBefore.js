@@ -48,9 +48,9 @@ Before(function addMethodsBeforeHook() {
 
   // actions (no page object required)
   this.goToURL = goToURL; // args: (url)
+  this.clickElementWithText = clickElementWithText; // args: (nth, text)
+  this.clickElementThatContainsText = clickElementThatContainsText; // args: (nth, text)
   this.disableAnimations = disableAnimations; // args: none
-  this.clickElementWithText = clickElementWithText; // args: (text)
-  this.clickElementThatContainsText = clickElementThatContainsText; // args: (text)
 
   // actions (page object required)
   this.appendInputFieldValue = appendInputFieldValue; // args: (value, locatorKey)

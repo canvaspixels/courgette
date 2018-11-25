@@ -7,7 +7,7 @@ const courgettePath = 'node_modules/courgette/uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
-  timeoutInSeconds: process.env.courgetteTimeout || 10,
+  timeoutInSeconds: process.env.courgetteTimeout || 10, // minimum 2 or you'll see strange behaviour with some steps
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   baseUrl: 'https://www.google.com', // <------------ SET THE URL TO YOUR PROJECT HERE
