@@ -1,19 +1,43 @@
 ## Methods for combining actions and assertions
 
+Methods that don't require page objects
+
 | Method name | Args |
 | --- | --- |
+| setCookie | (name, value) |
+| goToURL | (url) |
+| pressKey | (key) |
+| disableAnimations | none |
+| clickElementWithText | (text) |
+| clickElementThatContainsText | (text) |
+
+| checkTitle | (expectedTitle) |
+| checkTitleIsNot | (expectedTitle) |
+| checkUrlIs | (url) |
+| checkUrlIsNot | (url) |
+| checkUrlContainsString | (expectedUrlPart) |
+| checkCookieContains | (cookieName, expectedValue) |
+| checkCookieDoesNotContain | (cookieName, expectedValue) |
+| checkCookieContent | (cookieName, expectedValue) |
+| checkCookieValueIsNot | (cookieName, expectedValue) |
+| checkCookieExists | (cookieName) |
+| checkCookieDoesNotExist | (cookieName) |
+
+Methods that require page objects
+
+| Method name | Args |
+| --- | --- |
+| goToPage | (pageName) |
 | appendInputFieldValue | (value, locatorKey) |
 | appendReactInputFieldValue | (text, locatorKey) |
 | clearInputFieldValue | (locatorKey) |
 | clickElement | (locatorKey) |
-| disableAnimations | none |
-| goToPage | (pageName) |
-| pressKey | (key) |
-| setCookie | (name, value) |
+| clickElementInsideElement | (locatorKey) |
 | setInputFieldValue | (locatorKey, value) |
 | setReactInputFieldValue | (locatorKey, text) |
 | setSelectValueByOptionText | (locatorKey, itemText) |
 | submitForm | (locatorKey) |
+
 | checkAttribute | (locatorKey, expectedAttribute, expectedValue) |
 | hasClass | (locatorKey, className) |
 | doesNotHaveClass | (locatorKey, className) |
@@ -22,12 +46,6 @@
 | checkDoesNotContainAnyText | (locatorKey) |
 | checkContainsText | (locatorKey, expectedText) |
 | checkDoesNotContainText | (locatorKey, expectedText) |
-| checkCookieContains | (cookieName, expectedValue) |
-| checkCookieDoesNotContain | (cookieName, expectedValue) |
-| checkCookieContent | (cookieName, expectedValue) |
-| checkCookieValueIsNot | (cookieName, expectedValue) |
-| checkCookieExists | (cookieName) |
-| checkCookieDoesNotExist | (cookieName) |
 | checkElementBackgroundColour | (locatorKey, expectedColour) |
 | checkElementBorderColour | (position, locatorKey, expectedColour) |
 | checkElementColour | (locatorKey, expectedColour) |
@@ -35,7 +53,6 @@
 | checkElementDoesNotExist | (locatorKey) |
 | checkElementExistsNTimes | (locatorKey, count) |
 | checkElementDoesNotExistNTimes | (locatorKey, count) |
-| checkFocus | (locatorKey) |
 | checkInputIsEmpty | (locatorKey) |
 | checkInputIsNotEmpty | (locatorKey) |
 | checkInputValue | (locatorKey, expectedValue) |
@@ -45,11 +62,6 @@
 | checkIsOpenedInNewWindow | (href) |
 | checkIsSelected | (locatorKey) |
 | checkIsDeselected | (locatorKey) |
-| checkTitle | (expectedTitle) |
-| checkTitleIsNot | (expectedTitle) |
 | setPageObjectThenCheckUrl | (pageName) |
-| checkUrlIs | (url) |
-| checkUrlIsNot | (url) |
-| checkUrlContainsString | (expectedUrlPart) |
 | checkVisible | (locatorKey) |
 | checkHidden | (locatorKey) |

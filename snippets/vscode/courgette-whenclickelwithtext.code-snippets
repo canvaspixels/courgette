@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenclickelwithtext",
+    "body": [
+      "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+    ],
+    "description": "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+  }
+}

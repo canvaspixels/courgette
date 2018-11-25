@@ -2,9 +2,7 @@ const fs = require('fs');
 const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
 const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
-const generateSnippetsSublime = require('./generateSnippetsSublime');
-
-// console.log(generateSnippetsSublime);
+const createSnippetsCollection = require('./createSnippetsCollection');
 
 const createStepDefLine = (matcher, code, notes) =>
   [`${matcher.replace(/\((.*)\)/g, '$1')}`, code, notes || ''];
@@ -31,10 +29,10 @@ const createStepDefLines = (steps, type) => {
   let stepDefNum = 0;
   const newStepDefLines = [];
   steps.forEach((step) => {
-    const code = generateSnippetsSublime[type][stepDefNum++]; // eslint-disable-line no-plusplus
+    const code = createSnippetsCollection.snippetCodes[type][stepDefNum++]; // eslint-disable-line no-plusplus
     const zeroOrManyNotMatcher = /\((.*not.*)\)\*/;
     const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
+      .replace(/\(\?\:(.*?)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\|/g, ' OR ')
       .replace(/\(\?\:(.*)\)/g, '$1');
 
@@ -43,7 +41,7 @@ const createStepDefLines = (steps, type) => {
 
     if (newMatcher.match(zeroOrManyNotMatcher)) {
       const matcher2 = newMatcher.replace(zeroOrManyNotMatcher, '$1');
-      const code2 = generateSnippetsSublime[type][stepDefNum++]; // eslint-disable-line no-plusplus
+      const code2 = createSnippetsCollection.snippetCodes[type][stepDefNum++]; // eslint-disable-line no-plusplus
       newStepDefLines.push(createStepDefLine(matcher2, code2, step.notes));
     }
   });
@@ -54,16 +52,21 @@ const createStepDefLines = (steps, type) => {
     .map((newStepDefLine) => `| ${newStepDefLine.join(' | ')} |`);
 };
 
+const noPORequiredFilter = (step) => step.pageObjectNotRequired;
+const pORequiredFilter = (step) => !step.pageObjectNotRequired;
+
 const givenStepDefLines = [
-  '## Step Definitions',
+  '# Available Step Definitions',
   '',
   'Note that the words in italics are optional.',
+  '',
+  '## Step definitions that _don’t_ require page objects to work',
   '',
   '### Given...',
   '',
   '| Step definition | Snippet Code | Notes |',
   '| --- | --- | --- |',
-].concat(createStepDefLines(givenSteps, 'given'));
+].concat(createStepDefLines(givenSteps.filter(noPORequiredFilter), 'given'));
 
 const whenStepDefLines = [
   '',
@@ -71,7 +74,7 @@ const whenStepDefLines = [
   '',
   '| Step definition | Snippet Code | Notes |',
   '| --- | --- | --- |',
-].concat(createStepDefLines(whenSteps, 'when'));
+].concat(createStepDefLines(whenSteps.filter(noPORequiredFilter), 'when'));
 
 const thenStepDefLines = [
   '',
@@ -79,7 +82,41 @@ const thenStepDefLines = [
   '',
   '| Step definition | Snippet Code | Notes |',
   '| --- | --- | --- |',
-].concat(createStepDefLines(thenSteps, 'then'));
+].concat(createStepDefLines(thenSteps.filter(noPORequiredFilter), 'then'));
 
-const fileContents = [].concat(givenStepDefLines, whenStepDefLines, thenStepDefLines).join('\n');
+const givenPOStepDefLines = [
+  '',
+  '',
+  '## Step definitions that require page objects to work',
+  '',
+  '### Given...',
+  '',
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(givenSteps.filter(pORequiredFilter), 'given'));
+
+const whenPOStepDefLines = [
+  '',
+  '### When...',
+  '',
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(whenSteps.filter(pORequiredFilter), 'when'));
+
+const thenPOStepDefLines = [
+  '',
+  '### Then...',
+  '',
+  '| Step definition | Snippet Code | Notes |',
+  '| --- | --- | --- |',
+].concat(createStepDefLines(thenSteps.filter(pORequiredFilter), 'then'));
+
+const fileContents = [].concat(
+  givenStepDefLines,
+  whenStepDefLines,
+  thenStepDefLines,
+  givenPOStepDefLines,
+  whenPOStepDefLines,
+  thenPOStepDefLines,
+).join('\n');
 fs.writeFileSync('./STEP_DEFINITIONS.md', fileContents);

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+I am on the page with url '${1:URL}'
+]]></content>
+  <tabTrigger>givengotourl</tabTrigger>
+</snippet>

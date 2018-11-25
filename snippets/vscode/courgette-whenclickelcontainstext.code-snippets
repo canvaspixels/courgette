@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenclickelcontainstext",
+    "body": [
+      "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
+    ],
+    "description": "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
+  }
+}

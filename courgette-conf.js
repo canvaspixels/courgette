@@ -6,11 +6,11 @@ require('babel-core/register');
 
 const specsPath = 'testsToValidateStepDefinitions';
 const outputPath = 'uiTestResult';
-const cukeTractorPath = 'uiTestHelpers';
+const courgettePath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
-  timeoutInSeconds: 3,
+  timeoutInSeconds: process.env.courgetteTimeout || 3,
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   baseUrl: 'http://localhost:3000',
@@ -39,6 +39,8 @@ const capabilities = {
 
 const browserCapability = capabilities[process.env.browser || 'chrome'];
 
+const cukeTags = process.env.cukeTags ? process.env.cukeTags.replace(',', ' or ') : '';
+
 const protractorConfig = {
   directConnect: true,
   ignoreUncaughtExceptions: true,
@@ -49,25 +51,25 @@ const protractorConfig = {
   ],
   capabilities: {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
-    'shardTestFiles': !process.env.cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
+    'shardTestFiles': !cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     'maxInstances': 4,
     ...browserCapability,
   },
   cucumberOpts: {
     'require': [
       // `${specsPath}/helpers/globals.js`,
-      `${cukeTractorPath}/globals.js`,
-      `${cukeTractorPath}/hooks/attachScenarioNameBefore.js`,
-      `${cukeTractorPath}/hooks/attachScreenshotAfter.js`,
-      `${cukeTractorPath}/hooks/deleteAllCookies.js`,
-      `${cukeTractorPath}/hooks/pageObjectModelBefore.js`,
-      `${cukeTractorPath}/hooks/addMethodsBefore.js`,
-      `${cukeTractorPath}/hooks/setDefaultTimeout.js`,
-      `${cukeTractorPath}/stepDefinitions/*.js`,
+      `${courgettePath}/globals.js`,
+      `${courgettePath}/hooks/attachScenarioNameBefore.js`,
+      `${courgettePath}/hooks/attachScreenshotAfter.js`,
+      `${courgettePath}/hooks/deleteAllCookies.js`,
+      `${courgettePath}/hooks/pageObjectModelBefore.js`,
+      `${courgettePath}/hooks/addMethodsBefore.js`,
+      `${courgettePath}/hooks/setDefaultTimeout.js`,
+      `${courgettePath}/stepDefinitions/*.js`,
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,
     ],
-    'tags': ['~ignore'].concat(process.env.cukeTags || []),
+    'tags': ['~ignore'].concat(cukeTags || []),
     'format': [
       'cucumberFormatter.js',
       `json:./${outputPath}/report.json`,

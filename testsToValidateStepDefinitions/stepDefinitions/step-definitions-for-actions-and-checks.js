@@ -1,5 +1,12 @@
 const { Given, Then } = require('cucumber');
 
+Given(/^I am on another page$/, async function () {
+  await this.goToURL('/');
+  await this.clickElementWithText(null, 'Go to other page by react router');
+  await this.checkUrlIs('http://localhost:3000/other-page');
+  await this.checkUrlIsNot('http://localhost:3000/blah');
+});
+
 Given(/^I have set and appended a field$/, async function () {
   await this.goToPage('home');
   await this.setInputFieldValue('email', 'foo@');

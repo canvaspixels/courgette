@@ -5,6 +5,20 @@ const { When } = require(path.join(process.cwd(), 'node_modules/cucumber')); // 
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
+  {
+    matcher: "I click(?: the)?(?: 'NTH')? element with the text 'VALUE'", path: './actions/clickElementWithText', code: 'clickelwithtext', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I click(?: the)?(?: 'NTH')? element that contains the text 'VALUE'", path: './actions/clickElementThatContainsText', code: 'clickelcontainstext', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I press 'KEY'",
+    path: './actions/pressKey',
+    code: 'key',
+    notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16)', // eslint-disable-line
+    pageObjectNotRequired: true,
+  },
+
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
   {
     matcher: "I click(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR'", path: './actions/clickElementInsideElement', code: 'clickelinsideel', notes: 'This currently only works with XPaths',
@@ -26,12 +40,6 @@ const steps = [
   },
   {
     matcher: "I submit the(?: form)? 'LOCATOR'", path: './actions/submitForm', code: 'submit', notes: '[This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359)',
-  },
-  {
-    matcher: "I press 'KEY'",
-    path: './actions/pressKey',
-    code: 'key',
-    notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16)', // eslint-disable-line
   },
   { matcher: "I clear(?: the)? 'LOCATOR'", path: './actions/clearInputFieldValue', code: 'clear' },
   { matcher: "I select the option for select element 'LOCATOR' with the text 'VALUE'", path: './actions/setSelectValueByOptionText', code: 'option' },

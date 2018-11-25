@@ -4,12 +4,18 @@
   "I am on the '${1:PAGE_NAME}' page":
     'prefix': 'givenonpage'
     'body': "I am on the '${1:PAGE_NAME}' page"
+  "I am on the page with url '${1:URL}'":
+    'prefix': 'givengotourl'
+    'body': "I am on the page with url '${1:URL}'"
   "the page url is '${1:URL}'":
     'prefix': 'givenpageurl'
     'body': "the page url is '${1:URL}'"
   "the page url is not '${1:URL}'":
     'prefix': 'givennotpageurl'
     'body': "the page url is not '${1:URL}'"
+  "the page url contains '${1:URL}'":
+    'prefix': 'givenurlcontains'
+    'body': "the page url contains '${1:URL}'"
   "animations are disabled":
     'prefix': 'givendisableAnimations'
     'body': "animations are disabled"
@@ -91,21 +97,30 @@
   "the cookie '${1:COOKIE_NAME}' is not set":
     'prefix': 'givennotcookieset'
     'body': "the cookie '${1:COOKIE_NAME}' is not set"
+  "I click the '${1:NTH}' element with the text '${2:VALUE}'":
+    'prefix': 'whenclickelwithtext'
+    'body': "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+  "I click the '${1:NTH}' element that contains the text '${2:VALUE}'":
+    'prefix': 'whenclickelcontainstext'
+    'body': "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
+  "I press '${1:KEY}'":
+    'prefix': 'whenkey'
+    'body': "I press '${1:KEY}'"
   "I click the '${1:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "I click the '${1:LOCATOR}'"
-  "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'":
+  "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'":
     'prefix': 'whenclickelinsideel'
-    'body': "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'"
+    'body': "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'"
   "I append '${1:STRING}' to '${2:LOCATOR}'":
     'prefix': 'whenappend'
     'body': "I append '${1:STRING}' to '${2:LOCATOR}'"
   "I set '${1:LOCATOR}' to '${2:STRING}'":
     'prefix': 'whenset'
     'body': "I set '${1:LOCATOR}' to '${2:STRING}'"
-  "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'":
+  "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'":
     'prefix': 'whensetelinsideel'
-    'body': "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'"
+    'body': "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'"
   "I append '${1:STRING}' to react field '${2:LOCATOR}'":
     'prefix': 'whenappendreact'
     'body': "I append '${1:STRING}' to react field '${2:LOCATOR}'"
@@ -115,36 +130,36 @@
   "I submit the form '${1:LOCATOR}'":
     'prefix': 'whensubmit'
     'body': "I submit the form '${1:LOCATOR}'"
-  "I press '${1:KEY}'":
-    'prefix': 'whenkey'
-    'body': "I press '${1:KEY}'"
   "I clear the '${1:LOCATOR}'":
     'prefix': 'whenclear'
     'body': "I clear the '${1:LOCATOR}'"
   "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'":
     'prefix': 'whenoption'
     'body': "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'"
-  "I expect to be on the '${1:PAGE_NAME}' page":
-    'prefix': 'thenonpage'
-    'body': "I expect to be on the '${1:PAGE_NAME}' page"
-  "I expect the url to contain '${1:STRING}'":
-    'prefix': 'thenurlcontains'
-    'body': "I expect the url to contain '${1:STRING}'"
+  "I expect page to contain '${1:STRING}'":
+    'prefix': 'thenpagecontainstext'
+    'body': "I expect page to contain '${1:STRING}'"
   "I expect the url to be '${1:STRING}'":
     'prefix': 'thenurl'
     'body': "I expect the url to be '${1:STRING}'"
   "I expect the url to not be '${1:STRING}'":
     'prefix': 'thennoturl'
     'body': "I expect the url to not be '${1:STRING}'"
+  "I expect the url to contain '${1:STRING}'":
+    'prefix': 'thenurlcontains'
+    'body': "I expect the url to contain '${1:STRING}'"
   "I expect the url '${1:URL}' is opened in a new tab":
     'prefix': 'thenurlnewtab'
     'body': "I expect the url '${1:URL}' is opened in a new tab"
+  "I expect to be on the '${1:PAGE_NAME}' page":
+    'prefix': 'thenonpage'
+    'body': "I expect to be on the '${1:PAGE_NAME}' page"
   "I expect the '${1:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
     'body': "I expect the '${1:LOCATOR}' to be visible"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible":
     'prefix': 'thenelinsideelvisible'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible"
   "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "I expect the '${1:LOCATOR}' to be hidden"
@@ -169,9 +184,9 @@
   "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'":
     'prefix': 'thennotcontainstext'
     'body': "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'":
     'prefix': 'thenelinsideelcontainstext'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'"
   "I expect the '${1:LOCATOR}' to contain any text":
     'prefix': 'thencontainsanytext'
     'body': "I expect the '${1:LOCATOR}' to contain any text"
@@ -241,9 +256,9 @@
   "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'":
     'prefix': 'thennotvalue'
     'body': "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
-  "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'":
+  "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'":
     'prefix': 'thenelinsideelvalue'
-    'body': "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'"
+    'body': "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'"
   "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'thenattribute'
     'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
@@ -260,12 +275,18 @@
   "I am on the '${1:PAGE_NAME}' page":
     'prefix': 'givenonpage'
     'body': "I am on the '${1:PAGE_NAME}' page"
+  "I am on the page with url '${1:URL}'":
+    'prefix': 'givengotourl'
+    'body': "I am on the page with url '${1:URL}'"
   "the page url is '${1:URL}'":
     'prefix': 'givenpageurl'
     'body': "the page url is '${1:URL}'"
   "the page url is not '${1:URL}'":
     'prefix': 'givennotpageurl'
     'body': "the page url is not '${1:URL}'"
+  "the page url contains '${1:URL}'":
+    'prefix': 'givenurlcontains'
+    'body': "the page url contains '${1:URL}'"
   "animations are disabled":
     'prefix': 'givendisableAnimations'
     'body': "animations are disabled"
@@ -347,21 +368,30 @@
   "the cookie '${1:COOKIE_NAME}' is not set":
     'prefix': 'givennotcookieset'
     'body': "the cookie '${1:COOKIE_NAME}' is not set"
+  "I click the '${1:NTH}' element with the text '${2:VALUE}'":
+    'prefix': 'whenclickelwithtext'
+    'body': "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+  "I click the '${1:NTH}' element that contains the text '${2:VALUE}'":
+    'prefix': 'whenclickelcontainstext'
+    'body': "I click the '${1:NTH}' element that contains the text '${2:VALUE}'"
+  "I press '${1:KEY}'":
+    'prefix': 'whenkey'
+    'body': "I press '${1:KEY}'"
   "I click the '${1:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "I click the '${1:LOCATOR}'"
-  "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'":
+  "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'":
     'prefix': 'whenclickelinsideel'
-    'body': "I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'"
+    'body': "I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'"
   "I append '${1:STRING}' to '${2:LOCATOR}'":
     'prefix': 'whenappend'
     'body': "I append '${1:STRING}' to '${2:LOCATOR}'"
   "I set '${1:LOCATOR}' to '${2:STRING}'":
     'prefix': 'whenset'
     'body': "I set '${1:LOCATOR}' to '${2:STRING}'"
-  "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'":
+  "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'":
     'prefix': 'whensetelinsideel'
-    'body': "I set the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}' to '${3:STRING}'"
+    'body': "I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'"
   "I append '${1:STRING}' to react field '${2:LOCATOR}'":
     'prefix': 'whenappendreact'
     'body': "I append '${1:STRING}' to react field '${2:LOCATOR}'"
@@ -371,36 +401,36 @@
   "I submit the form '${1:LOCATOR}'":
     'prefix': 'whensubmit'
     'body': "I submit the form '${1:LOCATOR}'"
-  "I press '${1:KEY}'":
-    'prefix': 'whenkey'
-    'body': "I press '${1:KEY}'"
   "I clear the '${1:LOCATOR}'":
     'prefix': 'whenclear'
     'body': "I clear the '${1:LOCATOR}'"
   "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'":
     'prefix': 'whenoption'
     'body': "I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'"
-  "I expect to be on the '${1:PAGE_NAME}' page":
-    'prefix': 'thenonpage'
-    'body': "I expect to be on the '${1:PAGE_NAME}' page"
-  "I expect the url to contain '${1:STRING}'":
-    'prefix': 'thenurlcontains'
-    'body': "I expect the url to contain '${1:STRING}'"
+  "I expect page to contain '${1:STRING}'":
+    'prefix': 'thenpagecontainstext'
+    'body': "I expect page to contain '${1:STRING}'"
   "I expect the url to be '${1:STRING}'":
     'prefix': 'thenurl'
     'body': "I expect the url to be '${1:STRING}'"
   "I expect the url to not be '${1:STRING}'":
     'prefix': 'thennoturl'
     'body': "I expect the url to not be '${1:STRING}'"
+  "I expect the url to contain '${1:STRING}'":
+    'prefix': 'thenurlcontains'
+    'body': "I expect the url to contain '${1:STRING}'"
   "I expect the url '${1:URL}' is opened in a new tab":
     'prefix': 'thenurlnewtab'
     'body': "I expect the url '${1:URL}' is opened in a new tab"
+  "I expect to be on the '${1:PAGE_NAME}' page":
+    'prefix': 'thenonpage'
+    'body': "I expect to be on the '${1:PAGE_NAME}' page"
   "I expect the '${1:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
     'body': "I expect the '${1:LOCATOR}' to be visible"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible":
     'prefix': 'thenelinsideelvisible'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to be (visible"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be visible"
   "I expect the '${1:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "I expect the '${1:LOCATOR}' to be hidden"
@@ -425,9 +455,9 @@
   "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'":
     'prefix': 'thennotcontainstext'
     'body': "I expect the '${1:LOCATOR}' to not contain the text '${2:STRING}'"
-  "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'":
+  "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'":
     'prefix': 'thenelinsideelcontainstext'
-    'body': "I expect the)? '${1:LOCATOR}' inside?: the '${2:LOCATOR}' to (contain the text '${3:STRING}'"
+    'body': "I expect the '${1:LOCATOR}' inside the '${2:LOCATOR}' to contain the text '${3:STRING}'"
   "I expect the '${1:LOCATOR}' to contain any text":
     'prefix': 'thencontainsanytext'
     'body': "I expect the '${1:LOCATOR}' to contain any text"
@@ -497,9 +527,9 @@
   "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'":
     'prefix': 'thennotvalue'
     'body': "I expect the value of the '${1:LOCATOR}' to not be '${2:STRING}'"
-  "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'":
+  "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'":
     'prefix': 'thenelinsideelvalue'
-    'body': "I expect the value of the)? '${1:LOCATOR}' inside be '${3:STRING}'"
+    'body': "I expect the value of the '${1:LOCATOR}' inside the '${2:LOCATOR}' to be '${3:STRING}'"
   "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'":
     'prefix': 'thenattribute'
     'body': "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"

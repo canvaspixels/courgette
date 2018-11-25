@@ -3,14 +3,14 @@ require('babel-core/register');
 
 const specsPath = 'uiTests';
 const outputPath = 'uiTestResult';
-const courgettePath = 'node_modules/courgette/uiTestHelpers';
+const courgettePath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
-  timeoutInSeconds: process.env.courgetteTimeout || 10, // minimum 2 or you'll see strange behaviour with some steps
+  timeoutInSeconds: process.env.courgetteTimeout || 10,
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
-  baseUrl: 'https://www.google.com', // <------------ SET THE URL TO YOUR PROJECT HERE
+  baseUrl: 'https://www.google.com',
 };
 
 exports.cucumberHtmlReporterConfig = {};
@@ -47,7 +47,7 @@ const protractorConfig = {
     `${specsPath}/features/**/*.feature`,
   ],
   capabilities: {
-    'acceptInsecureCerts': true, // ignores SSL warnings
+    // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
     'shardTestFiles': !cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     'maxInstances': 4,
     ...browserCapability,
@@ -58,6 +58,7 @@ const protractorConfig = {
       `${courgettePath}/globals.js`,
       `${courgettePath}/hooks/attachScenarioNameBefore.js`,
       `${courgettePath}/hooks/attachScreenshotAfter.js`,
+      `${courgettePath}/hooks/deleteAllCookies.js`,
       `${courgettePath}/hooks/pageObjectModelBefore.js`,
       `${courgettePath}/hooks/addMethodsBefore.js`,
       `${courgettePath}/hooks/setDefaultTimeout.js`,
@@ -67,7 +68,7 @@ const protractorConfig = {
     ],
     'tags': ['~ignore'].concat(cukeTags || []),
     'format': [
-      'node_modules/courgette/cucumberFormatter.js',
+      'cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
     ].concat(process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
     'profile': false,

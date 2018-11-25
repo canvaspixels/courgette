@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I click the)? '${1:LOCATOR}' inside(?: the '${2:LOCATOR}'
+I click the '${1:LOCATOR}' inside the '${2:LOCATOR}'
 ]]></content>
   <tabTrigger>whenclickelinsideel</tabTrigger>
 </snippet>

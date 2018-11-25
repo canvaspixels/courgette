@@ -1,5 +1,5 @@
 module.exports = function checkUrl(isNot, expectedUrl) {
-  const waitTimeout = this.cucumberTimeout || 3000;
+  const waitTimeout = this.cucumberTimeout - 1000;
   let currentUrlNoTrailingSlash;
   const expectedUrlNoTrailingSlash = expectedUrl.replace(/\/$/, '');
   const timestamp = Date.now();
@@ -12,20 +12,17 @@ module.exports = function checkUrl(isNot, expectedUrl) {
             (isNot && currentUrlNoTrailingSlash !== expectedUrlNoTrailingSlash)) {
           resolve();
         } else if (Date.now() > timestamp + waitTimeout) {
-          reject();
+          console.log('Current URL doesn’t match that in page object');
+          console.log('Current URL: ', currentUrlNoTrailingSlash);
+          console.log('Expected URL: ', expectedUrlNoTrailingSlash);
+          const err = `Current URL: ${currentUrlNoTrailingSlash} ... Expected URL: ${expectedUrlNoTrailingSlash}`;
+
+          reject(err);
         } else {
           pageUrlMatches();
         }
       });
 
     pageUrlMatches();
-  })
-    .catch(() => {
-      console.log('Current URL doesn’t match that in page object');
-      console.log('Current URL: ', currentUrlNoTrailingSlash);
-      console.log('Expected URL: ', expectedUrlNoTrailingSlash);
-      const err = `Current URL: ${currentUrlNoTrailingSlash} ... Expected URL: ${expectedUrlNoTrailingSlash}`;
-
-      return Promise.reject(err);
-    });
+  });
 };

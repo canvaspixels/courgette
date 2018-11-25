@@ -5,19 +5,19 @@
 // node scripts/generateSnippetsVSCode.js --genFiles --justForIDE
 
 const fs = require('fs');
+const path = require('path');
 const os = require('os');
 const { argv } = require('yargs');
 
-const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
-const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
-const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
-const placeholders = require('../placeholders');
+const createSnippetsCollection = require('./createSnippetsCollection');
 
 const ideFolder = `${os.homedir()}/Library/Application Support/Code/User`;
 const ideSnippetsFolder = `${ideFolder}/snippets`;
 let ideInstalled = true;
 
+
 const snippetsFolder = 'snippets/vscode';
+
 if (!argv.justForIDE) {
   if (!fs.existsSync('snippets')) {
     fs.mkdirSync('snippets');
@@ -35,82 +35,50 @@ try {
   ideInstalled = false;
 }
 
-const snippetCodes = {};
-
 /* eslint-disable indent */
 
-const genSnippet = (matcher, code) => {
-  const snippet = `{
+const genSnippet = (description, code, snippet) => {
+  const snippetStr = `{
   "Print to console": {
     "prefix": "${code}",
     "body": [
-      "${matcher.replace(/\((.*)\)/g, '$1')}"
+      "${snippet.replace(/\((.*)\)/g, '$1')}"
     ],
-    "description": "${matcher.replace(/\((.*)\)/g, '$1')}"
+    "description": "${description.replace(/\((.*)\)/g, '$1')}"
   }
 }`;
 
   /* eslint-enable indent */
 
   if (!argv.justForIDE) {
-    fs.writeFileSync(`${snippetsFolder}/courgette-${code}.code-snippets`, snippet);
+    fs.writeFileSync(`${snippetsFolder}/courgette-${code}.code-snippets`, snippetStr);
   }
 
   if (ideInstalled) {
-    fs.writeFileSync(`${ideSnippetsFolder}/courgette-${code}.code-snippets`, snippet);
+    fs.writeFileSync(`${ideSnippetsFolder}/courgette-${code}.code-snippets`, snippetStr);
   }
 };
 
-const genSnippets = (steps, type) => {
-  if (!snippetCodes[type]) {
-    snippetCodes[type] = [];
-  }
-  steps.forEach((step) => {
-    const allPlaceholders = placeholders.join('|');
-    const matcherWithReplacedPlaceholders = step.matcher
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${1:${p1}\}'`)
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${2:${p1}\}'`)
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${3:${p1}\}'`)
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${4:${p1}\}'`)
-      .replace(/\(\?\:(.*)\)\?/g, '$1');
-
-    const zeroOrManyNotMatcher = /\((.*not.*)\)\*/g;
-    const newMatcher = step.matcher
-      .replace(/\(\?\:(.*)\)\?/g, (match, p1) =>
-        p1.replace(/([^ ]+)/, '_$1_'))
-      .replace(/\(\?\:(.*)\)/g, '$1');
-
-    const generatedCode = `${step.path ?
-      step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
-
-    const matcher = matcherWithReplacedPlaceholders
-      .replace(zeroOrManyNotMatcher, '')
-      .replace(/\((.*)\)\*/g, '$1');
-
-    const newCode = `${type}${step.code || generatedCode}`;
-    snippetCodes[type].push(newCode);
-    genSnippet(matcher, newCode);
-
-    if (newMatcher.match(zeroOrManyNotMatcher)) {
-      const newCode2 = `${type}not${step.code || generatedCode}`;
-      const matcher2 = matcherWithReplacedPlaceholders
-        .replace(/\((.*)\)\*/g, '$1');
-      snippetCodes[type].push(newCode2);
-      genSnippet(matcher2, newCode2);
-    }
-
-    // console.log(`${type}${step.code || generatedCode}`);
+const genSnippets = () => {
+  createSnippetsCollection.snippetsCollection.forEach(({ description, code, snippet }) => {
+    genSnippet(description, code, snippet);
   });
 };
 
-genSnippets(givenSteps, 'given');
-genSnippets(whenSteps, 'when');
-genSnippets(thenSteps, 'then');
+if (ideInstalled && fs.existsSync(ideSnippetsFolder)) {
+  fs.readdirSync(ideSnippetsFolder).forEach((file) => {
+    if (file.startsWith('courgette-') || file.startsWith('cuketractor-')) {
+      const filePath = path.join(ideSnippetsFolder, file);
+      // console.log('deleting old file: ', filePath);
+      fs.unlinkSync(filePath);
+    }
+  });
+}
+
+genSnippets();
 
 if (ideInstalled) {
   console.log(`Snippets added to ${ideSnippetsFolder}`);
 } else {
   console.log('VSCode not installed on your mac so no snippets were added to VSCode');
 }
-
-module.exports = snippetCodes;
