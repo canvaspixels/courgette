@@ -1,3 +1,7 @@
+## 2.10.0
+* introduces the notion of writing Given When Thens without needing page objects for simple specification writing. See [newly organised Available step definitions](https://github.com/canvaspixels/courgette/blob/8133f6bc52304fa5e328402ccc9fd2548980509b/STEP_DEFINITIONS.md#step-definitions) split into two categories. One no
+* duplication in the snippets builder removed
+
 ## 2.8.0
 * Officially Cuketractor has been renamed to Courgette
 * Setup script is now in the postinstall so all that is needed for setup is `npm i courgette`
