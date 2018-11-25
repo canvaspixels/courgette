@@ -5,8 +5,12 @@ const { When } = require(path.join(process.cwd(), 'node_modules/cucumber')); // 
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
-  { matcher: "I click(?: the)?(?: 'NTH')? element with the text 'VALUE'", path: './actions/clickElementWithText', code: 'clickelwithtext', pageObjectNotRequired: true },
-  { matcher: "I click(?: the)?(?: 'NTH')? element that contains the text 'VALUE'", path: './actions/clickElementThatContainsText', code: 'clickelcontainstext', pageObjectNotRequired: true },
+  {
+    matcher: "I click(?: the)?(?: 'NTH')? element with the text 'VALUE'", path: './actions/clickElementWithText', code: 'clickelwithtext', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I click(?: the)?(?: 'NTH')? element that contains the text 'VALUE'", path: './actions/clickElementThatContainsText', code: 'clickelcontainstext', pageObjectNotRequired: true,
+  },
   {
     matcher: "I press 'KEY'",
     path: './actions/pressKey',
