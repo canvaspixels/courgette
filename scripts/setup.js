@@ -94,7 +94,7 @@ const setupPackageJsonScripts = async function () {
 
 const setupDrivers = async function () {
   try {
-    await runScript('node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '));
+    await runScript('../../node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '));
     console.log('FirefoxDriver Installed');
   } catch (err) {
     console.log(' ');
