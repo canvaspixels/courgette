@@ -132,7 +132,7 @@ Before(function pomBeforeHook() {
   };
 
   this.getPage = (pageName, updateCurrentPage = true) => {
-    const name = pageName.replace(/ /g, '-').replace('.page', '').toLowerCase();
+    const name = pageName.replace(/ /g, '-').toLowerCase();
 
     const yamlPagePath = path.resolve(pomConfig.pagesPath, `${name}.page`);
     try {

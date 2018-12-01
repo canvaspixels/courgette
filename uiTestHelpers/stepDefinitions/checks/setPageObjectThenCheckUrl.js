@@ -26,9 +26,9 @@ module.exports = function checkUrl(pageName) {
           console.log('Expected URL: ', expectedUrlNoTrailingSlash);
           const err = `Current URL: ${currentUrlNoTrailingSlash} ... Expected URL: ${expectedUrlNoTrailingSlash}`;
           reject(err);
+        } else {
+          pageUrlMatches();
         }
-
-        pageUrlMatches();
       });
 
     pageUrlMatches();

@@ -15,6 +15,7 @@ Feature: Test feature
   # this way provides more flexibility
   @google-feeling-lucky-page-object-required
   Scenario: Clicking I’m Feeling Lucky without typing a search query goes straight to doodles
-    Given I am on the 'google-home.page' page
+    Given I am on the 'google-home' page
+    # Given I am on the 'Google home' page        <--------- or this will work
     When I click 'I’m Feeling Lucky'
     Then I expect the url to contain 'google.com/doodles'
