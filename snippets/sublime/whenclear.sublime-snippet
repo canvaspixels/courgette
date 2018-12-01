@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I clear the '${1:LOCATOR}'
+${1:When} I clear the '${2:LOCATOR}'
 ]]></content>
   <tabTrigger>whenclear</tabTrigger>
 </snippet>

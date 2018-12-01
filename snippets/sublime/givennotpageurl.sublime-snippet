@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the page url is not '${1:URL}'
+${1:Given} the page url is not '${2:URL}'
 ]]></content>
   <tabTrigger>givennotpageurl</tabTrigger>
 </snippet>

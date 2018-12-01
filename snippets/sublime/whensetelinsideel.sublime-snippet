@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I set the '${1:LOCATOR}' inside the '${2:LOCATOR}' to '${3:STRING}'
+${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'
 ]]></content>
   <tabTrigger>whensetelinsideel</tabTrigger>
 </snippet>

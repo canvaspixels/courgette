@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thendisabled",
     "body": [
-      "I expect the '${1:LOCATOR}' to be disabled"
+      "${1:Then} I expect the '${2:LOCATOR}' to be disabled"
     ],
-    "description": "I expect the '${1:LOCATOR}' to be disabled"
+    "description": "${1:Then} I expect the '${2:LOCATOR}' to be disabled"
   }
 }

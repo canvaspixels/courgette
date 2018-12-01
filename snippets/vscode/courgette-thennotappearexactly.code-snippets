@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thennotappearexactly",
     "body": [
-      "I expect the '${1:LOCATOR}' to not appear exactly '${2:NUMBER}' times"
+      "${1:Then} I expect the '${2:LOCATOR}' to not appear exactly '${3:NUMBER}' times"
     ],
-    "description": "I expect the '${1:LOCATOR}' to not appear exactly '${2:NUMBER}' times"
+    "description": "${1:Then} I expect the '${2:LOCATOR}' to not appear exactly '${3:NUMBER}' times"
   }
 }

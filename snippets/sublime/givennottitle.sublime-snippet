@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the title is not '${1:STRING}'
+${1:Given} the title is not '${2:STRING}'
 ]]></content>
   <tabTrigger>givennottitle</tabTrigger>
 </snippet>

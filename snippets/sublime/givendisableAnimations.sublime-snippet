@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-animations are disabled
+${1:Given} animations are disabled
 ]]></content>
   <tabTrigger>givendisableAnimations</tabTrigger>
 </snippet>

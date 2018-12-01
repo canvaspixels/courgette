@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givendisabled",
     "body": [
-      "the '${1:LOCATOR}' is disabled"
+      "${1:Given} the '${2:LOCATOR}' is disabled"
     ],
-    "description": "the '${1:LOCATOR}' is disabled"
+    "description": "${1:Given} the '${2:LOCATOR}' is disabled"
   }
 }

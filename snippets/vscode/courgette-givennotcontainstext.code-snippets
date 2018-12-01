@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givennotcontainstext",
     "body": [
-      "the '${1:LOCATOR}' does not contain the text '${2:STRING}'"
+      "${1:Given} the '${2:LOCATOR}' does not contain the text '${3:STRING}'"
     ],
-    "description": "the '${1:LOCATOR}' does not contain the text '${2:STRING}'"
+    "description": "${1:Given} the '${2:LOCATOR}' does not contain the text '${3:STRING}'"
   }
 }

@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thennotclassname",
     "body": [
-      "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'"
+      "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'"
     ],
-    "description": "I expect the '${1:LOCATOR}' to not have the class '${2:CLASS_NAME}'"
+    "description": "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'"
   }
 }

@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thennotcookiecontain",
     "body": [
-      "I expect cookie '${1:COOKIE_NAME}' to not contain '${2:STRING}'"
+      "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'"
     ],
-    "description": "I expect cookie '${1:COOKIE_NAME}' to not contain '${2:STRING}'"
+    "description": "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'"
   }
 }

@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givenselected",
     "body": [
-      "the '${1:LOCATOR}' is selected"
+      "${1:Given} the '${2:LOCATOR}' is selected"
     ],
-    "description": "the '${1:LOCATOR}' is selected"
+    "description": "${1:Given} the '${2:LOCATOR}' is selected"
   }
 }

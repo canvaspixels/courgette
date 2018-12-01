@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "giventitle",
     "body": [
-      "the title is '${1:STRING}'"
+      "${1:Given} the title is '${2:STRING}'"
     ],
-    "description": "the title is '${1:STRING}'"
+    "description": "${1:Given} the title is '${2:STRING}'"
   }
 }

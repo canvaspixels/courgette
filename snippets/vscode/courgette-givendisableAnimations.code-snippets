@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givendisableAnimations",
     "body": [
-      "animations are disabled"
+      "${1:Given} animations are disabled"
     ],
-    "description": "animations are disabled"
+    "description": "${1:Given} animations are disabled"
   }
 }

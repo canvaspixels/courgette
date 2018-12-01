@@ -1,576 +1,666 @@
 <templateSet group="Courgette">
-  <template name="givenonpage" value="I am on the '$var1$' page$END$" shortcut="TAB" description="I am on the '$var1$' page" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenonpage" value="$var1$ I am on the '$var2$' page$END$" shortcut="TAB" description="$var1$ I am on the '$var2$' page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givengotourl" value="I am on the page with url '$var1$'$END$" shortcut="TAB" description="I am on the page with url '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givengotourl" value="$var1$ I am on the page with url '$var2$'$END$" shortcut="TAB" description="$var1$ I am on the page with url '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenpageurl" value="the page url is '$var1$'$END$" shortcut="TAB" description="the page url is '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenpageurl" value="$var1$ the page url is '$var2$'$END$" shortcut="TAB" description="$var1$ the page url is '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givennotpageurl" value="the page url is not '$var1$'$END$" shortcut="TAB" description="the page url is not '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givennotpageurl" value="$var1$ the page url is not '$var2$'$END$" shortcut="TAB" description="$var1$ the page url is not '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenurlcontains" value="the page url contains '$var1$'$END$" shortcut="TAB" description="the page url contains '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenurlcontains" value="$var1$ the page url contains '$var2$'$END$" shortcut="TAB" description="$var1$ the page url contains '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givendisableAnimations" value="animations are disabled$END$" shortcut="TAB" description="animations are disabled" toReformat="false" toShortenFQNames="true">
+  <template name="givendisableAnimations" value="$var1$ animations are disabled$END$" shortcut="TAB" description="$var1$ animations are disabled" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenvisible" value="the '$var1$' is visible$END$" shortcut="TAB" description="the '$var1$' is visible" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenvisible" value="$var1$ the '$var2$' is visible$END$" shortcut="TAB" description="$var1$ the '$var2$' is visible" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenhidden" value="the '$var1$' is hidden$END$" shortcut="TAB" description="the '$var1$' is hidden" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenhidden" value="$var1$ the '$var2$' is hidden$END$" shortcut="TAB" description="$var1$ the '$var2$' is hidden" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenenabled" value="the '$var1$' is enabled$END$" shortcut="TAB" description="the '$var1$' is enabled" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenenabled" value="$var1$ the '$var2$' is enabled$END$" shortcut="TAB" description="$var1$ the '$var2$' is enabled" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givendisabled" value="the '$var1$' is disabled$END$" shortcut="TAB" description="the '$var1$' is disabled" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givendisabled" value="$var1$ the '$var2$' is disabled$END$" shortcut="TAB" description="$var1$ the '$var2$' is disabled" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenselected" value="the '$var1$' is selected$END$" shortcut="TAB" description="the '$var1$' is selected" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenselected" value="$var1$ the '$var2$' is selected$END$" shortcut="TAB" description="$var1$ the '$var2$' is selected" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givennotselected" value="the '$var1$' is not selected$END$" shortcut="TAB" description="the '$var1$' is not selected" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givennotselected" value="$var1$ the '$var2$' is not selected$END$" shortcut="TAB" description="$var1$ the '$var2$' is not selected" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenchecked" value="the '$var1$' is checked$END$" shortcut="TAB" description="the '$var1$' is checked" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenchecked" value="$var1$ the '$var2$' is checked$END$" shortcut="TAB" description="$var1$ the '$var2$' is checked" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givennotchecked" value="the '$var1$' is not checked$END$" shortcut="TAB" description="the '$var1$' is not checked" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givennotchecked" value="$var1$ the '$var2$' is not checked$END$" shortcut="TAB" description="$var1$ the '$var2$' is not checked" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenexists" value="the '$var1$' is on the page$END$" shortcut="TAB" description="the '$var1$' is on the page" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givenexists" value="$var1$ the '$var2$' is on the page$END$" shortcut="TAB" description="$var1$ the '$var2$' is on the page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givennotexists" value="the '$var1$' is not on the page$END$" shortcut="TAB" description="the '$var1$' is not on the page" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givennotexists" value="$var1$ the '$var2$' is not on the page$END$" shortcut="TAB" description="$var1$ the '$var2$' is not on the page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="giventitle" value="the title is '$var1$'$END$" shortcut="TAB" description="the title is '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givennottitle" value="the title is not '$var1$'$END$" shortcut="TAB" description="the title is not '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givencontainstext" value="the '$var1$' contains the text '$var2$'$END$" shortcut="TAB" description="the '$var1$' contains the text '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="giventitle" value="$var1$ the title is '$var2$'$END$" shortcut="TAB" description="$var1$ the title is '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givennotcontainstext" value="the '$var1$' does not contain the text '$var2$'$END$" shortcut="TAB" description="the '$var1$' does not contain the text '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givennottitle" value="$var1$ the title is not '$var2$'$END$" shortcut="TAB" description="$var1$ the title is not '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givencontainsanytext" value="the '$var1$' contains any text$END$" shortcut="TAB" description="the '$var1$' contains any text" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givencontainstext" value="$var1$ the '$var2$' contains the text '$var3$'$END$" shortcut="TAB" description="$var1$ the '$var2$' contains the text '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givennotcontainsanytext" value="the '$var1$' does not contain any text$END$" shortcut="TAB" description="the '$var1$' does not contain any text" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givennotcontainstext" value="$var1$ the '$var2$' does not contain the text '$var3$'$END$" shortcut="TAB" description="$var1$ the '$var2$' does not contain the text '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenattribute" value="the '$var1$' has an attribute '$var2$' with a value of '$var3$'$END$" shortcut="TAB" description="the '$var1$' has an attribute '$var2$' with a value of '$var3$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;ATTRIBUTE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givencontainsanytext" value="$var1$ the '$var2$' contains any text$END$" shortcut="TAB" description="$var1$ the '$var2$' contains any text" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givennotcontainsanytext" value="$var1$ the '$var2$' does not contain any text$END$" shortcut="TAB" description="$var1$ the '$var2$' does not contain any text" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givenattribute" value="$var1$ the '$var2$' has an attribute '$var3$' with a value of '$var4$'$END$" shortcut="TAB" description="$var1$ the '$var2$' has an attribute '$var3$' with a value of '$var4$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;ATTRIBUTE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var4" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givenempty" value="$var1$ the '$var2$' is empty$END$" shortcut="TAB" description="$var1$ the '$var2$' is empty" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givennotempty" value="$var1$ the '$var2$' is not empty$END$" shortcut="TAB" description="$var1$ the '$var2$' is not empty" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givenvalue" value="$var1$ the value of the '$var2$' is '$var3$'$END$" shortcut="TAB" description="$var1$ the value of the '$var2$' is '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="givenempty" value="the '$var1$' is empty$END$" shortcut="TAB" description="the '$var1$' is empty" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givennotempty" value="the '$var1$' is not empty$END$" shortcut="TAB" description="the '$var1$' is not empty" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givenvalue" value="the value of the '$var1$' is '$var2$'$END$" shortcut="TAB" description="the value of the '$var1$' is '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givennotvalue" value="the value of the '$var1$' is not '$var2$'$END$" shortcut="TAB" description="the value of the '$var1$' is not '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givensetcookie" value="I set the cookie '$var1$' with value '$var2$'$END$" shortcut="TAB" description="I set the cookie '$var1$' with value '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givencookie" value="the cookie '$var1$' is set to '$var2$'$END$" shortcut="TAB" description="the cookie '$var1$' is set to '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givennotcookie" value="the cookie '$var1$' is not set to '$var2$'$END$" shortcut="TAB" description="the cookie '$var1$' is not set to '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givencookieset" value="the cookie '$var1$' is set$END$" shortcut="TAB" description="the cookie '$var1$' is set" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="givennotcookieset" value="the cookie '$var1$' is not set$END$" shortcut="TAB" description="the cookie '$var1$' is not set" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenclickelwithtext" value="I click the '$var1$' element with the text '$var2$'$END$" shortcut="TAB" description="I click the '$var1$' element with the text '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenclickelcontainstext" value="I click the '$var1$' element that contains the text '$var2$'$END$" shortcut="TAB" description="I click the '$var1$' element that contains the text '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenkey" value="I press '$var1$'$END$" shortcut="TAB" description="I press '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;KEY&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenclick" value="I click the '$var1$'$END$" shortcut="TAB" description="I click the '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenclickelinsideel" value="I click the '$var1$' inside the '$var2$'$END$" shortcut="TAB" description="I click the '$var1$' inside the '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givennotvalue" value="$var1$ the value of the '$var2$' is not '$var3$'$END$" shortcut="TAB" description="$var1$ the value of the '$var2$' is not '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenappend" value="I append '$var1$' to '$var2$'$END$" shortcut="TAB" description="I append '$var1$' to '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenset" value="I set '$var1$' to '$var2$'$END$" shortcut="TAB" description="I set '$var1$' to '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whensetelinsideel" value="I set the '$var1$' inside the '$var2$' to '$var3$'$END$" shortcut="TAB" description="I set the '$var1$' inside the '$var2$' to '$var3$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenappendreact" value="I append '$var1$' to react field '$var2$'$END$" shortcut="TAB" description="I append '$var1$' to react field '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whensetreact" value="I set react field '$var1$' to '$var2$'$END$" shortcut="TAB" description="I set react field '$var1$' to '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whensubmit" value="I submit the form '$var1$'$END$" shortcut="TAB" description="I submit the form '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenclear" value="I clear the '$var1$'$END$" shortcut="TAB" description="I clear the '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="whenoption" value="I select the option for select element '$var1$' with the text '$var2$'$END$" shortcut="TAB" description="I select the option for select element '$var1$' with the text '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenpagecontainstext" value="I expect page to contain '$var1$'$END$" shortcut="TAB" description="I expect page to contain '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenurl" value="I expect the url to be '$var1$'$END$" shortcut="TAB" description="I expect the url to be '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennoturl" value="I expect the url to not be '$var1$'$END$" shortcut="TAB" description="I expect the url to not be '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenurlcontains" value="I expect the url to contain '$var1$'$END$" shortcut="TAB" description="I expect the url to contain '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenurlnewtab" value="I expect the url '$var1$' is opened in a new tab$END$" shortcut="TAB" description="I expect the url '$var1$' is opened in a new tab" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenonpage" value="I expect to be on the '$var1$' page$END$" shortcut="TAB" description="I expect to be on the '$var1$' page" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenvisible" value="I expect the '$var1$' to be visible$END$" shortcut="TAB" description="I expect the '$var1$' to be visible" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenelinsideelvisible" value="I expect the '$var1$' inside the '$var2$' to be visible$END$" shortcut="TAB" description="I expect the '$var1$' inside the '$var2$' to be visible" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenhidden" value="I expect the '$var1$' to be hidden$END$" shortcut="TAB" description="I expect the '$var1$' to be hidden" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenbordercolour" value="I expect the bottom|top|left|right border colour of the '$var1$' to be '$var2$'$END$" shortcut="TAB" description="I expect the bottom|top|left|right border colour of the '$var1$' to be '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thencolour" value="I expect the colour of the '$var1$' to be '$var2$'$END$" shortcut="TAB" description="I expect the colour of the '$var1$' to be '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenbackgroundcolour" value="I expect the background colour of the '$var1$' to be '$var2$'$END$" shortcut="TAB" description="I expect the background colour of the '$var1$' to be '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thentitle" value="I expect the title to be '$var1$'$END$" shortcut="TAB" description="I expect the title to be '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennottitle" value="I expect the title to not be '$var1$'$END$" shortcut="TAB" description="I expect the title to not be '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thencontainstext" value="I expect the '$var1$' to contain the text '$var2$'$END$" shortcut="TAB" description="I expect the '$var1$' to contain the text '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotcontainstext" value="I expect the '$var1$' to not contain the text '$var2$'$END$" shortcut="TAB" description="I expect the '$var1$' to not contain the text '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenelinsideelcontainstext" value="I expect the '$var1$' inside the '$var2$' to contain the text '$var3$'$END$" shortcut="TAB" description="I expect the '$var1$' inside the '$var2$' to contain the text '$var3$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thencontainsanytext" value="I expect the '$var1$' to contain any text$END$" shortcut="TAB" description="I expect the '$var1$' to contain any text" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotcontainsanytext" value="I expect the '$var1$' to not contain any text$END$" shortcut="TAB" description="I expect the '$var1$' to not contain any text" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenappearexactly" value="I expect the '$var1$' to appear exactly '$var2$' times$END$" shortcut="TAB" description="I expect the '$var1$' to appear exactly '$var2$' times" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;NUMBER&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotappearexactly" value="I expect the '$var1$' to not appear exactly '$var2$' times$END$" shortcut="TAB" description="I expect the '$var1$' to not appear exactly '$var2$' times" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;NUMBER&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenexists" value="I expect the '$var1$' to exist$END$" shortcut="TAB" description="I expect the '$var1$' to exist" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotexists" value="I expect the '$var1$' to not exist$END$" shortcut="TAB" description="I expect the '$var1$' to not exist" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenchecked" value="I expect the '$var1$' to be checked$END$" shortcut="TAB" description="I expect the '$var1$' to be checked" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotchecked" value="I expect the '$var1$' to not be checked$END$" shortcut="TAB" description="I expect the '$var1$' to not be checked" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenselected" value="I expect the '$var1$' to be selected$END$" shortcut="TAB" description="I expect the '$var1$' to be selected" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotselected" value="I expect the '$var1$' to not be selected$END$" shortcut="TAB" description="I expect the '$var1$' to not be selected" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenenabled" value="I expect the '$var1$' to be enabled$END$" shortcut="TAB" description="I expect the '$var1$' to be enabled" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thendisabled" value="I expect the '$var1$' to be disabled$END$" shortcut="TAB" description="I expect the '$var1$' to be disabled" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thencookiecontain" value="I expect cookie '$var1$' to contain '$var2$'$END$" shortcut="TAB" description="I expect cookie '$var1$' to contain '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotcookiecontain" value="I expect cookie '$var1$' to not contain '$var2$'$END$" shortcut="TAB" description="I expect cookie '$var1$' to not contain '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thencookieexists" value="I expect cookie '$var1$' to exist$END$" shortcut="TAB" description="I expect cookie '$var1$' to exist" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotcookieexists" value="I expect cookie '$var1$' to not exist$END$" shortcut="TAB" description="I expect cookie '$var1$' to not exist" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenclassname" value="I expect the '$var1$' to have the class '$var2$'$END$" shortcut="TAB" description="I expect the '$var1$' to have the class '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;CLASS_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotclassname" value="I expect the '$var1$' to not have the class '$var2$'$END$" shortcut="TAB" description="I expect the '$var1$' to not have the class '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;CLASS_NAME&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenfocused" value="I expect the '$var1$' to be focused$END$" shortcut="TAB" description="I expect the '$var1$' to be focused" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenempty" value="I expect the '$var1$' to be empty$END$" shortcut="TAB" description="I expect the '$var1$' to be empty" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotempty" value="I expect the '$var1$' to not be empty$END$" shortcut="TAB" description="I expect the '$var1$' to not be empty" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenvalue" value="I expect the value of the '$var1$' to be '$var2$'$END$" shortcut="TAB" description="I expect the value of the '$var1$' to be '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thennotvalue" value="I expect the value of the '$var1$' to not be '$var2$'$END$" shortcut="TAB" description="I expect the value of the '$var1$' to not be '$var2$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenelinsideelvalue" value="I expect the value of the '$var1$' inside the '$var2$' to be '$var3$'$END$" shortcut="TAB" description="I expect the value of the '$var1$' inside the '$var2$' to be '$var3$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="OTHER" value="true" />
-    </context>
-  </template>
-  <template name="thenattribute" value="I expect the '$var1$' has an attribute '$var2$' with a value of '$var3$'$END$" shortcut="TAB" description="I expect the '$var1$' has an attribute '$var2$' with a value of '$var3$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
-    <variable name="var2" expression="&quot;ATTRIBUTE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenscreenshot" value="take a screenshot$END$" shortcut="TAB" description="take a screenshot" toReformat="false" toShortenFQNames="true">
+  <template name="givensetcookie" value="$var1$ I set the cookie '$var2$' with value '$var3$'$END$" shortcut="TAB" description="$var1$ I set the cookie '$var2$' with value '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenscreenshotcalled" value="take a screenshot called '$var1$'$END$" shortcut="TAB" description="take a screenshot called '$var1$'" toReformat="false" toShortenFQNames="true">
-    <variable name="var1" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+  <template name="givencookie" value="$var1$ the cookie '$var2$' is set to '$var3$'$END$" shortcut="TAB" description="$var1$ the cookie '$var2$' is set to '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thendie" value="fail step and take screenshot$END$" shortcut="TAB" description="fail step and take screenshot" toReformat="false" toShortenFQNames="true">
+  <template name="givennotcookie" value="$var1$ the cookie '$var2$' is not set to '$var3$'$END$" shortcut="TAB" description="$var1$ the cookie '$var2$' is not set to '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givencookieset" value="$var1$ the cookie '$var2$' is set$END$" shortcut="TAB" description="$var1$ the cookie '$var2$' is set" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="givennotcookieset" value="$var1$ the cookie '$var2$' is not set$END$" shortcut="TAB" description="$var1$ the cookie '$var2$' is not set" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenclickelwithtext" value="$var1$ I click the '$var2$' element with the text '$var3$'$END$" shortcut="TAB" description="$var1$ I click the '$var2$' element with the text '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenclickelcontainstext" value="$var1$ I click the '$var2$' element that contains the text '$var3$'$END$" shortcut="TAB" description="$var1$ I click the '$var2$' element that contains the text '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenkey" value="$var1$ I press '$var2$'$END$" shortcut="TAB" description="$var1$ I press '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;KEY&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenclick" value="$var1$ I click the '$var2$'$END$" shortcut="TAB" description="$var1$ I click the '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenclickelinsideel" value="$var1$ I click the '$var2$' inside the '$var3$'$END$" shortcut="TAB" description="$var1$ I click the '$var2$' inside the '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenappend" value="$var1$ I append '$var2$' to '$var3$'$END$" shortcut="TAB" description="$var1$ I append '$var2$' to '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenset" value="$var1$ I set '$var2$' to '$var3$'$END$" shortcut="TAB" description="$var1$ I set '$var2$' to '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whensetelinsideel" value="$var1$ I set the '$var2$' inside the '$var3$' to '$var4$'$END$" shortcut="TAB" description="$var1$ I set the '$var2$' inside the '$var3$' to '$var4$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var4" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenappendreact" value="$var1$ I append '$var2$' to react field '$var3$'$END$" shortcut="TAB" description="$var1$ I append '$var2$' to react field '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whensetreact" value="$var1$ I set react field '$var2$' to '$var3$'$END$" shortcut="TAB" description="$var1$ I set react field '$var2$' to '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whensubmit" value="$var1$ I submit the form '$var2$'$END$" shortcut="TAB" description="$var1$ I submit the form '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenclear" value="$var1$ I clear the '$var2$'$END$" shortcut="TAB" description="$var1$ I clear the '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenoption" value="$var1$ I select the option for select element '$var2$' with the text '$var3$'$END$" shortcut="TAB" description="$var1$ I select the option for select element '$var2$' with the text '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenpagecontainstext" value="$var1$ I expect page to contain '$var2$'$END$" shortcut="TAB" description="$var1$ I expect page to contain '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenurl" value="$var1$ I expect the url to be '$var2$'$END$" shortcut="TAB" description="$var1$ I expect the url to be '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennoturl" value="$var1$ I expect the url to not be '$var2$'$END$" shortcut="TAB" description="$var1$ I expect the url to not be '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenurlcontains" value="$var1$ I expect the url to contain '$var2$'$END$" shortcut="TAB" description="$var1$ I expect the url to contain '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenurlnewtab" value="$var1$ I expect the url '$var2$' is opened in a new tab$END$" shortcut="TAB" description="$var1$ I expect the url '$var2$' is opened in a new tab" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;URL&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenonpage" value="$var1$ I expect to be on the '$var2$' page$END$" shortcut="TAB" description="$var1$ I expect to be on the '$var2$' page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenvisible" value="$var1$ I expect the '$var2$' to be visible$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be visible" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenelinsideelvisible" value="$var1$ I expect the '$var2$' inside the '$var3$' to be visible$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' inside the '$var3$' to be visible" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenhidden" value="$var1$ I expect the '$var2$' to be hidden$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be hidden" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenbordercolour" value="$var1$ I expect the bottom|top|left|right border colour of the '$var2$' to be '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the bottom|top|left|right border colour of the '$var2$' to be '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thencolour" value="$var1$ I expect the colour of the '$var2$' to be '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the colour of the '$var2$' to be '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenbackgroundcolour" value="$var1$ I expect the background colour of the '$var2$' to be '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the background colour of the '$var2$' to be '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thentitle" value="$var1$ I expect the title to be '$var2$'$END$" shortcut="TAB" description="$var1$ I expect the title to be '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennottitle" value="$var1$ I expect the title to not be '$var2$'$END$" shortcut="TAB" description="$var1$ I expect the title to not be '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thencontainstext" value="$var1$ I expect the '$var2$' to contain the text '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to contain the text '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotcontainstext" value="$var1$ I expect the '$var2$' to not contain the text '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not contain the text '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenelinsideelcontainstext" value="$var1$ I expect the '$var2$' inside the '$var3$' to contain the text '$var4$'$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' inside the '$var3$' to contain the text '$var4$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var4" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thencontainsanytext" value="$var1$ I expect the '$var2$' to contain any text$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to contain any text" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotcontainsanytext" value="$var1$ I expect the '$var2$' to not contain any text$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not contain any text" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenappearexactly" value="$var1$ I expect the '$var2$' to appear exactly '$var3$' times$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to appear exactly '$var3$' times" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;NUMBER&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotappearexactly" value="$var1$ I expect the '$var2$' to not appear exactly '$var3$' times$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not appear exactly '$var3$' times" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;NUMBER&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenexists" value="$var1$ I expect the '$var2$' to exist$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotexists" value="$var1$ I expect the '$var2$' to not exist$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenchecked" value="$var1$ I expect the '$var2$' to be checked$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be checked" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotchecked" value="$var1$ I expect the '$var2$' to not be checked$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not be checked" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenselected" value="$var1$ I expect the '$var2$' to be selected$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be selected" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotselected" value="$var1$ I expect the '$var2$' to not be selected$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not be selected" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenenabled" value="$var1$ I expect the '$var2$' to be enabled$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be enabled" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thendisabled" value="$var1$ I expect the '$var2$' to be disabled$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be disabled" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thencookiecontain" value="$var1$ I expect cookie '$var2$' to contain '$var3$'$END$" shortcut="TAB" description="$var1$ I expect cookie '$var2$' to contain '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotcookiecontain" value="$var1$ I expect cookie '$var2$' to not contain '$var3$'$END$" shortcut="TAB" description="$var1$ I expect cookie '$var2$' to not contain '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thencookieexists" value="$var1$ I expect cookie '$var2$' to exist$END$" shortcut="TAB" description="$var1$ I expect cookie '$var2$' to exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotcookieexists" value="$var1$ I expect cookie '$var2$' to not exist$END$" shortcut="TAB" description="$var1$ I expect cookie '$var2$' to not exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;COOKIE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenclassname" value="$var1$ I expect the '$var2$' to have the class '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to have the class '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;CLASS_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotclassname" value="$var1$ I expect the '$var2$' to not have the class '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not have the class '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;CLASS_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenfocused" value="$var1$ I expect the '$var2$' to be focused$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be focused" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenempty" value="$var1$ I expect the '$var2$' to be empty$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be empty" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotempty" value="$var1$ I expect the '$var2$' to not be empty$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not be empty" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenvalue" value="$var1$ I expect the value of the '$var2$' to be '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the value of the '$var2$' to be '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotvalue" value="$var1$ I expect the value of the '$var2$' to not be '$var3$'$END$" shortcut="TAB" description="$var1$ I expect the value of the '$var2$' to not be '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenelinsideelvalue" value="$var1$ I expect the value of the '$var2$' inside the '$var3$' to be '$var4$'$END$" shortcut="TAB" description="$var1$ I expect the value of the '$var2$' inside the '$var3$' to be '$var4$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var4" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenattribute" value="$var1$ I expect the '$var2$' has an attribute '$var3$' with a value of '$var4$'$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' has an attribute '$var3$' with a value of '$var4$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;ATTRIBUTE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var4" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenscreenshot" value="$var1$ take a screenshot$END$" shortcut="TAB" description="$var1$ take a screenshot" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenscreenshotcalled" value="$var1$ take a screenshot called '$var2$'$END$" shortcut="TAB" description="$var1$ take a screenshot called '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thendie" value="$var1$ fail step and take screenshot$END$" shortcut="TAB" description="$var1$ fail step and take screenshot" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>

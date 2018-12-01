@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the '${1:LOCATOR}' is visible
+${1:Given} the '${2:LOCATOR}' is visible
 ]]></content>
   <tabTrigger>givenvisible</tabTrigger>
 </snippet>

@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-take a screenshot called '${1:STRING}'
+${1:Then} take a screenshot called '${2:STRING}'
 ]]></content>
   <tabTrigger>thenscreenshotcalled</tabTrigger>
 </snippet>

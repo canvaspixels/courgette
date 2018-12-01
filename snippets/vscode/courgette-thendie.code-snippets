@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thendie",
     "body": [
-      "fail step and take screenshot"
+      "${1:Then} fail step and take screenshot"
     ],
-    "description": "fail step and take screenshot"
+    "description": "${1:Then} fail step and take screenshot"
   }
 }

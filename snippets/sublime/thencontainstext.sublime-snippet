@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I expect the '${1:LOCATOR}' to contain the text '${2:STRING}'
+${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'
 ]]></content>
   <tabTrigger>thencontainstext</tabTrigger>
 </snippet>

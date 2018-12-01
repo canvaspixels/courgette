@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givensetcookie",
     "body": [
-      "I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'"
+      "${1:Given} I set the cookie '${2:COOKIE_NAME}' with value '${3:VALUE}'"
     ],
-    "description": "I set the cookie '${1:COOKIE_NAME}' with value '${2:VALUE}'"
+    "description": "${1:Given} I set the cookie '${2:COOKIE_NAME}' with value '${3:VALUE}'"
   }
 }

@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I select the option for select element '${1:LOCATOR}' with the text '${2:VALUE}'
+${1:When} I select the option for select element '${2:LOCATOR}' with the text '${3:VALUE}'
 ]]></content>
   <tabTrigger>whenoption</tabTrigger>
 </snippet>

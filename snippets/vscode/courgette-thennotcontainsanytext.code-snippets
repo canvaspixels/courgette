@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thennotcontainsanytext",
     "body": [
-      "I expect the '${1:LOCATOR}' to not contain any text"
+      "${1:Then} I expect the '${2:LOCATOR}' to not contain any text"
     ],
-    "description": "I expect the '${1:LOCATOR}' to not contain any text"
+    "description": "${1:Then} I expect the '${2:LOCATOR}' to not contain any text"
   }
 }

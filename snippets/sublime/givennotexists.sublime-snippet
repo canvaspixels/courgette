@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the '${1:LOCATOR}' is not on the page
+${1:Given} the '${2:LOCATOR}' is not on the page
 ]]></content>
   <tabTrigger>givennotexists</tabTrigger>
 </snippet>

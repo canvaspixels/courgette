@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I expect the '${1:LOCATOR}' to be selected
+${1:Then} I expect the '${2:LOCATOR}' to be selected
 ]]></content>
   <tabTrigger>thenselected</tabTrigger>
 </snippet>

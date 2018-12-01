@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givengotourl",
     "body": [
-      "I am on the page with url '${1:URL}'"
+      "${1:Given} I am on the page with url '${2:URL}'"
     ],
-    "description": "I am on the page with url '${1:URL}'"
+    "description": "${1:Given} I am on the page with url '${2:URL}'"
   }
 }

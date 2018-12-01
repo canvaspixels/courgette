@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "whenset",
     "body": [
-      "I set '${1:LOCATOR}' to '${2:STRING}'"
+      "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
     ],
-    "description": "I set '${1:LOCATOR}' to '${2:STRING}'"
+    "description": "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
   }
 }

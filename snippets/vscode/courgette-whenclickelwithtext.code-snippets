@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "whenclickelwithtext",
     "body": [
-      "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+      "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
     ],
-    "description": "I click the '${1:NTH}' element with the text '${2:VALUE}'"
+    "description": "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
   }
 }

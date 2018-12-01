@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givennotexists",
     "body": [
-      "the '${1:LOCATOR}' is not on the page"
+      "${1:Given} the '${2:LOCATOR}' is not on the page"
     ],
-    "description": "the '${1:LOCATOR}' is not on the page"
+    "description": "${1:Given} the '${2:LOCATOR}' is not on the page"
   }
 }

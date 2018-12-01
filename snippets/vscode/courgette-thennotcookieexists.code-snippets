@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thennotcookieexists",
     "body": [
-      "I expect cookie '${1:COOKIE_NAME}' to not exist"
+      "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist"
     ],
-    "description": "I expect cookie '${1:COOKIE_NAME}' to not exist"
+    "description": "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist"
   }
 }

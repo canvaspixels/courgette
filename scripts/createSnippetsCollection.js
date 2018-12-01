@@ -31,21 +31,25 @@ const genSnippets = (steps, type) => {
   }
   steps.forEach((step) => {
     const allPlaceholders = placeholders.join('|');
+    const typeTitleCased = type.replace(/^./, (p1) => p1.toUpperCase());
+    const stepMatcher = `${typeTitleCased} ${step.matcher}`
+    console.log(stepMatcher);
 
     const zeroOrManyNotMatcher = /\(([^\)]*not[^\)]*)\)\*/g;
 
-    const newMatcher = step.matcher // used for steps with "not" alternatives
+    const newMatcher = stepMatcher // used for steps with "not" alternatives
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\(\?\:(.*)\)/g, '$1');
 
     const generatedCode = `${step.path ?
       step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
 
-    const matcherWithReplacedPlaceholders = step.matcher
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${1:${p1}\}'`)
+    const matcherWithReplacedPlaceholders = stepMatcher
+      .replace(new RegExp(`^${typeTitleCased}`), (m, p1) => `\${1:${typeTitleCased}\}`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${2:${p1}\}'`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${3:${p1}\}'`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${4:${p1}\}'`)
+      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${5:${p1}\}'`)
       .replace(/\(\?\:(.*?)\)\?/g, '$1');
 
     const matcher = matcherWithReplacedPlaceholders
@@ -59,7 +63,7 @@ const genSnippets = (steps, type) => {
     // add steps with their snippets for building the README
     stepsWithSnippetCodes[type].push(Object.assign({}, step, {
       code: newCode,
-      matcher: step.matcher.replace(zeroOrManyNotMatcher, ''),
+      matcher: stepMatcher.replace(zeroOrManyNotMatcher, ''),
     }));
 
     genSnippet(matcher, newCode);

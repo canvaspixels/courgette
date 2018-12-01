@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givenonpage",
     "body": [
-      "I am on the '${1:PAGE_NAME}' page"
+      "${1:Given} I am on the '${2:PAGE_NAME}' page"
     ],
-    "description": "I am on the '${1:PAGE_NAME}' page"
+    "description": "${1:Given} I am on the '${2:PAGE_NAME}' page"
   }
 }

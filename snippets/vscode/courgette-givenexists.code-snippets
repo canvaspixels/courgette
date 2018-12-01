@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givenexists",
     "body": [
-      "the '${1:LOCATOR}' is on the page"
+      "${1:Given} the '${2:LOCATOR}' is on the page"
     ],
-    "description": "the '${1:LOCATOR}' is on the page"
+    "description": "${1:Given} the '${2:LOCATOR}' is on the page"
   }
 }

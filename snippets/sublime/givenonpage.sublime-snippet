@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I am on the '${1:PAGE_NAME}' page
+${1:Given} I am on the '${2:PAGE_NAME}' page
 ]]></content>
   <tabTrigger>givenonpage</tabTrigger>
 </snippet>

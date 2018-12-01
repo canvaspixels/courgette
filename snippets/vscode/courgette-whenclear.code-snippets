@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "whenclear",
     "body": [
-      "I clear the '${1:LOCATOR}'"
+      "${1:When} I clear the '${2:LOCATOR}'"
     ],
-    "description": "I clear the '${1:LOCATOR}'"
+    "description": "${1:When} I clear the '${2:LOCATOR}'"
   }
 }

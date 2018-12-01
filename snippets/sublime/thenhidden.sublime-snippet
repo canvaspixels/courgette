@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I expect the '${1:LOCATOR}' to be hidden
+${1:Then} I expect the '${2:LOCATOR}' to be hidden
 ]]></content>
   <tabTrigger>thenhidden</tabTrigger>
 </snippet>

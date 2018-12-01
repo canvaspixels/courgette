@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givenchecked",
     "body": [
-      "the '${1:LOCATOR}' is checked"
+      "${1:Given} the '${2:LOCATOR}' is checked"
     ],
-    "description": "the '${1:LOCATOR}' is checked"
+    "description": "${1:Given} the '${2:LOCATOR}' is checked"
   }
 }

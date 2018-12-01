@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thennoturl",
     "body": [
-      "I expect the url to not be '${1:STRING}'"
+      "${1:Then} I expect the url to not be '${2:STRING}'"
     ],
-    "description": "I expect the url to not be '${1:STRING}'"
+    "description": "${1:Then} I expect the url to not be '${2:STRING}'"
   }
 }

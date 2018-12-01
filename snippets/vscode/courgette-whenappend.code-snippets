@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "whenappend",
     "body": [
-      "I append '${1:STRING}' to '${2:LOCATOR}'"
+      "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'"
     ],
-    "description": "I append '${1:STRING}' to '${2:LOCATOR}'"
+    "description": "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'"
   }
 }

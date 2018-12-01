@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thencontainstext",
     "body": [
-      "I expect the '${1:LOCATOR}' to contain the text '${2:STRING}'"
+      "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'"
     ],
-    "description": "I expect the '${1:LOCATOR}' to contain the text '${2:STRING}'"
+    "description": "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'"
   }
 }

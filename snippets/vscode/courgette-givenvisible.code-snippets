@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givenvisible",
     "body": [
-      "the '${1:LOCATOR}' is visible"
+      "${1:Given} the '${2:LOCATOR}' is visible"
     ],
-    "description": "the '${1:LOCATOR}' is visible"
+    "description": "${1:Given} the '${2:LOCATOR}' is visible"
   }
 }

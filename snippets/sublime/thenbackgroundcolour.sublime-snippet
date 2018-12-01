@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I expect the background colour of the '${1:LOCATOR}' to be '${2:STRING}'
+${1:Then} I expect the background colour of the '${2:LOCATOR}' to be '${3:STRING}'
 ]]></content>
   <tabTrigger>thenbackgroundcolour</tabTrigger>
 </snippet>

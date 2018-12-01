@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the '${1:LOCATOR}' is checked
+${1:Given} the '${2:LOCATOR}' is checked
 ]]></content>
   <tabTrigger>givenchecked</tabTrigger>
 </snippet>

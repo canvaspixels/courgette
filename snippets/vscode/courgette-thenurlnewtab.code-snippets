@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thenurlnewtab",
     "body": [
-      "I expect the url '${1:URL}' is opened in a new tab"
+      "${1:Then} I expect the url '${2:URL}' is opened in a new tab"
     ],
-    "description": "I expect the url '${1:URL}' is opened in a new tab"
+    "description": "${1:Then} I expect the url '${2:URL}' is opened in a new tab"
   }
 }

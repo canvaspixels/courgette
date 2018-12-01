@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-the cookie '${1:COOKIE_NAME}' is set to '${2:VALUE}'
+${1:Given} the cookie '${2:COOKIE_NAME}' is set to '${3:VALUE}'
 ]]></content>
   <tabTrigger>givencookie</tabTrigger>
 </snippet>

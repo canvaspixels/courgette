@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-I am on the page with url '${1:URL}'
+${1:Given} I am on the page with url '${2:URL}'
 ]]></content>
   <tabTrigger>givengotourl</tabTrigger>
 </snippet>

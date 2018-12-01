@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givennotcookie",
     "body": [
-      "the cookie '${1:COOKIE_NAME}' is not set to '${2:VALUE}'"
+      "${1:Given} the cookie '${2:COOKIE_NAME}' is not set to '${3:VALUE}'"
     ],
-    "description": "the cookie '${1:COOKIE_NAME}' is not set to '${2:VALUE}'"
+    "description": "${1:Given} the cookie '${2:COOKIE_NAME}' is not set to '${3:VALUE}'"
   }
 }

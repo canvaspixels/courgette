@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "givennotempty",
     "body": [
-      "the '${1:LOCATOR}' is not empty"
+      "${1:Given} the '${2:LOCATOR}' is not empty"
     ],
-    "description": "the '${1:LOCATOR}' is not empty"
+    "description": "${1:Given} the '${2:LOCATOR}' is not empty"
   }
 }

@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thenattribute",
     "body": [
-      "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+      "${1:Then} I expect the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'"
     ],
-    "description": "I expect the '${1:LOCATOR}' has an attribute '${2:ATTRIBUTE_NAME}' with a value of '${3:VALUE}'"
+    "description": "${1:Then} I expect the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'"
   }
 }

@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "whenkey",
     "body": [
-      "I press '${1:KEY}'"
+      "${1:When} I press '${2:KEY}'"
     ],
-    "description": "I press '${1:KEY}'"
+    "description": "${1:When} I press '${2:KEY}'"
   }
 }
