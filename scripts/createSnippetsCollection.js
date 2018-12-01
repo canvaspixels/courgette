@@ -14,7 +14,22 @@ const stepsWithSnippetCodes = {};
 
 const snippetsCollection = [];
 
-const genSnippet = (matcher, code, snippetForXML, varPlaceholders) => {
+const genSnippet = (matcher, code) => {
+  const placeholderMatcher = /\$\{(\d):([^}]*)\}/g;
+  const snippetForXML = matcher
+    .replace(placeholderMatcher, '$var$1$');
+
+  const varPlaceholders = [];
+
+  // jetbrains IDEs
+  const matchesForXMLSyntax = matcher.match(placeholderMatcher);
+
+  if (matchesForXMLSyntax) {
+    matchesForXMLSyntax.forEach((item) => {
+      varPlaceholders.push(item.replace(placeholderMatcher, '$2'));
+    });
+  }
+
   snippetsCollection.push({
     code,
     snippet: matcher,
@@ -33,13 +48,6 @@ const genSnippets = (steps, type) => {
   }
   steps.forEach((step) => {
     const allPlaceholders = placeholders.join('|');
-    const varPlaceholders = [];
-    const matcherWithReplacedPlaceholdersForXML = step.matcher
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var1$\''; })
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var2$\''; })
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var3$\''; })
-      .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var4$\''; })
-      .replace(/\(\?\:(.*?)\)\?/g, '$1');
 
     const zeroOrManyNotMatcher = /\(([^\)]*not[^\)]*)\)\*/g;
 
@@ -62,10 +70,6 @@ const genSnippets = (steps, type) => {
       .replace(/\((.*)\)\*/g, '$1')
       .replace(/\((.*)\)/g, '$1');
 
-    const matcherForXML = matcherWithReplacedPlaceholdersForXML
-      .replace(zeroOrManyNotMatcher, '')
-      .replace(/\((.*)\)\*/g, '$1')
-      .replace(/\((.*)\)/g, '$1');
     const newCode = `${type}${step.code || generatedCode}`;
     snippetCodes[type].push(newCode);
 
@@ -75,19 +79,17 @@ const genSnippets = (steps, type) => {
       matcher: step.matcher.replace(zeroOrManyNotMatcher, ''),
     }));
 
-    genSnippet(matcher, newCode, matcherForXML, varPlaceholders);
+    genSnippet(matcher, newCode);
 
     if (newMatcher.match(zeroOrManyNotMatcher)) {
       const newCode2 = `${type}not${step.code || generatedCode}`;
       const matcher2 = matcherWithReplacedPlaceholders
         .replace(/\((.*)\)\*/g, '$1');
-      const matcherForXML2 = matcherWithReplacedPlaceholdersForXML
-        .replace(/\((.*)\)\*/g, '$1');
       snippetCodes[type].push(newCode2);
 
       // add steps with their snippets for building the README
       stepsWithSnippetCodes[type].push(Object.assign({}, step, { code: newCode2 }));
-      genSnippet(matcher2, newCode2, matcherForXML2, varPlaceholders);
+      genSnippet(matcher2, newCode2);
     }
   });
 };
