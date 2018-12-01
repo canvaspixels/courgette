@@ -15,27 +15,10 @@ const stepsWithSnippetCodes = {};
 const snippetsCollection = [];
 
 const genSnippet = (matcher, code) => {
-  const placeholderMatcher = /\$\{(\d):([^}]*)\}/g;
-  const snippetForXML = matcher
-    .replace(placeholderMatcher, '$var$1$');
-
-  const varPlaceholders = [];
-
-  // jetbrains IDEs
-  const matchesForXMLSyntax = matcher.match(placeholderMatcher);
-
-  if (matchesForXMLSyntax) {
-    matchesForXMLSyntax.forEach((item) => {
-      varPlaceholders.push(item.replace(placeholderMatcher, '$2'));
-    });
-  }
-
   snippetsCollection.push({
     code,
     snippet: matcher,
     description: matcher,
-    snippetForXML,
-    varPlaceholders, // used for jetbrains IDEs
   });
 };
 

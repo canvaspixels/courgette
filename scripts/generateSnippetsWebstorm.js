@@ -9,6 +9,7 @@ const os = require('os');
 const { argv } = require('yargs');
 
 const createSnippetsCollection = require('./createSnippetsCollection');
+const xmlSyntaxHelper = require('./xmlSyntaxHelper');
 
 let snippets = '<templateSet group="Courgette">\n';
 
@@ -30,7 +31,8 @@ const genSnippet = (matcher, code, varPlaceholders) => {
 };
 
 const genSnippets = () => {
-  createSnippetsCollection.snippetsCollection.forEach(({ snippetForXML, code, varPlaceholders }) => {
+  createSnippetsCollection.snippetsCollection.forEach(({ snippet, code }) => {
+    const { snippetForXML, varPlaceholders } = xmlSyntaxHelper.getXMLSyntax(snippet);
     genSnippet(snippetForXML, code, varPlaceholders);
   });
 };
