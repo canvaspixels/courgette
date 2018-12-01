@@ -10,16 +10,16 @@ Note that the words in italics are optional.
 | --- | --- | --- |
 | Given I am on the page with url 'URL' | givengotourl | Goes to a page by URL |
 | Given the page url is 'URL' | givenpageurl | Checks the page url |
-| the page url is not 'URL' | givennotpageurl |  |
+| Given the page url is not 'URL' | givennotpageurl |  |
 | Given the page url contains 'URL' | givenurlcontains | Checks the page url contains |
 | Given animations are disabled | givendisableAnimations | Disables CSS animations |
 | Given the title is 'STRING' | giventitle |  |
-| the title is not 'STRING' | givennottitle |  |
+| Given the title is not 'STRING' | givennottitle |  |
 | Given&nbsp;I&nbsp;set&nbsp;the&nbsp;cookie&nbsp;'COOKIE_NAME'&nbsp;with&nbsp;value&nbsp;'VALUE' | givensetcookie |  |
 | Given the cookie 'COOKIE_NAME' is set to 'VALUE' | givencookie |  |
-| the cookie 'COOKIE_NAME' is not set to 'VALUE' | givennotcookie |  |
+| Given the cookie 'COOKIE_NAME' is not set to 'VALUE' | givennotcookie |  |
 | Given the cookie 'COOKIE_NAME' is set | givencookieset |  |
-| the cookie 'COOKIE_NAME' is not set | givennotcookieset |  |
+| Given the cookie 'COOKIE_NAME' is not set | givennotcookieset |  |
 
 ### When...
 
@@ -35,13 +35,13 @@ Note that the words in italics are optional.
 | --- | --- | --- |
 | Then I expect page to contain 'STRING' | thenpagecontainstext | This looks in the whole document for STRING |
 | Then I expect the url to be 'STRING' | thenurl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
-| I expect the url to not be 'STRING' | thennoturl |  |
+| Then I expect the url to not be 'STRING' | thennoturl |  |
 | Then I expect the url to contain 'STRING' | thenurlcontains | Using this just checks the URL, it does not change the page object. |
 | Then I expect the url 'URL' is opened in a new tab | thenurlnewtab | [Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16) |
-| Then&nbsp;I&nbsp;expect&nbsp;cookie&nbsp;'COOKIE_NAME'&nbsp;to&nbsp;contain&nbsp;'STRING' | thencookiecontain |  |
-| I expect cookie 'COOKIE_NAME' to not contain 'STRING' | thennotcookiecontain |  |
+| Then I expect cookie 'COOKIE_NAME' to contain 'STRING' | thencookiecontain |  |
+| Then&nbsp;I&nbsp;expect&nbsp;cookie&nbsp;'COOKIE_NAME'&nbsp;to&nbsp;not&nbsp;contain&nbsp;'STRING' | thennotcookiecontain |  |
 | Then I expect cookie 'COOKIE_NAME' to exist | thencookieexists |  |
-| I expect cookie 'COOKIE_NAME' to not exist | thennotcookieexists |  |
+| Then I expect cookie 'COOKIE_NAME' to not exist | thennotcookieexists |  |
 | Then take a screenshot | thenscreenshot |  |
 | Then take a screenshot called 'STRING' | thenscreenshotcalled |  |
 
@@ -58,20 +58,20 @@ Note that the words in italics are optional.
 | Given _the_ 'LOCATOR' is enabled | givenenabled |  |
 | Given _the_ 'LOCATOR' is disabled | givendisabled |  |
 | Given _the_ 'LOCATOR' is selected | givenselected |  |
-| _the_ 'LOCATOR' is not selected | givennotselected |  |
+| Given _the_ 'LOCATOR' is not selected | givennotselected |  |
 | Given _the_ 'LOCATOR' is checked | givenchecked |  |
-| _the_ 'LOCATOR' is not checked | givennotchecked |  |
+| Given _the_ 'LOCATOR' is not checked | givennotchecked |  |
 | Given _the_ 'LOCATOR' is on the page | givenexists |  |
-| _the_ 'LOCATOR' is not on the page | givennotexists |  |
+| Given _the_ 'LOCATOR' is not on the page | givennotexists |  |
 | Given _the_ 'LOCATOR' contains the text 'STRING' | givencontainstext |  |
 | Given&nbsp;_the_&nbsp;'LOCATOR'&nbsp;does&nbsp;not&nbsp;contain&nbsp;the&nbsp;text&nbsp;'STRING' | givennotcontainstext |  |
 | Given _the_ 'LOCATOR' contains any text | givencontainsanytext |  |
 | Given _the_ 'LOCATOR' does not contain any text | givennotcontainsanytext |  |
 | Given _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | givenattribute |  |
 | Given _the_ 'LOCATOR' is empty | givenempty |  |
-| _the_ 'LOCATOR' is not empty | givennotempty |  |
+| Given _the_ 'LOCATOR' is not empty | givennotempty |  |
 | Given the value of _the_ 'LOCATOR' is 'VALUE' | givenvalue |  |
-| the value of _the_ 'LOCATOR' is not 'VALUE' | givennotvalue |  |
+| Given the value of _the_ 'LOCATOR' is not 'VALUE' | givennotvalue |  |
 
 ### When...
 
@@ -100,29 +100,29 @@ Note that the words in italics are optional.
 | Then I expect the colour of the 'LOCATOR' to be 'STRING' | thencolour |  |
 | Then I expect the background colour of the 'LOCATOR' to be 'STRING' | thenbackgroundcolour |  |
 | Then I expect the title to be 'STRING' | thentitle |  |
-| I expect the title to not be 'STRING' | thennottitle |  |
-| Then I expect _the_ 'LOCATOR' to contain the text 'STRING' | thencontainstext |  |
+| Then I expect the title to not be 'STRING' | thennottitle |  |
+| Then&nbsp;I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;contain&nbsp;the&nbsp;text&nbsp;'STRING' | thencontainstext |  |
 | Then I expect _the_ 'LOCATOR' to not contain the text 'STRING' | thennotcontainstext |  |
 | Then I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to contain the text 'STRING' | thenelinsideelcontainstext |  |
 | Then I expect _the_ 'LOCATOR' to contain any text | thencontainsanytext |  |
-| I expect _the_ 'LOCATOR' to not contain any text | thennotcontainsanytext |  |
+| Then I expect _the_ 'LOCATOR' to not contain any text | thennotcontainsanytext |  |
 | Then I expect _the_ 'LOCATOR' to appear exactly 'NUMBER' times | thenappearexactly |  |
-| I expect _the_ 'LOCATOR' to not appear exactly 'NUMBER' times | thennotappearexactly |  |
+| Then I expect _the_ 'LOCATOR' to not appear exactly 'NUMBER' times | thennotappearexactly |  |
 | Then I expect _the_ 'LOCATOR' to exist | thenexists |  |
-| I expect _the_ 'LOCATOR' to not exist | thennotexists |  |
+| Then I expect _the_ 'LOCATOR' to not exist | thennotexists |  |
 | Then I expect _the_ 'LOCATOR' to be checked | thenchecked |  |
-| I expect _the_ 'LOCATOR' to not be checked | thennotchecked |  |
+| Then I expect _the_ 'LOCATOR' to not be checked | thennotchecked |  |
 | Then I expect _the_ 'LOCATOR' to be selected | thenselected |  |
-| I expect _the_ 'LOCATOR' to not be selected | thennotselected |  |
+| Then I expect _the_ 'LOCATOR' to not be selected | thennotselected |  |
 | Then I expect _the_ 'LOCATOR' to be enabled | thenenabled |  |
 | Then I expect _the_ 'LOCATOR' to be disabled | thendisabled |  |
 | Then I expect _the_ 'LOCATOR' to have the class 'CLASS_NAME' | thenclassname |  |
-| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;not&nbsp;have&nbsp;the&nbsp;class&nbsp;'CLASS_NAME' | thennotclassname |  |
+| Then I expect _the_ 'LOCATOR' to not have the class 'CLASS_NAME' | thennotclassname |  |
 | Then I expect _the_ 'LOCATOR' to be focused | thenfocused |  |
 | Then I expect _the_ 'LOCATOR' to be empty | thenempty |  |
-| I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
+| Then I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
 | Then I expect the value of _the_ 'LOCATOR' to be 'STRING' | thenvalue | Used for getting the value of an input |
-| I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue |  |
+| Then I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue |  |
 | Then I expect the value of _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be 'STRING' | thenelinsideelvalue | This currently only works with XPaths |
 | Then I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenattribute |  |
 | Then fail step and take screenshot | thendie |  |

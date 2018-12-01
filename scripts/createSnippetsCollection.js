@@ -75,7 +75,10 @@ const genSnippets = (steps, type) => {
       snippetCodes[type].push(newCode2);
 
       // add steps with their snippets for building the README
-      stepsWithSnippetCodes[type].push(Object.assign({}, step, { code: newCode2 }));
+      stepsWithSnippetCodes[type].push(Object.assign({}, step, {
+        code: newCode2,
+        matcher: stepMatcher,
+      }));
       genSnippet(matcher2, newCode2);
     }
   });
