@@ -1,4 +1,4 @@
-module.exports = function checkUrl(pageName) {
+module.exports = function setPageObjectThenCheckUrl(pageName) {
   // update the page object
   const newPageObject = this.getPage(pageName);
 

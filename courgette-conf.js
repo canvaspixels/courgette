@@ -10,7 +10,7 @@ const courgettePath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
-  timeoutInSeconds: process.env.courgetteTimeout || 3,
+  timeoutInSeconds: process.env.courgetteTimeout || 10,
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   baseUrl: 'http://localhost:3000',
