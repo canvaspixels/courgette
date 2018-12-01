@@ -374,6 +374,13 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="thensetpageobj" value="$var1$ I set the page object to '$var2$' page$END$" shortcut="TAB" description="$var1$ I set the page object to '$var2$' page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="thenvisible" value="$var1$ I expect the '$var2$' to be visible$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to be visible" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />

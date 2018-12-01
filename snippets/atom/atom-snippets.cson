@@ -154,6 +154,9 @@
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
     'prefix': 'thenonpage'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
+  "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
+    'prefix': 'thensetpageobj'
+    'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
   "${1:Then} I expect the '${2:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be visible"
@@ -425,6 +428,9 @@
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
     'prefix': 'thenonpage'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
+  "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
+    'prefix': 'thensetpageobj'
+    'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
   "${1:Then} I expect the '${2:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be visible"

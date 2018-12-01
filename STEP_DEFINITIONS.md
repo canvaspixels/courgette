@@ -93,6 +93,7 @@ Note that the words in italics are optional.
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | Then I expect to be on the 'PAGE_NAME' page | thenonpage | This step does 2 things: it changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists. |
+| Then I set the page object to 'PAGE_NAME' page | thensetpageobj | This changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object |
 | Then I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
 | Then I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be visible | thenelinsideelvisible | This currently only works with XPaths |
 | Then I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |
