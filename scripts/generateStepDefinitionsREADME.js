@@ -22,8 +22,7 @@ const padLongestMatcher = (stepDefLns) => {
   return stepDefLines;
 };
 
-const createStepDefLines = (steps, type) => {
-  let stepDefNum = 0;
+const createStepDefLines = (steps) => {
   const newStepDefLines = [];
   steps.forEach((step) => {
     const notMatcher = /not\*/g;
@@ -31,16 +30,14 @@ const createStepDefLines = (steps, type) => {
       .replace(/\(\?\:(.*?)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\|/g, ' OR ')
       .replace(/\(\?\:(.*)\)/g, '$1')
-      .replace(/\((.*)\)/g, '$1')
+      .replace(/\((.*)\)/g, '$1');
 
-    let notes = step.notes;
+    let { notes } = step;
     if (newMatcher.match(notMatcher)) {
       notes = '';
     }
 
-    newStepDefLines.push(
-      createStepDefLine(newMatcher.replace(notMatcher, 'not'), step.code, notes)
-    );
+    newStepDefLines.push(createStepDefLine(newMatcher.replace(notMatcher, 'not'), step.code, notes));
   });
 
   padLongestMatcher(newStepDefLines);
@@ -52,9 +49,9 @@ const createStepDefLines = (steps, type) => {
 const noPORequiredFilter = (step) => step.pageObjectNotRequired;
 const pORequiredFilter = (step) => !step.pageObjectNotRequired;
 
-const givenSteps = createSnippetsCollection.stepsWithSnippetCodes['given'];
-const whenSteps = createSnippetsCollection.stepsWithSnippetCodes['when'];
-const thenSteps = createSnippetsCollection.stepsWithSnippetCodes['then'];
+const givenSteps = createSnippetsCollection.stepsWithSnippetCodes.given;
+const whenSteps = createSnippetsCollection.stepsWithSnippetCodes.when;
+const thenSteps = createSnippetsCollection.stepsWithSnippetCodes.then;
 const givenStepDefLines = [
   '# Available Step Definitions',
   '',

@@ -32,7 +32,7 @@ const genSnippets = (steps, type) => {
   steps.forEach((step) => {
     const allPlaceholders = placeholders.join('|');
     const typeTitleCased = type.replace(/^./, (p1) => p1.toUpperCase());
-    const stepMatcher = `${typeTitleCased} ${step.matcher}`
+    const stepMatcher = `${typeTitleCased} ${step.matcher}`;
     console.log(stepMatcher);
 
     const zeroOrManyNotMatcher = /\(([^\)]*not[^\)]*)\)\*/g;
@@ -45,7 +45,7 @@ const genSnippets = (steps, type) => {
       step.path.replace(/[./]*/g, '').replace(/^(actions|checks)/g, '') : 'die'}`;
 
     const matcherWithReplacedPlaceholders = stepMatcher
-      .replace(new RegExp(`^${typeTitleCased}`), (m, p1) => `\${1:${typeTitleCased}\}`)
+      .replace(new RegExp(`^${typeTitleCased}`), () => `\${1:${typeTitleCased}\}`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${2:${p1}\}'`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${3:${p1}\}'`)
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => `'\${4:${p1}\}'`)

@@ -17,7 +17,7 @@ const getXMLSyntax = (snippet) => {
   return {
     snippetForXML,
     varPlaceholders,
-  }
+  };
 };
 
 module.exports = {
