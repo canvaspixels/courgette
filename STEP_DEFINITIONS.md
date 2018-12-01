@@ -8,18 +8,18 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I am on the page with url 'URL' | givenonpage | Goes to a page by URL |
-| the page url is 'URL' | givengotourl | Checks the page url |
-| the page url is not 'URL' | givenpageurl | Checks the page url |
-| the page url contains 'URL' | givennotpageurl | Checks the page url contains |
-| animations are disabled | givenurlcontains | Disables CSS animations |
-| the title is 'STRING' | givendisableAnimations |  |
-| the title is not 'STRING' | givenvisible |  |
-| I&nbsp;set&nbsp;the&nbsp;cookie&nbsp;'COOKIE_NAME'&nbsp;with&nbsp;value&nbsp;'VALUE' | givenhidden |  |
-| the cookie 'COOKIE_NAME' is set to 'VALUE' | givenenabled |  |
-| the cookie 'COOKIE_NAME' is not set to 'VALUE' | givendisabled |  |
-| the cookie 'COOKIE_NAME' is set | givenselected |  |
-| the cookie 'COOKIE_NAME' is not set | givennotselected |  |
+| I am on the page with url 'URL' | givengotourl | Goes to a page by URL |
+| the page url is 'URL' | givenpageurl | Checks the page url |
+| the page url is not 'URL' | givennotpageurl |  |
+| the page url contains 'URL' | givenurlcontains | Checks the page url contains |
+| animations are disabled | givendisableAnimations | Disables CSS animations |
+| the title is 'STRING' | giventitle |  |
+| the title is not 'STRING' | givennottitle |  |
+| I&nbsp;set&nbsp;the&nbsp;cookie&nbsp;'COOKIE_NAME'&nbsp;with&nbsp;value&nbsp;'VALUE' | givensetcookie |  |
+| the cookie 'COOKIE_NAME' is set to 'VALUE' | givencookie |  |
+| the cookie 'COOKIE_NAME' is not set to 'VALUE' | givennotcookie |  |
+| the cookie 'COOKIE_NAME' is set | givencookieset |  |
+| the cookie 'COOKIE_NAME' is not set | givennotcookieset |  |
 
 ### When...
 
@@ -35,15 +35,15 @@ Note that the words in italics are optional.
 | --- | --- | --- |
 | I expect page to contain 'STRING' | thenpagecontainstext | This looks in the whole document for STRING |
 | I expect the url to be 'STRING' | thenurl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
-| I expect the url to not be 'STRING' | thennoturl | Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step |
+| I expect the url to not be 'STRING' | thennoturl |  |
 | I expect the url to contain 'STRING' | thenurlcontains | Using this just checks the URL, it does not change the page object. |
 | I expect the url 'URL' is opened in a new tab | thenurlnewtab | [Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16) |
-| I expect cookie 'COOKIE_NAME' to contain 'STRING' | thenonpage |  |
-| I&nbsp;expect&nbsp;cookie&nbsp;'COOKIE_NAME'&nbsp;to&nbsp;not&nbsp;contain&nbsp;'STRING' | thenvisible |  |
-| I expect cookie 'COOKIE_NAME' to exist | thenelinsideelvisible |  |
-| I expect cookie 'COOKIE_NAME' to not exist | thenhidden |  |
-| take a screenshot | thenbordercolour |  |
-| take a screenshot called 'STRING' | thencolour |  |
+| I expect cookie 'COOKIE_NAME' to contain 'STRING' | thencookiecontain |  |
+| I&nbsp;expect&nbsp;cookie&nbsp;'COOKIE_NAME'&nbsp;to&nbsp;not&nbsp;contain&nbsp;'STRING' | thennotcookiecontain |  |
+| I expect cookie 'COOKIE_NAME' to exist | thencookieexists |  |
+| I expect cookie 'COOKIE_NAME' to not exist | thennotcookieexists |  |
+| take a screenshot | thenscreenshot |  |
+| take a screenshot called 'STRING' | thenscreenshotcalled |  |
 
 
 ## Step definitions that require page objects to work
@@ -53,77 +53,76 @@ Note that the words in italics are optional.
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
 | I am on the 'PAGE_NAME' page | givenonpage | PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object |
-| _the_ 'LOCATOR' is visible | givengotourl |  |
-| _the_ 'LOCATOR' is hidden | givenpageurl |  |
-| _the_ 'LOCATOR' is enabled | givennotpageurl |  |
-| _the_ 'LOCATOR' is disabled | givenurlcontains |  |
-| _the_ 'LOCATOR' is selected | givendisableAnimations |  |
-| _the_ 'LOCATOR' is not selected | givenvisible |  |
-| _the_ 'LOCATOR' is checked | givenhidden |  |
-| _the_ 'LOCATOR' is not checked | givenenabled |  |
-| _the_ 'LOCATOR' is on the page | givendisabled |  |
-| _the_ 'LOCATOR' is not on the page | givenselected |  |
-| _the_ 'LOCATOR' contains the text 'STRING' | givennotselected |  |
-| _the_&nbsp;'LOCATOR'&nbsp;does&nbsp;not&nbsp;contain&nbsp;the&nbsp;text&nbsp;'STRING' | givenchecked |  |
-| _the_ 'LOCATOR' contains any text | givennotchecked |  |
-| _the_ 'LOCATOR' does not contain any text | givenexists |  |
-| _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | givennotexists |  |
-| _the_ 'LOCATOR' is empty | giventitle |  |
-| _the_ 'LOCATOR' is not empty | givennottitle |  |
-| the value of _the_ 'LOCATOR' is 'VALUE' | givencontainstext |  |
-| the value of _the_ 'LOCATOR' is not 'VALUE' | givennotcontainstext |  |
+| _the_ 'LOCATOR' is visible | givenvisible |  |
+| _the_ 'LOCATOR' is hidden | givenhidden |  |
+| _the_ 'LOCATOR' is enabled | givenenabled |  |
+| _the_ 'LOCATOR' is disabled | givendisabled |  |
+| _the_ 'LOCATOR' is selected | givenselected |  |
+| _the_ 'LOCATOR' is not selected | givennotselected |  |
+| _the_ 'LOCATOR' is checked | givenchecked |  |
+| _the_ 'LOCATOR' is not checked | givennotchecked |  |
+| _the_ 'LOCATOR' is on the page | givenexists |  |
+| _the_ 'LOCATOR' is not on the page | givennotexists |  |
+| _the_ 'LOCATOR' contains the text 'STRING' | givencontainstext |  |
+| _the_&nbsp;'LOCATOR'&nbsp;does&nbsp;not&nbsp;contain&nbsp;the&nbsp;text&nbsp;'STRING' | givennotcontainstext |  |
+| _the_ 'LOCATOR' contains any text | givencontainsanytext |  |
+| _the_ 'LOCATOR' does not contain any text | givennotcontainsanytext |  |
+| _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | givenattribute |  |
+| _the_ 'LOCATOR' is empty | givenempty |  |
+| _the_ 'LOCATOR' is not empty | givennotempty |  |
+| the value of _the_ 'LOCATOR' is 'VALUE' | givenvalue |  |
+| the value of _the_ 'LOCATOR' is not 'VALUE' | givennotvalue |  |
 
 ### When...
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I click _the_ 'LOCATOR' | whenclickelwithtext |  |
-| I click _the_ 'LOCATOR' inside _the_ 'LOCATOR' | whenclickelcontainstext | This currently only works with XPaths |
-| I append 'STRING' to 'LOCATOR' | whenkey |  |
-| I set 'LOCATOR' to 'STRING' | whenclick |  |
-| I&nbsp;set&nbsp;_the_&nbsp;'LOCATOR'&nbsp;inside&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;'STRING' | whenclickelinsideel | This currently only works with XPaths |
-| I append 'STRING' to react field 'LOCATOR' | whenappend | Sets the value to the input then fires React’s version of the onChange event, so that any actions fire |
-| I set react field 'LOCATOR' to 'STRING' | whenset | Similar to append in react above |
-| I submit the _form_ 'LOCATOR' | whensetelinsideel | [This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359) |
-| I clear _the_ 'LOCATOR' | whenappendreact |  |
-| I select the option for select element 'LOCATOR' with the text 'VALUE' | whensetreact |  |
+| I click _the_ 'LOCATOR' | whenclick |  |
+| I click _the_ 'LOCATOR' inside _the_ 'LOCATOR' | whenclickelinsideel | This currently only works with XPaths |
+| I append 'STRING' to 'LOCATOR' | whenappend |  |
+| I set 'LOCATOR' to 'STRING' | whenset |  |
+| I&nbsp;set&nbsp;_the_&nbsp;'LOCATOR'&nbsp;inside&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;'STRING' | whensetelinsideel | This currently only works with XPaths |
+| I append 'STRING' to react field 'LOCATOR' | whenappendreact | Sets the value to the input then fires React’s version of the onChange event, so that any actions fire |
+| I set react field 'LOCATOR' to 'STRING' | whensetreact | Similar to append in react above |
+| I submit the _form_ 'LOCATOR' | whensubmit | [This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359) |
+| I clear _the_ 'LOCATOR' | whenclear |  |
+| I select the option for select element 'LOCATOR' with the text 'VALUE' | whenoption |  |
 
 ### Then...
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
-| I expect to be on the 'PAGE_NAME' page | thenpagecontainstext | This step does 2 things: it changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists. |
-| I expect _the_ 'LOCATOR' to be visible | thenurl |  |
-| I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be visible | thennoturl | This currently only works with XPaths |
-| I expect _the_ 'LOCATOR' to be hidden | thenurlcontains |  |
-| I expect the (bottom OR top OR left OR right)* border colour of the 'LOCATOR' to be 'STRING' | thenurlnewtab | Pick a side (bottom, top, left, or right) or remove the expected side. |
-| I expect the colour of the 'LOCATOR' to be 'STRING' | thenonpage |  |
-| I expect the background colour of the 'LOCATOR' to be 'STRING' | thenvisible |  |
-| I expect the title to be 'STRING' | thenelinsideelvisible |  |
-| I expect the title to not be 'STRING' | thenhidden |  |
-| I expect _the_ 'LOCATOR' to contain the text 'STRING' | thenbordercolour |  |
-| I expect _the_ 'LOCATOR' to not contain the text 'STRING' | thencolour |  |
-| I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to contain the text 'STRING' | thenbackgroundcolour |  |
-| I expect _the_ 'LOCATOR' to contain any text | thentitle |  |
-| I expect _the_ 'LOCATOR' to not contain any text | thennottitle |  |
-| I expect _the_ 'LOCATOR' to appear exactly 'NUMBER' times | thencontainstext |  |
-| I expect _the_ 'LOCATOR' to not appear exactly 'NUMBER' times | thennotcontainstext |  |
-| I expect _the_ 'LOCATOR' to exist | thenelinsideelcontainstext |  |
-| I expect _the_ 'LOCATOR' to not exist | thencontainsanytext |  |
-| I expect _the_ 'LOCATOR' to be checked | thennotcontainsanytext |  |
-| I expect _the_ 'LOCATOR' to not be checked | thenappearexactly |  |
-| I expect _the_ 'LOCATOR' to be selected | thennotappearexactly |  |
-| I expect _the_ 'LOCATOR' to not be selected | thenexists |  |
-| I expect _the_ 'LOCATOR' to be enabled | thennotexists |  |
-| I expect _the_ 'LOCATOR' to be disabled | thenchecked |  |
-| I expect _the_ 'LOCATOR' to have the class 'CLASS_NAME' | thennotchecked |  |
-| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;not&nbsp;have&nbsp;the&nbsp;class&nbsp;'CLASS_NAME' | thenselected |  |
-| I expect _the_ 'LOCATOR' to be focused | thennotselected |  |
-| I expect _the_ 'LOCATOR' to be empty | thenenabled |  |
-| I expect _the_ 'LOCATOR' to not be empty | thendisabled |  |
-| I expect the value of _the_ 'LOCATOR' to be 'STRING' | thencookiecontain | Used for getting the value of an input |
-| I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotcookiecontain | Used for getting the value of an input |
-| I expect the value of _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be 'STRING' | thencookieexists | This currently only works with XPaths |
-| I expect the value of _the_ 'LOCATOR' inside _the_ 'LOCATOR' to not be 'STRING' | thennotcookieexists | This currently only works with XPaths |
-| I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenclassname |  |
-| fail step and take screenshot | thennotclassname |  |
+| I expect to be on the 'PAGE_NAME' page | thenonpage | This step does 2 things: it changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists. |
+| I expect _the_ 'LOCATOR' to be visible | thenvisible |  |
+| I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be visible | thenelinsideelvisible | This currently only works with XPaths |
+| I expect _the_ 'LOCATOR' to be hidden | thenhidden |  |
+| I expect the (bottom OR top OR left OR right)* border colour of the 'LOCATOR' to be 'STRING' | thenbordercolour | Pick a side (bottom, top, left, or right) or remove the expected side. |
+| I expect the colour of the 'LOCATOR' to be 'STRING' | thencolour |  |
+| I expect the background colour of the 'LOCATOR' to be 'STRING' | thenbackgroundcolour |  |
+| I expect the title to be 'STRING' | thentitle |  |
+| I expect the title to not be 'STRING' | thennottitle |  |
+| I expect _the_ 'LOCATOR' to contain the text 'STRING' | thencontainstext |  |
+| I expect _the_ 'LOCATOR' to not contain the text 'STRING' | thennotcontainstext |  |
+| I expect _the_ 'LOCATOR' inside _the_ 'LOCATOR' to contain the text 'STRING' | thenelinsideelcontainstext |  |
+| I expect _the_ 'LOCATOR' to contain any text | thencontainsanytext |  |
+| I expect _the_ 'LOCATOR' to not contain any text | thennotcontainsanytext |  |
+| I expect _the_ 'LOCATOR' to appear exactly 'NUMBER' times | thenappearexactly |  |
+| I expect _the_ 'LOCATOR' to not appear exactly 'NUMBER' times | thennotappearexactly |  |
+| I expect _the_ 'LOCATOR' to exist | thenexists |  |
+| I expect _the_ 'LOCATOR' to not exist | thennotexists |  |
+| I expect _the_ 'LOCATOR' to be checked | thenchecked |  |
+| I expect _the_ 'LOCATOR' to not be checked | thennotchecked |  |
+| I expect _the_ 'LOCATOR' to be selected | thenselected |  |
+| I expect _the_ 'LOCATOR' to not be selected | thennotselected |  |
+| I expect _the_ 'LOCATOR' to be enabled | thenenabled |  |
+| I expect _the_ 'LOCATOR' to be disabled | thendisabled |  |
+| I expect _the_ 'LOCATOR' to have the class 'CLASS_NAME' | thenclassname |  |
+| I&nbsp;expect&nbsp;_the_&nbsp;'LOCATOR'&nbsp;to&nbsp;not&nbsp;have&nbsp;the&nbsp;class&nbsp;'CLASS_NAME' | thennotclassname |  |
+| I expect _the_ 'LOCATOR' to be focused | thenfocused |  |
+| I expect _the_ 'LOCATOR' to be empty | thenempty |  |
+| I expect _the_ 'LOCATOR' to not be empty | thennotempty |  |
+| I expect the value of _the_ 'LOCATOR' to be 'STRING' | thenvalue | Used for getting the value of an input |
+| I expect the value of _the_ 'LOCATOR' to not be 'STRING' | thennotvalue |  |
+| I expect the value of _the_ 'LOCATOR' inside _the_ 'LOCATOR' to be 'STRING' | thenelinsideelvalue | This currently only works with XPaths |
+| I expect _the_ 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE' | thenattribute |  |
+| fail step and take screenshot | thendie |  |

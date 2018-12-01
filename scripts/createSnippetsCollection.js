@@ -10,6 +10,7 @@ const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
 const snippetCodes = {};
+const stepsWithSnippetCodes = {};
 
 const snippetsCollection = [];
 
@@ -24,6 +25,9 @@ const genSnippet = (matcher, code, snippetForXML, varPlaceholders) => {
 };
 
 const genSnippets = (steps, type) => {
+  if (!stepsWithSnippetCodes[type]) {
+    stepsWithSnippetCodes[type] = [];
+  }
   if (!snippetCodes[type]) {
     snippetCodes[type] = [];
   }
@@ -37,7 +41,7 @@ const genSnippets = (steps, type) => {
       .replace(new RegExp(`'(${allPlaceholders})'`), (m, p1) => { varPlaceholders.push(p1); return '\'$var4$\''; })
       .replace(/\(\?\:(.*?)\)\?/g, '$1');
 
-    const zeroOrManyNotMatcher = /\((.*not.*)\)\*/g;
+    const zeroOrManyNotMatcher = /\(([^\)]*not[^\)]*)\)\*/g;
 
     const newMatcher = step.matcher // used for steps with "not" alternatives
       .replace(/\(\?\:(.*)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
@@ -64,6 +68,13 @@ const genSnippets = (steps, type) => {
       .replace(/\((.*)\)/g, '$1');
     const newCode = `${type}${step.code || generatedCode}`;
     snippetCodes[type].push(newCode);
+
+    // add steps with their snippets for building the README
+    stepsWithSnippetCodes[type].push(Object.assign({}, step, {
+      code: newCode,
+      matcher: step.matcher.replace(zeroOrManyNotMatcher, ''),
+    }));
+
     genSnippet(matcher, newCode, matcherForXML, varPlaceholders);
 
     if (newMatcher.match(zeroOrManyNotMatcher)) {
@@ -73,9 +84,11 @@ const genSnippets = (steps, type) => {
       const matcherForXML2 = matcherWithReplacedPlaceholdersForXML
         .replace(/\((.*)\)\*/g, '$1');
       snippetCodes[type].push(newCode2);
+
+      // add steps with their snippets for building the README
+      stepsWithSnippetCodes[type].push(Object.assign({}, step, { code: newCode2 }));
       genSnippet(matcher2, newCode2, matcherForXML2, varPlaceholders);
     }
-    // console.log(`${type}${step.code || generatedCode}`);
   });
 };
 genSnippets(givenSteps, 'given');
@@ -85,4 +98,5 @@ genSnippets(thenSteps, 'then');
 module.exports = {
   snippetsCollection,
   snippetCodes,
+  stepsWithSnippetCodes,
 };

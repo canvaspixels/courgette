@@ -1,11 +1,8 @@
 const fs = require('fs');
-const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
-const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
-const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
 const createSnippetsCollection = require('./createSnippetsCollection');
 
 const createStepDefLine = (matcher, code, notes) =>
-  [`${matcher.replace(/\((.*)\)/g, '$1')}`, code, notes || ''];
+  [matcher, code, notes || ''];
 
 const padLongestMatcher = (stepDefLns) => {
   const stepDefLines = stepDefLns;
@@ -29,21 +26,21 @@ const createStepDefLines = (steps, type) => {
   let stepDefNum = 0;
   const newStepDefLines = [];
   steps.forEach((step) => {
-    const code = createSnippetsCollection.snippetCodes[type][stepDefNum++]; // eslint-disable-line no-plusplus
-    const zeroOrManyNotMatcher = /\((.*not.*)\)\*/;
+    const notMatcher = /not\*/g;
     const newMatcher = step.matcher
       .replace(/\(\?\:(.*?)\)\?/g, (match, p1) => p1.replace(/([^ ]+)/, '_$1_'))
       .replace(/\|/g, ' OR ')
-      .replace(/\(\?\:(.*)\)/g, '$1');
+      .replace(/\(\?\:(.*)\)/g, '$1')
+      .replace(/\((.*)\)/g, '$1')
 
-    const matcher = newMatcher.replace(zeroOrManyNotMatcher, '');
-    newStepDefLines.push(createStepDefLine(matcher, code, step.notes));
-
-    if (newMatcher.match(zeroOrManyNotMatcher)) {
-      const matcher2 = newMatcher.replace(zeroOrManyNotMatcher, '$1');
-      const code2 = createSnippetsCollection.snippetCodes[type][stepDefNum++]; // eslint-disable-line no-plusplus
-      newStepDefLines.push(createStepDefLine(matcher2, code2, step.notes));
+    let notes = step.notes;
+    if (newMatcher.match(notMatcher)) {
+      notes = '';
     }
+
+    newStepDefLines.push(
+      createStepDefLine(newMatcher.replace(notMatcher, 'not'), step.code, notes)
+    );
   });
 
   padLongestMatcher(newStepDefLines);
@@ -55,6 +52,9 @@ const createStepDefLines = (steps, type) => {
 const noPORequiredFilter = (step) => step.pageObjectNotRequired;
 const pORequiredFilter = (step) => !step.pageObjectNotRequired;
 
+const givenSteps = createSnippetsCollection.stepsWithSnippetCodes['given'];
+const whenSteps = createSnippetsCollection.stepsWithSnippetCodes['when'];
+const thenSteps = createSnippetsCollection.stepsWithSnippetCodes['then'];
 const givenStepDefLines = [
   '# Available Step Definitions',
   '',
