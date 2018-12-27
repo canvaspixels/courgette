@@ -1,0 +1,30 @@
+.Home {
+  text-align: center;
+  background: rgba(220, 220, 220, 1);
+  padding: 10px;
+}
+
+.Home-logo {
+  animation: Home-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.Home-header {
+  padding: 10px;
+  border: 1px solid rgba(255, 0, 255, 1);
+  display: inline-block;
+  color: rgba(13, 105, 227, 1);
+}
+
+.Home-title {
+  font-size: 1.5em;
+}
+
+.Home-intro {
+  font-size: large;
+}
+
+@keyframes Home-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
