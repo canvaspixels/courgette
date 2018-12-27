@@ -60,13 +60,13 @@ npm install courgette
 As a shortcut, to create yourself a new npm project, initialise npm (create package.json), install and setup Courgette, initialise git and create a commit, paste the following into your terminal:
 
 ```
-mkdir yourProjectName && cd $_ && npm init -y && npm i courgette && git init && BR=$'\n' && echo "node_modules${BR}uiTestResult" > .gitignore && git add . && git commit -am 'init commit'
+mkdir yourProjectName && cd $_ && npm init -y && npm i courgette && git init && BR=$'\n' && echo "node_modules${BR}uiTestResult" > .gitignore && git add . && git commit -am 'init commit' && npm run setup-courgette-snippets
 ```
 
 or without the git stuff:
 
 ```
-mkdir yourProjectName && cd $_ && npm init -y && npm i courgette
+mkdir yourProjectName && cd $_ && npm init -y && npm i courgette && npm run setup-courgette-snippets
 ```
 
 3. As an improvement, to suppress deprecation warnings (if running node >= 8) and also to type `courgette` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:

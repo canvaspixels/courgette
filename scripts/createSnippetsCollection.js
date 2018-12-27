@@ -33,7 +33,6 @@ const genSnippets = (steps, type) => {
     const allPlaceholders = placeholders.join('|');
     const typeTitleCased = type.replace(/^./, (p1) => p1.toUpperCase());
     const stepMatcher = `${typeTitleCased} ${step.matcher}`;
-    console.log(stepMatcher);
 
     const zeroOrManyNotMatcher = /\(([^\)]*not[^\)]*)\)\*/g;
 
