@@ -10,7 +10,6 @@ Methods that don't require page objects
 | disableAnimations | none |
 | clickElementWithText | (text) |
 | clickElementThatContainsText | (text) |
-
 | checkTitle | (expectedTitle) |
 | checkTitleIsNot | (expectedTitle) |
 | checkUrlIs | (url) |
@@ -37,7 +36,6 @@ Methods that require page objects
 | setReactInputFieldValue | (locatorKey, text) |
 | setSelectValueByOptionText | (locatorKey, itemText) |
 | submitForm | (locatorKey) |
-
 | checkAttribute | (locatorKey, expectedAttribute, expectedValue) |
 | hasClass | (locatorKey, className) |
 | doesNotHaveClass | (locatorKey, className) |
