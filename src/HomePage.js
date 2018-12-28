@@ -2,11 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './HomePage.css';
 import Banner from './Banner';
-import Nav from './Nav';
 
 const Home = () => (
   <div className="Home" data-test="home-container">
-    <Nav />
     <Banner />
     <div data-test="empty-div" />
     <h1 className="Home-header" data-test="main-heading">Home page</h1>

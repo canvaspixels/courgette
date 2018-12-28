@@ -1,75 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import './HomePage.css';
-import Banner from './Banner';
+import CommonTemplate from './CommonTemplate';
 
-const Home = () => (
-  <div className="Home" data-test="home-container">
-    <Banner />
-    <div data-test="empty-div" />
-    <h1 className="Home-header" data-test="main-heading">Home page</h1>
-    <p className="Home-intro">
-      <Link to="/other-page" data-test="rr-link">Go to other page by react router</Link>
-    </p>
-    <p className="Home-intro">
-      <Link to="/other-page">some link text</Link>
-    </p>
-    <p className="Home-intro">
-      <Link to="/simple-page">some link text</Link>
-    </p>
-    <p><a href="/other-page" data-test="other-page-link">Go to other page with full page load</a></p>
-    <p><a href="/other-page" data-test="other-page-link-new-tab" target="_blank">Go to other page in new tab</a></p>
-    <p><Link to="/another-simple-page" data-test="another-simple-page-react-link">Go to another simple page</Link></p>
-    <ul>
-      <li data-test="list-item">bullet 1</li>
-      <li data-test="list-item">bullet 2</li>
-      <li data-test="list-item">bullet 3</li>
-    </ul>
-
-    <form action="" data-test="form" onSubmit={(e) => { global.location.href = 'http://localhost:3000/other-page'; e.preventDefault(); }}>
-      <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
-      <p><label>Email <input type="text" name="email" data-test="email" defaultValue="hi@hello.com" /></label></p>
-      <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} /></label></p>
-      <p>
-        <label>Age
-          <select name="age" data-test="age-field">
-            <option value="18-25" data-test="age-18to25">18-25</option>
-            <option value="26+" data-test="age-26plus">26+</option>
-          </select>
-        </label>
-      </p>
-      <fieldset>
-        <legend>Gender</legend>
-        <label>
-          <input type="radio" name="gender" value="male" checked onChange={() => {}} data-test="male-radio" />
-          Male
-        </label>
-        <label>
-          <input type="radio" name="gender" value="female" data-test="female-radio" />
-          Female
-        </label>
-        <label>
-          <input type="radio" name="gender" value="other" data-test="other-gender-radio" />
-          Other
-        </label>
-      </fieldset>
-      <p>
-        <label>
-          <input type="checkbox" name="newsletter-uncheck" value="true" checked onChange={() => {}} data-test="newsletter-checkbox" />
-          Uncheck if you don’t wish to not receive the newsletter
-        </label>
-      </p>
-      <p>
-        <label>
-          <input type="checkbox" name="you-ok" value="ok" data-test="you-ok-checkbox" />
-          Are you ok? Tick the box if so.
-        </label>
-      </p>
-      <p><button data-test="submit-button">Submit Button</button></p>
-      <p><button type="button" data-test="button">Button</button></p>
-      <p><button type="button" disabled data-test="disabled-button">Disabled Button</button></p>
-    </form>
-  </div>
+const APIPage = () => (
+  <CommonTemplate className="">
+    <p>Homepage Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium, saepe quis magni qui illum reiciendis. Aliquam nisi optio temporibus unde neque debitis voluptatibus ex officiis, harum eaque, iste inventore nulla ducimus. Sed maxime nihil quibusdam, commodi ipsam similique beatae dolorum fugit, ullam nemo. Cumque ea reiciendis voluptate culpa molestiae, quod quis inventore laboriosam, corporis officiis quibusdam in nobis saepe consequatur totam eum amet numquam eos at, quos. Possimus necessitatibus explicabo minus animi, unde excepturi commodi ut sint praesentium eveniet. Fugit minus neque odio, ea corporis temporibus sunt omnis placeat, eius, architecto animi nesciunt harum at illum. Soluta eius explicabo, sit ullam. Officia minus similique, dolores odio, aliquam modi deleniti asperiores voluptatum architecto facere illo amet rem cupiditate nobis. Ullam quaerat sit fugiat eligendi repudiandae culpa sint aspernatur voluptatem molestiae, aliquid commodi eaque? Obcaecati ut necessitatibus voluptate explicabo nobis, eum placeat, libero tenetur commodi aperiam ipsa ratione iure pariatur similique vitae blanditiis quia! Consectetur, expedita neque odio iure commodi magnam, similique veniam dicta id nisi maiores non ea quas ratione numquam porro corporis, vitae debitis, aperiam ducimus eveniet doloribus aut veritatis minima! Aperiam incidunt, mollitia! Veritatis id, vero blanditiis eum alias provident at, non repudiandae laboriosam, incidunt voluptatem nostrum deleniti repellendus animi ab odit omnis mollitia totam debitis temporibus itaque voluptas cum ducimus quisquam! Earum delectus consequatur eius eaque, quia aspernatur itaque, harum perferendis et, repellendus vitae incidunt facilis minus deleniti cum ut doloribus dolore officiis fuga ex fugit deserunt placeat obcaecati ab. Ipsum laborum, possimus placeat. Earum quaerat consectetur praesentium amet necessitatibus eum voluptatem eligendi ut est, iste tempora debitis facere in iure voluptate odio magnam perspiciatis eaque consequuntur, excepturi quasi aliquid quis maxime pariatur! Expedita odit cupiditate earum id! Quisquam molestiae optio ad laborum cum illo, rerum libero quia nostrum expedita ipsa non pariatur ea, beatae voluptatum delectus aperiam quo voluptas eaque assumenda culpa magnam et aspernatur. Laboriosam, quas, numquam. Ipsa, iusto, ea. Eos enim odit nobis, ex voluptas itaque eveniet voluptates doloremque autem, illum obcaecati ullam dolorum ab facilis aperiam voluptatem. Voluptas natus, eum possimus excepturi sint culpa recusandae quia, optio unde ullam officia dolore dolores. Accusantium saepe sapiente fugit tempore corporis odio porro ratione eos minus blanditiis reiciendis, officiis assumenda sed inventore, ullam illo dignissimos ipsam asperiores tempora. Eos praesentium consequatur eligendi recusandae quis eius illo ut alias sint nihil nisi rerum ex quo sapiente dolorem, modi libero assumenda iusto neque nostrum. Officia fuga natus quasi quos ipsum deleniti reiciendis quas? Iste ex expedita perferendis laboriosam, recusandae nihil aspernatur deserunt odit, veritatis soluta eum sed fugiat reiciendis tempore dicta neque unde aut, nostrum officiis! Hic fugit officiis expedita, quibusdam quaerat. Excepturi pariatur, consequatur sint dolores, corporis sunt fuga dignissimos consectetur eos cupiditate quisquam iure doloribus, a aliquid perferendis quae molestiae at illo esse nulla odio aut. Eveniet delectus placeat nisi a dolores atque, excepturi iste possimus sapiente cum consectetur repellendus cupiditate nihil unde illo adipisci velit dolorem fuga nostrum magnam quam tempora veniam, ratione porro. Nisi dolorum quos necessitatibus iure, odio veritatis quaerat magnam quis! Cumque qui eum debitis molestias magni alias rerum, esse eos laboriosam soluta provident optio, hic nemo praesentium deleniti neque. Maxime nihil ex rem earum! Pariatur reprehenderit cupiditate aperiam quaerat totam? Excepturi vitae rerum, nobis illum itaque ad, reprehenderit, et, illo officiis molestias magni nulla quis consectetur minima quos. Tempora accusantium eos laborum quos unde deleniti alias quae dolorum asperiores amet consequatur odit, assumenda qui quod harum eius ab consectetur. Consectetur voluptatem eveniet soluta reprehenderit quo illum! Quas ipsam deserunt quaerat consectetur dolor obcaecati blanditiis quisquam laudantium, sapiente recusandae laboriosam ratione eius molestias a aut dicta possimus sequi perferendis, modi, expedita perspiciatis. Ea cum quis alias nisi quasi doloribus tempore excepturi delectus tempora aliquid enim et quae labore temporibus odio beatae ad, quisquam laborum libero aliquam voluptate officia pariatur ducimus dicta. Ipsum quidem dolore omnis labore sapiente atque, eum saepe ipsam est, vel doloremque quia, hic libero accusamus quasi aut quas consectetur impedit earum quo quam. Quasi, explicabo! Optio exercitationem vel repudiandae laudantium fugit eaque suscipit molestias libero totam dignissimos numquam sequi praesentium magnam, autem, tempora modi obcaecati incidunt, soluta ullam voluptatem, inventore consequatur. Quae ipsum culpa expedita obcaecati, fuga ullam itaque numquam quibusdam a aut alias fugit libero ab commodi neque voluptate harum. Quae animi reiciendis iste nobis, aliquid, cupiditate maxime temporibus, officiis quidem magni dolores, facere tenetur quaerat ex illum commodi dicta minima obcaecati fuga ad. Beatae deserunt corporis laborum sit voluptates at delectus cupiditate blanditiis laudantium consequuntur illum dolorum quos ratione placeat a, illo perferendis perspiciatis magni quia, fuga expedita totam atque. Adipisci sint totam perspiciatis veritatis modi amet illum commodi similique praesentium voluptatem ipsa repudiandae eum, corporis voluptate, rerum quos, incidunt possimus. Voluptatem in, sequi deleniti velit vero, illum, doloremque, incidunt ipsum dicta aliquam voluptas culpa quidem animi enim. Animi commodi itaque omnis, magnam. Quisquam praesentium, facere minima. Pariatur maxime earum impedit minus accusamus beatae, deserunt eius corrupti repudiandae distinctio molestiae eligendi, quaerat excepturi commodi dolorum reprehenderit eaque quidem voluptatum quae doloremque iste possimus odit autem. Laborum minus accusantium ullam saepe deserunt exercitationem, maiores, ex amet, ipsa nisi repellendus! Magni eum esse maxime. Enim minima fugit tempora quas eos iste illo non eum sapiente omnis sunt praesentium temporibus veritatis vero eligendi blanditiis nobis vitae sed quos tempore reprehenderit, accusamus nisi ut quia ab? Ratione dignissimos dolorem dolor illum possimus unde id blanditiis nostrum enim! Aliquam doloribus et suscipit quidem. Molestias doloremque, earum. Voluptatibus deleniti aperiam deserunt, mollitia nisi qui.</p>
+  </CommonTemplate>
 );
 
-export default Home;
+export default APIPage;

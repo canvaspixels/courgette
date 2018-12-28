@@ -4,9 +4,9 @@ import React from 'react';
 
 const Footer = () => (
   <div className="footer">
-    <ul>
+    {/*<ul>
       <li>Test</li>
-    </ul>
+    </ul>*/}
   </div>
 );
 
