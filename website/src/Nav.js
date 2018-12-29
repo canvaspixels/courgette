@@ -28,6 +28,7 @@ class Nav extends Component {
           <button type="button" className="close-btn" onClick={() => this.setState({showMenu: false})}>Close</button>
           <ul>
             <li><NavLink to="/" activeClassName="selected" exact>Overview</NavLink></li>
+            <li><NavLink to="/getting-started" activeClassName="selected">Getting Started</NavLink></li>
             <li><NavLink to="/api" activeClassName="selected">API</NavLink></li>
           </ul>
         </div>

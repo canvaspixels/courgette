@@ -23,6 +23,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+pre {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px 0 15px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -33,6 +39,8 @@ button {
   background: none;
   padding: 0;
 }
+
+li { margin: 0 0 10px; }
 
 /*
   This will hide the focus indicator if the element receives focus via the mouse,
