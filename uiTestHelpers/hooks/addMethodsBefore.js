@@ -1,6 +1,8 @@
 const path = require('path');
-const api = require('../../api');
+
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
+
+const api = require('../../api');
 
 Before(function addMethodsBeforeHook() {
   this.attach('Hook Step: addMethodsBeforeHook');

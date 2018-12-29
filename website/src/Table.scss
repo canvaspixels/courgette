@@ -1,0 +1,17 @@
+.table {
+  &__wrap {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  border-collapse: collapse;
+
+  tr:nth-child(2n) {
+    background: var(--c-gs-6);
+  }
+
+  td {
+    border: 1px solid var(--c-gs-6);
+    padding: 5px;
+  }
+}

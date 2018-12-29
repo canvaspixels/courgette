@@ -11,8 +11,6 @@ Methods that don’t require page objects
 ${api.pageObjectsNotRequired
     .map(({ methodName, methodArgs }) => `| ${methodName} | (${methodArgs.join(', ')}) |`).join('\n')}
 
-
-
 Methods that require page objects
 
 | Method name | Args |

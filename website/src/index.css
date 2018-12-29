@@ -5,6 +5,12 @@
   --c-3: #cbe62f;
   --c-4: #5e8714;
   --c-5: #2c6006;
+  /* grayscales */
+  --c-gs-1: #000;
+  --c-gs-3: #666;
+  --c-gs-5: #bbb;
+  --c-gs-6: #eee;
+  --c-gs-7: #fff;
 }
 
 body {
