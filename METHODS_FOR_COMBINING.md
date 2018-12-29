@@ -1,13 +1,14 @@
+
 ## Methods for combining actions and assertions
 
-Methods that don't require page objects
+Methods that don’t require page objects
 
 | Method name | Args |
 | --- | --- |
 | setCookie | (name, value) |
 | goToURL | (url) |
 | pressKey | (key) |
-| disableAnimations | none |
+| disableAnimations | () |
 | clickElementWithText | (text) |
 | clickElementThatContainsText | (text) |
 | checkTitle | (expectedTitle) |
@@ -21,6 +22,9 @@ Methods that don't require page objects
 | checkCookieValueIsNot | (cookieName, expectedValue) |
 | checkCookieExists | (cookieName) |
 | checkCookieDoesNotExist | (cookieName) |
+| checkIsOpenedInNewWindow | (href) |
+
+
 
 Methods that require page objects
 
@@ -57,9 +61,9 @@ Methods that require page objects
 | checkInputValueIsNot | (locatorKey, expectedValue) |
 | checkIsEnabled | (locatorKey) |
 | checkIsDisabled | (locatorKey) |
-| checkIsOpenedInNewWindow | (href) |
 | checkIsSelected | (locatorKey) |
 | checkIsDeselected | (locatorKey) |
 | setPageObjectThenCheckUrl | (pageName) |
 | checkVisible | (locatorKey) |
 | checkHidden | (locatorKey) |
+| checkFocus | (locatorKey) |
