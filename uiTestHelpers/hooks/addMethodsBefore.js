@@ -21,24 +21,24 @@ const submitForm = require('../../uiTestHelpers/stepDefinitions/actions/submitFo
 const checkAttribute = require('../../uiTestHelpers/stepDefinitions/checks/checkAttribute');
 const checkClass = require('../../uiTestHelpers/stepDefinitions/checks/checkClass');
 const checkColour = require('../../uiTestHelpers/stepDefinitions/checks/checkColour');
-const checkContainsAnyText = require('../../uiTestHelpers/stepDefinitions/checks/checkContainsAnyText');
-const checkContainsText = require('../../uiTestHelpers/stepDefinitions/checks/checkContainsText');
-const checkCookieContains = require('../../uiTestHelpers/stepDefinitions/checks/checkCookieContains');
-const checkCookieContent = require('../../uiTestHelpers/stepDefinitions/checks/checkCookieContent');
-const checkCookieExists = require('../../uiTestHelpers/stepDefinitions/checks/checkCookieExists');
+const checkContainsAnyTextImport = require('../../uiTestHelpers/stepDefinitions/checks/checkContainsAnyText');
+const checkContainsTextImport = require('../../uiTestHelpers/stepDefinitions/checks/checkContainsText');
+const checkCookieContainsImport = require('../../uiTestHelpers/stepDefinitions/checks/checkCookieContains');
+const checkCookieContentImport = require('../../uiTestHelpers/stepDefinitions/checks/checkCookieContent');
+const checkCookieExistsImport = require('../../uiTestHelpers/stepDefinitions/checks/checkCookieExists');
 const checkElementBackgroundColour = require('../../uiTestHelpers/stepDefinitions/checks/checkElementBackgroundColour');
 const checkElementBorderColour = require('../../uiTestHelpers/stepDefinitions/checks/checkElementBorderColour');
 const checkElementColour = require('../../uiTestHelpers/stepDefinitions/checks/checkElementColour');
-const checkElementExists = require('../../uiTestHelpers/stepDefinitions/checks/checkElementExists');
-const checkElementExistsNTimes = require('../../uiTestHelpers/stepDefinitions/checks/checkElementExistsNTimes');
+const checkElementExistsImport = require('../../uiTestHelpers/stepDefinitions/checks/checkElementExists');
+const checkElementExistsNTimesImport = require('../../uiTestHelpers/stepDefinitions/checks/checkElementExistsNTimes');
 const setPageObjectThenCheckUrl = require('../../uiTestHelpers/stepDefinitions/checks/setPageObjectThenCheckUrl');
 const checkFocus = require('../../uiTestHelpers/stepDefinitions/checks/checkFocus');
-const checkInputIsEmpty = require('../../uiTestHelpers/stepDefinitions/checks/checkInputIsEmpty');
-const checkInputValue = require('../../uiTestHelpers/stepDefinitions/checks/checkInputValue');
-const checkIsEnabled = require('../../uiTestHelpers/stepDefinitions/checks/checkIsEnabled');
+const checkInputIsEmptyImport = require('../../uiTestHelpers/stepDefinitions/checks/checkInputIsEmpty');
+const checkInputValueImport = require('../../uiTestHelpers/stepDefinitions/checks/checkInputValue');
+const checkIsEnabledImport = require('../../uiTestHelpers/stepDefinitions/checks/checkIsEnabled');
 const checkIsOpenedInNewWindow = require('../../uiTestHelpers/stepDefinitions/checks/checkIsOpenedInNewWindow');
-const checkIsSelected = require('../../uiTestHelpers/stepDefinitions/checks/checkIsSelected');
-const checkTitle = require('../../uiTestHelpers/stepDefinitions/checks/checkTitle');
+const checkIsSelectedImport = require('../../uiTestHelpers/stepDefinitions/checks/checkIsSelected');
+const checkTitleImport = require('../../uiTestHelpers/stepDefinitions/checks/checkTitle');
 const checkUrl = require('../../uiTestHelpers/stepDefinitions/checks/checkUrl');
 const checkUrlContainsString = require('../../uiTestHelpers/stepDefinitions/checks/checkUrlContainsString');
 const checkVisibility = require('../../uiTestHelpers/stepDefinitions/checks/checkVisibility');
@@ -76,28 +76,28 @@ const pageObjectsNotRequired = [
   },
   {
     methodName: 'checkTitle',
-    method: function(expectedTitle) {
-      return checkTitle.call(this, false, expectedTitle);
+    method: function checkTitle(expectedTitle) {
+      return checkTitleImport.call(this, false, expectedTitle);
     },
     arguments: ['expectedTitle'],
   },
   {
     methodName: 'checkTitleIsNot',
-    method: function(expectedTitle) {
-      return checkTitle.call(this, true, expectedTitle);
+    method: function checkTitleIsNot(expectedTitle) {
+      return checkTitleImport.call(this, true, expectedTitle);
     },
     arguments: ['expectedTitle'],
   },
   {
     methodName: 'checkUrlIs',
-    method: function(url) {
+    method: function checkUrlIs(url) {
       return checkUrl.call(this, false, url);
     },
     arguments: ['url'],
   },
   {
     methodName: 'checkUrlIsNot',
-    method: function(url) {
+    method: function checkUrlIsNot(url) {
       return checkUrl.call(this, true, url);
     },
     arguments: ['url'],
@@ -109,43 +109,43 @@ const pageObjectsNotRequired = [
   },
   {
     methodName: 'checkCookieContains',
-    method: function(cookieName, expectedValue) {
-      return checkCookieContains.call(this, cookieName, false, expectedValue);
+    method: function checkCookieContains(cookieName, expectedValue) {
+      return checkCookieContainsImport.call(this, cookieName, false, expectedValue);
     },
     arguments: ['cookieName', 'expectedValue'],
   },
   {
     methodName: 'checkCookieDoesNotContain',
-    method: function(cookieName, expectedValue) {
-      return checkCookieContains.call(this, cookieName, true, expectedValue);
+    method: function checkCookieDoesNotContain(cookieName, expectedValue) {
+      return checkCookieContainsImport.call(this, cookieName, true, expectedValue);
     },
     arguments: ['cookieName', 'expectedValue'],
   },
   {
     methodName: 'checkCookieContent',
-    method: function(cookieName, expectedValue) {
-      return checkCookieContent.call(this, cookieName, false, expectedValue);
+    method: function checkCookieContent(cookieName, expectedValue) {
+      return checkCookieContentImport.call(this, cookieName, false, expectedValue);
     },
     arguments: ['cookieName', 'expectedValue'],
   },
   {
     methodName: 'checkCookieValueIsNot',
-    method: function(cookieName, expectedValue) {
-      return checkCookieContent.call(this, cookieName, true, expectedValue);
+    method: function checkCookieValueIsNot(cookieName, expectedValue) {
+      return checkCookieContentImport.call(this, cookieName, true, expectedValue);
     },
     arguments: ['cookieName', 'expectedValue'],
   },
   {
     methodName: 'checkCookieExists',
-    method: function(cookieName) {
-      return checkCookieExists.call(this, cookieName, false);
+    method: function checkCookieExists(cookieName) {
+      return checkCookieExistsImport.call(this, cookieName, false);
     },
     arguments: ['cookieName'],
   },
   {
     methodName: 'checkCookieDoesNotExist',
-    method: function(cookieName) {
-      return checkCookieExists.call(this, cookieName, true);
+    method: function checkCookieDoesNotExist(cookieName) {
+      return checkCookieExistsImport.call(this, cookieName, true);
     },
     arguments: ['cookieName'],
   },
@@ -155,8 +155,6 @@ const pageObjectsNotRequired = [
     arguments: ['href'],
   },
 ];
-
-
 
 const pageObjectsRequired = [
   {
@@ -217,14 +215,14 @@ const pageObjectsRequired = [
   },
   {
     methodName: 'hasClass',
-    method: function(locatorKey, className) {
+    method: function hasClass(locatorKey, className) {
       return checkClass.call(this, locatorKey, false, className);
     },
     arguments: ['locatorKey', 'className'],
   },
   {
     methodName: 'doesNotHaveClass',
-    method: function(locatorKey, className) {
+    method: function doesNotHaveClass(locatorKey, className) {
       return checkClass.call(this, locatorKey, true, className);
     },
     arguments: ['locatorKey', 'className'],
@@ -236,29 +234,29 @@ const pageObjectsRequired = [
   },
   {
     methodName: 'checkContainsAnyText',
-    method: function(locatorKey) {
-      return checkContainsAnyText.call(this, locatorKey, false);
+    method: function checkContainsAnyText(locatorKey) {
+      return checkContainsAnyTextImport.call(this, locatorKey, false);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkDoesNotContainAnyText',
-    method: function(locatorKey) {
-      return checkContainsAnyText.call(this, locatorKey, true);
+    method: function checkDoesNotContainAnyText(locatorKey) {
+      return checkContainsAnyTextImport.call(this, locatorKey, true);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkContainsText',
-    method: function(locatorKey, expectedText) {
-      return checkContainsText.call(this, locatorKey, true, expectedText);
+    method: function checkContainsText(locatorKey, expectedText) {
+      return checkContainsTextImport.call(this, locatorKey, true, expectedText);
     },
     arguments: ['locatorKey', 'expectedText'],
   },
   {
     methodName: 'checkDoesNotContainText',
-    method: function(locatorKey, expectedText) {
-      return checkContainsText.call(this, locatorKey, false, expectedText);
+    method: function checkDoesNotContainText(locatorKey, expectedText) {
+      return checkContainsTextImport.call(this, locatorKey, false, expectedText);
     },
     arguments: ['locatorKey', 'expectedText'],
   },
@@ -279,85 +277,85 @@ const pageObjectsRequired = [
   },
   {
     methodName: 'checkElementExists',
-    method: function(locatorKey) {
-      return checkElementExists.call(this, locatorKey, false);
+    method: function checkElementExists(locatorKey) {
+      return checkElementExistsImport.call(this, locatorKey, false);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkElementDoesNotExist',
-    method: function(locatorKey) {
-      return checkElementExists.call(this, locatorKey, true);
+    method: function checkElementDoesNotExist(locatorKey) {
+      return checkElementExistsImport.call(this, locatorKey, true);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkElementExistsNTimes',
-    method: function(locatorKey, count) {
-      return checkElementExistsNTimes.call(this, locatorKey, false, count);
+    method: function checkElementExistsNTimes(locatorKey, count) {
+      return checkElementExistsNTimesImport.call(this, locatorKey, false, count);
     },
     arguments: ['locatorKey', 'count'],
   },
   {
     methodName: 'checkElementDoesNotExistNTimes',
-    method: function(locatorKey, count) {
-      return checkElementExistsNTimes.call(this, locatorKey, true, count);
+    method: function checkElementDoesNotExistNTimes(locatorKey, count) {
+      return checkElementExistsNTimesImport.call(this, locatorKey, true, count);
     },
     arguments: ['locatorKey', 'count'],
   },
   {
     methodName: 'checkInputIsEmpty',
-    method: function(locatorKey) {
-      return checkInputIsEmpty.call(this, locatorKey, false);
+    method: function checkInputIsEmpty(locatorKey) {
+      return checkInputIsEmptyImport.call(this, locatorKey, false);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkInputIsNotEmpty',
-    method: function(locatorKey) {
-      return checkInputIsEmpty.call(this, locatorKey, true);
+    method: function checkInputIsNotEmpty(locatorKey) {
+      return checkInputIsEmptyImport.call(this, locatorKey, true);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkInputValue',
-    method: function(locatorKey, expectedValue) {
-      return checkInputValue.call(this, locatorKey, false, expectedValue);
+    method: function checkInputValue(locatorKey, expectedValue) {
+      return checkInputValueImport.call(this, locatorKey, false, expectedValue);
     },
     arguments: ['locatorKey', 'expectedValue'],
   },
   {
     methodName: 'checkInputValueIsNot',
-    method: function(locatorKey, expectedValue) {
-      return checkInputValue.call(this, locatorKey, true, expectedValue);
+    method: function checkInputValueIsNot(locatorKey, expectedValue) {
+      return checkInputValueImport.call(this, locatorKey, true, expectedValue);
     },
     arguments: ['locatorKey', 'expectedValue'],
   },
   {
     methodName: 'checkIsEnabled',
-    method: function(locatorKey) {
-      return checkIsEnabled.call(this, locatorKey, 'enabled');
+    method: function checkIsEnabled(locatorKey) {
+      return checkIsEnabledImport.call(this, locatorKey, 'enabled');
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkIsDisabled',
-    method: function(locatorKey) {
-      return checkIsEnabled.call(this, locatorKey);
+    method: function checkIsDisabled(locatorKey) {
+      return checkIsEnabledImport.call(this, locatorKey);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkIsSelected',
-    method: function(locatorKey) {
-      return checkIsSelected.call(this, locatorKey, false);
+    method: function checkIsSelected(locatorKey) {
+      return checkIsSelectedImport.call(this, locatorKey, false);
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkIsDeselected',
-    method: function(locatorKey) {
-      return checkIsSelected.call(this, locatorKey, true);
+    method: function checkIsDeselected(locatorKey) {
+      return checkIsSelectedImport.call(this, locatorKey, true);
     },
     arguments: ['locatorKey'],
   },
@@ -368,14 +366,14 @@ const pageObjectsRequired = [
   },
   {
     methodName: 'checkVisible',
-    method: function(locatorKey) {
+    method: function checkVisible(locatorKey) {
       return checkVisibility.call(this, locatorKey, 'visible');
     },
     arguments: ['locatorKey'],
   },
   {
     methodName: 'checkHidden',
-    method: function(locatorKey) {
+    method: function checkHidden(locatorKey) {
       return checkVisibility.call(this, locatorKey, 'hidden');
     },
     arguments: ['locatorKey'],
@@ -394,5 +392,4 @@ Before(function addMethodsBeforeHook() {
     .forEach(({ methodName, method }) => {
       this[methodName] = method;
     });
-
 });
