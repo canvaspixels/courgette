@@ -3,8 +3,6 @@ const api = require('../api');
 
 const str = `
 import React from 'react';
-// import { Link } from 'react-router-dom';
-import './HomePage.css';
 import CommonTemplate from './CommonTemplate';
 import Table from './Table';
 

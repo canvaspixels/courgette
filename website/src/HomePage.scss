@@ -1,0 +1,123 @@
+.hero {
+  background: var(--c-1);
+  text-align: center;
+  padding: 50px 20px;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 2;
+}
+
+.usps {
+  padding: 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.usp {
+  flex: 2;
+  width: 50%;
+  margin: 0 8px 20px;
+  text-align: center;
+
+  &__icon {
+    width: 100px;
+    height: 100px;
+    background: var(--c-4);
+    border-radius: 50%;
+    margin: 0 auto 10px;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+  }
+
+  p {
+    margin: 0 0 10px;
+  }
+}
+
+.testimonials {
+  background: var(--c-5);
+  padding: 20px;
+  color: white;
+
+  .testimonial {
+    position: relative;
+
+    &:nth-child(2n) {
+      text-align: right;
+    }
+
+    &::before,
+    &::after {
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 85px;
+      position: absolute;
+      line-height: 0.5;
+      font-family: Georgia, serif;
+    }
+
+    &::before {
+      content: '“';
+      left: 0;
+      top: 20px;
+    }
+
+    &::after {
+      content: '”';
+      right: 0;
+      bottom: 0;
+    }
+
+    blockquote {
+      padding: 30px;
+      margin: 0;
+      font-size: 18px;
+
+      p {
+        margin: 5px 0 0;
+        font-size: 14px;
+      }
+
+      q {
+        &::before,
+        &::after {
+          content: '';
+        }
+      }
+    }
+  }
+}
+
+.customers {
+  padding: 30px;
+}
+
+.home {
+  /*background: rgba(220, 220, 220, 1);*/
+}
+
+.home-logo {
+  animation: home-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.home-header {
+  padding: 10px;
+  border: 1px solid rgba(255, 0, 255, 1);
+  display: inline-block;
+  color: rgba(13, 105, 227, 1);
+}
+
+.home-title {
+  font-size: 1.5em;
+}
+
+.home-intro {
+  font-size: large;
+}
+
+@keyframes home-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
