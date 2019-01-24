@@ -29,7 +29,9 @@ class Nav extends Component {
           <ul>
             <li><NavLink to="/" activeClassName="selected" exact>Overview</NavLink></li>
             <li><NavLink to="/getting-started" activeClassName="selected">Getting Started</NavLink></li>
+            <li><NavLink to="/faqs" activeClassName="selected">FAQs</NavLink></li>
             <li><NavLink to="/api" activeClassName="selected">API</NavLink></li>
+            <li><NavLink to="/bdd" activeClassName="selected">BDD - User Stories</NavLink></li>
           </ul>
         </div>
       </div>

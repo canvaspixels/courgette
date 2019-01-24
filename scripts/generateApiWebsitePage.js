@@ -14,6 +14,10 @@ const APIPage = () => (
     <Table>
     <tbody>
     <tr>
+      <th>Method</th>
+      <th>Arguments</th>
+    </tr>
+    <tr>
 ${api.pageObjectsNotRequired
     .map(({ methodName, methodArgs }) => `<td>${methodName}</td><td>(${methodArgs.join(', ')})</td>`).join('</tr><tr>')}
     </tr>
@@ -24,6 +28,10 @@ ${api.pageObjectsNotRequired
 
     <Table>
     <tbody>
+    <tr>
+      <th>Method</th>
+      <th>Arguments</th>
+    </tr>
     <tr>
 ${api.pageObjectsRequired
     .map(({ methodName, methodArgs }) => `<td>${methodName}</td><td>(${methodArgs.join(', ')})</td>`).join('</tr><tr>')}
