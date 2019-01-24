@@ -34,11 +34,11 @@ document.body.addEventListener('click', (ev) => {
 
 const Routes = ({ childProps }) =>
   <Switch>
-    <Route path="/" exact component={AsyncHomePage} props={childProps} />
-    <Route path="/api" exact component={APIPage} props={childProps} />
-    <Route path="/getting-started" exact component={GettingStarted} props={childProps} />
-    <Route path="/faqs" exact component={FAQs} props={childProps} />
-    <Route path="/bdd" exact component={BDD} props={childProps} />
+    <Route path="/courgette/" exact component={AsyncHomePage} props={childProps} />
+    <Route path="/courgette/api" exact component={APIPage} props={childProps} />
+    <Route path="/courgette/getting-started" exact component={GettingStarted} props={childProps} />
+    <Route path="/courgette/faqs" exact component={FAQs} props={childProps} />
+    <Route path="/courgette/bdd" exact component={BDD} props={childProps} />
   </Switch>
 
 ReactDOM.render(<Router><Routes /></Router>, document.getElementById('root'));
