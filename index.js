@@ -47,7 +47,10 @@ const rmDir = function rmDir(dir, rmSelf) {
   }
 };
 
-const outputPath = path.join(process.cwd(), pomConfig.outputPath);
+let outputPath = path.join(process.cwd(), pomConfig.outputPath);
+if (pomConfig.outputPath.startsWith('/')) {
+  outputPath = pomConfig.outputPath
+}
 if (fs.existsSync(outputPath)) {
   rmDir(outputPath);
 }
