@@ -14,7 +14,7 @@ After(function attachScreenshotAfterHook(scenarioResult, callback) {
 
     console.log(msg);
     browser.takeScreenshot().then((png) => {
-      const screenshotFilePath = path.join(pomConfig.outputPath, `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}.png`);
+      const screenshotFilePath = path.join(pomConfig.screenshotPath || pomConfig.outputPath, `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}.png`);
       const stream = fs.createWriteStream(screenshotFilePath);
       console.log('*************************************\nScreenshotFilePath:');
       console.log(screenshotFilePath);
