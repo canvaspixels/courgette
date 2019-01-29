@@ -458,6 +458,48 @@ To run all your tests then print out a summary of the usage of your step definit
 npm run ct -- --showStepDefinitionUsage
 ```
 
+## Tidying page objects
+
+To test your selectors run this script in your developer console (right click your browser and inspect --> console tab or f12 in some browsers)
+```
+checkSelectors = (selectors) => {
+  const selectorsArr = selectors.split('\n');
+  let selectorType = 'xpath';
+  console.log('These don’t exist:')
+  selectorsArr.forEach((el) => {
+    if (el.toLowerCase().startsWith('selectors:')) {
+      selectorType = 'css'
+    }
+    if (el.toLowerCase().startsWith('xpaths:')) {
+      selectorType = 'css'
+    }
+    if (el.startsWith('  ')) {
+      const selector = el.replace('  ', '')
+      const match = selector.match(/(.*): (.*)/)
+      const key = match[1]
+      const val = match[2]
+
+      if ((selectorType === 'css' && !$$(val).length) ||
+      (selectorType === 'xpath' && !$x(val).length)) {
+          console.log(selector)
+      }
+    }
+  })
+}
+
+checkSelectors(`
+selectors:
+  main heading: .main-heading
+  proceed button: .proceed button
+`)
+
+checkSelectors(`
+xpaths:
+  main heading: //*[contains(@someattr,"attrvalue")]//*[text()="heading text"]
+  proceed button: //*[text()="my text in and element deep inside my button"]/ancestor::button
+`)
+```
+
 ## Contributing
 
 Please get in touch if you'd like to contribute to this project.
