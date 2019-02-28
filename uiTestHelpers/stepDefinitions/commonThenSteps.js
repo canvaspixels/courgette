@@ -116,6 +116,7 @@ if (!argv.genFiles) {
       .replace(new RegExp(`(${placeholders.join('|')})`, 'g'), matchPattern);
 
     Then(new RegExp(`^${matcher}$`), {}, require(step.path));
+    step.regex = new RegExp(`^${matcher}$`);
   });
   Then(/^fail step and take screenshot$/, {}, () => Promise.reject(new Error('Failing step and taking screenshot')));
 }

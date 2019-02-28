@@ -10,7 +10,8 @@ exports.pomConfig = {
   timeoutInSeconds: process.env.courgetteTimeout || 10,
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
-  baseUrl: 'https://www.google.com',
+  stepsPath: path.resolve(specsPath, 'stepDefinitions'),
+  baseUrl: 'https://www.google.co.uk',
 };
 
 exports.cucumberHtmlReporterConfig = {};
@@ -62,6 +63,7 @@ const protractorConfig = {
       `${courgettePath}/hooks/pageObjectModelBefore.js`,
       `${courgettePath}/hooks/addMethodsBefore.js`,
       `${courgettePath}/hooks/setDefaultTimeout.js`,
+      `${courgettePath}/hooks/loadSteps.js`,
       `${courgettePath}/stepDefinitions/*.js`,
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,
