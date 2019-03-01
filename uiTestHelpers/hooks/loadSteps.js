@@ -29,9 +29,12 @@ stepsFiles.forEach((stepsFile) => {
         stepsObj[currentStep] = [];
       } else if (stepsObj[currentStep] && step) {
         const stepCleaned = step.replace(/^(Given|When|Then|And|But)/i, '').trim();
-        stepsObj[currentStep].push({ stepCleaned, step: step.trim() });
+        if (!stepCleaned.startsWith('#')) {
+          stepsObj[currentStep].push({ stepCleaned, step: step.trim() });
+        }
       }
     });
+
     Object.keys(stepsObj).forEach((stepRegexStr) => { // loop each Step:
       defineStep(new RegExp(stepRegexStr), async function() {
         const substeps = stepsObj[stepRegexStr];
@@ -41,14 +44,31 @@ stepsFiles.forEach((stepsFile) => {
             return commonStep.regex && commonStep.regex.test(substepCleaned);
           });
 
-          if (correspondingCommonStep) {
-            console.log('            ', substeps[i].step);
-            const args = substepCleaned.match(correspondingCommonStep.regex);
-            args.shift();
-
-            await require(`../stepDefinitions/${correspondingCommonStep.path}`)(...args);// todo: path on windows
-          } else {
-            console.error('No step found for ', substepCleaned);
+          try {
+            if (correspondingCommonStep) {
+              console.log('            ', substeps[i].step);
+              const args = substepCleaned.match(correspondingCommonStep.regex);
+              args.shift();
+              const argsToPass = args.length;
+              args.unshift(this);
+              // console.log('args', args, args.length);
+              const fn = require(`../stepDefinitions/${correspondingCommonStep.path}`); // todo: path on windows
+              let callbackPromise;
+              console.log(fn.length, argsToPass);
+              if (fn.length > argsToPass) {
+                callbackPromise = new Promise();
+                args.push(() => callbackPromise.resolve());
+              }
+              await fn.call(...args);
+              if (callbackPromise) {
+                console.log('callbackPromise', callbackPromise);
+                await callbackPromise;
+              }
+            } else {
+              return Promise.reject(`No step found for ${substepCleaned}`);
+            }
+          } catch (e) {
+            console.log(e);
           }
         }
       });
