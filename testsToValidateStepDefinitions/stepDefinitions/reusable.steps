@@ -1,0 +1,10 @@
+Steps: Some reusable steps
+
+  Step: I am on the homepage page and I click the link
+    Given I am on the page with url 'http://localhost:3000'
+    When I click the element with the text 'Go to other page by react router'
+
+  Step: I do some assertions
+    Then I expect the url to be 'http://localhost:3000/other-page'
+    And I expect the url to not be 'http://localhost:3000/foo'
+    And take a screenshot

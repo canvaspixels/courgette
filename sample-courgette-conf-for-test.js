@@ -11,7 +11,7 @@ exports.pomConfig = {
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
-  baseUrl: 'https://www.google.co.uk',
+  baseUrl: 'https://www.google.com',
 };
 
 exports.cucumberHtmlReporterConfig = {};

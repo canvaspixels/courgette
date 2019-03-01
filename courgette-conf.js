@@ -13,6 +13,7 @@ exports.pomConfig = {
   timeoutInSeconds: process.env.courgetteTimeout || 10,
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
+  stepsPath: path.resolve(specsPath, 'stepDefinitions'),
   baseUrl: 'http://localhost:3000',
 };
 
@@ -62,6 +63,7 @@ const protractorConfig = {
       `${courgettePath}/hooks/attachScenarioNameBefore.js`,
       `${courgettePath}/hooks/attachScreenshotAfter.js`,
       `${courgettePath}/hooks/deleteAllCookies.js`,
+      `${courgettePath}/hooks/loadSteps.js`,
       `${courgettePath}/hooks/pageObjectModelBefore.js`,
       `${courgettePath}/hooks/addMethodsBefore.js`,
       `${courgettePath}/hooks/setDefaultTimeout.js`,
