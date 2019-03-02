@@ -15,7 +15,7 @@ module.exports = function takeScreenshot(filename, callback) {
     }
     const screenshotFilePath = path.join(screenshotsDir, `${screenshotName}.png`);
     const stream = fs.createWriteStream(screenshotFilePath);
-    console.log('ScreenshotFilePath: ', screenshotFilePath);
+    console.log('            ScreenshotFilePath: ', screenshotFilePath);
     this.attach(`ScreenshotFilePath: ${screenshotFilePath}`);
     stream.write(Buffer.from(png, 'base64'));
     stream.end();

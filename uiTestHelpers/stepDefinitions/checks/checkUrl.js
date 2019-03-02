@@ -13,7 +13,7 @@ module.exports = function checkUrl(isNot, expectedUrl) {
           resolve();
         } else if (Date.now() > timestamp + waitTimeout) {
           console.log('Current URL doesn’t match that in page object');
-          console.log('Current URL: ', currentUrlNoTrailingSlash);
+          console.log('Current URL:  ', currentUrlNoTrailingSlash);
           console.log('Expected URL: ', expectedUrlNoTrailingSlash);
           const err = `Current URL: ${currentUrlNoTrailingSlash} ... Expected URL: ${expectedUrlNoTrailingSlash}`;
 

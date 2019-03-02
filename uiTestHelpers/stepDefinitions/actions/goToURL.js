@@ -6,7 +6,7 @@ module.exports = function goToURL(pageUrl) {
   // add protocol and host from pomConfig if pageUrl in the page object is just a pathname
   const fullUrl = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
 
-  console.log('Getting the full url: ', fullUrl);
+  console.log('            Getting the full url: ', fullUrl);
 
   return browser.get(fullUrl);
 };

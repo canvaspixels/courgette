@@ -22,7 +22,7 @@ module.exports = function setPageObjectThenCheckUrl(pageName) {
           resolve();
         } else if (Date.now() > ((timestamp + waitTimeout) - 100)) {
           console.log('Current URL doesn’t match that in page object');
-          console.log('Current URL: ', currentUrlNoTrailingSlash);
+          console.log('Current URL:  ', currentUrlNoTrailingSlash);
           console.log('Expected URL: ', expectedUrlNoTrailingSlash);
           const err = `Current URL: ${currentUrlNoTrailingSlash} ... Expected URL: ${expectedUrlNoTrailingSlash}`;
           reject(err);
