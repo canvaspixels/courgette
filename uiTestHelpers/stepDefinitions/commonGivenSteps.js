@@ -64,7 +64,7 @@ if (!argv.genFiles) {
       .replace(new RegExp(`(${placeholders.join('|')})`, 'g'), matchPattern);
 
     Given(new RegExp(`^${matcher}$`), {}, require(step.path));
-    step.regex = new RegExp(`^${matcher}$`);
+    step.regex = new RegExp(`^${matcher}$`); // eslint-disable-line no-param-reassign
   });
 }
 

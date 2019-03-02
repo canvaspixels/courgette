@@ -34,10 +34,10 @@ stepsFiles.forEach((stepsFile) => {
     });
 
     Object.keys(stepsObj).forEach((stepRegexStr) => { // loop each Step:
-      defineStep(new RegExp(stepRegexStr), async function () {
+      defineStep(new RegExp(stepRegexStr), async function () { // eslint-disable-line
         const substeps = stepsObj[stepRegexStr];
         console.log(`\nStep: ${stepRegexStr}`);
-        for (let i = 0; i < substeps.length; i+=1) {
+        for (let i = 0; i < substeps.length; i += 1) {
           const substepCleaned = substeps[i].stepCleaned;
           const correspondingCommonStep = commonSteps.find((commonStep) => commonStep.regex && commonStep.regex.test(substepCleaned));
 
@@ -56,31 +56,30 @@ stepsFiles.forEach((stepsFile) => {
                 };
                 args.push(doneCallback);
                 callbackPromise = () =>
-                  new Promise((res, rej) => {
+                  new Promise((res) => {
                     const checkIsCalled = () => {
                       if (doneCallbackCalled) {
                         return res();
                       }
-                      setTimeout(checkIsCalled, 100);
+                      return setTimeout(checkIsCalled, 100);
                     };
-                    checkIsCalled();
+                    return checkIsCalled();
                   });
               }
-              await fn.call(...args);
+              await fn.call(...args); // eslint-disable-line no-await-in-loop
               if (callbackPromise) {
-                // console.log('callbackPromise', callbackPromise);
-                await callbackPromise();
+                await callbackPromise(); // eslint-disable-line no-await-in-loop
               }
               console.log(`            ${substeps[i].step} ---> PASSED`.green);
             } else {
               console.log(`            ${substeps[i].step} ---> FAILED`.red);
               console.log(`NO STEP FOUND:     ${substeps[i].step}`);
-              return Promise.reject(`NO STEP FOUND:     ${substeps[i].step}`);
+              return Promise.reject(new Error(`NO STEP FOUND:     ${substeps[i].step}`));
             }
           } catch (e) {
             console.log(`            ${substeps[i].step} ---> FAILED`.red);
             console.error(e);
-            return Promise.reject(e);
+            return Promise.reject(new Error(e));
           }
         }
       });
