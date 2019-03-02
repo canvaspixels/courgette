@@ -1,19 +1,16 @@
 const path = require('path');
-const yaml = require('yaml-page-objects').default;
 const fs = require('fs');
 const givenSteps = require('../stepDefinitions/commonGivenSteps');
 const whenSteps = require('../stepDefinitions/commonWhenSteps');
 const thenSteps = require('../stepDefinitions/commonThenSteps');
+
 const commonSteps = [].concat(givenSteps, whenSteps, thenSteps);
 require('colors');
-
-// const createPage = require('../../uiTestHelpers/createPage');
-// const createComponent = require('../../uiTestHelpers/createComponent');
 
 const { defineStep } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
-let stepsObj = {};
+const stepsObj = {};
 let currentStep;
 
 const stepsFiles = fs.readdirSync(pomConfig.stepsPath);
@@ -37,15 +34,12 @@ stepsFiles.forEach((stepsFile) => {
     });
 
     Object.keys(stepsObj).forEach((stepRegexStr) => { // loop each Step:
-      defineStep(new RegExp(stepRegexStr), async function() {
+      defineStep(new RegExp(stepRegexStr), async function () {
         const substeps = stepsObj[stepRegexStr];
         console.log(`\nStep: ${stepRegexStr}`);
-        for (var i = 0; i < substeps.length; i++) {
+        for (let i = 0; i < substeps.length; i+=1) {
           const substepCleaned = substeps[i].stepCleaned;
-          const correspondingCommonStep = commonSteps.find((commonStep) => {
-            return commonStep.regex && commonStep.regex.test(substepCleaned);
-          });
-
+          const correspondingCommonStep = commonSteps.find((commonStep) => commonStep.regex && commonStep.regex.test(substepCleaned));
 
           try {
             if (correspondingCommonStep) {
@@ -66,10 +60,9 @@ stepsFiles.forEach((stepsFile) => {
                     const checkIsCalled = () => {
                       if (doneCallbackCalled) {
                         return res();
-                      } else {
-                        setTimeout(checkIsCalled, 100);
                       }
-                    }
+                      setTimeout(checkIsCalled, 100);
+                    };
                     checkIsCalled();
                   });
               }
@@ -80,7 +73,9 @@ stepsFiles.forEach((stepsFile) => {
               }
               console.log(`            ${substeps[i].step} ---> PASSED`.green);
             } else {
-              return Promise.reject(`No step found for:     ${substeps[i].step}`);
+              console.log(`            ${substeps[i].step} ---> FAILED`.red);
+              console.log(`NO STEP FOUND:     ${substeps[i].step}`);
+              return Promise.reject(`NO STEP FOUND:     ${substeps[i].step}`);
             }
           } catch (e) {
             console.log(`            ${substeps[i].step} ---> FAILED`.red);
