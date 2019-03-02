@@ -51,21 +51,33 @@ stepsFiles.forEach((stepsFile) => {
               args.shift();
               const argsToPass = args.length;
               args.unshift(this);
-              // console.log('args', args, args.length);
               const fn = require(`../stepDefinitions/${correspondingCommonStep.path}`); // todo: path on windows
+              let doneCallbackCalled = false;
               let callbackPromise;
-              console.log(fn.length, argsToPass);
               if (fn.length > argsToPass) {
-                callbackPromise = new Promise();
-                args.push(() => callbackPromise.resolve());
+                const doneCallback = () => {
+                  doneCallbackCalled = true;
+                };
+                args.push(doneCallback);
+                callbackPromise = () =>
+                  new Promise((res, rej) => {
+                    const checkIsCalled = () => {
+                      if (doneCallbackCalled) {
+                        return res();
+                      } else {
+                        setTimeout(checkIsCalled, 100);
+                      }
+                    }
+                    checkIsCalled();
+                  });
               }
               await fn.call(...args);
               if (callbackPromise) {
-                console.log('callbackPromise', callbackPromise);
-                await callbackPromise;
+                // console.log('callbackPromise', callbackPromise);
+                await callbackPromise();
               }
             } else {
-              return Promise.reject(`No step found for ${substepCleaned}`);
+              return Promise.reject(`No step found for:     ${substeps[i].step}`);
             }
           } catch (e) {
             console.log(e);
