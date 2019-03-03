@@ -34,7 +34,17 @@ stepsFiles.forEach((stepsFile) => {
     });
 
     Object.keys(stepsObj).forEach((stepRegexStr) => { // loop each Step:
-      defineStep(new RegExp(stepRegexStr), async function () { // eslint-disable-line
+      // const replacements = [];
+      const replacements = {};
+      let matchCounter = 0;
+      const parameterisedStepRegexStr = stepRegexStr.replace(/\{\{(.*?)\}\}/g, (match) => {
+        replacements[match] = matchCounter;
+        matchCounter++;
+        // replacements.push(match);
+        return "([^']*)?";
+      });
+
+      async function theStepDef(...stepDefArgs) { // eslint-disable-line
         const substeps = stepsObj[stepRegexStr];
         console.log(`\nStep: ${stepRegexStr}`);
         for (let i = 0; i < substeps.length; i += 1) {
@@ -43,10 +53,22 @@ stepsFiles.forEach((stepsFile) => {
 
           try {
             if (correspondingCommonStep) {
-              const args = substepCleaned.match(correspondingCommonStep.regex);
-              args.shift();
+              let args = substepCleaned.match(correspondingCommonStep.regex);
+              args.shift(); // remove full string off front of args array
+
+              args = args.map((arg) => {
+                if (typeof arg === 'string') {
+                  let replaceIndex = 0;
+                  return arg.replace(/\{\{(.*?)\}\}/g, (match) => {
+                    return stepDefArgs[replacements[match]];
+                  });
+                }
+
+                return arg;
+              });
+
               const argsToPass = args.length;
-              args.unshift(this);
+              args.unshift(this); // pass the this context ready for .call fn call later
               const fn = require(`../stepDefinitions/${correspondingCommonStep.path}`); // todo: path on windows
               let doneCallbackCalled = false;
               let callbackPromise;
@@ -66,11 +88,21 @@ stepsFiles.forEach((stepsFile) => {
                     return checkIsCalled();
                   });
               }
-              await fn.call(...args); // eslint-disable-line no-await-in-loop
+
+              const apiCallPromise = fn.call(...args);
+              await apiCallPromise; // eslint-disable-line no-await-in-loop
+              let cbPromise = Promise.resolve();
               if (callbackPromise) {
-                await callbackPromise(); // eslint-disable-line no-await-in-loop
+                cbPromise = callbackPromise();
+                await cbPromise; // eslint-disable-line no-await-in-loop
               }
-              console.log(`            ${substeps[i].step} ---> PASSED`.green);
+
+              Promise.all([apiCallPromise, cbPromise]).then(() => {
+                console.log(`            ${substeps[i].step} ---> PASSED`.green);
+              }).catch((e) => {
+                console.log(`            ${substeps[i].step} ---> FAILED`.red);
+                console.error(e);
+              })
             } else {
               console.log(`            ${substeps[i].step} ---> FAILED`.red);
               console.log(`NO STEP FOUND:     ${substeps[i].step}`);
@@ -82,7 +114,25 @@ stepsFiles.forEach((stepsFile) => {
             return Promise.reject(new Error(e));
           }
         }
-      });
+      };
+
+      let theFunc =  function() { return theStepDef.call(this); };
+      if (matchCounter === 1) {
+        theFunc =  function(a1) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 2) {
+        theFunc =  function(a1, a2) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 3) {
+        theFunc =  function(a1, a2, a3) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 4) {
+        theFunc =  function(a1, a2, a3, a4) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 5) {
+        theFunc =  function(a1, a2, a3, a4, a5) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 6) {
+        theFunc =  function(a1, a2, a3, a4, a5, a6) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 7) {
+        theFunc =  function(a1, a2, a3, a4, a5, a6, a7) { return theStepDef.call(this, ...arguments); };
+      }
+      defineStep(new RegExp(parameterisedStepRegexStr), theFunc);
     });
   }
 });

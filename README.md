@@ -87,9 +87,9 @@ An example of a user story:
 ```gherkin
 Scenario: Refunded items should be returned to stock
   Given that a customer previously bought a black sweater from me
-  And I have three black sweaters in stock.
+  And I have three black sweaters in stock
   When they return the black sweater for a refund
-  Then I should have four black sweaters in stock.
+  Then I should have four black sweaters in stock
 ```
 
 An example of a specification:
@@ -154,7 +154,7 @@ Given(/^that a customer previously bought a black sweater from me$/, async funct
   await this.setPageObjectThenCheckUrl('confirmation');
 });
 
-Given(/^I have three black sweaters in stock.$/, async function() {
+Given(/^I have three black sweaters in stock$/, async function() {
   await this.goToPage('black sweaters');
   await this.setSelectValueByOptionText('amount of items in stock', '3 in stock');
 });
@@ -168,7 +168,7 @@ When(/^they return the black sweater for a refund$/, async function() {
   await this.setPageObjectThenCheckUrl('item returned confirmation');
 });
 
-Then(/^I should have four black sweaters in stock.$/, async function() {
+Then(/^I should have four black sweaters in stock$/, async function() {
   await this.goToPage('black sweaters');
   await this.setSelectValueByOptionText('amount of items in stock', '4 in stock');
 });

@@ -8,3 +8,7 @@ Steps: Some reusable steps
     Then I expect the url to be 'http://localhost:3000/other-page'
     And I expect the url to not be 'http://localhost:3000/foo'
     And take a screenshot
+
+  Step: I am on the page with url '{{PAGE}}' and I click '{{LINK}}'
+    Given I am on the page with url '{{PAGE}}'
+    When I click the element with the text '{{LINK}}'
