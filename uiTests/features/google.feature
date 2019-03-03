@@ -19,3 +19,8 @@ Feature: Test feature
     # Given I am on the 'Google home' page        <--------- or this will work
     When I click 'I’m Feeling Lucky'
     Then I expect the url to contain 'google.com/doodles'
+
+  @google-feeling-lucky-reusable-steps
+  Scenario: Sample using reusable steps
+    Given I am on the 'google-home' page and I click 'I’m Feeling Lucky'
+    Then I expect the url to contain 'google.com/doodles' then take a screenshot

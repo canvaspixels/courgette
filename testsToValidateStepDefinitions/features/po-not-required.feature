@@ -13,6 +13,16 @@ Feature: Testing steps where page object isn't required
     And I expect the url to not be 'http://localhost:3000/foo'
     And take a screenshot
 
+  @no-po-reusable-steps
+  Scenario: Testing reusable steps
+    Given I am on the homepage page and I click the link
+    Then I do some assertions
+
+  @no-po-reusable-steps-with-params
+  Scenario: Testing reusable steps with params
+    Given I am on the page with url 'http://localhost:3000' and I click 'Go to other page by react router'
+    Then I do some assertions
+
   @no-po-click-nth
   Scenario: Go to page and click element
     Given I am on the page with url 'http://localhost:3000'

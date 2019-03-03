@@ -7,7 +7,8 @@ module.exports = function clickElementThatContainsText(nth, text) {
     xpath = `(${xpath})[${nth.replace(/\D/g, '')}]`;
   }
 
-  console.log('Getting element by xpath: ', xpath);
+  console.log('            Getting clickable element (a, input, button) by xpath:');
+  console.log('              ', xpath);
   const elToClick = element(by.xpath(xpath));
   return browser.wait(EC.presenceOf(elToClick))
     .then(() => elToClick.click());
