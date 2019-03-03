@@ -39,7 +39,7 @@ stepsFiles.forEach((stepsFile) => {
       let matchCounter = 0;
       const parameterisedStepRegexStr = stepRegexStr.replace(/\{\{(.*?)\}\}/g, (match) => {
         replacements[match] = matchCounter;
-        matchCounter++;
+        matchCounter += 1;
         // replacements.push(match);
         return "([^']*)?";
       });
@@ -58,10 +58,7 @@ stepsFiles.forEach((stepsFile) => {
 
               args = args.map((arg) => {
                 if (typeof arg === 'string') {
-                  let replaceIndex = 0;
-                  return arg.replace(/\{\{(.*?)\}\}/g, (match) => {
-                    return stepDefArgs[replacements[match]];
-                  });
+                  return arg.replace(/\{\{(.*?)\}\}/g, (match) => stepDefArgs[replacements[match]]);
                 }
 
                 return arg;
@@ -102,7 +99,7 @@ stepsFiles.forEach((stepsFile) => {
               }).catch((e) => {
                 console.log(`            ${substeps[i].step} ---> FAILED`.red);
                 console.error(e);
-              })
+              });
             } else {
               console.log(`            ${substeps[i].step} ---> FAILED`.red);
               console.log(`NO STEP FOUND:     ${substeps[i].step}`);
@@ -114,24 +111,26 @@ stepsFiles.forEach((stepsFile) => {
             return Promise.reject(new Error(e));
           }
         }
-      };
-
-      let theFunc =  function() { return theStepDef.call(this); };
-      if (matchCounter === 1) {
-        theFunc =  function(a1) { return theStepDef.call(this, ...arguments); };
-      } else if (matchCounter === 2) {
-        theFunc =  function(a1, a2) { return theStepDef.call(this, ...arguments); };
-      } else if (matchCounter === 3) {
-        theFunc =  function(a1, a2, a3) { return theStepDef.call(this, ...arguments); };
-      } else if (matchCounter === 4) {
-        theFunc =  function(a1, a2, a3, a4) { return theStepDef.call(this, ...arguments); };
-      } else if (matchCounter === 5) {
-        theFunc =  function(a1, a2, a3, a4, a5) { return theStepDef.call(this, ...arguments); };
-      } else if (matchCounter === 6) {
-        theFunc =  function(a1, a2, a3, a4, a5, a6) { return theStepDef.call(this, ...arguments); };
-      } else if (matchCounter === 7) {
-        theFunc =  function(a1, a2, a3, a4, a5, a6, a7) { return theStepDef.call(this, ...arguments); };
       }
+
+      /* eslint-disable */
+      let theFunc = function () { return theStepDef.call(this); };
+      if (matchCounter === 1) {
+        theFunc = function (a1) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 2) {
+        theFunc = function (a1, a2) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 3) {
+        theFunc = function (a1, a2, a3) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 4) {
+        theFunc = function (a1, a2, a3, a4) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 5) {
+        theFunc = function (a1, a2, a3, a4, a5) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 6) {
+        theFunc = function (a1, a2, a3, a4, a5, a6) { return theStepDef.call(this, ...arguments); };
+      } else if (matchCounter === 7) {
+        theFunc = function (a1, a2, a3, a4, a5, a6, a7) { return theStepDef.call(this, ...arguments); };
+      }
+      /* eslint-enable */
       defineStep(new RegExp(parameterisedStepRegexStr), theFunc);
     });
   }
