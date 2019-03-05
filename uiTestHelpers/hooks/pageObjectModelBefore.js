@@ -9,7 +9,7 @@ const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
-  const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'xpaths', 'deepselectors'];
+  const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'xpaths', 'deepselectors', 'extends'];
   Object.keys(doc).forEach((key) => {
     if (!validKeys.includes(key.toLowerCase())) {
       throw new Error(`"${key}" is not valid inside ${objPath}. The only valid items for a ${isComponent ? 'component' : 'page'} object are: \n\t${validKeys.join('\n\t')}\n\n`);
