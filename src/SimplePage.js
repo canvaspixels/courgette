@@ -13,6 +13,7 @@ const OtherPage = () => (
     <p className="Home-intro">
       <Link to="/" data-test="go-to-home-link">Go to Home page</Link>
     </p>
+    <div data-test="similar-stuff">Something for the similar simple page object extending the simple page object</div>
     <Footer />
   </div>
 );

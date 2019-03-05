@@ -1,4 +1,9 @@
 path: /similar-simple-page
 
-extends:
-  simple.page
+selectors:
+  Go to home page by react router link: [data-test="go-to-home-link"]
+  Similar stuff: [data-test="similar-stuff"]
+
+
+# This will merge selectors, xpaths, deepselectors, and allows there to be a default for the components array, which can be overridden, the path in the extends page object is ignored
+extends: simple.page

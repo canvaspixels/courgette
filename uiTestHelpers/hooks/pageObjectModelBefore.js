@@ -139,10 +139,26 @@ Before(function pomBeforeHook() {
       const doc = yaml.parse(fs.readFileSync(yamlPagePath, 'utf8'));
       validateKeys(doc, yamlPagePath);
       const pagePath = getObjFromDoc(doc, 'path');
-      const components = getObjFromDoc(doc, 'components');
-      const selectors = getObjFromDoc(doc, 'selectors');
-      const xpaths = getObjFromDoc(doc, 'xpaths');
-      const deepselectors = getObjFromDoc(doc, 'deepselectors');
+      let components = getObjFromDoc(doc, 'components');
+      let selectors = getObjFromDoc(doc, 'selectors');
+      let xpaths = getObjFromDoc(doc, 'xpaths');
+      let deepselectors = getObjFromDoc(doc, 'deepselectors');
+
+      const extendsPageObj = getObjFromDoc(doc, 'extends');
+      const extendingYamlPagePath = path.resolve(pomConfig.pagesPath, extendsPageObj);
+      try {
+        const docExtending = yaml.parse(fs.readFileSync(extendingYamlPagePath, 'utf8'));
+        validateKeys(docExtending, extendingYamlPagePath);
+        if (!components) {
+          components = getObjFromDoc(docExtending, 'components');
+        }
+        selectors = Object.assign({}, getObjFromDoc(docExtending, 'selectors') || {}, selectors || {});
+        xpaths = Object.assign({}, getObjFromDoc(docExtending, 'xpaths') || {}, xpaths || {});
+        deepselectors = Object.assign({}, getObjFromDoc(docExtending, 'deepselectors') || {}, deepselectors || {});
+      } catch (e) {
+        console.log(`The following extends file does not exist: ${extendingYamlPagePath}`);
+      }
+
       const page = createPageObject(this, name, pagePath, components, selectors, xpaths, deepselectors);
 
       if (updateCurrentPage) {

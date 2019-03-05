@@ -30,6 +30,12 @@ const Routes = ({ childProps }) =>
       props={childProps}
     />
     <Route
+      path="/similar-simple-page"
+      exact
+      component={AsyncSimplePage}
+      props={childProps}
+    />
+    <Route
       path="/web-components"
       exact
       component={AsyncWebComponentsPage}
