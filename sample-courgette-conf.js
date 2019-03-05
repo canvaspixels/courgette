@@ -10,6 +10,7 @@ exports.pomConfig = {
   timeoutInSeconds: process.env.courgetteTimeout || 10, // minimum 2 or you'll see strange behaviour with some steps
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
+  stepsPath: path.resolve(specsPath, 'stepDefinitions'),
   baseUrl: 'https://www.google.com', // <------------ SET THE URL TO YOUR PROJECT HERE
 };
 
@@ -61,6 +62,7 @@ const protractorConfig = {
       `${courgettePath}/hooks/pageObjectModelBefore.js`,
       `${courgettePath}/hooks/addMethodsBefore.js`,
       `${courgettePath}/hooks/setDefaultTimeout.js`,
+      `${courgettePath}/hooks/loadSteps.js`,
       `${courgettePath}/stepDefinitions/*.js`,
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,

@@ -1,0 +1,4 @@
+path: /similar-simple-page
+
+extends:
+  simple.page
