@@ -2,7 +2,7 @@ Steps: Some reusable steps
 
   Step: I am on the 'google-home' page and I click 'I’m Feeling Lucky'
     Given I am on the page with url '/'
-    When I click the element that contains the text 'de la chance'
+    When I click the element that contains the text 'Feeling Lucky'
 
   Step: I expect the url to contain 'google.com/doodles' then take a screenshot
     Then I expect the url to contain 'google.com/doodles'
