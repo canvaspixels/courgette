@@ -157,7 +157,7 @@ const loopThroughReport = () => new Promise((resolve, reject) => {
 });
 
 const output = (data) => {
-  log(data.toString());
+  log('Protractor: ', data.toString());
   // eslint-disable-next-line
   logStream.write(data.toString().replace(/\x1b\[\d\dm/g, ''));
 };
