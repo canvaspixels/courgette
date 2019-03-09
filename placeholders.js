@@ -9,6 +9,7 @@ const placeholders = [
   'VALUE',
   'KEY',
   'NUMBER',
+  'SELECTOR',
   'LOCATOR',
 ];
 

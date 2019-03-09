@@ -27,6 +27,12 @@ const Home = () => (
     </ul>
 
     <form action="" data-test="form" onSubmit={(e) => { global.location.href = 'http://localhost:3000/other-page'; e.preventDefault(); }}>
+      <p>
+        <label>
+          <input type="file" name="a-file" data-test="a-file" />
+          Upload file
+        </label>
+      </p>
       <p><label>Name <input type="text" name="fullname" data-test="fullname" /></label></p>
       <p><label>Email <input type="text" name="email" data-test="email" defaultValue="hi@hello.com" /></label></p>
       <p><label>Hidden field <input type="text" name="hidden-field" data-test="hidden-field" style={{ display: 'none' }} /></label></p>
