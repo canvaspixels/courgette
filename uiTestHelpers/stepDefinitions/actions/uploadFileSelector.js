@@ -1,4 +1,5 @@
 const path = require('path');
+
 const EC = protractor.ExpectedConditions;
 module.exports = function uploadFileSelector(fileToUpload, cssSelector) {
   const elemelon = element(by.css(cssSelector));
@@ -6,7 +7,7 @@ module.exports = function uploadFileSelector(fileToUpload, cssSelector) {
     .then(() => {
       const absolutePath = path.resolve(fileToUpload);
 
-      browser.executeAsyncScript(function(selector, callback) {
+      browser.executeAsyncScript((selector, callback) => {
         document.querySelector(selector).style.display = 'inline';
         callback();
       }, cssSelector);

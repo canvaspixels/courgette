@@ -1,4 +1,5 @@
 const path = require('path');
+
 module.exports = function uploadFile(fileToUpload, locatorKey) {
   const currentPage = this.getCurrentPage();
   const cssSelector = currentPage.getSelectorFromLocatorKey(locatorKey);
@@ -7,7 +8,7 @@ module.exports = function uploadFile(fileToUpload, locatorKey) {
     .then((el) => {
       const absolutePath = path.resolve(fileToUpload);
 
-      browser.executeAsyncScript(function(selector, callback) {
+      browser.executeAsyncScript((selector, callback) => {
         document.querySelector(selector).style.display = 'inline';
         callback();
       }, cssSelector);

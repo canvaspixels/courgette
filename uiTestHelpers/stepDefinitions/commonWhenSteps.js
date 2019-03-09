@@ -23,7 +23,7 @@ const steps = [
   },
 
   {
-    matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile'
+    matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile',
   },
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
   {

@@ -50,6 +50,7 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       if (locators[locatorKey]) {
         return locators[locatorKey].value;
       }
+      return null;
     },
 
     getElement(locator) {
