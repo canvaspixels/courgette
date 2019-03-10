@@ -40,7 +40,7 @@ const capabilities = {
 
 const browserCapability = capabilities[process.env.browser || 'chrome'];
 
-const cukeTags = process.env.cukeTags ? process.env.cukeTags.replace(',', ' or ') : '';
+const tags = process.env.tags ? process.env.tags.replace(',', ' or ') : '';
 
 const protractorConfig = {
   directConnect: true,
@@ -52,7 +52,7 @@ const protractorConfig = {
   ],
   capabilities: {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
-    'shardTestFiles': !cukeTags && !process.env.linearise && !process.env.showStepDefinitionUsage,
+    'shardTestFiles': !tags && !process.env.linearise && !process.env.showStepDefinitionUsage,
     'maxInstances': 4,
     ...browserCapability,
   },
@@ -71,7 +71,7 @@ const protractorConfig = {
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,
     ],
-    'tags': ['~ignore'].concat(cukeTags || []),
+    'tags': ['~@ignore'].concat(tags || []),
     'format': [
       'cucumberFormatter.js',
       `json:./${outputPath}/report.json`,

@@ -1,3 +1,19 @@
+## 2.17.0
+* IMPORTANT - cukeTags is now just tags
+* @ignore fixed and now throws an error if you try and run a tag that also has a @ignore tag next to it
+* now throwing errors on duplicate locator keys across the types (css selectors, xpaths deepselectors)
+* adding components example to the sample
+
+## 2.16.0
+* support added for input type="file" https://github.com/canvaspixels/courgette/pull/32
+
+## 2.15.0
+* Adds "extends" capability to allow you to extend another page.
+See example and more info here: https://github.com/canvaspixels/courgette/blob/master/testsToValidateStepDefinitions/pages/similar-simple.page
+
+## 2.14.0
+* Adding reusable .steps file which can dynamically create parameterised step definitions. See https://github.com/canvaspixels/courgette/pull/29 for examples
+
 ## 2.10.0
 * introduces the notion of writing Given When Thens without needing page objects for simple specification writing. See [newly organised Available step definitions](https://github.com/canvaspixels/courgette/blob/8133f6bc52304fa5e328402ccc9fd2548980509b/STEP_DEFINITIONS.md#step-definitions) split into two categories. One no
 * duplication in the snippets builder removed
