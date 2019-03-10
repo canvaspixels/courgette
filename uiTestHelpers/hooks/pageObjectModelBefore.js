@@ -25,6 +25,14 @@ const getObjFromDoc = (doc, keyToFind) => {
   return undefined;
 };
 
+const checkForCollisionsAcrossSelectorTypes = (obj1, obj2, fileName) => {
+  Object.keys(obj1).forEach((key) => {
+    if (obj2[key]) {
+      throw new Error(`"${key}" is duplicated in the following page object: ${fileName}`);
+    }
+  });
+};
+
 let createComponentObject;
 const getComponent = (name) => {
   const yamlComponentPath = path.resolve(pomConfig.componentsPath, `${name}.component`);
@@ -74,6 +82,10 @@ createComponentObject = (world, fileName, components, cssSelectors = {}, xPaths 
       deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
     });
 
+  checkForCollisionsAcrossSelectorTypes(cssSelectors, xPaths, `${fileName}.component`);
+  checkForCollisionsAcrossSelectorTypes(cssSelectors, deepLocators, `${fileName}.component`);
+  checkForCollisionsAcrossSelectorTypes(xPaths, deepLocators, `${fileName}.component`);
+
   const locators = Object.assign({}, cssLocators, xPathLocators, deepLocators);
 
   const component = createComponent(fileName, world, locators);
@@ -105,6 +117,10 @@ const createPageObject = (world, fileName, pagePath, components, cssSelectors = 
       deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
     });
 
+  checkForCollisionsAcrossSelectorTypes(cssSelectors, xPaths, `${fileName}.page`);
+  checkForCollisionsAcrossSelectorTypes(cssSelectors, deepLocators, `${fileName}.page`);
+  checkForCollisionsAcrossSelectorTypes(xPaths, deepLocators, `${fileName}.page`);
+
   const locators = Object.assign({}, cssLocators, xPathLocators, deepLocators);
 
   const page = createPage(fileName, world, pagePath, locators);
@@ -135,45 +151,46 @@ Before(function pomBeforeHook() {
     const name = pageName.replace(/ /g, '-').toLowerCase();
 
     const yamlPagePath = path.resolve(pomConfig.pagesPath, `${name}.page`);
-    try {
-      const doc = yaml.parse(fs.readFileSync(yamlPagePath, 'utf8'));
-      validateKeys(doc, yamlPagePath);
-      const pagePath = getObjFromDoc(doc, 'path');
-      let components = getObjFromDoc(doc, 'components');
-      let selectors = getObjFromDoc(doc, 'selectors');
-      let xpaths = getObjFromDoc(doc, 'xpaths');
-      let deepselectors = getObjFromDoc(doc, 'deepselectors');
 
-      const extendsPageObj = getObjFromDoc(doc, 'extends');
-      if (extendsPageObj) {
-        const extendingYamlPagePath = path.resolve(pomConfig.pagesPath, extendsPageObj);
-        try {
-          const docExtending = yaml.parse(fs.readFileSync(extendingYamlPagePath, 'utf8'));
-          validateKeys(docExtending, extendingYamlPagePath);
-          if (!components) {
-            components = getObjFromDoc(docExtending, 'components');
+    if (fs.existsSync(yamlPagePath)) {
+      try {
+        const doc = yaml.parse(fs.readFileSync(yamlPagePath, 'utf8'));
+        validateKeys(doc, yamlPagePath);
+        const pagePath = getObjFromDoc(doc, 'path');
+        let components = getObjFromDoc(doc, 'components');
+        let selectors = getObjFromDoc(doc, 'selectors');
+        let xpaths = getObjFromDoc(doc, 'xpaths');
+        let deepselectors = getObjFromDoc(doc, 'deepselectors');
+
+        const extendsPageObj = getObjFromDoc(doc, 'extends');
+        if (extendsPageObj) {
+          const extendingYamlPagePath = path.resolve(pomConfig.pagesPath, extendsPageObj);
+          try {
+            const docExtending = yaml.parse(fs.readFileSync(extendingYamlPagePath, 'utf8'));
+            validateKeys(docExtending, extendingYamlPagePath);
+            if (!components) {
+              components = getObjFromDoc(docExtending, 'components');
+            }
+            selectors = Object.assign({}, getObjFromDoc(docExtending, 'selectors') || {}, selectors || {});
+            xpaths = Object.assign({}, getObjFromDoc(docExtending, 'xpaths') || {}, xpaths || {});
+            deepselectors = Object.assign({}, getObjFromDoc(docExtending, 'deepselectors') || {}, deepselectors || {});
+          } catch (e) {
+            console.log(`The following extends file does not exist: ${extendingYamlPagePath}`);
           }
-          selectors = Object.assign({}, getObjFromDoc(docExtending, 'selectors') || {}, selectors || {});
-          xpaths = Object.assign({}, getObjFromDoc(docExtending, 'xpaths') || {}, xpaths || {});
-          deepselectors = Object.assign({}, getObjFromDoc(docExtending, 'deepselectors') || {}, deepselectors || {});
-        } catch (e) {
-          console.log(`The following extends file does not exist: ${extendingYamlPagePath}`);
         }
-      }
 
-      const page = createPageObject(this, name, pagePath, components, selectors, xpaths, deepselectors);
+        const page = createPageObject(this, name, pagePath, components, selectors, xpaths, deepselectors);
 
-      if (updateCurrentPage) {
-        this.currentPage = page;
-      }
-      return page;
-    } catch (e) {
-      let noDotPageFile;
-      if (e.message.includes('ENOENT: no such file or directory')) {
-        noDotPageFile = true;
-      } else {
+        if (updateCurrentPage) {
+          this.currentPage = page;
+        }
+        return page;
+      } catch (e) {
         console.log(e);
+        throw new Error(e);
       }
+    } else {
+      // try the .js version
       try {
         const page = require(path.resolve(pomConfig.pagesPath, name));
 
@@ -182,11 +199,8 @@ Before(function pomBeforeHook() {
         }
         return page(this);
       } catch (err) {
-        if (noDotPageFile) {
-          console.log('No .page file found called: ', yamlPagePath);
-        }
         console.log(err);
-        throw new Error(`Page object ${name} not found at ${pomConfig.pagesPath}/${name}`);
+        throw new Error(`Page object ${name} not found at ${pomConfig.pagesPath}/${name}.js nor ${pomConfig.pagesPath}/${name}.page`);
       }
     }
   };
