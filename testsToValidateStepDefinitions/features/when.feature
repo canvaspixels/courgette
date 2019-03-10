@@ -4,6 +4,14 @@ Feature: Testing When steps
   Background: I am on the homepage
     Given I am on the 'Home' page
 
+  @when-upload-file-selector
+  Scenario: When I upload a file
+    When I set the file upload 'testsToValidateStepDefinitions/features/given.feature' to element with selector '[data-test="a-file"]'
+
+  @when-upload-file
+  Scenario: When I upload a file
+    When I set the file upload 'testsToValidateStepDefinitions/features/given.feature' to the 'file upload'
+
   @when-steps-append-value
   Scenario: When I append to a field
     When I append 'hello' to 'email'

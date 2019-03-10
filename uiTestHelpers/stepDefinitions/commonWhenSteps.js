@@ -6,6 +6,9 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   {
+    matcher: "I set the file upload 'VALUE' to(?: the)? element with selector 'SELECTOR'", path: './actions/uploadFileSelector', code: 'uploadfileselector', pageObjectNotRequired: true,
+  },
+  {
     matcher: "I click(?: the)?(?: 'NTH')? element with the text 'VALUE'", path: './actions/clickElementWithText', code: 'clickelwithtext', pageObjectNotRequired: true,
   },
   {
@@ -19,6 +22,9 @@ const steps = [
     pageObjectNotRequired: true,
   },
 
+  {
+    matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile',
+  },
   { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
   {
     matcher: "I click(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR'", path: './actions/clickElementInsideElement', code: 'clickelinsideel', notes: 'This currently only works with XPaths',

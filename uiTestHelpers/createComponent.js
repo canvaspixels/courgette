@@ -46,6 +46,13 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return components[componentName];
     },
 
+    getSelectorFromLocatorKey(locatorKey) {
+      if (locators[locatorKey]) {
+        return locators[locatorKey].value;
+      }
+      return null;
+    },
+
     getElement(locator) {
       locatorErrorCheck(locator);
 
