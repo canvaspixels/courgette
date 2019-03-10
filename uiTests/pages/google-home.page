@@ -2,3 +2,7 @@ path: /
 
 selectors:
   I’m Feeling Lucky: [value="I'm Feeling Lucky"]
+
+components:
+  - component1
+  - component2
