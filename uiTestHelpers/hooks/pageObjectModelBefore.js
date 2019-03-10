@@ -27,11 +27,11 @@ const getObjFromDoc = (doc, keyToFind) => {
 
 const checkForCollisionsAcrossSelectorTypes = (obj1, obj2, fileName) => {
   Object.keys(obj1).forEach((key) => {
-    if (!!obj2[key]) {
+    if (obj2[key]) {
       throw new Error(`"${key}" is duplicated in the following page object: ${fileName}`);
     }
   });
-}
+};
 
 let createComponentObject;
 const getComponent = (name) => {
