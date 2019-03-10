@@ -64,7 +64,7 @@ const tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
 
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
-    cukeTags: (tags || argv.tags || '').replace(',', ' or '),
+    tags: (tags || argv.tags || '').replace(',', ' or '),
     confFile,
     showStepDefinitionUsage: process.env.showStepDefinitionUsage || argv.showStepDefinitionUsage || '',
   }),
@@ -175,6 +175,16 @@ const deleteEmptyJSONS = (jsonOutputPath) => {
   });
 };
 
+const outputDirContainsJsons = (jsonOutputPath) => {
+  let containsJsons = false;
+  fs.readdirSync(jsonOutputPath).forEach((file) => {
+    if (file.includes('.json')) {
+      containsJsons = true;
+    }
+  });
+  return containsJsons;
+};
+
 spawnedProcess.stdout.on('data', output);
 spawnedProcess.stderr.on('data', output);
 
@@ -182,6 +192,14 @@ spawnedProcess.on('exit', () => {
   logStream.end();
 
   deleteEmptyJSONS(pomConfig.outputPath);
+
+  if (!outputDirContainsJsons(pomConfig.outputPath)) {
+    console.log('-----------------------------------');
+    console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
+    console.log('-----------------------------------');
+    process.exitCode = 1;
+    return;
+  }
 
   cucumberHtmlReporter.generate(cucumberHtmlReporterConfig);
 
