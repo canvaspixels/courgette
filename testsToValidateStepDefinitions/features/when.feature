@@ -26,11 +26,14 @@ Feature: Testing When steps
   @when-steps-clear-then-set-value
   Scenario: When I append to a field
     When I set 'email' to 'hello'
+    And I wait '1' second
     Then I expect the value of the 'email' to be 'hello'
 
   @when-steps-set-value
   Scenario: When I set text in the field
     When I set 'fullname' to 'foo'
+    And I wait for 'fullname' to exist
+    And I wait for 'non-existant element' to not exist
     Then I expect the value of the 'fullname' to be 'foo'
 
   @when-steps-append-react-field
