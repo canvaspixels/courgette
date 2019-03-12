@@ -1,3 +1,10 @@
+## 2.18.0
+* adding new step definitions
+  * I wait for 'LOCATOR' to exist
+  * I wait for 'LOCATOR' to not exist
+  * I wait '1' second
+  * I wait 'n' seconds
+
 ## 2.17.0
 * IMPORTANT - cukeTags is now just tags
 * @ignore fixed and now throws an error if you try and run a tag that also has a @ignore tag next to it
