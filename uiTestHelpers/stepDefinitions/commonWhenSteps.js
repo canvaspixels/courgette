@@ -6,6 +6,9 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   {
+    matcher: "I wait 'VALUE' seconds?", path: './actions/wait', code: 'wait', pageObjectNotRequired: true,
+  },
+  {
     matcher: "I set the file upload 'VALUE' to(?: the)? element with selector 'SELECTOR'", path: './actions/uploadFileSelector', code: 'uploadfileselector', pageObjectNotRequired: true,
   },
   {
@@ -22,6 +25,7 @@ const steps = [
     pageObjectNotRequired: true,
   },
 
+  { matcher: "I wait for(?: the)? 'LOCATOR' to( not)* exist", path: './actions/waitForElement', code: 'waitforelement' },
   {
     matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile',
   },
