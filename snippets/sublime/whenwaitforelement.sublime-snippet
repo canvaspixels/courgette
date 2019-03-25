@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I wait for the '${2:LOCATOR}' to exist
+]]></content>
+  <tabTrigger>whenwaitforelement</tabTrigger>
+</snippet>

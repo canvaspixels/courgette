@@ -24,8 +24,6 @@ Methods that don’t require page objects
 | checkCookieDoesNotExist | (cookieName) |
 | checkIsOpenedInNewWindow | (href) |
 
-
-
 Methods that require page objects
 
 | Method name | Args |

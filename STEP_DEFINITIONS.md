@@ -25,6 +25,8 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
+| When I wait 'VALUE' seconds? | whenwait |  |
+| When I set the file upload 'VALUE' to _the_ element with selector 'SELECTOR' | whenuploadfileselector |  |
 | When&nbsp;I&nbsp;click&nbsp;_the_&nbsp;_'NTH'_&nbsp;element&nbsp;with&nbsp;the&nbsp;text&nbsp;'VALUE' | whenclickelwithtext |  |
 | When I click _the_ _'NTH'_ element that contains the text 'VALUE' | whenclickelcontainstext |  |
 | When I press 'KEY' | whenkey | [See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16) |
@@ -77,8 +79,11 @@ Note that the words in italics are optional.
 
 | Step definition | Snippet Code | Notes |
 | --- | --- | --- |
+| When I wait for _the_ 'LOCATOR' to exist | whenwaitforelement |  |
+| When I wait for _the_ 'LOCATOR' to not exist | whennotwaitforelement |  |
+| When&nbsp;I&nbsp;set&nbsp;the&nbsp;file&nbsp;upload&nbsp;'VALUE'&nbsp;to&nbsp;_the_&nbsp;'LOCATOR' | whenuploadfile |  |
 | When I click _the_ 'LOCATOR' | whenclick |  |
-| When&nbsp;I&nbsp;click&nbsp;_the_&nbsp;'LOCATOR'&nbsp;inside&nbsp;_the_&nbsp;'LOCATOR' | whenclickelinsideel | This currently only works with XPaths |
+| When I click _the_ 'LOCATOR' inside _the_ 'LOCATOR' | whenclickelinsideel | This currently only works with XPaths |
 | When I append 'STRING' to 'LOCATOR' | whenappend |  |
 | When I set 'LOCATOR' to 'STRING' | whenset |  |
 | When I set _the_ 'LOCATOR' inside _the_ 'LOCATOR' to 'STRING' | whensetelinsideel | This currently only works with XPaths |

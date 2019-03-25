@@ -31,6 +31,7 @@ const createStepDefLines = (steps) => {
       .replace(/\|/g, ' OR ')
       .replace(/\(\?\:(.*)\)/g, '$1')
       .replace(/\((.*)\)/g, '$1');
+      // .replace(/\s?/g, '(s)');
 
     let { notes } = step;
     if (newMatcher.match(notMatcher)) {

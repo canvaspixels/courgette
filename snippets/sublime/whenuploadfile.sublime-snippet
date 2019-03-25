@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'
+]]></content>
+  <tabTrigger>whenuploadfile</tabTrigger>
+</snippet>

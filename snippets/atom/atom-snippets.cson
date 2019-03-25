@@ -97,6 +97,12 @@
   "${1:Given} the cookie '${2:COOKIE_NAME}' is not set":
     'prefix': 'givennotcookieset'
     'body': "${1:Given} the cookie '${2:COOKIE_NAME}' is not set"
+  "${1:When} I wait '${2:VALUE}' seconds?":
+    'prefix': 'whenwait'
+    'body': "${1:When} I wait '${2:VALUE}' seconds?"
+  "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'":
+    'prefix': 'whenuploadfileselector'
+    'body': "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'"
   "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'":
     'prefix': 'whenclickelwithtext'
     'body': "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
@@ -106,6 +112,15 @@
   "${1:When} I press '${2:KEY}'":
     'prefix': 'whenkey'
     'body': "${1:When} I press '${2:KEY}'"
+  "${1:When} I wait for the '${2:LOCATOR}' to exist":
+    'prefix': 'whenwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to exist"
+  "${1:When} I wait for the '${2:LOCATOR}' to not exist":
+    'prefix': 'whennotwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
+  "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'":
+    'prefix': 'whenuploadfile'
+    'body': "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'"
   "${1:When} I click the '${2:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "${1:When} I click the '${2:LOCATOR}'"
@@ -371,6 +386,12 @@
   "${1:Given} the cookie '${2:COOKIE_NAME}' is not set":
     'prefix': 'givennotcookieset'
     'body': "${1:Given} the cookie '${2:COOKIE_NAME}' is not set"
+  "${1:When} I wait '${2:VALUE}' seconds?":
+    'prefix': 'whenwait'
+    'body': "${1:When} I wait '${2:VALUE}' seconds?"
+  "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'":
+    'prefix': 'whenuploadfileselector'
+    'body': "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'"
   "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'":
     'prefix': 'whenclickelwithtext'
     'body': "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
@@ -380,6 +401,15 @@
   "${1:When} I press '${2:KEY}'":
     'prefix': 'whenkey'
     'body': "${1:When} I press '${2:KEY}'"
+  "${1:When} I wait for the '${2:LOCATOR}' to exist":
+    'prefix': 'whenwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to exist"
+  "${1:When} I wait for the '${2:LOCATOR}' to not exist":
+    'prefix': 'whennotwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
+  "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'":
+    'prefix': 'whenuploadfile'
+    'body': "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'"
   "${1:When} I click the '${2:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "${1:When} I click the '${2:LOCATOR}'"

@@ -231,6 +231,21 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="whenwait" value="$var1$ I wait '$var2$' seconds?$END$" shortcut="TAB" description="$var1$ I wait '$var2$' seconds?" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenuploadfileselector" value="$var1$ I set the file upload '$var2$' to the element with selector '$var3$'$END$" shortcut="TAB" description="$var1$ I set the file upload '$var2$' to the element with selector '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;SELECTOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="whenclickelwithtext" value="$var1$ I click the '$var2$' element with the text '$var3$'$END$" shortcut="TAB" description="$var1$ I click the '$var2$' element with the text '$var3$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;NTH&quot;" defaultValue="" alwaysStopAt="true" />
@@ -250,6 +265,28 @@
   <template name="whenkey" value="$var1$ I press '$var2$'$END$" shortcut="TAB" description="$var1$ I press '$var2$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;KEY&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenwaitforelement" value="$var1$ I wait for the '$var2$' to exist$END$" shortcut="TAB" description="$var1$ I wait for the '$var2$' to exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whennotwaitforelement" value="$var1$ I wait for the '$var2$' to not exist$END$" shortcut="TAB" description="$var1$ I wait for the '$var2$' to not exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenuploadfile" value="$var1$ I set the file upload '$var2$' to the '$var3$'$END$" shortcut="TAB" description="$var1$ I set the file upload '$var2$' to the '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>

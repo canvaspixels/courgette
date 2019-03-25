@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I wait '${2:VALUE}' seconds?
+]]></content>
+  <tabTrigger>whenwait</tabTrigger>
+</snippet>

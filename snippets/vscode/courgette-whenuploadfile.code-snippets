@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenuploadfile",
+    "body": [
+      "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'"
+    ],
+    "description": "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'"
+  }
+}

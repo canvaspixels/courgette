@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenwait",
+    "body": [
+      "${1:When} I wait '${2:VALUE}' seconds?"
+    ],
+    "description": "${1:When} I wait '${2:VALUE}' seconds?"
+  }
+}

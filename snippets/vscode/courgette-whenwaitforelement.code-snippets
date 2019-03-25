@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenwaitforelement",
+    "body": [
+      "${1:When} I wait for the '${2:LOCATOR}' to exist"
+    ],
+    "description": "${1:When} I wait for the '${2:LOCATOR}' to exist"
+  }
+}

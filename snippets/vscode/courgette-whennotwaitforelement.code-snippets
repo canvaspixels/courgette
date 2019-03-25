@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whennotwaitforelement",
+    "body": [
+      "${1:When} I wait for the '${2:LOCATOR}' to not exist"
+    ],
+    "description": "${1:When} I wait for the '${2:LOCATOR}' to not exist"
+  }
+}
