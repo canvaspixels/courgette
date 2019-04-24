@@ -131,7 +131,7 @@ stepsFiles.forEach((stepsFile) => {
         theFunc = function (a1, a2, a3, a4, a5, a6, a7) { return theStepDef.call(this, ...arguments); };
       }
       /* eslint-enable */
-      defineStep(new RegExp(parameterisedStepRegexStr), theFunc);
+      defineStep(new RegExp(`^${parameterisedStepRegexStr}$`), theFunc);
     });
   }
 });
