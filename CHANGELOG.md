@@ -1,3 +1,6 @@
+## 2.19.0
+* added compression for screenshot pngs
+
 ## 2.18.0
 * adding new step definitions
   * I wait for 'LOCATOR' to exist
