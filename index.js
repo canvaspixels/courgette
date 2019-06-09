@@ -6,6 +6,9 @@ const { argv } = require('yargs');
 const Table = require('cli-table');
 require('colors');
 const os = require('os');
+const imagemin = require('imagemin');
+const imageminPngquant = require('imagemin-pngquant');
+
 const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
 // eslint-disable-next-line
@@ -188,7 +191,7 @@ const outputDirContainsJsons = (jsonOutputPath) => {
 spawnedProcess.stdout.on('data', output);
 spawnedProcess.stderr.on('data', output);
 
-spawnedProcess.on('exit', () => {
+spawnedProcess.on('exit', async () => {
   logStream.end();
 
   deleteEmptyJSONS(pomConfig.outputPath);
@@ -205,20 +208,40 @@ spawnedProcess.on('exit', () => {
 
   generateScreenshotViewer();
 
-  loopThroughReport()
-    .then(({ successCount, failureCount, totalCount }) => {
-      const table = new Table({
-        head: [
-          'Total Scenarios'.white,
-          'Successful'.green,
-          'Failures'.red,
-        ],
-      });
+  const { successCount, failureCount, totalCount } = await loopThroughReport();
 
-      table.push([totalCount, `${successCount}`.green, `${failureCount}`.red]);
+  const table = new Table({
+    head: [
+      'Total Scenarios'.white,
+      'Successful'.green,
+      'Failures'.red,
+    ],
+  });
 
-      log('');
-      log(table.toString());
-      process.exitCode = totalCount === successCount ? 0 : 1;
-    });
+  table.push([totalCount, `${successCount}`.green, `${failureCount}`.red]);
+
+  log('');
+  log(table.toString());
+
+  if (pomConfig.minifyPng !== false) {
+    const minifyQuality = typeof pomConfig.minifyPng === 'string' ? pomConfig.minifyPng : '0.6-0.8';
+    const quality = minifyQuality.split('-').map((num) => parseFloat(num));
+    const imageminConf = {
+      plugins: [imageminPngquant({ quality })],
+    };
+    const minifyOutputPath = pomConfig.screenshotPath || pomConfig.outputPath;
+    await imagemin(
+      [pomConfig.minifyPathGlob || `${minifyOutputPath}/*.png`],
+      pomConfig.minifyPathOutput || 'uiTestResult',
+      imageminConf,
+    );
+    await imagemin(
+      [pomConfig.minifyStepPathGlob || `${minifyOutputPath}/${pomConfig.screenshotStepPath || 'stepDefinitionScreenshots'}/*.png`],
+      pomConfig.minifyStepPathOutput || 'uiTestResult/stepDefinitionScreenshots',
+      imageminConf,
+    );
+  }
+
+
+  process.exitCode = totalCount === successCount ? 0 : 1;
 });
