@@ -15,6 +15,7 @@ exports.pomConfig = {
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
   baseUrl: 'http://localhost:3000',
+  minifyPng: false,
 };
 
 exports.cucumberHtmlReporterConfig = {};

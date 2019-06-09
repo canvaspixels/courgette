@@ -12,6 +12,14 @@ exports.pomConfig = {
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
   baseUrl: 'https://www.google.com', // <------------ SET THE URL TO YOUR PROJECT HERE
+  // screenshotPath: outputPath, // not needed unless you need it to differ to the outputPath. Used for error screenshots
+  // screenshotStepPath: 'stepDefinitionScreenshots', // is appended to the screenshotPath or outputPath if one isn't set. Used for screenshots in the step definitions (e.g. When I take a screenshot)
+  minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
+  // The following are not needed unless on Windows or are having issues with compression
+  // minifyPathGlob: 'uiTestResult/*.png',
+  // minifyPathOutput: 'uiTestResult',
+  // minifyStepPathGlob: 'uiTestResult/stepDefinitionScreenshots/*.png',
+  // minifyStepPathOutput: 'uiTestResult/stepDefinitionScreenshots',
 };
 
 exports.cucumberHtmlReporterConfig = {};

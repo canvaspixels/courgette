@@ -5,6 +5,8 @@ const specsPath = 'uiTests';
 const outputPath = 'uiTestResult';
 const courgettePath = 'uiTestHelpers';
 
+// This config file is used to test the samples from within this repo
+
 exports.pomConfig = {
   outputPath,
   timeoutInSeconds: process.env.courgetteTimeout || 10,
@@ -12,6 +14,7 @@ exports.pomConfig = {
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
   baseUrl: 'https://www.google.com',
+  minifyPng: false,
 };
 
 exports.cucumberHtmlReporterConfig = {};
