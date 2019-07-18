@@ -10,9 +10,6 @@ module.exports = function takeScreenshot(filename, callback) {
     const screenshotName = filename || `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}`;
     const screenshotStepPath = (pomConfig.screenshotStepPath || 'stepDefinitionScreenshots');
     const screenshotsDir = path.join(pomConfig.screenshotPath || pomConfig.outputPath, screenshotStepPath);
-    if (!fs.existsSync(screenshotsDir)) {
-      fs.mkdirSync(screenshotsDir);
-    }
     const screenshotFilePath = path.join(screenshotsDir, `${screenshotName}.png`);
     const stream = fs.createWriteStream(screenshotFilePath);
     console.log('            ScreenshotFilePath: ', screenshotFilePath);

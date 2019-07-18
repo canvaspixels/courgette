@@ -1,7 +1,5 @@
-import React from 'react';
+import React from "react";
 
-const FooterItem2 = () => (
-  <li className="footer-item2">Footer Item 2</li>
-);
+const FooterItem2 = () => <li className="footer-item2">Footer Item 2</li>;
 
 export default FooterItem2;
