@@ -1,6 +1,6 @@
-import React from "react";
-import "./HomePage.css";
-import Banner from "./Banner";
+import React from 'react';
+import './HomePage.css';
+import Banner from './Banner';
 
 const WebComponentsPage = () => (
   <div className="Home">

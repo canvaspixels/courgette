@@ -1,19 +1,22 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from "react-router-dom";
-import "./index.css";
-import { Route, Switch } from "react-router-dom";
-import asyncComponent from "./AsyncComponent";
-const AsyncHomePage = asyncComponent(() => import("./HomePage"));
-const AsyncOtherPage = asyncComponent(() => import("./OtherPage"));
-const AsyncWebComponentsPage = asyncComponent(() =>
-  import("./WebComponentsPage")
-);
-const AsyncSimplePage = asyncComponent(() => import("./SimplePage"));
+import './index.css';
+import { Route, Switch } from 'react-router-dom';
+import asyncComponent from './AsyncComponent';
+const AsyncHomePage = asyncComponent(() => import('./HomePage'));
+const AsyncOtherPage = asyncComponent(() => import('./OtherPage'));
+const AsyncWebComponentsPage = asyncComponent(() => import('./WebComponentsPage'));
+const AsyncSimplePage = asyncComponent(() => import('./SimplePage'));
 
-const Routes = ({ childProps }) => (
+const Routes = ({ childProps }) =>
   <Switch>
-    <Route path="/" exact component={AsyncHomePage} props={childProps} />
+    <Route
+      path="/"
+      exact
+      component={AsyncHomePage}
+      props={childProps}
+    />
     <Route
       path="/other-page"
       exact
@@ -47,11 +50,6 @@ const Routes = ({ childProps }) => (
       props={childProps}
     />
   </Switch>
-);
 
-ReactDOM.render(
-  <Router>
-    <Routes />
-  </Router>,
-  document.getElementById("root")
-);
+
+ReactDOM.render(<Router><Routes /></Router>, document.getElementById('root'));

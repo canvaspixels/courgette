@@ -57,13 +57,6 @@ if (fs.existsSync(outputPath)) {
 if (!fs.existsSync(outputPath)) {
   fs.mkdirSync(outputPath);
 }
-
-const screenshotStepPath = (pomConfig.screenshotStepPath || 'stepDefinitionScreenshots');
-const screenshotsDir = path.join(pomConfig.screenshotPath || pomConfig.outputPath, screenshotStepPath);
-if (!fs.existsSync(screenshotsDir)) {
-  fs.mkdirSync(screenshotsDir);
-}
-
 const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
 
@@ -243,7 +236,7 @@ spawnedProcess.on('exit', async () => {
       imageminConf,
     );
     await imagemin(
-      [pomConfig.minifyStepPathGlob || `${minifyOutputPath}/${screenshotStepPath}/*.png`],
+      [pomConfig.minifyStepPathGlob || `${minifyOutputPath}/${pomConfig.screenshotStepPath || 'stepDefinitionScreenshots'}/*.png`],
       pomConfig.minifyStepPathOutput || 'uiTestResult/stepDefinitionScreenshots',
       imageminConf,
     );
