@@ -77,6 +77,7 @@ const protractorConfig = {
       'cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
     ].concat(process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
+    'format-options': '{"colorsEnabled": true}',
     'profile': false,
     'no-source': true,
   },
