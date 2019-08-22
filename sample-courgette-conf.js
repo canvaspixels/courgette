@@ -24,18 +24,20 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
+const disableHeadless = process.env.disableHeadless === 'true';
+
 const capabilities = {
   chrome: {
     browserName: 'chrome',
     chromeOptions: {
       args: ['--window-size=1100,800']
-        .concat(process.env.disableHeadless ? [] : ['--headless', '--disable-gpu']),
+        .concat(disableHeadless ? [] : ['--headless', '--disable-gpu']),
     },
   },
   firefox: {
     'browserName': 'firefox',
     'moz:firefoxOptions': {
-      args: [].concat(process.env.disableHeadless ? [] : ['-headless']),
+      args: [].concat(disableHeadless ? [] : ['-headless']),
       prefs: {
         'general.useragent.override': 'Automated tests',
       },
