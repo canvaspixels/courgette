@@ -1,6 +1,6 @@
 {
   "name": "courgette",
-  "version": "2.19.3",
+  "version": "2.19.4",
   "description": "Courgette - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
@@ -27,9 +27,9 @@
     "courgette": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette"
   },
   "bin": {
-    "uitests": "./index.js",
     "courgette": "./index.js",
-    "brmbrm": "./index.js"
+    "ct": "./index.js",
+    "uitests": "./index.js"
   },
   "repository": {
     "type": "git",

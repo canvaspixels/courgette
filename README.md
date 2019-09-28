@@ -39,7 +39,7 @@ This will create a `uiTests` folder with the sample in it, a sample `courgette-c
 Run the sample, type into your terminal:
 
 ```
-npm run ct
+npx ct
 ```
 
 To just install the courgette package without any of the postinstall steps (not recommended but there if you need to) you can run install with the following environment variables set:
@@ -69,7 +69,7 @@ or without the git stuff:
 mkdir yourProjectName && cd $_ && npm init -y && npm i courgette && npm run setup-courgette-snippets
 ```
 
-3. As an improvement, to suppress deprecation warnings (if running node >= 8) and also to type `courgette` or `ct` rather than typing `npm run ct` each time, you can add the following lines to your `~/.bash_profile` file:
+3. As an improvement, to suppress deprecation warnings (if running node >= 8) and also to type `courgette` or `ct` rather than typing `npx ct` each time, you can add the following lines to your `~/.bash_profile` file:
 
 ```
 alias courgette="PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette"
@@ -270,19 +270,19 @@ Continuing on from the examples above...
 To run just one feature (assuming the @tag is at the top of the file):
 
 ```console
-npm run ct @google-home
+npx ct @google-home
 ```
 
 To run just one scenario (assuming you’ve added the @tag above your scenario):
 
 ```console
-npm run ct @google-home-another-thing
+npx ct @google-home-another-thing
 ```
 
 To run a couple (comma separate):
 
 ```console
-npm run ct @google-home-feeling-lucky,@google-home-another-thing
+npx ct @google-home-feeling-lucky,@google-home-another-thing
 ```
 
 ## Viewing your test run
@@ -290,7 +290,7 @@ npm run ct @google-home-feeling-lucky,@google-home-another-thing
 If you get an error, you'll see a screenshot for each step error inside the `uiTestResult` folder and a link to each one from the console output in your terminal. However, if you want to view the browser running each step, you can put disableHeadless=true before the courgette command like this:
 
 ```console
-disableHeadless=true npm run ct
+disableHeadless=true npx ct
 ```
 
 That'll launch Firefox by default and you'll be able to see your tests run.
@@ -312,7 +312,7 @@ The conf file allows you to specify the following:
 To point to a different configuration file:
 
 ```console
-npm run ct -- --confFile=staging.courgette-conf.js
+npx ct -- --confFile=staging.courgette-conf.js
 ```
 
 ## .page files and .component files
@@ -376,7 +376,7 @@ Example site with a .page containing two site-wide components:
 
 By default all your .feature files will run in parallel to speed up running all your tests. This means that across your .feature files your tests should not conflict, i.e. you won't be able to do setup in one feature file such as adding a todo item to your todo app, and teardown in another .feature file such as deleting that same todo item as you'll get a race condition. A suggestion is that if you're logging into your app for example that you use a different user account for each .feature file to avoid conflicting.
 
-If you run `linearise=1 npm run ct` then they won't run in parallel, nor will they if you’re running just one scenario or feature with a @tag.
+If you run `linearise=1 npx ct` then they won't run in parallel, nor will they if you’re running just one scenario or feature with a @tag.
 
 `maxInstances: 4` in the conf can be altered depending on how much load your computer can handle.
 
@@ -446,7 +446,7 @@ Feature: Test feature
     Given I am logged in
 ```
 
-Then run that scenario: `npm run ct @twitter-dashboard-menu-items`
+Then run that scenario: `npx ct @twitter-dashboard-menu-items`
 
 Have a look at the [available methods](https://github.com/canvaspixels/courgette/blob/master/METHODS_FOR_COMBINING.md#methods-for-combining-actions-and-assertions) that you can use to combine your steps.
 
@@ -455,7 +455,7 @@ Have a look at the [available methods](https://github.com/canvaspixels/courgette
 To run all your tests then print out a summary of the usage of your step definitions run:
 
 ```console
-npm run ct -- --showStepDefinitionUsage
+npx ct -- --showStepDefinitionUsage
 ```
 
 ## Tidying page objects
