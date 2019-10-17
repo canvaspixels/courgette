@@ -1,4 +1,5 @@
 const path = require('path');
+
 require('babel-core/register');
 
 const specsPath = 'uiTests';
@@ -68,10 +69,10 @@ const protractorConfig = {
       `${courgettePath}/hooks/pageObjectModelBefore.js`,
       `${courgettePath}/hooks/addMethodsBefore.js`,
       `${courgettePath}/hooks/setDefaultTimeout.js`,
-      `${courgettePath}/hooks/loadSteps.js`,
       `${courgettePath}/stepDefinitions/*.js`,
       `${specsPath}/stepDefinitions/*.js`,
       // `${specsPath}/helpers/hooks.js`,
+      `${courgettePath}/hooks/loadSteps.js`, // keep this at the end
     ],
     'tags': ['~@ignore'].concat(tags || []),
     'format': [

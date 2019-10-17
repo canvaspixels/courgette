@@ -1,10 +1,8 @@
 const path = require('path');
 const fs = require('fs');
-const givenSteps = require('../stepDefinitions/commonGivenSteps');
-const whenSteps = require('../stepDefinitions/commonWhenSteps');
-const thenSteps = require('../stepDefinitions/commonThenSteps');
 
-const commonSteps = [].concat(givenSteps, whenSteps, thenSteps);
+const cucumber = require(path.join(process.cwd(), 'node_modules/cucumber'));
+
 require('colors');
 
 const { defineStep } = require(path.join(process.cwd(), 'node_modules/cucumber'));
@@ -12,6 +10,7 @@ const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || '
 
 const stepsObj = {};
 let currentStep;
+const allSteps = cucumber.supportCodeLibraryBuilder.options.stepDefinitionConfigs;
 
 const stepsFiles = fs.readdirSync(pomConfig.stepsPath);
 stepsFiles.forEach((stepsFile) => {
@@ -49,11 +48,14 @@ stepsFiles.forEach((stepsFile) => {
         console.log(`\nStep: ${stepRegexStr}`);
         for (let i = 0; i < substeps.length; i += 1) {
           const substepCleaned = substeps[i].stepCleaned;
-          const correspondingCommonStep = commonSteps.find((commonStep) => commonStep.regex && commonStep.regex.test(substepCleaned));
+
+          const correspondingCommonStep =
+            allSteps.find((commonStep) => commonStep.pattern && commonStep.pattern.test(substepCleaned));
 
           try {
             if (correspondingCommonStep) {
-              let args = substepCleaned.match(correspondingCommonStep.regex);
+              let args = substepCleaned.match(correspondingCommonStep.pattern);
+
               args.shift(); // remove full string off front of args array
 
               args = args.map((arg) => {
@@ -66,7 +68,7 @@ stepsFiles.forEach((stepsFile) => {
 
               const argsToPass = args.length;
               args.unshift(this); // pass the this context ready for .call fn call later
-              const fn = require(`../stepDefinitions/${correspondingCommonStep.path}`); // todo: path on windows
+              const fn = correspondingCommonStep.code;
               let doneCallbackCalled = false;
               let callbackPromise;
               if (fn.length > argsToPass) {

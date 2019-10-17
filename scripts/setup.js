@@ -41,28 +41,32 @@ function runScript(scriptPath, args) {
 }
 
 let shouldInstall = true;
-if (!fs.existsSync(targetUiTestPath) && !process.env.IGNORE_COURGETTE_SAMPLE_SETUP) {
-  ncp(path.join(__dirname, '..', 'uiTests'), targetUiTestPath, (err) => {
-    if (err) {
-      return console.error(err);
-    }
-    return console.log('uiTests folder created');
-  });
-} else {
-  console.log('uiTests folder already exists. Cannot create a new one');
-  shouldInstall = false;
+if (!process.env.IGNORE_COURGETTE_SAMPLE_SETUP) {
+  if (!fs.existsSync(targetUiTestPath)) {
+    ncp(path.join(__dirname, '..', 'uiTests'), targetUiTestPath, (err) => {
+      if (err) {
+        return console.error(err);
+      }
+      return console.log('uiTests folder created');
+    });
+  } else {
+    console.log('uiTests folder already exists. Cannot create a new one');
+    shouldInstall = false;
+  }
 }
 
-if (!fs.existsSync(targetConfPath) && !process.env.IGNORE_COURGETTE_CONF_SETUP) {
-  ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), targetConfPath, (err) => {
-    if (err) {
-      return console.error(err);
-    }
-    return console.log('courgette-conf.js created');
-  });
-} else {
-  console.log('courgette-conf.js already exists');
-  shouldInstall = false;
+if (!process.env.IGNORE_COURGETTE_CONF_SETUP) {
+  if (!fs.existsSync(targetConfPath)) {
+    ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), targetConfPath, (err) => {
+      if (err) {
+        return console.error(err);
+      }
+      return console.log('courgette-conf.js created');
+    });
+  } else {
+    console.log('courgette-conf.js already exists');
+    shouldInstall = false;
+  }
 }
 
 const setupPackageJsonScripts = async function () {
@@ -74,7 +78,7 @@ const setupPackageJsonScripts = async function () {
     scriptToAdd = 'set NODE_OPTIONS=--no-deprecation | courgette';
     // isWindows = true;
   }
-  const installFirefoxDriver = './node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --chrome=false';
+  const installFirefoxDriver = './node_modules/protractor/bin/webdriver-manager update --chrome=false';
 
   try {
     await runScript(addScriptToPackageJson, ['ct', scriptToAdd]);
@@ -94,13 +98,13 @@ const setupPackageJsonScripts = async function () {
 
 const setupDrivers = async function () {
   try {
-    await runScript('../../node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager', 'update --chrome=false'.split(' '));
+    await runScript('../../node_modules/protractor/bin/webdriver-manager', 'update --chrome=false'.split(' '));
     console.log('FirefoxDriver Installed');
   } catch (err) {
     console.log(' ');
     console.log('!!!!!!!!!!!-----------IMPORTANT----------!!!!!!!!!!!!!!!');
     console.log('It looks like it hasn’t install properly, you may be behind a corporate proxy. You may have to add the --proxy flag to webdriver-manager in your package json.');
-    const eg = '"./node_modules/protractor/node_modules/webdriver-manager/bin/webdriver-manager update --gecko=false --versions.chrome 2.35 --proxy http://127.0.0.1"';
+    const eg = '"./node_modules/protractor/bin/webdriver-manager update --gecko=false --proxy http://127.0.0.1"';
     console.log(`e.g. "install-geckodriver": ${eg},`);
     console.log('Then run:');
     console.log('npm run install-geckodriver');

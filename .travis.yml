@@ -17,3 +17,5 @@ services:
   - xvfb
 script:
   - npm run ci
+addons:
+  chrome: stable
