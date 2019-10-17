@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+
 const cucumber = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
 require('colors');
@@ -9,7 +10,7 @@ const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || '
 
 const stepsObj = {};
 let currentStep;
-const allSteps = cucumber.supportCodeLibraryBuilder.options.stepDefinitionConfigs
+const allSteps = cucumber.supportCodeLibraryBuilder.options.stepDefinitionConfigs;
 
 const stepsFiles = fs.readdirSync(pomConfig.stepsPath);
 stepsFiles.forEach((stepsFile) => {
@@ -47,14 +48,14 @@ stepsFiles.forEach((stepsFile) => {
         console.log(`\nStep: ${stepRegexStr}`);
         for (let i = 0; i < substeps.length; i += 1) {
           const substepCleaned = substeps[i].stepCleaned;
-          
-          const correspondingCommonStep = 
+
+          const correspondingCommonStep =
             allSteps.find((commonStep) => commonStep.pattern && commonStep.pattern.test(substepCleaned));
 
           try {
             if (correspondingCommonStep) {
               let args = substepCleaned.match(correspondingCommonStep.pattern);
-              
+
               args.shift(); // remove full string off front of args array
 
               args = args.map((arg) => {
