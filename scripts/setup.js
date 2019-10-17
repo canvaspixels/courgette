@@ -41,28 +41,32 @@ function runScript(scriptPath, args) {
 }
 
 let shouldInstall = true;
-if (!fs.existsSync(targetUiTestPath) && !process.env.IGNORE_COURGETTE_SAMPLE_SETUP) {
-  ncp(path.join(__dirname, '..', 'uiTests'), targetUiTestPath, (err) => {
-    if (err) {
-      return console.error(err);
-    }
-    return console.log('uiTests folder created');
-  });
-} else {
-  console.log('uiTests folder already exists. Cannot create a new one');
-  shouldInstall = false;
+if (!process.env.IGNORE_COURGETTE_SAMPLE_SETUP) {
+  if (!fs.existsSync(targetUiTestPath)) {
+    ncp(path.join(__dirname, '..', 'uiTests'), targetUiTestPath, (err) => {
+      if (err) {
+        return console.error(err);
+      }
+      return console.log('uiTests folder created');
+    });
+  } else {
+    console.log('uiTests folder already exists. Cannot create a new one');
+    shouldInstall = false;
+  }
 }
 
-if (!fs.existsSync(targetConfPath) && !process.env.IGNORE_COURGETTE_CONF_SETUP) {
-  ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), targetConfPath, (err) => {
-    if (err) {
-      return console.error(err);
-    }
-    return console.log('courgette-conf.js created');
-  });
-} else {
-  console.log('courgette-conf.js already exists');
-  shouldInstall = false;
+if (!process.env.IGNORE_COURGETTE_CONF_SETUP) {
+  if (!fs.existsSync(targetConfPath)) {
+    ncp(path.join(__dirname, '..', 'sample-courgette-conf.js'), targetConfPath, (err) => {
+      if (err) {
+        return console.error(err);
+      }
+      return console.log('courgette-conf.js created');
+    });
+  } else {
+    console.log('courgette-conf.js already exists');
+    shouldInstall = false;
+  }
 }
 
 const setupPackageJsonScripts = async function () {

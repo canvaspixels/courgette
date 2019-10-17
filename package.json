@@ -8,7 +8,6 @@
     "ci": "npm run install-chromedriver && npm run start & npm run lint && npm run uitests",
     "eject": "react-scripts eject",
     "lint": "eslint '**/*.js'",
-    "postinstall": "node scripts/setup.js",
     "build-snippets:atom": "node scripts/generateSnippetsAtom.js --genFiles",
     "build-snippets:sublime": "node scripts/generateSnippetsSublime.js --genFiles",
     "build-snippets:vscode": "node scripts/generateSnippetsVSCode.js --genFiles",
@@ -48,8 +47,9 @@
     "imagemin-pngquant": "^8.0.0",
     "jsonfile": "^5.0.0",
     "ncp": "^2.0.0",
-    "protractor": "^5.4.0",
+    "protractor": "^5.4.2",
     "protractor-cucumber-framework": "^6.1.1",
+    "webdriver-manager": "^12.1.7",
     "yaml-page-objects": "0.0.0",
     "yargs": "^12.0.1"
   },
