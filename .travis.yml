@@ -10,6 +10,7 @@ install:
   - nvm install 8
   - nvm alias default 8
   - npm install
+  - ./node_modules/protractor/bin/webdriver-manager update --gecko=false --versions.chrome 2.35
 before_script:
   - sudo chown root /opt/google/chrome/chrome-sandbox
   - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
