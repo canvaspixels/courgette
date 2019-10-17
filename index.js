@@ -1,7 +1,6 @@
 #! /usr/bin/env node
 
 const fs = require('fs');
-const cucumber = require('cucumber');
 const path = require('path');
 const { argv } = require('yargs');
 const Table = require('cli-table');
@@ -9,9 +8,6 @@ require('colors');
 const os = require('os');
 const imagemin = require('imagemin');
 const imageminPngquant = require('imagemin-pngquant');
-
-const process = require('process');
-console.log(process.pid, 'ppppiddd');
 
 const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 

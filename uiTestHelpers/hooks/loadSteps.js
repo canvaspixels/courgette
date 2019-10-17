@@ -1,11 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const cucumber = require(path.join(process.cwd(), 'node_modules/cucumber'));
-const givenSteps = require('../stepDefinitions/commonGivenSteps');
-const whenSteps = require('../stepDefinitions/commonWhenSteps');
-const thenSteps = require('../stepDefinitions/commonThenSteps');
 
-const commonSteps = [].concat(givenSteps, whenSteps, thenSteps);
 require('colors');
 
 const { defineStep } = require(path.join(process.cwd(), 'node_modules/cucumber'));
@@ -13,12 +9,7 @@ const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || '
 
 const stepsObj = {};
 let currentStep;
-// defineStep(new RegExp(`^testtttstrestrstrstrstrs$`), )
-// this.options.stepDefinitionConfigs
-
-// console.dir(cucumber.supportCodeLibraryBuilder.options.stepDefinitionConfigs);
 const allSteps = cucumber.supportCodeLibraryBuilder.options.stepDefinitionConfigs
-
 
 const stepsFiles = fs.readdirSync(pomConfig.stepsPath);
 stepsFiles.forEach((stepsFile) => {
@@ -57,25 +48,12 @@ stepsFiles.forEach((stepsFile) => {
         for (let i = 0; i < substeps.length; i += 1) {
           const substepCleaned = substeps[i].stepCleaned;
           
-          // console.log(cucumber.supportCodeLibraryBuilder.options.stepDefinitionConfigs);
-          // console.log('---dddd');
-          
-          // console.log(commonSteps);
-          
-// .forEach((step) => {
-//   console.log(step.pattern);
-//   code
-// })
-          
           const correspondingCommonStep = 
             allSteps.find((commonStep) => commonStep.pattern && commonStep.pattern.test(substepCleaned));
-          // commonSteps.find((commonStep) => commonStep.regex && commonStep.regex.test(substepCleaned));
 
           try {
             if (correspondingCommonStep) {
               let args = substepCleaned.match(correspondingCommonStep.pattern);
-              // let args = substepCleaned.match(correspondingCommonStep.regex);
-              console.log(args, 'argsargsargsargs');
               
               args.shift(); // remove full string off front of args array
 
@@ -89,7 +67,6 @@ stepsFiles.forEach((stepsFile) => {
 
               const argsToPass = args.length;
               args.unshift(this); // pass the this context ready for .call fn call later
-              // const fn = require(`../stepDefinitions/${correspondingCommonStep.path}`); // todo: path on windows
               const fn = correspondingCommonStep.code;
               let doneCallbackCalled = false;
               let callbackPromise;
