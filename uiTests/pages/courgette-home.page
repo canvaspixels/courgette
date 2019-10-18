@@ -1,0 +1,9 @@
+path: /
+
+selectors:
+  accept cookies button: .gdpr-ok-button
+  get started: .hero .cta
+
+components:
+  - component1
+  - component2

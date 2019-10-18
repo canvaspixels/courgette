@@ -1,10 +1,12 @@
 Steps: Some reusable steps
 
-  Step: I am on the 'google-home' page and I click 'I’m Feeling Lucky'
+  Step: I am on the courgette homepage
     Given I am on the page with url '/'
-    When some state
-    When I click the element that contains the text 'Feeling Lucky'
+    And I set the cookie 'MCPopupClosed' with value 'yes'
+    And I set the cookie 'privacyPolicyAgreed' with value 'true'
+    And I am on the page with url '/'
+    When I click the element that contains the text 'Get started'
 
-  Step: I expect the url to contain 'google.com/doodles' then take a screenshot
-    Then I expect the url to contain 'google.com/doodles'
+  Step: I should be able to access the get started page
+    Then I expect the url to contain 'courgette-testing.com/getting-started'
     Then take a screenshot

@@ -20,7 +20,7 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
-const disableHeadless = process.env.disableHeadless === 'true';
+const disableHeadless = process.env.disableHeadless === 'true' || process.env.dh === 'true';
 
 const capabilities = {
   chrome: {
