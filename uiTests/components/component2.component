@@ -1,2 +1,2 @@
 selectors:
-  some other element that appears in a component across more than 1 page: .some-element
+  some other element that appears in a component across more than 1 page: .some-other-element

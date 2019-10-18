@@ -14,13 +14,13 @@ exports.pomConfig = {
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
-  baseUrl: 'https://www.google.com',
+  baseUrl: 'https://courgette-testing.com',
   minifyPng: false,
 };
 
 exports.cucumberHtmlReporterConfig = {};
 
-const disableHeadless = process.env.disableHeadless === 'true';
+const disableHeadless = process.env.disableHeadless === 'true' || process.env.dh === 'true';
 
 const capabilities = {
   chrome: {
