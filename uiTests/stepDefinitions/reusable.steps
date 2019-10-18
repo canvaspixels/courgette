@@ -5,6 +5,7 @@ Steps: Some reusable steps
     And I set the cookie 'MCPopupClosed' with value 'yes'
     And I set the cookie 'privacyPolicyAgreed' with value 'true'
     And I am on the page with url '/'
+    And take a screenshot
     When I click the element that contains the text 'Get started'
 
   Step: I should be able to access the get started page
