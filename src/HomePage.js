@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
 import './HomePage.css';
 import Banner from './Banner';
 
 const Home = () => (
+  <BrowserRouter>
   <div className="Home" data-test="home-container">
     <Banner />
     <div data-test="empty-div" />
@@ -76,6 +77,7 @@ const Home = () => (
       <p><button type="button" disabled data-test="disabled-button">Disabled Button</button></p>
     </form>
   </div>
+  </BrowserRouter>
 );
 
 export default Home;
