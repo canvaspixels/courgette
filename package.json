@@ -21,7 +21,6 @@
     "install-chromedriver": "./node_modules/protractor/bin/webdriver-manager update --gecko=false",
     "install-geckodriver": "./node_modules/protractor/bin/webdriver-manager update --chrome=false",
     "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom",
     "uitests": "node index.js",
     "ct": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette",
     "courgette": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette"
