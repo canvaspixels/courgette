@@ -67,14 +67,17 @@ if (!fs.existsSync(screenshotsDir)) {
 const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
 
-const cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+// const cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+const cmd = path.join('node_modules', '.bin', `wdio${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
 const args = [confFile];
 const firstArg = process.argv && process.argv[2];
-const tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
+let tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
+tags = (tags || argv.tags || '').replace(',', ' or ')
+console.log(cmd, args.join(' '));
 
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
-    tags: (tags || argv.tags || '').replace(',', ' or '),
+    tags,
     confFile,
     showStepDefinitionUsage: process.env.showStepDefinitionUsage || argv.showStepDefinitionUsage || '',
   }),
@@ -206,6 +209,8 @@ spawnedProcess.on('exit', async () => {
   if (!outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
     console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
+    console.error('The problem is there are no json files that can be read from.');
+    console.error('Tags used: ', tags);
     console.log('-----------------------------------');
     process.exitCode = 1;
     return;
