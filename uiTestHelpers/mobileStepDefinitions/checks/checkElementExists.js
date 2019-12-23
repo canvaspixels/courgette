@@ -1,7 +1,6 @@
-// module.exports = function checkElementExists(locatorKey, doesNotExist) {
-//   const el = this.getCurrentPage().getElement(locatorKey);
+module.exports = async function checkElementExists(locatorKey, doesNotExist) {
+  const pageObj = await this.getCurrentPage()
+  const el = await pageObj.getElement(locatorKey)
 
-//   return doesNotExist ?
-//     expect(el.isPresent()).to.not.eventually.be.true :
-//     expect(el.isPresent()).to.eventually.be.true;
-// };
+  await el.waitForExist(2000);
+};

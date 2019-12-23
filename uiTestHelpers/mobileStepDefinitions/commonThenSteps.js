@@ -39,13 +39,11 @@ const steps = [
   //   notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16)',
   //   pageObjectNotRequired: true,
   // },
-  // {
-  //   matcher: "I expect to be on the 'PAGE_NAME' page",
-  //   path: './checks/setPageObjectThenCheckUrl',
-  //   notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use locators / sel' +
-  //     'ectors / XPaths from the PAGE_NAME page object, and then asserts the URL from that new page object if it exists.',
-  //   code: 'onpage',
-  // },
+  {
+    matcher: "I expect to be on the 'PAGE_NAME' page",
+    path: './checks/setPageObjectThenCheckScreenExists',
+    code: 'onpage',
+  },
   // {
   //   matcher: "I set the page object to 'PAGE_NAME' page",
   //   path: './actions/setPageObject',
@@ -74,17 +72,11 @@ const steps = [
   // { matcher: "I expect(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to (contain) the text 'STRING'", path: './checks/checkElementInsideElementContainsText', code: 'elinsideelcontainstext' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* contain any text", path: './checks/checkContainsAnyText', code: 'containsanytext' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* appear exactly 'NUMBER' times", path: './checks/checkElementExistsNTimes', code: 'appearexactly' },
-  // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* exist", path: './checks/checkElementExists', code: 'exists' },
+  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* exist", path: './checks/checkElementExists', code: 'exists' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be checked", path: './checks/checkIsSelected', code: 'checked' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be selected", path: './checks/checkIsSelected', code: 'selected' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to be (enabled)", path: './checks/checkIsEnabled', code: 'enabled' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to be (disabled)", path: './checks/checkIsEnabled', code: 'disabled' },
-  // {
-  //   matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists', pageObjectNotRequired: true,
-  // },
   // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },

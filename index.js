@@ -208,10 +208,12 @@ spawnedProcess.on('exit', async () => {
 
   if (!outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
-    console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
-    console.error('The problem is there are no json files that can be read from.');
-    console.error('Tags used: ', tags);
-    console.log('-----------------------------------');
+    if (pomConfig.platform !== 'mobile') {
+      console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
+      console.error('The problem is there are no json files that can be read from.');
+      console.error('Tags used: ', tags);
+      console.log('-----------------------------------');
+    }
     process.exitCode = 1;
     return;
   }

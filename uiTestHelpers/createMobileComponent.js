@@ -3,8 +3,6 @@ const path = require('path');
 module.exports = (name, world, elLocators, type = 'component', customMethods = {}) => {
   const components = {};
   const locators = elLocators;
-  console.log('elLocators', elLocators);
-  
 
   const locatorErrorCheck = (locator) => {
     if (!locators[locator]) {

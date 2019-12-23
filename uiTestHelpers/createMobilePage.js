@@ -7,6 +7,10 @@ module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
     {},
     createComponent(name, world, elLocators, 'page'),
     {
+      getScreenPath() {
+        return pageUrl;
+      },
+
       goToPage: async () => {
         const screen = await browser.$(`~${pageUrl}`)
         // console.log('screen', screen, `~${pageUrl}`);
