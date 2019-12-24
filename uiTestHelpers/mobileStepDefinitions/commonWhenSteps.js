@@ -1,4 +1,3 @@
-const path = require('path');
 const { argv } = require('yargs');
 
 const { When } = require('cucumber');
@@ -17,14 +16,6 @@ const steps = [
   // {
   //   matcher: "I click(?: the)?(?: 'NTH')? element that contains the text 'VALUE'", path: './actions/clickElementThatContainsText', code: 'clickelcontainstext', pageObjectNotRequired: true,
   // },
-  // {
-  //   matcher: "I press 'KEY'",
-  //   path: './actions/pressKey',
-  //   code: 'key',
-  //   notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16)', // eslint-disable-line
-  //   pageObjectNotRequired: true,
-  // },
-
   // { matcher: "I wait for(?: the)? 'LOCATOR' to( not)* exist", path: './actions/waitForElement', code: 'waitforelement' },
   // {
   //   matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile',
@@ -35,7 +26,7 @@ const steps = [
   // },
   // { matcher: "I append 'STRING' to 'LOCATOR'", path: './actions/appendInputFieldValue', code: 'append' },
   // // { matcher: "I set select 'LOCATOR' to 'STRING'", path: './actions/setSelectFieldValue', code: 'set' },
-  // { matcher: "I set 'LOCATOR' to 'STRING'", path: './actions/setInputFieldValue', code: 'set' },
+  { matcher: "I set 'LOCATOR' to 'STRING'", path: './actions/setInputFieldValue', code: 'set' },
   // {
   //   matcher: "I set(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to 'STRING'", path: './actions/setElementInsideElement', code: 'setelinsideel', notes: 'This currently only works with XPaths',
   // },

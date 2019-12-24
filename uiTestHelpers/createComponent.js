@@ -53,10 +53,10 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return null;
     },
 
-    getElement(locator) {
-      locatorErrorCheck(locator);
+    getElement(locatorKey) {
+      locatorErrorCheck(locatorKey);
 
-      return element(locators[locator]);
+      return element(locators[locatorKey]);
     },
 
     getElementInsideElement(...ltors) {
@@ -73,19 +73,19 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return element(by.xpath(xpaths.join('')));
     },
 
-    getElements(locator) {
-      locatorErrorCheck(locator);
+    getElements(locatorKey) {
+      locatorErrorCheck(locatorKey);
 
-      return element.all(locators[locator]);
+      return element.all(locators[locatorKey]);
     },
 
-    getElementWhenInDOM(locator, ...other) {
+    getElementWhenInDOM(locatorKey, ...other) {
       let el;
 
       if (other.length) {
-        el = this.getElementInsideElement(locator, ...other);
+        el = this.getElementInsideElement(locatorKey, ...other);
       } else {
-        el = this.getElement(locator);
+        el = this.getElement(locatorKey);
       }
       // TODO add error
       // `${locator} not found`
@@ -93,15 +93,15 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return browser.wait(EC.presenceOf(el)).then(() => el);
     },
 
-    getElementWhenVisible(locator) {
-      const el = this.getElement(locator);
+    getElementWhenVisible(locatorKey) {
+      const el = this.getElement(locatorKey);
 
       // todo see syntax without EC
       return browser.wait(EC.visibilityOf(el)).then(() => el);
     },
 
-    getElementWhenInvisible(locator) {
-      const el = this.getElement(locator);
+    getElementWhenInvisible(locatorKey) {
+      const el = this.getElement(locatorKey);
 
       // todo see syntax without EC
       return browser.wait(EC.invisibilityOf(el)).then(() => el);

@@ -11,12 +11,11 @@ module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
         return pageUrl;
       },
 
-      goToPage: async () => {
-        const screen = await browser.$(`~${pageUrl}`)
-        // console.log('screen', screen, `~${pageUrl}`);
-        
-        world.screen = screen
-        return screen;
+      goToScreen: async () => {
+        const screen = await browser.$(`~${pageUrl}`);
+
+        world.screen = screen; // eslint-disable-line no-param-reassign
+        return screen.waitForExist(10000);
       },
     },
     customMethods,

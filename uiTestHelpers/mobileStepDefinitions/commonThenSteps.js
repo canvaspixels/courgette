@@ -1,4 +1,3 @@
-const path = require('path');
 const { argv } = require('yargs');
 
 const { Then } = require('cucumber');
@@ -44,12 +43,12 @@ const steps = [
     path: './checks/setPageObjectThenCheckScreenExists',
     code: 'onpage',
   },
-  // {
-  //   matcher: "I set the page object to 'PAGE_NAME' page",
-  //   path: './actions/setPageObject',
-  //   notes: 'This changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object',
-  //   code: 'setpageobj',
-  // },
+  {
+    matcher: "I set the page object to 'PAGE_NAME' page",
+    path: './actions/setPageObject',
+    notes: 'This changes the current page object so that any subsequent steps will use locators / selectors / XPaths from the PAGE_NAME page object',
+    code: 'setpageobj',
+  },
   // { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
   // {
   //   matcher: "I expect(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to be (visible)",

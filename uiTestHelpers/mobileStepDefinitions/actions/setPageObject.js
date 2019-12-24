@@ -1,4 +1,3 @@
-// module.exports = function setPageObject(pageName) {
-//   // update the page object
-//   return this.getPage(pageName);
-// };
+module.exports = function setPageObject(pageName) {
+  return this.buildPageObject(pageName);
+};

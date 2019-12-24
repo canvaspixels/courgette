@@ -72,8 +72,15 @@ const cmd = path.join('node_modules', '.bin', `wdio${os.type().toLowerCase().inc
 const args = [confFile];
 const firstArg = process.argv && process.argv[2];
 let tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
-tags = (tags || argv.tags || '').replace(',', ' or ')
+tags = (tags || argv.tags || '').replace(',', ' or ');
+
 console.log(cmd, args.join(' '));
+console.log('tagstagstags', tags);
+
+if (process.env.DEBUG) {
+  console.log('spawning courgette process: ', cmd, args.join(' '));
+  console.log('with tags: ', tags);
+}
 
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
@@ -201,20 +208,22 @@ const outputDirContainsJsons = (jsonOutputPath) => {
 spawnedProcess.stdout.on('data', output);
 spawnedProcess.stderr.on('data', output);
 
-spawnedProcess.on('exit', async () => {
+spawnedProcess.on('exit', async (code) => {
   logStream.end();
 
   deleteEmptyJSONS(pomConfig.outputPath);
 
   if (!outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
-    if (pomConfig.platform !== 'mobile') {
+    if (pomConfig.platform === 'mobile') {
+      process.exitCode = code;
+    } else {
       console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
       console.error('The problem is there are no json files that can be read from.');
       console.error('Tags used: ', tags);
       console.log('-----------------------------------');
+      process.exitCode = 1;
     }
-    process.exitCode = 1;
     return;
   }
 

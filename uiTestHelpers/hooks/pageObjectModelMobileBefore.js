@@ -6,6 +6,7 @@ const createPage = require('../../uiTestHelpers/createMobilePage');
 const createComponent = require('../../uiTestHelpers/createMobileComponent');
 
 const { Before } = require('cucumber');
+
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
@@ -113,7 +114,7 @@ Before(function pomBeforeHook() {
     }
   };
 
-  this.getPage = (pageName, updateCurrentPage = true) => {
+  this.buildPageObject = (pageName, updateCurrentPage = true) => {
     const name = pageName.replace(/ /g, '-').toLowerCase();
 
     const yamlPagePath = path.resolve(pomConfig.pagesPath, `${name}.page`);
