@@ -7,5 +7,5 @@ module.exports = async function setPageObjectThenCheckScreenExists(pageName) {
     return Promise.resolve();
   }
   const screen = await browser.$(`~${screenPath}`);
-  return screen.waitForExist(2000);
+  return screen.waitForExist(10000);
 };

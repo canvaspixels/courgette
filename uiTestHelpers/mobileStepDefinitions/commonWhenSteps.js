@@ -4,9 +4,9 @@ const { When } = require('cucumber');
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
-  // {
-  //   matcher: "I wait 'VALUE' seconds?", path: './actions/wait', code: 'wait', pageObjectNotRequired: true, notes: 'singular or plural works (second or seconds)',
-  // },
+  {
+    matcher: "I wait 'VALUE' seconds?", path: './actions/wait', code: 'wait', pageObjectNotRequired: true, notes: 'singular or plural works (second or seconds)',
+  },
   // {
   //   matcher: "I set the file upload 'VALUE' to(?: the)? element with selector 'SELECTOR'", path: './actions/uploadFileSelector', code: 'uploadfileselector', pageObjectNotRequired: true,
   // },
