@@ -1,92 +1,140 @@
 const path = require('path');
-require('babel-core/register');
-
-const specsPath = 'uiTests';
+const specsPath = 'ui-tests';
 const outputPath = 'uiTestResult';
 const courgettePath = 'node_modules/courgette/uiTestHelpers';
 
+const platform = process.env.PLATFORM;
+
+const ANDROID_APP_PATH = './android/app/build/outputs/apk/debug/app-debug.apk';
+const IOS_APP_PATH = './ios/build/Products/Release-iphonesimulator/APPNAME.app';
+
+const ALL_CAPABILITIES = {
+  android: [
+    {
+      platformName: 'android',
+      platformVersion: '10',
+      deviceName: 'Android Emulator',
+      app: ANDROID_APP_PATH,
+    },
+  ],
+  ios: [
+    {
+      platformName: 'ios',
+      platformVersion: '13.3',
+      deviceName: 'iPhone 11',
+      automationName: 'XCUITest',
+      app: IOS_APP_PATH,
+      // showXcodeLog: true,
+    },
+  ],
+};
+
+let CAPABILITIES_TO_USE = [];
+
+if (platform === 'android' || !platform) {
+  CAPABILITIES_TO_USE.push(...ALL_CAPABILITIES.android);
+}
+
+if (platform === 'ios' || !platform) {
+  CAPABILITIES_TO_USE.push(...ALL_CAPABILITIES.ios);
+}
+
+CAPABILITIES_TO_USE = [
+  {
+    platformName: 'ios',
+    platformVersion: '13.3',
+    deviceName: 'iPhone 11',
+    automationName: 'XCUITest',
+    app: './ios/build/APPNAME/Build/Products/Debug-iphonesimulator/APPNAME.app',
+    // showXcodeLog: true,
+  },
+];
+
 exports.pomConfig = {
+  platform: 'mobile',
   outputPath,
   timeoutInSeconds: process.env.courgetteTimeout || 10, // minimum 2 or you'll see strange behaviour with some steps
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
-  baseUrl: 'https://courgette-testing.com', // <------------ SET THE URL TO YOUR PROJECT HERE
   // screenshotPath: outputPath, // not needed unless you need it to differ to the outputPath. Used for error screenshots
   // screenshotStepPath: 'stepDefinitionScreenshots', // is appended to the screenshotPath or outputPath if one isn't set. Used for screenshots in the step definitions (e.g. When I take a screenshot)
-  minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
-  // The following are not needed unless on Windows or are having issues with compression
-  // minifyPathGlob: 'uiTestResult/*.png',
-  // minifyPathOutput: 'uiTestResult',
-  // minifyStepPathGlob: 'uiTestResult/stepDefinitionScreenshots/*.png',
+  // minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
   // minifyStepPathOutput: 'uiTestResult/stepDefinitionScreenshots',
 };
 
 exports.cucumberHtmlReporterConfig = {};
 
-const disableHeadless = process.env.disableHeadless === 'true' || process.env.dh === 'true';
+const tagExpression = ['not @ignore', process.env.tags].filter(tag => !!tag).join(' and ');
 
-const capabilities = {
-  chrome: {
-    browserName: 'chrome',
-    chromeOptions: {
-      args: ['--window-size=1100,800']
-        .concat(disableHeadless ? [] : ['--headless', '--disable-gpu']),
-    },
-  },
-  firefox: {
-    'browserName': 'firefox',
-    'moz:firefoxOptions': {
-      args: [].concat(disableHeadless ? [] : ['-headless']),
-      prefs: {
-        'general.useragent.override': 'Automated tests',
+if (process.env.DEBUG) {
+  console.log({ tagExpression });
+}
+
+exports.config = {
+  runner: 'local',
+  port: 4723,
+  exclude: [],
+  maxInstances: 1,
+  capabilities: CAPABILITIES_TO_USE,
+  logLevel: 'warn', // Level of logging verbosity: trace | debug | info | warn | error | silent
+  bail: 0, // (default is 0 - don't bail, run all tests).
+  baseUrl: 'http://localhost',
+  waitforTimeout: 10000,
+  connectionRetryCount: 3,
+  services: ['appium'],
+  appium: {}, // Appium Service config see details: https://webdriver.io/docs/appium-service.html
+  framework: 'cucumber',
+  reporters: [
+    'spec',
+    [
+      'json',
+      {
+        outputDir: './uiTestResult',
+        // outputFileFormat: function(opts) {
+        //   return `results-${opts.cid}.${opts.capabilities}.json`;
+        // },
       },
-    },
-  },
-};
-
-const browserCapability = capabilities[process.env.browser || 'firefox'];
-
-const tags = process.env.tags ? process.env.tags.replace(',', ' or ') : '';
-
-const protractorConfig = {
-  directConnect: true,
-  ignoreUncaughtExceptions: true,
-  framework: 'custom',
-  frameworkPath: require.resolve('protractor-cucumber-framework'),
-  specs: [
-    `${specsPath}/features/**/*.feature`,
-  ],
-  capabilities: {
-    'acceptInsecureCerts': true, // ignores SSL warnings
-    'shardTestFiles': !tags && !process.env.linearise && !process.env.showStepDefinitionUsage,
-    'maxInstances': 4,
-    ...browserCapability,
-  },
-  cucumberOpts: {
-    'require': [
-      // `${specsPath}/helpers/globals.js`,
-      `${courgettePath}/globals.js`,
-      `${courgettePath}/hooks/attachScenarioNameBefore.js`,
-      `${courgettePath}/hooks/attachScreenshotAfter.js`,
-      `${courgettePath}/hooks/pageObjectModelBefore.js`,
-      `${courgettePath}/hooks/addMethodsBefore.js`,
-      `${courgettePath}/hooks/setDefaultTimeout.js`,
-      `${courgettePath}/stepDefinitions/*.js`,
-      `${specsPath}/stepDefinitions/*.js`,
-      // `${specsPath}/helpers/hooks.js`,
-      `${courgettePath}/hooks/loadSteps.js`, // keep this at the end
     ],
-    'tags': ['~@ignore'].concat(tags || []),
-    'format': [
-      'node_modules/courgette/cucumberFormatter.js',
-      `json:./${outputPath}/report.json`,
-    ].concat(process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
+  ],
+  specs: [`${specsPath}/features/**/*.feature`],
+  cucumberOpts: {
+    require: [
+      // `${specsPath}/helpers/globals.js`,
+      // `${courgettePath}/globals.js`,
+      // `${courgettePath}/hooks/attachScenarioNameBefore.js`,
+      // `${courgettePath}/hooks/attachScreenshotAfter.js`,
+      `${courgettePath}/hooks/pageObjectModelMobileBefore.js`,
+      // `${courgettePath}/hooks/addMethodsBefore.js`,
+      // `${courgettePath}/hooks/setDefaultTimeout.js`,
+      // `${courgettePath}/mobileStepDefinitions/*.js`,
+      `${courgettePath}/mobileStepDefinitions/commonGivenSteps.js`,
+      `${courgettePath}/mobileStepDefinitions/commonWhenSteps.js`,
+      `${courgettePath}/mobileStepDefinitions/commonThenSteps.js`,
+      `${specsPath}/step-definitions/*.js`,
+      // // `${specsPath}/helpers/hooks.js`,
+      // `${courgettePath}/hooks/loadSteps.js`, // keep this at the end
+    ],
+    tagExpression,
+    // format: [
+    // 'node_modules/courgette/cucumberFormatter.js',
+    // `json:./${outputPath}/report.json`
+    // ],
+    // ].concat(
+    //   process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []
+    // ),
+    source: true,
     'format-options': '{"colorsEnabled": true}',
-    'profile': false,
-    'no-source': true,
+    colors: true,
+    timeout: (process.env.courgetteTimeout || 10) * 1000,
+    profile: [],
+    // backtrace: false,   // <boolean> show full backtrace for errors
+    // compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
+    // dryRun: false,      // <boolean> invoke formatters without executing steps
+    failFast: true, // <boolean> abort the run on first failure
+    // snippets: true,     // <boolean> hide step definition snippets for pending steps
+    // strict: false,      // <boolean> fail if there are any undefined or pending steps
+    // ignoreUndefinedDefinitions: false
   },
-  onPrepare: () => { browser.ignoreSynchronization = true; },
+  // onPrepare: () => { browser.ignoreSynchronization = true; },
 };
-
-exports.config = protractorConfig;
