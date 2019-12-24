@@ -3,5 +3,5 @@ module.exports = function wait(numberOfSecs) {
     setTimeout(() => {
       res();
     }, numberOfSecs * 1000);
-  })
+  });
 };
