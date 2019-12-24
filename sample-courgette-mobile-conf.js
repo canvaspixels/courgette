@@ -1,4 +1,5 @@
 const path = require('path');
+
 const specsPath = 'ui-tests';
 const outputPath = 'uiTestResult';
 const courgettePath = 'node_modules/courgette/uiTestHelpers';
@@ -65,7 +66,7 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
-const tagExpression = ['not @ignore', process.env.tags].filter(tag => !!tag).join(' and ');
+const tagExpression = ['not @ignore', process.env.tags].filter((tag) => !!tag).join(' and ');
 
 if (process.env.DEBUG) {
   console.log({ tagExpression });
@@ -99,7 +100,7 @@ exports.config = {
   ],
   specs: [`${specsPath}/features/**/*.feature`],
   cucumberOpts: {
-    require: [
+    'require': [
       // `${specsPath}/helpers/globals.js`,
       // `${courgettePath}/globals.js`,
       // `${courgettePath}/hooks/attachScenarioNameBefore.js`,
@@ -123,15 +124,15 @@ exports.config = {
     // ].concat(
     //   process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []
     // ),
-    source: true,
+    'source': true,
     'format-options': '{"colorsEnabled": true}',
-    colors: true,
-    timeout: (process.env.courgetteTimeout || 10) * 1000,
-    profile: [],
+    'colors': true,
+    'timeout': (process.env.courgetteTimeout || 10) * 1000,
+    'profile': [],
     // backtrace: false,   // <boolean> show full backtrace for errors
     // compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
     // dryRun: false,      // <boolean> invoke formatters without executing steps
-    failFast: true, // <boolean> abort the run on first failure
+    'failFast': true, // <boolean> abort the run on first failure
     // snippets: true,     // <boolean> hide step definition snippets for pending steps
     // strict: false,      // <boolean> fail if there are any undefined or pending steps
     // ignoreUndefinedDefinitions: false
