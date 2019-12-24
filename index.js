@@ -67,15 +67,17 @@ if (!fs.existsSync(screenshotsDir)) {
 const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
 
-// const cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
-const cmd = path.join('node_modules', '.bin', `wdio${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+
+let cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+
+if (pomConfig.platform === 'mobile') {
+  cmd = path.join('node_modules', '.bin', `wdio${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+}
+
 const args = [confFile];
 const firstArg = process.argv && process.argv[2];
 let tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
 tags = (tags || argv.tags || '').replace(',', ' or ');
-
-console.log(cmd, args.join(' '));
-console.log('tagstagstags', tags);
 
 if (process.env.DEBUG) {
   console.log('spawning courgette process: ', cmd, args.join(' '));
