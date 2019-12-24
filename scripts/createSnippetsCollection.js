@@ -7,6 +7,9 @@
 const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
 const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
+const mobileGivenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonGivenSteps');
+const mobileWhenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonWhenSteps');
+const mobileThenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
 const snippetCodes = {};
@@ -85,6 +88,9 @@ const genSnippets = (steps, type) => {
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
+genSnippets(mobileGivenSteps, 'mobileGiven');
+genSnippets(mobileWhenSteps, 'mobileWhen');
+genSnippets(mobileThenSteps, 'mobileThen');
 
 module.exports = {
   snippetsCollection,

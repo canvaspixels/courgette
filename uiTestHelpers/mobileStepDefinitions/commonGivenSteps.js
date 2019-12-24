@@ -45,15 +45,6 @@ const steps = [
   // { matcher: "(?:the )?'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
   // { matcher: "(?:the )?'LOCATOR' is( not)* empty", path: './checks/checkInputIsEmpty', code: 'empty' },
   // { matcher: "the value of(?: the)? 'LOCATOR' is( not)* 'VALUE'", path: './checks/checkInputValue', code: 'value' },
-  // {
-  //   matcher: "I set the cookie 'COOKIE_NAME' with value 'VALUE'", path: './actions/setCookie', code: 'setcookie', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "the cookie 'COOKIE_NAME' is( not)* set to 'VALUE'", path: './checks/checkCookieContent', code: 'cookie', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "the cookie 'COOKIE_NAME' is( not)* set", path: './checks/checkCookieExists', code: 'cookieset', pageObjectNotRequired: true,
-  // },
 ];
 
 if (!argv.genFiles) {
