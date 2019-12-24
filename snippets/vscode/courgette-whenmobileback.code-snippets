@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenmobileback",
+    "body": [
+      "${1:When} I press the back button"
+    ],
+    "description": "${1:When} I press the back button"
+  }
+}

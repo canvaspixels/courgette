@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I press the back button
+]]></content>
+  <tabTrigger>whenmobileback</tabTrigger>
+</snippet>

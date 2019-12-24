@@ -709,4 +709,80 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="givenonscreen" value="$var1$ I am on the '$var2$' screen$END$" shortcut="TAB" description="$var1$ I am on the '$var2$' screen" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Given&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenwait" value="$var1$ I wait '$var2$' seconds?$END$" shortcut="TAB" description="$var1$ I wait '$var2$' seconds?" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;VALUE&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whentap" value="$var1$ I tap the '$var2$'$END$" shortcut="TAB" description="$var1$ I tap the '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenlongpress" value="$var1$ I long press the '$var2$'$END$" shortcut="TAB" description="$var1$ I long press the '$var2$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenmobileback" value="$var1$ I press the back button$END$" shortcut="TAB" description="$var1$ I press the back button" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whenmobileset" value="$var1$ I set '$var2$' to '$var3$'$END$" shortcut="TAB" description="$var1$ I set '$var2$' to '$var3$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;STRING&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenonpage" value="$var1$ I expect to be on the '$var2$' page$END$" shortcut="TAB" description="$var1$ I expect to be on the '$var2$' page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thensetpageobj" value="$var1$ I set the page object to '$var2$' page$END$" shortcut="TAB" description="$var1$ I set the page object to '$var2$' page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thenexists" value="$var1$ I expect the '$var2$' to exist$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thennotexists" value="$var1$ I expect the '$var2$' to not exist$END$" shortcut="TAB" description="$var1$ I expect the '$var2$' to not exist" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thendie" value="$var1$ fail step and take screenshot$END$" shortcut="TAB" description="$var1$ fail step and take screenshot" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
 </templateSet>

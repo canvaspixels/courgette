@@ -289,6 +289,39 @@
   "${1:Then} fail step and take screenshot":
     'prefix': 'thendie'
     'body': "${1:Then} fail step and take screenshot"
+  "${1:Given} I am on the '${2:PAGE_NAME}' screen":
+    'prefix': 'givenonscreen'
+    'body': "${1:Given} I am on the '${2:PAGE_NAME}' screen"
+  "${1:When} I wait '${2:VALUE}' seconds?":
+    'prefix': 'whenwait'
+    'body': "${1:When} I wait '${2:VALUE}' seconds?"
+  "${1:When} I tap the '${2:LOCATOR}'":
+    'prefix': 'whentap'
+    'body': "${1:When} I tap the '${2:LOCATOR}'"
+  "${1:When} I long press the '${2:LOCATOR}'":
+    'prefix': 'whenlongpress'
+    'body': "${1:When} I long press the '${2:LOCATOR}'"
+  "${1:When} I press the back button":
+    'prefix': 'whenmobileback'
+    'body': "${1:When} I press the back button"
+  "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'":
+    'prefix': 'whenmobileset'
+    'body': "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
+  "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
+    'prefix': 'thenonpage'
+    'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
+  "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
+    'prefix': 'thensetpageobj'
+    'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
+  "${1:Then} I expect the '${2:LOCATOR}' to exist":
+    'prefix': 'thenexists'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to exist"
+  "${1:Then} I expect the '${2:LOCATOR}' to not exist":
+    'prefix': 'thennotexists'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not exist"
+  "${1:Then} fail step and take screenshot":
+    'prefix': 'thendie'
+    'body': "${1:Then} fail step and take screenshot"
 ".feature":
   "${1:Given} I am on the '${2:PAGE_NAME}' page":
     'prefix': 'givenonpage'
@@ -575,6 +608,39 @@
   "${1:Then} take a screenshot called '${2:STRING}'":
     'prefix': 'thenscreenshotcalled'
     'body': "${1:Then} take a screenshot called '${2:STRING}'"
+  "${1:Then} fail step and take screenshot":
+    'prefix': 'thendie'
+    'body': "${1:Then} fail step and take screenshot"
+  "${1:Given} I am on the '${2:PAGE_NAME}' screen":
+    'prefix': 'givenonscreen'
+    'body': "${1:Given} I am on the '${2:PAGE_NAME}' screen"
+  "${1:When} I wait '${2:VALUE}' seconds?":
+    'prefix': 'whenwait'
+    'body': "${1:When} I wait '${2:VALUE}' seconds?"
+  "${1:When} I tap the '${2:LOCATOR}'":
+    'prefix': 'whentap'
+    'body': "${1:When} I tap the '${2:LOCATOR}'"
+  "${1:When} I long press the '${2:LOCATOR}'":
+    'prefix': 'whenlongpress'
+    'body': "${1:When} I long press the '${2:LOCATOR}'"
+  "${1:When} I press the back button":
+    'prefix': 'whenmobileback'
+    'body': "${1:When} I press the back button"
+  "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'":
+    'prefix': 'whenmobileset'
+    'body': "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
+  "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
+    'prefix': 'thenonpage'
+    'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
+  "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
+    'prefix': 'thensetpageobj'
+    'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
+  "${1:Then} I expect the '${2:LOCATOR}' to exist":
+    'prefix': 'thenexists'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to exist"
+  "${1:Then} I expect the '${2:LOCATOR}' to not exist":
+    'prefix': 'thennotexists'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not exist"
   "${1:Then} fail step and take screenshot":
     'prefix': 'thendie'
     'body': "${1:Then} fail step and take screenshot"

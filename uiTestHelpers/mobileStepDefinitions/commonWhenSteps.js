@@ -22,7 +22,7 @@ const steps = [
   // },
   { matcher: "I tap(?: the)? 'LOCATOR'", path: './actions/tapElement', code: 'tap' },
   { matcher: "I long press(?: the)? 'LOCATOR'", path: './actions/longPressElement', code: 'longpress' },
-  { matcher: "I press the back button", path: './actions/goBack', code: 'mobileback' },
+  { matcher: 'I press the back button', path: './actions/goBack', code: 'mobileback' },
   // {
   //   matcher: "I click(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR'", path: './actions/clickElementInsideElement', code: 'clickelinsideel', notes: 'This currently only works with XPaths',
   // },
