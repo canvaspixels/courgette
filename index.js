@@ -218,12 +218,15 @@ spawnedProcess.on('exit', async (code) => {
   if (!outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
     if (pomConfig.platform === 'mobile') {
+      console.log(`Exit mobile run with code ${code}`);
       process.exitCode = code;
     } else {
       console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
       console.error('The problem is there are no json files that can be read from.');
       console.error('Tags used: ', tags);
       console.log('-----------------------------------');
+      console.log('-----------------------------------');
+      console.log('Exiting with code 1');
       process.exitCode = 1;
     }
     return;

@@ -9,25 +9,25 @@ const platform = process.env.PLATFORM;
 const ANDROID_APP_PATH = './android/app/build/outputs/apk/debug/app-debug.apk';
 const IOS_APP_PATH = './ios/build/Products/Release-iphonesimulator/APPNAME.app';
 
+const ANDROID_10 = {
+  platformName: 'android',
+  platformVersion: '10',
+  deviceName: 'Android Emulator',
+  app: path.resolve(ANDROID_APP_PATH),
+};
+
+const IOS_13_3 = {
+  platformName: 'ios',
+  platformVersion: '13.3',
+  deviceName: 'iPhone 11',
+  automationName: 'XCUITest',
+  app: path.resolve(IOS_APP_PATH),
+  showXcodeLog: false,
+};
+
 const ALL_CAPABILITIES = {
-  android: [
-    {
-      platformName: 'android',
-      platformVersion: '10',
-      deviceName: 'Android Emulator',
-      app: ANDROID_APP_PATH,
-    },
-  ],
-  ios: [
-    {
-      platformName: 'ios',
-      platformVersion: '13.3',
-      deviceName: 'iPhone 11',
-      automationName: 'XCUITest',
-      app: IOS_APP_PATH,
-      // showXcodeLog: true,
-    },
-  ],
+  android: [ANDROID_10],
+  ios: [IOS_13_3],
 };
 
 let CAPABILITIES_TO_USE = [];
@@ -47,14 +47,13 @@ CAPABILITIES_TO_USE = [
     deviceName: 'iPhone 11',
     automationName: 'XCUITest',
     app: './ios/build/APPNAME/Build/Products/Debug-iphonesimulator/APPNAME.app',
-    // showXcodeLog: true,
   },
 ];
 
 exports.pomConfig = {
   platform: 'mobile',
   outputPath,
-  timeoutInSeconds: process.env.courgetteTimeout || 10, // minimum 2 or you'll see strange behaviour with some steps
+  timeoutInSeconds: process.env.courgetteTimeout || 20, // minimum 2 or you'll see strange behaviour with some steps
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
@@ -72,16 +71,14 @@ if (process.env.DEBUG) {
   console.log({ tagExpression });
 }
 
-exports.config = {
-  runner: 'local',
+exports.config = { // see https://webdriver.io/docs/configurationfile.html
   port: 4723,
   exclude: [],
   maxInstances: 1,
   capabilities: CAPABILITIES_TO_USE,
   logLevel: 'warn', // Level of logging verbosity: trace | debug | info | warn | error | silent
   bail: 0, // (default is 0 - don't bail, run all tests).
-  baseUrl: 'http://localhost',
-  waitforTimeout: 10000,
+  waitforTimeout: 20000,
   connectionRetryCount: 3,
   services: ['appium'],
   appium: {}, // Appium Service config see details: https://webdriver.io/docs/appium-service.html
@@ -102,32 +99,23 @@ exports.config = {
   cucumberOpts: {
     'require': [
       // `${specsPath}/helpers/globals.js`,
-      // `${courgettePath}/globals.js`,
-      // `${courgettePath}/hooks/attachScenarioNameBefore.js`,
-      // `${courgettePath}/hooks/attachScreenshotAfter.js`,
+      `${courgettePath}/globals.js`,
       `${courgettePath}/hooks/pageObjectModelMobileBefore.js`,
-      // `${courgettePath}/hooks/addMethodsBefore.js`,
-      // `${courgettePath}/hooks/setDefaultTimeout.js`,
-      // `${courgettePath}/mobileStepDefinitions/*.js`,
+      `${courgettePath}/hooks/setDefaultTimeout.js`,
       `${courgettePath}/mobileStepDefinitions/commonGivenSteps.js`,
       `${courgettePath}/mobileStepDefinitions/commonWhenSteps.js`,
       `${courgettePath}/mobileStepDefinitions/commonThenSteps.js`,
       `${specsPath}/step-definitions/*.js`,
-      // // `${specsPath}/helpers/hooks.js`,
+      // `${specsPath}/helpers/hooks.js`,
+      `${courgettePath}/hooks/attachScenarioNameMobileBefore.js`,
+      `${courgettePath}/hooks/attachMobileScreenshotAfter.js`,
       // `${courgettePath}/hooks/loadSteps.js`, // keep this at the end
     ],
     tagExpression,
-    // format: [
-    // 'node_modules/courgette/cucumberFormatter.js',
-    // `json:./${outputPath}/report.json`
-    // ],
-    // ].concat(
-    //   process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []
-    // ),
     'source': true,
     'format-options': '{"colorsEnabled": true}',
     'colors': true,
-    'timeout': (process.env.courgetteTimeout || 10) * 1000,
+    'timeout': (process.env.courgetteTimeout || 20) * 1000,
     'profile': [],
     // backtrace: false,   // <boolean> show full backtrace for errors
     // compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)
