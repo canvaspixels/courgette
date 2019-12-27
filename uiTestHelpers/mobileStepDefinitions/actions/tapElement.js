@@ -6,7 +6,7 @@ module.exports = async function tapElement(locatorKey) {
   if (process.env.DEBUG) {
     console.log('Tap element: ', el);
   }
-    
+
   await driver.touchAction({
     action: 'tap',
     element: el,
