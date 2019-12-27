@@ -1,8 +1,6 @@
-// module.exports = function checkIsEnabled(locatorKey, enabledOrDisabled) {
-//   const el = this.getCurrentPage().getElement(locatorKey);
-//   const elIsEnabled = el.isEnabled();
+module.exports = async function checkIsEnabled(locatorKey, enabledOrDisabled) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElement(locatorKey);
 
-//   return enabledOrDisabled === 'enabled' ?
-//     expect(elIsEnabled).to.eventually.equal(true) :
-//     expect(elIsEnabled).to.eventually.equal(false);
-// };
+  return el.waitForEnabled(10000, enabledOrDisabled === 'enabled');
+};
