@@ -1,5 +1,5 @@
-// const takeScreenshot = require('./takeScreenshot');
+const takeScreenshot = require('./takeScreenshot');
 
-// module.exports = function takeScreenshotWithDefaultName(callback) {
-//   return takeScreenshot.call(this, '', callback);
-// };
+module.exports = function takeScreenshotWithDefaultName() {
+  return takeScreenshot.call(this, '');
+};

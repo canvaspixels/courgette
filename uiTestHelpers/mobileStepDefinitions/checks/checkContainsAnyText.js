@@ -1,8 +1,8 @@
-// module.exports = function checkContainsAnyText(locatorKey, doesNotContain) {
-//   return this.getCurrentPage().getElementWhenInDOM(locatorKey)
-//     .then((el) => (
-//       doesNotContain ?
-//         expect(el.getText()).to.eventually.equal('') :
-//         expect(el.getText()).to.not.eventually.equal('')
-//     ));
-// };
+module.exports = async function checkContainsAnyText(locatorKey, doesNotContain) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElement(locatorKey);
+
+  return doesNotContain ?
+    expect(el.getText()).to.eventually.equal('') :
+    expect(el.getText()).to.not.eventually.equal('')
+};
