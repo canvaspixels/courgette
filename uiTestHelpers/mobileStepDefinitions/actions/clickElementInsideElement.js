@@ -1,5 +1,6 @@
-// module.exports = function clickElementInsideElement(locatorKey2, locatorKey) {
-//   return this.getCurrentPage()
-//     .getElementWhenInDOM(locatorKey, locatorKey2)
-//     .then((element) => element.click());
-// };
+module.exports = async function clickElementInsideElement(locatorKey2, locatorKey) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElementInsideElement(locatorKey, locatorKey2);
+
+  return el.click();
+};

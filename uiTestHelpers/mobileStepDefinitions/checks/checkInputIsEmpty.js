@@ -1,9 +1,10 @@
-// module.exports = function checkInputIsEmpty(locatorKey, isNotEmpty) {
-//   return this.getCurrentPage().getElementWhenInDOM(locatorKey)
-//     .then((el) => {
-//       const elValuePromise = el.getAttribute('value');
-//       return isNotEmpty ?
-//         expect(elValuePromise).to.not.eventually.equal('') :
-//         expect(elValuePromise).to.eventually.equal('');
-//     });
-// };
+module.exports = async function checkInputIsEmpty(locatorKey, isNotEmpty) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElement(locatorKey);
+
+  const value = await el.getAttribute('value');
+
+  return isNotEmpty ?
+    expect(!!value).to.not.equal(false) :
+    expect(!!value).to.equal(false);
+};

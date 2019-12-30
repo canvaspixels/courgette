@@ -1,5 +1,7 @@
-// module.exports = function clearInputFieldValue(locatorKey) {
-//   return this.getCurrentPage()
-//     .getElementWhenInDOM(locatorKey)
-//     .then((element) => element.clear());
-// };
+module.exports = async function clearInputFieldValue(locatorKey) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElement(locatorKey);
+
+  return el.clearValue();
+};
+

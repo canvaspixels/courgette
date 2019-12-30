@@ -1,11 +1,10 @@
-// module.exports = function checkElementInsideElementInputValue(locatorKey2, locatorKey, isNot, expectedVal) {
-//   const expectedValue = expectedVal === undefined ? '' : expectedVal;
+module.exports = async function checkElementInsideElementInputValue(locatorKey2, locatorKey, isNot, expectedVal) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElementInsideElement(locatorKey, locatorKey2);
 
-//   return this.getCurrentPage().getElementWhenInDOM(locatorKey, locatorKey2)
-//     .then((el) => {
-//       const elValuePromise = el.getAttribute('value');
-//       return isNot ?
-//         expect(elValuePromise).to.not.eventually.equal(expectedValue) :
-//         expect(elValuePromise).to.eventually.equal(expectedValue);
-//     });
-// };
+  const value = await el.getAttribute('value');
+
+  return isNot ?
+    expect(value).to.not.equal(expectedVal) :
+    expect(value).to.equal(expectedVal);
+};

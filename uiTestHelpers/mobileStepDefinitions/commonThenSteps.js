@@ -4,40 +4,13 @@ const { Then } = require('cucumber');
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 // TODO:
+// browser related step definitions
 // Then(/^I expect to be on the 'LOCATOR' page$/, setPageObjectThenCheckUrl);
 // Then(/^I expect a new (?:window|tab) has( not)* been opened$/, checkNewWindow);
 // Then(/^I expect the url to evenually (be|contain) 'URL'$/, checkEventualUrl);
 // Then(/^I expect the path to ( not)* be 'URL'$/, checkURLPath);
 
 const steps = [
-  // {
-  //   matcher: "I expect page to contain 'STRING'",
-  //   path: './checks/checkPageContainsText',
-  //   notes: 'This looks in the whole document for STRING',
-  //   code: 'pagecontainstext',
-  //   pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "I expect the url to( not)* be 'STRING'",
-  //   path: './checks/checkUrl',
-  //   notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
-  //   code: 'url',
-  //   pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "I expect the url to contain 'STRING'",
-  //   path: './checks/checkUrlContainsString',
-  //   notes: 'Using this just checks the URL, it does not change the page object.',
-  //   code: 'urlcontains',
-  //   pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "I expect the url 'URL' is opened in a new tab",
-  //   path: './checks/checkIsOpenedInNewWindow',
-  //   code: 'urlnewtab',
-  //   notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16)',
-  //   pageObjectNotRequired: true,
-  // },
   {
     matcher: "I expect to be on the 'PAGE_NAME' page",
     path: './checks/setPageObjectThenCheckScreenExists',
@@ -66,20 +39,18 @@ const steps = [
   { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be selected", path: './checks/checkIsSelected', code: 'selected' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (enabled)", path: './checks/checkIsEnabled', code: 'enabled' },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (disabled)", path: './checks/checkIsEnabled', code: 'disabled' },
-  // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
-  // { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
-  // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },
-  // {
-  //   matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'",
-  //   path: './checks/checkInputValue',
-  //   code: 'value',
-  //   notes: 'Used for getting the value of an input',
-  // },
-  // {
-  //   matcher: "I expect the value of(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to( not)* be 'STRING'",
-  //   path: './checks/checkElementInsideElementInputValue',
-  //   code: 'elinsideelvalue',
-  // },
+  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* be empty", path: './checks/checkInputIsEmpty', code: 'empty' },
+  {
+    matcher: "I expect the value of(?: the)? 'LOCATOR' to( not)* be 'STRING'",
+    path: './checks/checkInputValue',
+    code: 'value',
+    notes: 'Used for getting the value of an input',
+  },
+  {
+    matcher: "I expect the value of(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR' to( not)* be 'STRING'",
+    path: './checks/checkElementInsideElementInputValue',
+    code: 'elinsideelvalue',
+  },
   { matcher: "I expect(?: the)? 'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
   {
     matcher: 'take a screenshot', path: './actions/takeScreenshotWithDefaultName', code: 'screenshot', pageObjectNotRequired: true,

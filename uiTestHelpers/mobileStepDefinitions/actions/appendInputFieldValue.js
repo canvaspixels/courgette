@@ -1,5 +1,6 @@
-// module.exports = function appendInputFieldValue(value, locatorKey) {
-//   return this.getCurrentPage()
-//     .getElementWhenInDOM(locatorKey)
-//     .then((element) => element.sendKeys(value));
-// };
+module.exports = async function appendInputFieldValue(value, locatorKey) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElement(locatorKey);
+
+  await el.addValue(value);
+};
