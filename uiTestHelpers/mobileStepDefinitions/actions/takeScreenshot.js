@@ -10,9 +10,9 @@ module.exports = function takeScreenshot(filename) {
   const screenshotsDir = path.join(pomConfig.screenshotPath || pomConfig.outputPath, screenshotStepPath);
   const screenshotFilePath = path.join(screenshotsDir, `${screenshotName}.png`);
   const stream = fs.createWriteStream(screenshotFilePath);
-    console.log('            ScreenshotFilePath: ', screenshotFilePath);
+  console.log('            ScreenshotFilePath: ', screenshotFilePath);
   this.attach(`ScreenshotFilePath: ${screenshotFilePath}`);
-  stream.write(Buffer.from(png, 'base64'));
-  stream.end();
   const bufferedImage = Buffer.from(png.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
+  stream.write(bufferedImage);
+  stream.end();
 };

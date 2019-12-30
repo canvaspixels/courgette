@@ -64,11 +64,9 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return world.screen.$$(locators[locatorKey].selector);
     },
 
-    getSelectorFromLocatorKey(locatorKey) {
-      if (locators[locatorKey]) {
-        return locators[locatorKey].selector;
-      }
-      return null;
+    async getElementInsideElement(locatorKey, locatorKey2) {
+      const el1 = await this.getElement(locatorKey);
+      return el1.$(locators[locatorKey2].selector);
     },
   }, customMethods);
 };

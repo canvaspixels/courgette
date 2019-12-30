@@ -4,5 +4,5 @@ module.exports = async function checkContainsAnyText(locatorKey, doesNotContain)
 
   return doesNotContain ?
     expect(el.getText()).to.eventually.equal('') :
-    expect(el.getText()).to.not.eventually.equal('')
+    expect(el.getText()).to.not.eventually.equal('');
 };
