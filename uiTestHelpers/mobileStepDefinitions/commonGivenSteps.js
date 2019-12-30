@@ -17,7 +17,7 @@ const steps = [
   { matcher: "(?:the )?'LOCATOR' is (disabled)", path: './checks/checkIsEnabled', code: 'disabled' },
   { matcher: "(?:the )?'LOCATOR' is( not)* selected", path: './checks/checkIsSelected', code: 'selected' },
   { matcher: "(?:the )?'LOCATOR' is( not)* checked", path: './checks/checkIsSelected', code: 'checked' },
-  { matcher: "(?:the )?'LOCATOR' is( not)* on (?:the )?screen", path: './checks/checkElementExists', code: 'exists' },
+  { matcher: "(?:the )?'LOCATOR' is( not)* on (?:the )?screen", path: './checks/checkElementExists', code: 'existsonscreen' },
   { matcher: "(?:the )?'LOCATOR' (contains) the text 'STRING'", path: './checks/checkContainsText', code: 'containstext' },
   { matcher: "(?:the )?'LOCATOR' (does not contain) the text 'STRING'", path: './checks/checkContainsText', code: 'notcontainstext' },
   { matcher: "(?:the )?'LOCATOR' (contains) any text", path: './checks/checkContainsAnyText', code: 'containsanytext' },

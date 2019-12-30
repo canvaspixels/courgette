@@ -14,7 +14,7 @@ const steps = [
   {
     matcher: "I expect to be on the 'PAGE_NAME' page",
     path: './checks/setPageObjectThenCheckScreenExists',
-    code: 'onpage',
+    code: 'onscreen',
   },
   {
     matcher: "I set the page object to 'PAGE_NAME' page",

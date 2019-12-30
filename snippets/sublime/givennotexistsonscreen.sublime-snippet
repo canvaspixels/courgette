@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:Given} the '${2:LOCATOR}' is not on the screen
+]]></content>
+  <tabTrigger>givennotexistsonscreen</tabTrigger>
+</snippet>

@@ -292,9 +292,72 @@
   "${1:Given} I am on the '${2:PAGE_NAME}' screen":
     'prefix': 'givenonscreen'
     'body': "${1:Given} I am on the '${2:PAGE_NAME}' screen"
+  "${1:Given} the '${2:LOCATOR}' is visible":
+    'prefix': 'givenvisible'
+    'body': "${1:Given} the '${2:LOCATOR}' is visible"
+  "${1:Given} the '${2:LOCATOR}' is hidden":
+    'prefix': 'givenhidden'
+    'body': "${1:Given} the '${2:LOCATOR}' is hidden"
+  "${1:Given} the '${2:LOCATOR}' is enabled":
+    'prefix': 'givenenabled'
+    'body': "${1:Given} the '${2:LOCATOR}' is enabled"
+  "${1:Given} the '${2:LOCATOR}' is disabled":
+    'prefix': 'givendisabled'
+    'body': "${1:Given} the '${2:LOCATOR}' is disabled"
+  "${1:Given} the '${2:LOCATOR}' is selected":
+    'prefix': 'givenselected'
+    'body': "${1:Given} the '${2:LOCATOR}' is selected"
+  "${1:Given} the '${2:LOCATOR}' is not selected":
+    'prefix': 'givennotselected'
+    'body': "${1:Given} the '${2:LOCATOR}' is not selected"
+  "${1:Given} the '${2:LOCATOR}' is checked":
+    'prefix': 'givenchecked'
+    'body': "${1:Given} the '${2:LOCATOR}' is checked"
+  "${1:Given} the '${2:LOCATOR}' is not checked":
+    'prefix': 'givennotchecked'
+    'body': "${1:Given} the '${2:LOCATOR}' is not checked"
+  "${1:Given} the '${2:LOCATOR}' is on the screen":
+    'prefix': 'givenexistsonscreen'
+    'body': "${1:Given} the '${2:LOCATOR}' is on the screen"
+  "${1:Given} the '${2:LOCATOR}' is not on the screen":
+    'prefix': 'givennotexistsonscreen'
+    'body': "${1:Given} the '${2:LOCATOR}' is not on the screen"
+  "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'":
+    'prefix': 'givencontainstext'
+    'body': "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'"
+  "${1:Given} the '${2:LOCATOR}' does not contain the text '${3:STRING}'":
+    'prefix': 'givennotcontainstext'
+    'body': "${1:Given} the '${2:LOCATOR}' does not contain the text '${3:STRING}'"
+  "${1:Given} the '${2:LOCATOR}' contains any text":
+    'prefix': 'givencontainsanytext'
+    'body': "${1:Given} the '${2:LOCATOR}' contains any text"
+  "${1:Given} the '${2:LOCATOR}' does not contain any text":
+    'prefix': 'givennotcontainsanytext'
+    'body': "${1:Given} the '${2:LOCATOR}' does not contain any text"
+  "${1:Given} the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'":
+    'prefix': 'givenattribute'
+    'body': "${1:Given} the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'"
+  "${1:Given} the '${2:LOCATOR}' is empty":
+    'prefix': 'givenempty'
+    'body': "${1:Given} the '${2:LOCATOR}' is empty"
+  "${1:Given} the '${2:LOCATOR}' is not empty":
+    'prefix': 'givennotempty'
+    'body': "${1:Given} the '${2:LOCATOR}' is not empty"
+  "${1:Given} the value of the '${2:LOCATOR}' is '${3:VALUE}'":
+    'prefix': 'givenvalue'
+    'body': "${1:Given} the value of the '${2:LOCATOR}' is '${3:VALUE}'"
+  "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'":
+    'prefix': 'givennotvalue'
+    'body': "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'"
   "${1:When} I wait '${2:VALUE}' seconds?":
     'prefix': 'whenwait'
     'body': "${1:When} I wait '${2:VALUE}' seconds?"
+  "${1:When} I wait for the '${2:LOCATOR}' to exist":
+    'prefix': 'whenwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to exist"
+  "${1:When} I wait for the '${2:LOCATOR}' to not exist":
+    'prefix': 'whennotwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
   "${1:When} I tap the '${2:LOCATOR}'":
     'prefix': 'whentap'
     'body': "${1:When} I tap the '${2:LOCATOR}'"
@@ -304,21 +367,105 @@
   "${1:When} I press the back button":
     'prefix': 'whenmobileback'
     'body': "${1:When} I press the back button"
+  "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'":
+    'prefix': 'whenclickelinsideel'
+    'body': "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'"
+  "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'":
+    'prefix': 'whenappend'
+    'body': "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'"
   "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'":
     'prefix': 'whenmobileset'
     'body': "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
+  "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'":
+    'prefix': 'whensetelinsideel'
+    'body': "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'"
+  "${1:When} I clear the '${2:LOCATOR}'":
+    'prefix': 'whenclear'
+    'body': "${1:When} I clear the '${2:LOCATOR}'"
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
-    'prefix': 'thenonpage'
+    'prefix': 'thenonscreen'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
     'prefix': 'thensetpageobj'
     'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
+  "${1:Then} I expect the '${2:LOCATOR}' to be visible":
+    'prefix': 'thenvisible'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be visible"
+  "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be visible":
+    'prefix': 'thenelinsideelvisible'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be visible"
+  "${1:Then} I expect the '${2:LOCATOR}' to be hidden":
+    'prefix': 'thenhidden'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be hidden"
+  "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'":
+    'prefix': 'thencontainstext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to not contain the text '${3:STRING}'":
+    'prefix': 'thennotcontainstext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not contain the text '${3:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to contain the text '${4:STRING}'":
+    'prefix': 'thenelinsideelcontainstext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to contain the text '${4:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to contain any text":
+    'prefix': 'thencontainsanytext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to contain any text"
+  "${1:Then} I expect the '${2:LOCATOR}' to not contain any text":
+    'prefix': 'thennotcontainsanytext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not contain any text"
+  "${1:Then} I expect the '${2:LOCATOR}' to appear exactly '${3:NUMBER}' times":
+    'prefix': 'thenappearexactly'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to appear exactly '${3:NUMBER}' times"
+  "${1:Then} I expect the '${2:LOCATOR}' to not appear exactly '${3:NUMBER}' times":
+    'prefix': 'thennotappearexactly'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not appear exactly '${3:NUMBER}' times"
   "${1:Then} I expect the '${2:LOCATOR}' to exist":
     'prefix': 'thenexists'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to exist"
   "${1:Then} I expect the '${2:LOCATOR}' to not exist":
     'prefix': 'thennotexists'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to not exist"
+  "${1:Then} I expect the '${2:LOCATOR}' to be checked":
+    'prefix': 'thenchecked'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be checked"
+  "${1:Then} I expect the '${2:LOCATOR}' to not be checked":
+    'prefix': 'thennotchecked'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not be checked"
+  "${1:Then} I expect the '${2:LOCATOR}' to be selected":
+    'prefix': 'thenselected'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be selected"
+  "${1:Then} I expect the '${2:LOCATOR}' to not be selected":
+    'prefix': 'thennotselected'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not be selected"
+  "${1:Then} I expect the '${2:LOCATOR}' to be enabled":
+    'prefix': 'thenenabled'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be enabled"
+  "${1:Then} I expect the '${2:LOCATOR}' to be disabled":
+    'prefix': 'thendisabled'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be disabled"
+  "${1:Then} I expect the '${2:LOCATOR}' to be empty":
+    'prefix': 'thenempty'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be empty"
+  "${1:Then} I expect the '${2:LOCATOR}' to not be empty":
+    'prefix': 'thennotempty'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not be empty"
+  "${1:Then} I expect the value of the '${2:LOCATOR}' to be '${3:STRING}'":
+    'prefix': 'thenvalue'
+    'body': "${1:Then} I expect the value of the '${2:LOCATOR}' to be '${3:STRING}'"
+  "${1:Then} I expect the value of the '${2:LOCATOR}' to not be '${3:STRING}'":
+    'prefix': 'thennotvalue'
+    'body': "${1:Then} I expect the value of the '${2:LOCATOR}' to not be '${3:STRING}'"
+  "${1:Then} I expect the value of the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be '${4:STRING}'":
+    'prefix': 'thenelinsideelvalue'
+    'body': "${1:Then} I expect the value of the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be '${4:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'":
+    'prefix': 'thenattribute'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'"
+  "${1:Then} take a screenshot":
+    'prefix': 'thenscreenshot'
+    'body': "${1:Then} take a screenshot"
+  "${1:Then} take a screenshot called '${2:STRING}'":
+    'prefix': 'thenscreenshotcalled'
+    'body': "${1:Then} take a screenshot called '${2:STRING}'"
   "${1:Then} fail step and take screenshot":
     'prefix': 'thendie'
     'body': "${1:Then} fail step and take screenshot"
@@ -614,9 +761,72 @@
   "${1:Given} I am on the '${2:PAGE_NAME}' screen":
     'prefix': 'givenonscreen'
     'body': "${1:Given} I am on the '${2:PAGE_NAME}' screen"
+  "${1:Given} the '${2:LOCATOR}' is visible":
+    'prefix': 'givenvisible'
+    'body': "${1:Given} the '${2:LOCATOR}' is visible"
+  "${1:Given} the '${2:LOCATOR}' is hidden":
+    'prefix': 'givenhidden'
+    'body': "${1:Given} the '${2:LOCATOR}' is hidden"
+  "${1:Given} the '${2:LOCATOR}' is enabled":
+    'prefix': 'givenenabled'
+    'body': "${1:Given} the '${2:LOCATOR}' is enabled"
+  "${1:Given} the '${2:LOCATOR}' is disabled":
+    'prefix': 'givendisabled'
+    'body': "${1:Given} the '${2:LOCATOR}' is disabled"
+  "${1:Given} the '${2:LOCATOR}' is selected":
+    'prefix': 'givenselected'
+    'body': "${1:Given} the '${2:LOCATOR}' is selected"
+  "${1:Given} the '${2:LOCATOR}' is not selected":
+    'prefix': 'givennotselected'
+    'body': "${1:Given} the '${2:LOCATOR}' is not selected"
+  "${1:Given} the '${2:LOCATOR}' is checked":
+    'prefix': 'givenchecked'
+    'body': "${1:Given} the '${2:LOCATOR}' is checked"
+  "${1:Given} the '${2:LOCATOR}' is not checked":
+    'prefix': 'givennotchecked'
+    'body': "${1:Given} the '${2:LOCATOR}' is not checked"
+  "${1:Given} the '${2:LOCATOR}' is on the screen":
+    'prefix': 'givenexistsonscreen'
+    'body': "${1:Given} the '${2:LOCATOR}' is on the screen"
+  "${1:Given} the '${2:LOCATOR}' is not on the screen":
+    'prefix': 'givennotexistsonscreen'
+    'body': "${1:Given} the '${2:LOCATOR}' is not on the screen"
+  "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'":
+    'prefix': 'givencontainstext'
+    'body': "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'"
+  "${1:Given} the '${2:LOCATOR}' does not contain the text '${3:STRING}'":
+    'prefix': 'givennotcontainstext'
+    'body': "${1:Given} the '${2:LOCATOR}' does not contain the text '${3:STRING}'"
+  "${1:Given} the '${2:LOCATOR}' contains any text":
+    'prefix': 'givencontainsanytext'
+    'body': "${1:Given} the '${2:LOCATOR}' contains any text"
+  "${1:Given} the '${2:LOCATOR}' does not contain any text":
+    'prefix': 'givennotcontainsanytext'
+    'body': "${1:Given} the '${2:LOCATOR}' does not contain any text"
+  "${1:Given} the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'":
+    'prefix': 'givenattribute'
+    'body': "${1:Given} the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'"
+  "${1:Given} the '${2:LOCATOR}' is empty":
+    'prefix': 'givenempty'
+    'body': "${1:Given} the '${2:LOCATOR}' is empty"
+  "${1:Given} the '${2:LOCATOR}' is not empty":
+    'prefix': 'givennotempty'
+    'body': "${1:Given} the '${2:LOCATOR}' is not empty"
+  "${1:Given} the value of the '${2:LOCATOR}' is '${3:VALUE}'":
+    'prefix': 'givenvalue'
+    'body': "${1:Given} the value of the '${2:LOCATOR}' is '${3:VALUE}'"
+  "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'":
+    'prefix': 'givennotvalue'
+    'body': "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'"
   "${1:When} I wait '${2:VALUE}' seconds?":
     'prefix': 'whenwait'
     'body': "${1:When} I wait '${2:VALUE}' seconds?"
+  "${1:When} I wait for the '${2:LOCATOR}' to exist":
+    'prefix': 'whenwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to exist"
+  "${1:When} I wait for the '${2:LOCATOR}' to not exist":
+    'prefix': 'whennotwaitforelement'
+    'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
   "${1:When} I tap the '${2:LOCATOR}'":
     'prefix': 'whentap'
     'body': "${1:When} I tap the '${2:LOCATOR}'"
@@ -626,21 +836,105 @@
   "${1:When} I press the back button":
     'prefix': 'whenmobileback'
     'body': "${1:When} I press the back button"
+  "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'":
+    'prefix': 'whenclickelinsideel'
+    'body': "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'"
+  "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'":
+    'prefix': 'whenappend'
+    'body': "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'"
   "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'":
     'prefix': 'whenmobileset'
     'body': "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
+  "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'":
+    'prefix': 'whensetelinsideel'
+    'body': "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'"
+  "${1:When} I clear the '${2:LOCATOR}'":
+    'prefix': 'whenclear'
+    'body': "${1:When} I clear the '${2:LOCATOR}'"
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
-    'prefix': 'thenonpage'
+    'prefix': 'thenonscreen'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
     'prefix': 'thensetpageobj'
     'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
+  "${1:Then} I expect the '${2:LOCATOR}' to be visible":
+    'prefix': 'thenvisible'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be visible"
+  "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be visible":
+    'prefix': 'thenelinsideelvisible'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be visible"
+  "${1:Then} I expect the '${2:LOCATOR}' to be hidden":
+    'prefix': 'thenhidden'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be hidden"
+  "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'":
+    'prefix': 'thencontainstext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to not contain the text '${3:STRING}'":
+    'prefix': 'thennotcontainstext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not contain the text '${3:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to contain the text '${4:STRING}'":
+    'prefix': 'thenelinsideelcontainstext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' inside the '${3:LOCATOR}' to contain the text '${4:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to contain any text":
+    'prefix': 'thencontainsanytext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to contain any text"
+  "${1:Then} I expect the '${2:LOCATOR}' to not contain any text":
+    'prefix': 'thennotcontainsanytext'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not contain any text"
+  "${1:Then} I expect the '${2:LOCATOR}' to appear exactly '${3:NUMBER}' times":
+    'prefix': 'thenappearexactly'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to appear exactly '${3:NUMBER}' times"
+  "${1:Then} I expect the '${2:LOCATOR}' to not appear exactly '${3:NUMBER}' times":
+    'prefix': 'thennotappearexactly'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not appear exactly '${3:NUMBER}' times"
   "${1:Then} I expect the '${2:LOCATOR}' to exist":
     'prefix': 'thenexists'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to exist"
   "${1:Then} I expect the '${2:LOCATOR}' to not exist":
     'prefix': 'thennotexists'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to not exist"
+  "${1:Then} I expect the '${2:LOCATOR}' to be checked":
+    'prefix': 'thenchecked'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be checked"
+  "${1:Then} I expect the '${2:LOCATOR}' to not be checked":
+    'prefix': 'thennotchecked'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not be checked"
+  "${1:Then} I expect the '${2:LOCATOR}' to be selected":
+    'prefix': 'thenselected'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be selected"
+  "${1:Then} I expect the '${2:LOCATOR}' to not be selected":
+    'prefix': 'thennotselected'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not be selected"
+  "${1:Then} I expect the '${2:LOCATOR}' to be enabled":
+    'prefix': 'thenenabled'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be enabled"
+  "${1:Then} I expect the '${2:LOCATOR}' to be disabled":
+    'prefix': 'thendisabled'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be disabled"
+  "${1:Then} I expect the '${2:LOCATOR}' to be empty":
+    'prefix': 'thenempty'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to be empty"
+  "${1:Then} I expect the '${2:LOCATOR}' to not be empty":
+    'prefix': 'thennotempty'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not be empty"
+  "${1:Then} I expect the value of the '${2:LOCATOR}' to be '${3:STRING}'":
+    'prefix': 'thenvalue'
+    'body': "${1:Then} I expect the value of the '${2:LOCATOR}' to be '${3:STRING}'"
+  "${1:Then} I expect the value of the '${2:LOCATOR}' to not be '${3:STRING}'":
+    'prefix': 'thennotvalue'
+    'body': "${1:Then} I expect the value of the '${2:LOCATOR}' to not be '${3:STRING}'"
+  "${1:Then} I expect the value of the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be '${4:STRING}'":
+    'prefix': 'thenelinsideelvalue'
+    'body': "${1:Then} I expect the value of the '${2:LOCATOR}' inside the '${3:LOCATOR}' to be '${4:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'":
+    'prefix': 'thenattribute'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' has an attribute '${3:ATTRIBUTE_NAME}' with a value of '${4:VALUE}'"
+  "${1:Then} take a screenshot":
+    'prefix': 'thenscreenshot'
+    'body': "${1:Then} take a screenshot"
+  "${1:Then} take a screenshot called '${2:STRING}'":
+    'prefix': 'thenscreenshotcalled'
+    'body': "${1:Then} take a screenshot called '${2:STRING}'"
   "${1:Then} fail step and take screenshot":
     'prefix': 'thendie'
     'body': "${1:Then} fail step and take screenshot"
