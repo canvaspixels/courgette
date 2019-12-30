@@ -1,8 +1,8 @@
-// module.exports = function checkElementExistsNTimes(locatorKey, doesNotExist, numberOfTimes) {
-//   const els = this.getCurrentPage().getElements(locatorKey);
-//   const actualCount = browser.wait(protractor.ExpectedConditions.presenceOf(els)).then(() => els.count());
+module.exports = async function checkElementExistsNTimes(locatorKey, doesNotExist, numberOfTimes) {
+  const pageObj = await this.getCurrentPage();
+  const els = await pageObj.getElements(locatorKey);
 
-//   return doesNotExist ?
-//     expect(actualCount).to.not.eventually.equal(+numberOfTimes) :
-//     expect(actualCount).to.eventually.equal(+numberOfTimes);
-// };
+  return doesNotExist ?
+    expect(els.length).to.not.equal(+numberOfTimes) :
+    expect(els.length).to.equal(+numberOfTimes);
+};

@@ -54,6 +54,16 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return world.screen.$(locators[locatorKey].selector);
     },
 
+    getElements: (locatorKey) => {
+      locatorErrorCheck(locatorKey);
+      if (process.env.DEBUG) {
+        console.log('getElements, locator key: ', locatorKey);
+        console.log('translates to selector from page object: ', locators[locatorKey].selector);
+      }
+
+      return world.screen.$$(locators[locatorKey].selector);
+    },
+
     getSelectorFromLocatorKey(locatorKey) {
       if (locators[locatorKey]) {
         return locators[locatorKey].selector;

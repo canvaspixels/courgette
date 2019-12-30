@@ -170,7 +170,7 @@ Before(function pomBeforeHook() {
 
   this.getCurrentPage = () => {
     if (!this.currentPage) {
-      throw new Error('No page is currently set: a page related step needs to be used before this step such as: Given I go the "Home" page');
+      throw new Error('No page is currently set: a page related step needs to be used before this step such as: Given I go the "Home" screen');
     }
 
     return this.currentPage;
