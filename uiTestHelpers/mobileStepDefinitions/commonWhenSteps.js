@@ -26,6 +26,7 @@ const steps = [
     matcher: "I click(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR'", path: './actions/clickElementInsideElement', code: 'clickelinsideel',
   },
   { matcher: "I append 'STRING' to 'LOCATOR'", path: './actions/appendInputFieldValue', code: 'append' },
+  // { matcher: "I change the 'STRING' to 'LOCATOR'", path: './actions/changePicker', code: 'append', notes: 'Used for the Picker element' },
   // { matcher: "I set select 'LOCATOR' to 'STRING'", path: './actions/setSelectFieldValue', code: 'set' },
   { matcher: "I set 'LOCATOR' to 'STRING'", path: './actions/setInputFieldValue', code: 'mobileset' },
   {
