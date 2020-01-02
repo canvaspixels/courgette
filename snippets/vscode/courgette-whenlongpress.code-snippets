@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenlongpress",
+    "body": [
+      "${1:When} I long press the '${2:LOCATOR}'"
+    ],
+    "description": "${1:When} I long press the '${2:LOCATOR}'"
+  }
+}

@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I long press the '${2:LOCATOR}'
+]]></content>
+  <tabTrigger>whenlongpress</tabTrigger>
+</snippet>

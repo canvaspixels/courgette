@@ -67,14 +67,26 @@ if (!fs.existsSync(screenshotsDir)) {
 const logPath = path.join(outputPath, 'test-result.log');
 const logStream = fs.createWriteStream(logPath);
 
-const cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+
+let cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+
+if (pomConfig.platform === 'mobile') {
+  cmd = path.join('node_modules', '.bin', `wdio${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
+}
+
 const args = [confFile];
 const firstArg = process.argv && process.argv[2];
-const tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
+let tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
+tags = (tags || argv.tags || '').replace(',', ' or ');
+
+if (process.env.DEBUG) {
+  console.log('spawning courgette process: ', cmd, args.join(' '));
+  console.log('with tags: ', tags);
+}
 
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
-    tags: (tags || argv.tags || '').replace(',', ' or '),
+    tags,
     confFile,
     showStepDefinitionUsage: process.env.showStepDefinitionUsage || argv.showStepDefinitionUsage || '',
   }),
@@ -198,16 +210,25 @@ const outputDirContainsJsons = (jsonOutputPath) => {
 spawnedProcess.stdout.on('data', output);
 spawnedProcess.stderr.on('data', output);
 
-spawnedProcess.on('exit', async () => {
+spawnedProcess.on('exit', async (code) => {
   logStream.end();
 
   deleteEmptyJSONS(pomConfig.outputPath);
 
   if (!outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
-    console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
-    console.log('-----------------------------------');
-    process.exitCode = 1;
+    if (pomConfig.platform === 'mobile') {
+      console.log(`Exit mobile run with code ${code}`);
+      process.exitCode = code;
+    } else {
+      console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');
+      console.error('The problem is there are no json files that can be read from.');
+      console.error('Tags used: ', tags);
+      console.log('-----------------------------------');
+      console.log('-----------------------------------');
+      console.log('Exiting with code 1');
+      process.exitCode = 1;
+    }
     return;
   }
 

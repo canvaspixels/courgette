@@ -7,6 +7,9 @@
 const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
 const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
 const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
+const mobileGivenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonGivenSteps');
+const mobileWhenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonWhenSteps');
+const mobileThenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonThenSteps');
 const placeholders = require('../placeholders');
 
 const snippetCodes = {};
@@ -22,12 +25,12 @@ const genSnippet = (matcher, code) => {
   });
 };
 
-const genSnippets = (steps, type) => {
-  if (!stepsWithSnippetCodes[type]) {
-    stepsWithSnippetCodes[type] = [];
+const genSnippets = (steps, type, objKey) => {
+  if (!stepsWithSnippetCodes[objKey || type]) {
+    stepsWithSnippetCodes[objKey || type] = [];
   }
-  if (!snippetCodes[type]) {
-    snippetCodes[type] = [];
+  if (!snippetCodes[objKey || type]) {
+    snippetCodes[objKey || type] = [];
   }
   steps.forEach((step) => {
     const allPlaceholders = placeholders.join('|');
@@ -57,10 +60,10 @@ const genSnippets = (steps, type) => {
       .replace(/\((.*)\)/g, '$1');
 
     const newCode = `${type}${step.code || generatedCode}`;
-    snippetCodes[type].push(newCode);
+    snippetCodes[objKey || type].push(newCode);
 
     // add steps with their snippets for building the README
-    stepsWithSnippetCodes[type].push(Object.assign({}, step, {
+    stepsWithSnippetCodes[objKey || type].push(Object.assign({}, step, {
       code: newCode,
       matcher: stepMatcher.replace(zeroOrManyNotMatcher, ''),
     }));
@@ -71,10 +74,10 @@ const genSnippets = (steps, type) => {
       const newCode2 = `${type}not${step.code || generatedCode}`;
       const matcher2 = matcherWithReplacedPlaceholders
         .replace(/\((.*)\)\*/g, '$1');
-      snippetCodes[type].push(newCode2);
+      snippetCodes[objKey || type].push(newCode2);
 
       // add steps with their snippets for building the README
-      stepsWithSnippetCodes[type].push(Object.assign({}, step, {
+      stepsWithSnippetCodes[objKey || type].push(Object.assign({}, step, {
         code: newCode2,
         matcher: stepMatcher,
       }));
@@ -85,6 +88,9 @@ const genSnippets = (steps, type) => {
 genSnippets(givenSteps, 'given');
 genSnippets(whenSteps, 'when');
 genSnippets(thenSteps, 'then');
+genSnippets(mobileGivenSteps, 'given', 'mobilegiven');
+genSnippets(mobileWhenSteps, 'when', 'mobilewhen');
+genSnippets(mobileThenSteps, 'then', 'mobilethen');
 
 module.exports = {
   snippetsCollection,

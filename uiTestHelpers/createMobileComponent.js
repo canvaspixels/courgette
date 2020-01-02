@@ -1,7 +1,5 @@
 const path = require('path');
 
-const EC = protractor.ExpectedConditions;
-
 module.exports = (name, world, elLocators, type = 'component', customMethods = {}) => {
   const components = {};
   const locators = elLocators;
@@ -46,65 +44,29 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return components[componentName];
     },
 
-    getSelectorFromLocatorKey(locatorKey) {
-      if (locators[locatorKey]) {
-        return locators[locatorKey].value;
-      }
-      return null;
-    },
-
-    getElement(locatorKey) {
+    getElement: (locatorKey) => {
       locatorErrorCheck(locatorKey);
-
-      return element(locators[locatorKey]);
-    },
-
-    getElementInsideElement(...ltors) {
-      // TODO get working with CSS selectors
-      // if (locators[ltors[0]].using === 'css selector') {
-      //   return $(ltors[0]).$$(ltors[1]).first();
-      // }
-      // concatenates xpaths together
-      const xpaths = ltors.map((locator) => {
-        locatorErrorCheck(locator);
-        return locators[locator].value;
-      });
-
-      return element(by.xpath(xpaths.join('')));
-    },
-
-    getElements(locatorKey) {
-      locatorErrorCheck(locatorKey);
-
-      return element.all(locators[locatorKey]);
-    },
-
-    getElementWhenInDOM(locatorKey, ...other) {
-      let el;
-
-      if (other.length) {
-        el = this.getElementInsideElement(locatorKey, ...other);
-      } else {
-        el = this.getElement(locatorKey);
+      if (process.env.DEBUG) {
+        console.log('getElement, locator key: ', locatorKey);
+        console.log('translates to selector from page object: ', locators[locatorKey].selector);
       }
-      // TODO add error
-      // `${locator} not found`
-      // todo see syntax without EC
-      return browser.wait(EC.presenceOf(el)).then(() => el);
+
+      return world.screen.$(locators[locatorKey].selector);
     },
 
-    getElementWhenVisible(locatorKey) {
-      const el = this.getElement(locatorKey);
+    getElements: (locatorKey) => {
+      locatorErrorCheck(locatorKey);
+      if (process.env.DEBUG) {
+        console.log('getElements, locator key: ', locatorKey);
+        console.log('translates to selector from page object: ', locators[locatorKey].selector);
+      }
 
-      // todo see syntax without EC
-      return browser.wait(EC.visibilityOf(el)).then(() => el);
+      return world.screen.$$(locators[locatorKey].selector);
     },
 
-    getElementWhenInvisible(locatorKey) {
-      const el = this.getElement(locatorKey);
-
-      // todo see syntax without EC
-      return browser.wait(EC.invisibilityOf(el)).then(() => el);
+    async getElementInsideElement(locatorKey, locatorKey2) {
+      const el1 = await this.getElement(locatorKey);
+      return el1.$(locators[locatorKey2].selector);
     },
   }, customMethods);
 };

@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whentap",
+    "body": [
+      "${1:When} I tap the '${2:LOCATOR}'"
+    ],
+    "description": "${1:When} I tap the '${2:LOCATOR}'"
+  }
+}

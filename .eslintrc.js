@@ -11,6 +11,8 @@ module.exports = {
         "protractor": true,
         "by": true,
         "it": true,
+        "$": true,
+        "driver": true,
         "browser": true,
         "element": true
     },

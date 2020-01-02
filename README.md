@@ -18,7 +18,7 @@ This project was formerly known as Cuketractor (formerly cucumber-protractor on 
 * a Cucumber formatter for nice output in the terminal
 * a Cucumber formatter for step definition usage
 * an error report summary in the terminal output
-* Windows, Mac, Linux support
+* Windows, Mac, Linux, iOS, and Android support
 * ability to DRY out selectors with .component (YAML) files
 * ability to run against cloud services that provide a selenium grid
 * ability to easily create true [BDD user stories](http://courgette-testing.com/bdd)

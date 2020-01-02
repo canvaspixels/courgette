@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:Given} the '${2:LOCATOR}' is on the screen
+]]></content>
+  <tabTrigger>givenexistsonscreen</tabTrigger>
+</snippet>
