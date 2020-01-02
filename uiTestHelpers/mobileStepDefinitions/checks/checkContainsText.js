@@ -7,7 +7,7 @@ module.exports = async function checkContainsText(locatorKey, containsStr, expec
   if (process.env.DEBUG) {
     console.log('In file:', path.basename(__filename), el);
   }
-  
+
   const text = await el.getText();
 
   if ((typeof containsStr === 'string' && containsStr.indexOf('contain') === 0) || containsStr === true) {
