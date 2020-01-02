@@ -30,7 +30,7 @@ const ALL_CAPABILITIES = {
   ios: [IOS_13_3],
 };
 
-let CAPABILITIES_TO_USE = [];
+const CAPABILITIES_TO_USE = [];
 
 if (platform === 'android' || !platform) {
   CAPABILITIES_TO_USE.push(...ALL_CAPABILITIES.android);
