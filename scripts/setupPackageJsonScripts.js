@@ -26,6 +26,6 @@ const setupPackageJsonScripts = async function () {
   } catch (err) {
     throw err;
   }
-}
+};
 
 setupPackageJsonScripts();

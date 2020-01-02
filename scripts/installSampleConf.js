@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+const fs = require('fs');
 const { ncp } = require('ncp');
 const path = require('path');
 
@@ -15,6 +16,6 @@ const createSampleConf = function () {
   } else {
     console.log('courgette-conf.js already exists');
   }
-}
+};
 
 createSampleConf();

@@ -16,6 +16,6 @@ const setupDrivers = async function () {
     console.log(' ');
     throw err;
   }
-}
+};
 
 setupDrivers();

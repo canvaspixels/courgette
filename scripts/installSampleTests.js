@@ -16,6 +16,6 @@ const createUiTestsFolder = function () {
   } else {
     console.log('uiTests folder already exists. Cannot create a new one');
   }
-}
+};
 
 createUiTestsFolder();

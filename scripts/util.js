@@ -34,4 +34,4 @@ function runScript(scriptPath, args) {
 
 module.exports = {
   runScript,
-}
+};
