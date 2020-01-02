@@ -106,6 +106,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
       // `${specsPath}/helpers/hooks.js`,
       `${courgettePath}/hooks/attachScenarioNameMobileBefore.js`,
       `${courgettePath}/hooks/attachMobileScreenshotAfter.js`,
+      `${courgettePath}/hooks/reset-app-between-scenarios.js`,
       `${courgettePath}/hooks/loadSteps.js`, // keep this at the end
     ],
     tagExpression,
