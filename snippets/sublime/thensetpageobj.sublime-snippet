@@ -1,6 +1,6 @@
 <snippet>
   <content><![CDATA[
-${1:Then} I set the page object to '${2:PAGE_NAME}' page
+${1:Then} I set the page object to '${2:PAGE_NAME}' screen
 ]]></content>
   <tabTrigger>thensetpageobj</tabTrigger>
 </snippet>
