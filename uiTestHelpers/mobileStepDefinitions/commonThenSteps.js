@@ -12,12 +12,12 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 
 const steps = [
   {
-    matcher: "I expect to be on the 'PAGE_NAME' page",
+    matcher: "I expect to be on the 'PAGE_NAME' screen",
     path: './checks/setPageObjectThenCheckScreenExists',
     code: 'onscreen',
   },
   {
-    matcher: "I set the page object to 'PAGE_NAME' page",
+    matcher: "I set the page object to 'PAGE_NAME' screen",
     path: './actions/setPageObject',
     notes: 'This changes the current page object so that any subsequent steps will use locators from the PAGE_NAME page object',
     code: 'setpageobj',
