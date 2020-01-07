@@ -3,8 +3,8 @@ const path = require('path');
 
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
-module.exports = function takeScreenshot(filename) {
-  const png = driver.takeScreenshot();
+module.exports = async function takeScreenshot(filename) {
+  const png = await driver.takeScreenshot();
   const screenshotName = path.join(filename || `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}`);
   const screenshotStepPath = (pomConfig.screenshotStepPath || 'stepDefinitionScreenshots');
   const screenshotsDir = path.join(pomConfig.screenshotPath || pomConfig.outputPath, screenshotStepPath);

@@ -95,6 +95,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   specs: [`${specsPath}/features/**/*.feature`],
   cucumberOpts: {
     'require': [
+      `${courgettePath}/hooks/loadStepsMobile.js`,
       // `${specsPath}/helpers/globals.js`,
       `${courgettePath}/globals.js`,
       `${courgettePath}/hooks/pageObjectModelMobileBefore.js`,
@@ -107,7 +108,6 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
       `${courgettePath}/hooks/attachScenarioNameMobileBefore.js`,
       `${courgettePath}/hooks/attachMobileScreenshotAfter.js`,
       `${courgettePath}/hooks/reset-app-between-scenarios.js`,
-      `${courgettePath}/hooks/loadSteps.js`, // keep this at the end
     ],
     tagExpression,
     'source': true,
