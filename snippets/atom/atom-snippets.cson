@@ -385,6 +385,9 @@
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' screen":
     'prefix': 'thenonscreen'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' screen"
+  "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
+    'prefix': 'thenonscreendeprecated'
+    'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' screen":
     'prefix': 'thensetpageobj'
     'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"
@@ -854,6 +857,9 @@
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' screen":
     'prefix': 'thenonscreen'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' screen"
+  "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
+    'prefix': 'thenonscreendeprecated'
+    'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' screen":
     'prefix': 'thensetpageobj'
     'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"

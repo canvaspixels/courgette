@@ -15,6 +15,14 @@ const steps = [
     matcher: "I expect to be on the 'PAGE_NAME' screen",
     path: './checks/setPageObjectThenCheckScreenExists',
     code: 'onscreen',
+    notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use sel' +
+      'ectors from the PAGE_NAME page object, and then asserts that the page exists.',
+  },
+  {
+    matcher: "I expect to be on the 'PAGE_NAME' page",
+    path: './checks/setPageObjectThenCheckScreenExists',
+    code: 'onscreendeprecated',
+    notes: 'deprecated',
   },
   {
     matcher: "I set the page object to 'PAGE_NAME' screen",
