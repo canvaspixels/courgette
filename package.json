@@ -1,6 +1,6 @@
 {
   "name": "courgette",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "description": "Courgette - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
