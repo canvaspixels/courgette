@@ -31,4 +31,4 @@ To create the snippets files, run the script: `npm run snippets`
 
 ## Useful links
 
-* [Behaviour-Driven Developement](https://en.wikipedia.org/wiki/Behavior-driven_development)
+* [Behaviour-Driven Development](https://en.wikipedia.org/wiki/Behavior-driven_development)

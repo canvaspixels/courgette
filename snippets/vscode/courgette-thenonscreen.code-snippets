@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thenonscreen",
     "body": [
-      "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
+      "${1:Then} I expect to be on the '${2:PAGE_NAME}' screen"
     ],
-    "description": "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
+    "description": "${1:Then} I expect to be on the '${2:PAGE_NAME}' screen"
   }
 }

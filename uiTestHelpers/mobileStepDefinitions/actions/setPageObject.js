@@ -1,3 +1,5 @@
 module.exports = function setPageObject(pageName) {
-  return this.buildPageObject(pageName);
+  const screen = this.buildPageObject(pageName);
+
+  return screen.goToScreen();
 };

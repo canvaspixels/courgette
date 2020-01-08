@@ -936,14 +936,21 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thenonscreen" value="$var1$ I expect to be on the '$var2$' page$END$" shortcut="TAB" description="$var1$ I expect to be on the '$var2$' page" toReformat="false" toShortenFQNames="true">
+  <template name="thenonscreen" value="$var1$ I expect to be on the '$var2$' screen$END$" shortcut="TAB" description="$var1$ I expect to be on the '$var2$' screen" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thensetpageobj" value="$var1$ I set the page object to '$var2$' page$END$" shortcut="TAB" description="$var1$ I set the page object to '$var2$' page" toReformat="false" toShortenFQNames="true">
+  <template name="thenonscreendeprecated" value="$var1$ I expect to be on the '$var2$' page$END$" shortcut="TAB" description="$var1$ I expect to be on the '$var2$' page" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="thensetpageobj" value="$var1$ I set the page object to '$var2$' screen$END$" shortcut="TAB" description="$var1$ I set the page object to '$var2$' screen" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <context>

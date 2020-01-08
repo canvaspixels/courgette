@@ -1,6 +1,6 @@
 const path = require('path');
 
-const specsPath = 'ui-tests';
+const specsPath = 'uiTests';
 const outputPath = 'uiTestResult';
 const courgettePath = 'node_modules/courgette/uiTestHelpers';
 
@@ -30,7 +30,7 @@ const ALL_CAPABILITIES = {
   ios: [IOS_13_3],
 };
 
-let CAPABILITIES_TO_USE = [];
+const CAPABILITIES_TO_USE = [];
 
 if (platform === 'android' || !platform) {
   CAPABILITIES_TO_USE.push(...ALL_CAPABILITIES.android);
@@ -40,15 +40,12 @@ if (platform === 'ios' || !platform) {
   CAPABILITIES_TO_USE.push(...ALL_CAPABILITIES.ios);
 }
 
-CAPABILITIES_TO_USE = [
-  {
-    platformName: 'ios',
-    platformVersion: '13.3',
-    deviceName: 'iPhone 11',
-    automationName: 'XCUITest',
-    app: './ios/build/APPNAME/Build/Products/Debug-iphonesimulator/APPNAME.app',
-  },
-];
+if (platform === 'ios-dev') {
+  CAPABILITIES_TO_USE.push({
+    ...IOS_13_3,
+    app: './ios/build/APPNAME/Build/Products/Debug-iphonesimulator/FreeUp.app',
+  });
+}
 
 exports.pomConfig = {
   platform: 'mobile',
@@ -57,10 +54,10 @@ exports.pomConfig = {
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
-  // screenshotPath: outputPath, // not needed unless you need it to differ to the outputPath. Used for error screenshots
-  // screenshotStepPath: 'stepDefinitionScreenshots', // is appended to the screenshotPath or outputPath if one isn't set. Used for screenshots in the step definitions (e.g. When I take a screenshot)
-  // minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
-  // minifyStepPathOutput: 'uiTestResult/stepDefinitionScreenshots',
+  screenshotPath: outputPath, // not needed unless you need it to differ to the outputPath. Used for error screenshots
+  screenshotStepPath: 'stepDefinitionScreenshots', // is appended to the screenshotPath or outputPath if one isn't set. Used for screenshots in the step definitions (e.g. When I take a screenshot)
+  minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
+  minifyStepPathOutput: 'uiTestResult/stepDefinitionScreenshots',
 };
 
 exports.cucumberHtmlReporterConfig = {};
@@ -98,6 +95,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   specs: [`${specsPath}/features/**/*.feature`],
   cucumberOpts: {
     'require': [
+      `${courgettePath}/hooks/loadStepsMobile.js`,
       // `${specsPath}/helpers/globals.js`,
       `${courgettePath}/globals.js`,
       `${courgettePath}/hooks/pageObjectModelMobileBefore.js`,
@@ -109,7 +107,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
       // `${specsPath}/helpers/hooks.js`,
       `${courgettePath}/hooks/attachScenarioNameMobileBefore.js`,
       `${courgettePath}/hooks/attachMobileScreenshotAfter.js`,
-      // `${courgettePath}/hooks/loadSteps.js`, // keep this at the end
+      `${courgettePath}/hooks/reset-app-between-scenarios.js`,
     ],
     tagExpression,
     'source': true,

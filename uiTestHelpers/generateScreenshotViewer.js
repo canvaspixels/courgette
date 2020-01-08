@@ -1,9 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-module.exports = () => {
+module.exports = (screenshotsPath = path.resolve('uiTestResult', 'stepDefinitionScreenshots')) => {
   const imgs = [];
-  const screenshotsPath = path.resolve('uiTestResult', 'stepDefinitionScreenshots');
   if (fs.existsSync(screenshotsPath)) {
     fs.readdirSync(screenshotsPath).forEach((file) => {
       if (file.includes('.png')) {
@@ -83,7 +82,7 @@ module.exports = () => {
     </body>
     </html>
     `;
-    const imgViewerPath = path.resolve('uiTestResult', 'stepDefinitionScreenshots', 'imageViewer.html');
+    const imgViewerPath = path.resolve(screenshotsPath, 'imageViewer.html');
     fs.writeFileSync(imgViewerPath, html, 'utf8');
     console.log('Screenshot viewer created: ', imgViewerPath);
   }
