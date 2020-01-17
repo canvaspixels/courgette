@@ -6,8 +6,6 @@ const { argv } = require('yargs');
 const Table = require('cli-table');
 require('colors');
 const os = require('os');
-const imagemin = require('imagemin');
-const imageminPngquant = require('imagemin-pngquant');
 
 const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
@@ -249,26 +247,6 @@ spawnedProcess.on('exit', async (code) => {
 
   log('');
   log(table.toString());
-
-  if (pomConfig.minifyPng !== false) {
-    const minifyQuality = typeof pomConfig.minifyPng === 'string' ? pomConfig.minifyPng : '0.6-0.8';
-    const quality = minifyQuality.split('-').map((num) => parseFloat(num));
-    const imageminConf = {
-      plugins: [imageminPngquant({ quality })],
-    };
-    const minifyOutputPath = pomConfig.screenshotPath || pomConfig.outputPath;
-    await imagemin(
-      [pomConfig.minifyPathGlob || `${minifyOutputPath}/*.png`],
-      pomConfig.minifyPathOutput || 'uiTestResult',
-      imageminConf,
-    );
-    await imagemin(
-      [pomConfig.minifyStepPathGlob || `${minifyOutputPath}/${screenshotStepPath}/*.png`],
-      pomConfig.minifyStepPathOutput || 'uiTestResult/stepDefinitionScreenshots',
-      imageminConf,
-    );
-  }
-
 
   process.exitCode = totalCount === successCount ? 0 : 1;
 });
