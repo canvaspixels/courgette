@@ -49,7 +49,7 @@ const rmDir = function rmDir(dir, rmSelf) {
 };
 
 const outputPath = pomConfig.outputPath.startsWith('/') ? pomConfig.outputPath : path.join(process.cwd(), pomConfig.outputPath);
-if (fs.existsSync(outputPath)) {
+if (fs.existsSync(outputPath) && (typeof pomConfig.removeOutputPathOnStart === 'undefined' || pomConfig.removeOutputPathOnStart)) {
   rmDir(outputPath);
 }
 if (!fs.existsSync(outputPath)) {

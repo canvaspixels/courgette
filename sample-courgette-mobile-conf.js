@@ -58,6 +58,7 @@ exports.pomConfig = {
   screenshotStepPath: 'stepDefinitionScreenshots', // is appended to the screenshotPath or outputPath if one isn't set. Used for screenshots in the step definitions (e.g. When I take a screenshot)
   minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
   minifyStepPathOutput: 'uiTestResult/stepDefinitionScreenshots',
+  removeOutputPathOnStart: true,
 };
 
 exports.cucumberHtmlReporterConfig = {};

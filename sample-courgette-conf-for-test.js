@@ -15,6 +15,7 @@ exports.pomConfig = {
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
   baseUrl: 'https://courgette-testing.com',
+  removeOutputPathOnStart: true,
   minifyPng: false,
 };
 

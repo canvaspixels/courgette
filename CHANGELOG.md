@@ -1,3 +1,7 @@
+## 3.3.0
+* removing imagemin, this will be added as an optional step in future, and installed on the host repo to reduce the amount of packages being installed
+* adding removeOutputPathOnStart to pomConfig (TODO: in future rename to courgetteConfig)
+
 ## 3.0.0
 * Appium now supported with the help of WDIO - see [mobile steps](https://courgette-testing.com/mobile-step-definitions) and [getting started page](https://courgette-testing.com/getting-started) for docs
 * Postinstall script has been removed and scripts have been added for running manually see [getting started page](https://courgette-testing.com/getting-started)
