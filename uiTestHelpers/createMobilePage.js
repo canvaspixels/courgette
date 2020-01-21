@@ -15,7 +15,7 @@ module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 1
         const screen = await browser.$(`~${pageUrl}`);
 
         world.screen = screen; // eslint-disable-line no-param-reassign
-        
+
         return screen.waitForExist(opts.timeoutInSeconds * 1000);
       },
     },
