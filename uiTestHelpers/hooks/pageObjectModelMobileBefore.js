@@ -2,8 +2,8 @@ const path = require('path');
 const yaml = require('yaml-page-objects').default;
 const fs = require('fs');
 
-const createPage = require('../../uiTestHelpers/createMobilePage');
-const createComponent = require('../../uiTestHelpers/createMobileComponent');
+const createMobilePage = require('../../uiTestHelpers/createMobilePage');
+const createMobileComponent = require('../../uiTestHelpers/createMobileComponent');
 
 const { Before } = require('cucumber');
 
@@ -71,7 +71,7 @@ createComponentObject = (fileName, world, components, a11ySelectors = {}) => {
 
   const locators = Object.assign({}, a11yLocators);
 
-  const component = createComponent(fileName, world, locators);
+  const component = createMobileComponent(fileName, world, locators);
 
   if (components) {
     const componentObjects = components.map((componentName) => getComponent(componentName));
@@ -90,7 +90,7 @@ const createPageObject = (fileName, world, pagePath, components, a11ySelectors =
 
   const locators = Object.assign({}, a11yLocators);
 
-  const page = createPage(fileName, world, pagePath, locators);
+  const page = createMobilePage(fileName, world, pagePath, locators, { timeoutInSeconds: pomConfig.timeoutInSeconds });
 
   if (components) {
     const componentObjects = components.map((componentName) => getComponent(componentName));

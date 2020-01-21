@@ -2,7 +2,7 @@ const path = require('path');
 const createComponent = require('./createMobileComponent');
 // eslint-disable-next-line
 
-module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
+module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 10 }, customMethods = {}) =>
   Object.assign(
     {},
     createComponent(name, world, elLocators, 'page'),
@@ -15,7 +15,8 @@ module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
         const screen = await browser.$(`~${pageUrl}`);
 
         world.screen = screen; // eslint-disable-line no-param-reassign
-        return screen.waitForExist(10000);
+        
+        return screen.waitForExist(opts.timeoutInSeconds * 1000);
       },
     },
     customMethods,
