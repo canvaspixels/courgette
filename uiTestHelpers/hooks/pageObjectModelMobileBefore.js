@@ -66,7 +66,9 @@ createComponentObject = (fileName, world, components, a11ySelectors = {}) => {
   const a11yLocators = Object.assign({}, a11ySelectors);
   Object.keys(a11ySelectors)
     .forEach((selectorKey) => {
-      a11yLocators[selectorKey] = $(`~${a11yLocators[selectorKey]}`);
+      const accessibilityId = a11yLocators[selectorKey];
+      a11yLocators[selectorKey] = $(`~${accessibilityId}`);
+      a11yLocators[selectorKey].accessibilityId = accessibilityId;
     });
 
   const locators = Object.assign({}, a11yLocators);
@@ -85,7 +87,9 @@ const createPageObject = (fileName, world, pagePath, components, a11ySelectors =
   const a11yLocators = Object.assign({}, a11ySelectors);
   Object.keys(a11ySelectors)
     .forEach((selectorKey) => {
-      a11yLocators[selectorKey] = $(`~${a11yLocators[selectorKey]}`);
+      const accessibilityId = a11yLocators[selectorKey];
+      a11yLocators[selectorKey] = $(`~${accessibilityId}`);
+      a11yLocators[selectorKey].accessibilityId = accessibilityId;
     });
 
   const locators = Object.assign({}, a11yLocators);
