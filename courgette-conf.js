@@ -2,7 +2,7 @@ const path = require('path');
 require('babel-core/register');
 
 // This config file is used to validate the pre-defined
-// reusable generic step definitions in this repo
+// reusable generic step definitions in this repo and runs on the CI
 
 const specsPath = 'testsToValidateStepDefinitions';
 const outputPath = 'uiTestResult';
