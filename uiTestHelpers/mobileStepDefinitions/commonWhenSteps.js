@@ -16,6 +16,7 @@ const steps = [
   //   matcher: "I set the file upload 'VALUE' to(?: the)? element with selector 'SELECTOR'", path: './actions/uploadFileSelector', code: 'uploadfileselector', pageObjectNotRequired: true,
   // },
   { matcher: "I wait for(?: the)? 'LOCATOR' to( not)* exist", path: './checks/checkElementExists', code: 'waitforelement' },
+  { matcher: "I scroll(?: the)? 'LOCATOR' 'DIRECTION' to(?: the)?  'LOCATOR'", path: './actions/scrollToElement', code: 'scrolltoelement', notes: "DIRECTION is 'up' or 'down' e.g. WHen I scroll the 'page container' 'down' to the 'submit button'" },
   // {
   //   matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile',
   // },

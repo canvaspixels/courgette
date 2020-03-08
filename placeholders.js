@@ -13,6 +13,7 @@ const placeholders = [
   'LOCATOR',
   'X_COORD',
   'Y_COORD',
+  'DIRECTION',
 ];
 
 module.exports = placeholders;
