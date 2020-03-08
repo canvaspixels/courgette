@@ -1,7 +1,7 @@
 const scrollIntoView = async (dir = 'down', el, pageObj, locatorKey, scrollIndex = 1) => {
   let scrollToEl;
   const amountToScrollEachLoop = 1000;
-  try { 
+  try {
     scrollToEl = await pageObj.getElement(locatorKey);
 
     if (scrollToEl.error) {
