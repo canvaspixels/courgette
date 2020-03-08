@@ -212,6 +212,7 @@ spawnedProcess.on('exit', async (code) => {
   logStream.end();
 
   deleteEmptyJSONS(pomConfig.outputPath);
+
   generateScreenshotViewer(path.join(pomConfig.screenshotPath, pomConfig.screenshotStepPath));
 
   if (!outputDirContainsJsons(pomConfig.outputPath)) {

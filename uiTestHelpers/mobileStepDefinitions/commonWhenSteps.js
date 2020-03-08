@@ -16,10 +16,17 @@ const steps = [
   //   matcher: "I set the file upload 'VALUE' to(?: the)? element with selector 'SELECTOR'", path: './actions/uploadFileSelector', code: 'uploadfileselector', pageObjectNotRequired: true,
   // },
   { matcher: "I wait for(?: the)? 'LOCATOR' to( not)* exist", path: './checks/checkElementExists', code: 'waitforelement' },
+  {
+    matcher: "I scroll(?: the)? 'LOCATOR' 'DIRECTION' to(?: the)?  'LOCATOR'",
+    path: './actions/scrollToElement',
+    code: 'scrolltoelement',
+    notes: "DIRECTION is 'up' or 'down' e.g. WHen I scroll the 'page container' 'down' to the 'submit button'",
+  },
   // {
   //   matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile',
   // },
   { matcher: "I tap(?: the)? 'LOCATOR'", path: './actions/tapElement', code: 'tap' },
+  { matcher: "I tap(?: the)? 'LOCATOR' at 'X_COORD' 'Y_COORD'", path: './actions/tapElementAtPoint', code: 'tapatpoint' },
   { matcher: "I long press(?: the)? 'LOCATOR'", path: './actions/longPressElement', code: 'longpress' },
   { matcher: 'I press the back button', path: './actions/goBack', code: 'mobileback' },
   {

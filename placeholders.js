@@ -11,6 +11,9 @@ const placeholders = [
   'NUMBER',
   'SELECTOR',
   'LOCATOR',
+  'X_COORD',
+  'Y_COORD',
+  'DIRECTION',
 ];
 
 module.exports = placeholders;

@@ -47,6 +47,7 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
     getElement: (locatorKey) => {
       locatorErrorCheck(locatorKey);
       if (process.env.DEBUG) {
+        console.log('screen: ', world.screen);
         console.log('getElement, locator key: ', locatorKey);
         console.log('translates to selector from page object: ', locators[locatorKey].selector);
       }
@@ -57,11 +58,18 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
     getElements: (locatorKey) => {
       locatorErrorCheck(locatorKey);
       if (process.env.DEBUG) {
+        console.log('screen: ', world.screen);
         console.log('getElements, locator key: ', locatorKey);
         console.log('translates to selector from page object: ', locators[locatorKey].selector);
       }
 
       return world.screen.$$(locators[locatorKey].selector);
+    },
+
+    getSelectorByLocatorKey: (locatorKey) => {
+      console.log('locators', locators);
+
+      return locators[locatorKey].selector;
     },
 
     async getElementInsideElement(locatorKey, locatorKey2) {
