@@ -105,9 +105,27 @@ const printCukeErrors = (el, step, feature) => {
     log(red, `\n------------------ Scenario Error --------------- ${el.name}`);
     log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
     log(yellow, `Step: ${step.keyword}${step.name}`);
-    log(yellow, `Location: ${step.match.location}`);
+    let { location } = step.match;
+    if (step.embeddings) {
+      const stepsGroupSteps = step.embeddings.filter((attachItem) => attachItem.data && JSON.parse(attachItem.data).stepsGroupStep);
+
+      if (stepsGroupSteps.length) {
+        const lastStepsGroupStep = stepsGroupSteps.pop();
+        const lastStepsGroupStepData = JSON.parse(lastStepsGroupStep.data);
+        log(yellow, `    Steps group step: ${lastStepsGroupStepData.stepsGroupStep}`);
+        location = lastStepsGroupStepData.stepsFile;
+      }
+    }
+
+    log(yellow, `Location: ${location}`);
     log(yellow, `Feature: ${feature.uri}${el.tags && el.tags.length ? `:${el.tags[el.tags.length - 1].line}` : ''}`);
-    log(yellow, `Error message: ${step.result.error_message}`);
+    if (step.result.error_message.includes('function timed out')) {
+      log(yellow, 'Error:');
+      log(yellow, `    The element you're looking for could not be found within the ${pomConfig.timeoutInSeconds} second timeout.`);
+      log(yellow, '    Make sure you test your xpath or css selector in the Chrome devtools with $x and $ functions respectively.');
+    } else {
+      log(yellow, step.result.error_message);
+    }
   } else if (step.result.status === 'undefined') {
     log(red, `\n------------------ Scenario Undefined Step Definition --------------- ${el.name}`);
     log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
