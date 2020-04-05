@@ -149,8 +149,8 @@ Before(function pomBeforeHook() {
 
   this.getPage = (pageName, updateCurrentPage = true) => {
     const name = pageName.replace(/ /g, '-').toLowerCase();
-
-    const yamlPagePath = path.resolve(pomConfig.pagesPath, `${name}.page`);
+    const pageFileName = `${name}.page`;
+    const yamlPagePath = path.resolve(pomConfig.pagesPath, pageFileName);
 
     if (fs.existsSync(yamlPagePath)) {
       try {
@@ -180,6 +180,7 @@ Before(function pomBeforeHook() {
         }
 
         const page = createPageObject(this, name, pagePath, components, selectors, xpaths, deepselectors);
+        page.pageFileName = pageFileName;
 
         if (updateCurrentPage) {
           this.currentPage = page;

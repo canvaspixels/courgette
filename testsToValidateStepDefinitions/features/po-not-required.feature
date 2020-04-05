@@ -14,7 +14,7 @@ Feature: Testing steps where page object isn't required
     And take a screenshot
 
   @no-po-reusable-steps
-  Scenario: Testing reusable steps
+  Scenario: Testing reusable steps. See reusable.steps file in the stepDefinitions folder
     Given I am on the homepage page and I click the link
     Then I do some assertions
 

@@ -4,6 +4,11 @@ module.exports = function setPageObjectThenCheckUrl(pageName) {
 
   if (newPageObject.getPagePath() === undefined) {
     // don't bother to assert the page path if no page path exists
+    console.log(`IMPORTANT: "${pageName}" (${newPageObject.pageFileName}) page object has no path set so no assertion will be made against the page URL.`);
+    console.log('This is fine but means that create robust tests, you should check that something is present that you expect to be there before proceeding');
+    console.log('Use "Given the \'LOCATOR\' is visible" for example');
+
+
     return Promise.resolve();
   }
 

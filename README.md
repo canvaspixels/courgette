@@ -27,7 +27,18 @@ This project was formerly known as Cuketractor (formerly cucumber-protractor on 
 
 Please get in touch if you'd like to contribute to this project.
 
-To create the snippets files, run the script: `npm run snippets`
+To get started:
+
+1. Clone this repository and cd into it
+2. Install nodeJS if you don't already have it
+3. Install node_modules `npm install`
+4. Install selenium's latest Chromedriver `npm run install-chromedriver`. Note: on some linux distributions, the Chrome version isn't always the latest. Just make sure your Chrome version number matches the Chromedriver version number. Refer to [webdriver-manager](https://github.com/angular/webdriver-manager) for further help. It may be that you need to run:
+`./node_modules/protractor/bin/webdriver-manager update --versions.chrome=79`
+5. Run the tests `npm run ct`
+
+If you have any problems with the above steps, please create an issue.
+
+If you've added new steps, please create the snippets files by running the script: `npm run snippets`
 
 ## Useful links
 
