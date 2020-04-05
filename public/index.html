@@ -21,6 +21,7 @@
     -->
     <title>React App</title>
     <script>
+      // TESTING WEB COMPONENTS
       class HelloWorld extends HTMLElement {
         createdCallback() {
           console.log('created');
@@ -40,10 +41,10 @@
         // }
       }
 
-      // if (document.createElement('hello-world').constructor !== HelloWorld) {
-      //   HelloWorld.prototype.owner = (document._currentScript || document.currentScript).ownerDocument;
-      //   document.registerElement('hello-world', HelloWorld);
-      // }
+      if (document.createElement('hello-world').constructor !== HelloWorld) {
+        HelloWorld.prototype.owner = (document._currentScript || document.currentScript).ownerDocument;
+        document.registerElement('hello-world', HelloWorld);
+      }
     </script>
   </head>
   <body>
