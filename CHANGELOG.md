@@ -1,3 +1,12 @@
+## 3.8.0
+* vastly improved errors including more info when using step files
+* adding protractor-console-plugin
+* adding info message if no page path is present
+* README update for contributing
+
+## 3.7.0
+* removing imagemin
+
 ## 3.3.0
 * removing imagemin, this will be added as an optional step in future, and installed on the host repo to reduce the amount of packages being installed
 * adding removeOutputPathOnStart to pomConfig (TODO: in future rename to courgetteConfig)
