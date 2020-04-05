@@ -54,6 +54,7 @@
     "jsonfile": "^5.0.0",
     "ncp": "^2.0.0",
     "protractor": "^5.4.2",
+    "protractor-console-plugin": "^0.1.1",
     "protractor-cucumber-framework": "^6.1.1",
     "yaml-page-objects": "0.0.0",
     "yargs": "^12.0.1"

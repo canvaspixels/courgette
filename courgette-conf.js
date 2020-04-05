@@ -84,6 +84,13 @@ const protractorConfig = {
     'no-source': true,
   },
   onPrepare: () => { browser.ignoreSynchronization = true; },
+  plugins: [{
+    package: 'protractor-console-plugin',
+    failOnWarning: false,
+    failOnError: true,
+    logWarnings: true,
+    exclude: [],
+  }],
 };
 
 exports.config = protractorConfig;

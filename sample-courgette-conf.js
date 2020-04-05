@@ -88,6 +88,14 @@ const protractorConfig = {
     'no-source': true,
   },
   onPrepare: () => { browser.ignoreSynchronization = true; },
+  // UNCOMMENT protractor-console-plugin so that you can see what's output in the Chrome devtools console in your terminal
+  // plugins: [{
+  //   package: 'protractor-console-plugin',
+  //   failOnWarning: false,
+  //   failOnError: true,
+  //   logWarnings: true,
+  //   exclude: [],
+  // }],
 };
 
 exports.config = protractorConfig;
