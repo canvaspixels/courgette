@@ -7,6 +7,7 @@ require('colors');
 
 const { defineStep } = cucumber;
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+const timeoutInSeconds = pomConfig.timeoutInSeconds || 8;
 
 const stepsObj = {};
 let currentStep;
@@ -49,12 +50,12 @@ stepsFiles.forEach((stepsFile) => {
         for (let i = 0; i < substeps.length; i += 1) {
           const substepCleaned = substeps[i].stepCleaned;
 
-          const correspondingCommonStep =
+          const correspondingStep =
             allSteps.find((commonStep) => commonStep.pattern && commonStep.pattern.test(substepCleaned));
 
           try {
-            if (correspondingCommonStep) {
-              let args = substepCleaned.match(correspondingCommonStep.pattern);
+            if (correspondingStep) {
+              let args = substepCleaned.match(correspondingStep.pattern);
 
               args.shift(); // remove full string off front of args array
 
@@ -68,7 +69,7 @@ stepsFiles.forEach((stepsFile) => {
 
               const argsToPass = args.length;
               args.unshift(this); // pass the this context ready for .call fn call later
-              const fn = correspondingCommonStep.code;
+              const fn = correspondingStep.code;
               let doneCallbackCalled = false;
               let callbackPromise;
               if (fn.length > argsToPass) {
@@ -88,6 +89,8 @@ stepsFiles.forEach((stepsFile) => {
                   });
               }
 
+              this.attach(`{"stepsGroupStep": "${substeps[i].step}", "stepRegexStr": "${parameterisedStepRegexStr}", "stepsFile": "${stepsFile}"}`, 'application/json');
+
               const apiCallPromise = fn.call(...args);
               await apiCallPromise; // eslint-disable-line no-await-in-loop
               let cbPromise = Promise.resolve();
@@ -99,11 +102,11 @@ stepsFiles.forEach((stepsFile) => {
               Promise.all([apiCallPromise, cbPromise]).then(() => {
                 console.log(`            ${substeps[i].step} ---> PASSED`.green);
               }).catch((e) => {
-                console.log(`            ${substeps[i].step} ---> FAILED`.red);
+                console.log(`            ${substeps[i].step} ---> FAILED!!`.red);
                 console.error(e);
               });
             } else {
-              console.log(`            ${substeps[i].step} ---> FAILED`.red);
+              console.log(`            ${substeps[i].step} ---> FAILED!`.red);
               console.log(`NO STEP FOUND:     ${substeps[i].step}`);
               return Promise.reject(new Error(`NO STEP FOUND:     ${substeps[i].step}`));
             }
@@ -133,7 +136,7 @@ stepsFiles.forEach((stepsFile) => {
         theFunc = function (a1, a2, a3, a4, a5, a6, a7) { return theStepDef.call(this, ...arguments); };
       }
       /* eslint-enable */
-      defineStep(new RegExp(`^${parameterisedStepRegexStr}$`), theFunc);
+      defineStep(new RegExp(`^${parameterisedStepRegexStr}$`), { timeout: stepsObj[stepRegexStr].length * timeoutInSeconds * 1000 }, theFunc);
     });
   }
 });

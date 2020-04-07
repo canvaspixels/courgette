@@ -1,3 +1,8 @@
+## 3.8.2
+* steps timeout - crude solution - number of steps x timeout set. This means that if you have a long step and the first times out, you may be waiting a while
+## 3.8.1
+* bugfix for steps error reporting
+
 ## 3.8.0
 * vastly improved errors including more info when using step files
 * adding protractor-console-plugin
