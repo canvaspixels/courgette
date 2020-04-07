@@ -107,13 +107,25 @@ const printCukeErrors = (el, step, feature) => {
     log(yellow, `Step: ${step.keyword}${step.name}`);
     let { location } = step.match;
     if (step.embeddings) {
-      const stepsGroupSteps = step.embeddings.filter((attachItem) => attachItem.data && JSON.parse(attachItem.data).stepsGroupStep);
+      const stepsGroupSteps = step.embeddings.filter((attachItem) => {
+        let stepsGroupStep
+        try {
+          stepsGroupStep = attachItem.data && JSON.parse(attachItem.data).stepsGroupStep
+        } catch (e) {}
+        
+        return stepsGroupStep
+      });
 
       if (stepsGroupSteps.length) {
         const lastStepsGroupStep = stepsGroupSteps.pop();
-        const lastStepsGroupStepData = JSON.parse(lastStepsGroupStep.data);
-        log(yellow, `    Steps group step: ${lastStepsGroupStepData.stepsGroupStep}`);
-        location = lastStepsGroupStepData.stepsFile;
+        let lastStepsGroupStepData
+        try {
+          lastStepsGroupStepData = JSON.parse(lastStepsGroupStep.data);
+        } catch (e) {}
+        if (lastStepsGroupStepData) {
+          log(yellow, `    Steps group step: ${lastStepsGroupStepData.stepsGroupStep}`);
+          location = lastStepsGroupStepData.stepsFile;
+        }
       }
     }
 
