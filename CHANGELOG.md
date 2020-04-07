@@ -1,3 +1,6 @@
+## 3.8.1
+* bugfix for steps error reporting
+
 ## 3.8.0
 * vastly improved errors including more info when using step files
 * adding protractor-console-plugin
