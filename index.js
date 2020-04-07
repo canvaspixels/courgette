@@ -106,6 +106,7 @@ const printCukeErrors = (el, step, feature) => {
     log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
     log(yellow, `Step: ${step.keyword}${step.name}`);
     let { location } = step.match;
+    let stepsGroupStepsLength = 1;
     if (step.embeddings) {
       const stepsGroupSteps = step.embeddings.filter((attachItem) => {
         let stepsGroupStep
@@ -117,6 +118,7 @@ const printCukeErrors = (el, step, feature) => {
       });
 
       if (stepsGroupSteps.length) {
+        stepsGroupStepsLength = stepsGroupSteps.length
         const lastStepsGroupStep = stepsGroupSteps.pop();
         let lastStepsGroupStepData
         try {
@@ -133,7 +135,7 @@ const printCukeErrors = (el, step, feature) => {
     log(yellow, `Feature: ${feature.uri}${el.tags && el.tags.length ? `:${el.tags[el.tags.length - 1].line}` : ''}`);
     if (step.result.error_message.includes('function timed out')) {
       log(yellow, 'Error:');
-      log(yellow, `    The element you're looking for could not be found within the ${pomConfig.timeoutInSeconds} second timeout.`);
+      log(yellow, `    The element you're looking for could not be found within the ${pomConfig.timeoutInSeconds * stepsGroupStepsLength} second timeout.`);
       log(yellow, '    Make sure you test your xpath or css selector in the Chrome devtools with $x and $ functions respectively.');
     } else {
       log(yellow, step.result.error_message);

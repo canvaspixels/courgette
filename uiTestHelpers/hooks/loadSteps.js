@@ -5,8 +5,9 @@ const cucumber = require(path.join(process.cwd(), 'node_modules/cucumber'));
 
 require('colors');
 
-const { defineStep } = require(path.join(process.cwd(), 'node_modules/cucumber'));
+const { defineStep } = cucumber;
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+const timeoutInSeconds = pomConfig.timeoutInSeconds || 8;
 
 const stepsObj = {};
 let currentStep;
@@ -100,11 +101,11 @@ stepsFiles.forEach((stepsFile) => {
               Promise.all([apiCallPromise, cbPromise]).then(() => {
                 console.log(`            ${substeps[i].step} ---> PASSED`.green);
               }).catch((e) => {
-                console.log(`            ${substeps[i].step} ---> FAILED`.red);
+                console.log(`            ${substeps[i].step} ---> FAILED!!`.red);
                 console.error(e);
               });
             } else {
-              console.log(`            ${substeps[i].step} ---> FAILED`.red);
+              console.log(`            ${substeps[i].step} ---> FAILED!`.red);
               console.log(`NO STEP FOUND:     ${substeps[i].step}`);
               return Promise.reject(new Error(`NO STEP FOUND:     ${substeps[i].step}`));
             }
@@ -134,7 +135,7 @@ stepsFiles.forEach((stepsFile) => {
         theFunc = function (a1, a2, a3, a4, a5, a6, a7) { return theStepDef.call(this, ...arguments); };
       }
       /* eslint-enable */
-      defineStep(new RegExp(`^${parameterisedStepRegexStr}$`), theFunc);
+      defineStep(new RegExp(`^${parameterisedStepRegexStr}$`), { timeout: stepsObj[stepRegexStr].length * timeoutInSeconds * 1000 }, theFunc);
     });
   }
 });
