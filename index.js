@@ -109,21 +109,21 @@ const printCukeErrors = (el, step, feature) => {
     let stepsGroupStepsLength = 1;
     if (step.embeddings) {
       const stepsGroupSteps = step.embeddings.filter((attachItem) => {
-        let stepsGroupStep
+        let stepsGroupStep;
         try {
-          stepsGroupStep = attachItem.data && JSON.parse(attachItem.data).stepsGroupStep
-        } catch (e) {}
-        
-        return stepsGroupStep
+          stepsGroupStep = attachItem.data && JSON.parse(attachItem.data).stepsGroupStep;
+        } catch (e) {} // eslint-disable-line no-empty
+
+        return stepsGroupStep;
       });
 
       if (stepsGroupSteps.length) {
-        stepsGroupStepsLength = stepsGroupSteps.length
+        stepsGroupStepsLength = stepsGroupSteps.length;
         const lastStepsGroupStep = stepsGroupSteps.pop();
-        let lastStepsGroupStepData
+        let lastStepsGroupStepData;
         try {
           lastStepsGroupStepData = JSON.parse(lastStepsGroupStep.data);
-        } catch (e) {}
+        } catch (e) {} // eslint-disable-line no-empty
         if (lastStepsGroupStepData) {
           log(yellow, `    Steps group step: ${lastStepsGroupStepData.stepsGroupStep}`);
           location = lastStepsGroupStepData.stepsFile;
