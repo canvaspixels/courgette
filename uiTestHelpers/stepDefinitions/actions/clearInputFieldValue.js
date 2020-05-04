@@ -1,5 +1,16 @@
-module.exports = function clearInputFieldValue(locatorKey) {
-  return this.getCurrentPage()
-    .getElementWhenInDOM(locatorKey)
-    .then((element) => element.clear());
+const path = require('path');
+
+module.exports = async function clearInputFieldValue(locatorKey) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElement(locatorKey);
+
+  if (process.env.DEBUG) {
+    console.log('In file:', path.basename(__filename), el);
+  }
+
+  if (process.env.BINDINGS === 'WDIO') {
+    return el.clear()
+  }
+  return el.clearValue();
 };
+

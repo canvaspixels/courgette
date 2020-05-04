@@ -4,9 +4,10 @@
 // browser all at once as sendKeys is particularly slow
 
 module.exports = function setReactInputFieldValue(locatorKey, text) {
+  const executeFn = process.env.BINDINGS === 'WDIO' ? browser.execute : browser.executeScript
   return this.getCurrentPage()
     .getElementWhenInDOM(locatorKey)
-    .then((element) => browser.executeScript((domEl, val) => {
+    .then((element) => executeFn((domEl, val) => {
       const domElement = domEl;
       const valueFromDescriptor = Object.getOwnPropertyDescriptor(domElement, 'value');
       const elProto = Object.getPrototypeOf(domElement);

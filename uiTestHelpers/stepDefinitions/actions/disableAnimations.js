@@ -1,5 +1,6 @@
 module.exports = function disableAnimations() {
-  return browser.executeScript(() => {
+  const executeFn = process.env.BINDINGS === 'WDIO' ? browser.execute : browser.executeScript
+  return executeFn(() => {
     // This following block executes in the context of the browser,
     // which we cant rely on having support for let/const
     // eslint-disable-next-line no-var

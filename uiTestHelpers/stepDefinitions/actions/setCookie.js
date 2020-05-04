@@ -1,5 +1,6 @@
 module.exports = function setCookie(name, value) {
-  return browser.manage().addCookie({
+  const addCookieFn = process.env.BINDINGS === 'WDIO' ? browser.setCookies : browser.manage().addCookie
+  return addCookieFn({
     name,
     value,
     path: '/',

@@ -7,6 +7,9 @@ module.exports = function goToURL(pageUrl) {
   const fullUrl = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
 
   console.log('            Trying to get: ', fullUrl);
+  if (process.env.BINDINGS === 'WDIO') {
+    return browser.url(fullUrl);
+  }
 
   return browser.get(fullUrl);
 };

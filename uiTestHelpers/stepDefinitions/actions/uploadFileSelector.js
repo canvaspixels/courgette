@@ -7,11 +7,16 @@ module.exports = function uploadFileSelector(fileToUpload, cssSelector) {
     .then(() => {
       const absolutePath = path.resolve(fileToUpload);
 
-      browser.executeAsyncScript((selector, callback) => {
+      const executeFn = process.env.BINDINGS === 'WDIO' ? browser.executeAsync : browser.executeAsyncScript;
+      executeFn((selector, callback) => {
         document.querySelector(selector).style.display = 'inline';
         callback();
       }, cssSelector);
 
-      return elemelon.sendKeys(absolutePath);
+      if (process.env.BINDINGS === 'WDIO') {
+        return el.keys(absolutePath);
+      }
+
+      return el.sendKeys(absolutePath);
     });
 };

@@ -1,5 +1,4 @@
-module.exports = function clickElementThatContainsText(nth, text) {
-  const EC = protractor.ExpectedConditions;
+module.exports = async function clickElementThatContainsText(nth, text) {
   //* [contains(text(),'match')]
   let xpath = `//*[contains(text(),"${text}") or contains(@value,"${text}")]/ancestor-or-self::*[self::a or self::button or self::input]`;
   if (nth) {
@@ -9,7 +8,14 @@ module.exports = function clickElementThatContainsText(nth, text) {
 
   console.log('            Getting clickable element (a, input, button) by xpath:');
   console.log('              ', xpath);
+
+  if (process.env.BINDINGS === 'WDIO') {
+    const elem = $(xpath)
+    await elem.waitForClickable({ timeout: pomConfig.timeoutInSeconds * 1000 })
+    return elem.click()
+  }
+
   const elToClick = element(by.xpath(xpath));
-  return browser.wait(EC.presenceOf(elToClick))
+  return browser.wait(protractor.ExpectedConditions.presenceOf(elToClick))
     .then(() => elToClick.click());
 };

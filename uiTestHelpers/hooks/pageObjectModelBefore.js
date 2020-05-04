@@ -2,8 +2,15 @@ const path = require('path');
 const yaml = require('yaml-page-objects').default;
 const fs = require('fs');
 
-const createPage = require('../../uiTestHelpers/createPage');
-const createComponent = require('../../uiTestHelpers/createComponent');
+let createPage;
+let createComponent;
+if (process.env.BINDINGS === 'WDIO') {
+  createPage = require('../../uiTestHelpers/createPageWDIO');
+  createComponent = require('../../uiTestHelpers/createComponentWDIO');
+} else {
+  createPage = require('../../uiTestHelpers/createPage');
+  createComponent = require('../../uiTestHelpers/createComponent');
+}
 
 const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));

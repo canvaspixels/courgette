@@ -1,6 +1,8 @@
-const path = require('path');
+// createComponent only supports protractor
 
-const EC = protractor.ExpectedConditions;
+const path = require('path');
+// eslint-disable-next-line
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 module.exports = (name, world, elLocators, type = 'component', customMethods = {}) => {
   const components = {};
@@ -90,21 +92,32 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       // TODO add error
       // `${locator} not found`
       // todo see syntax without EC
-      return browser.wait(EC.presenceOf(el)).then(() => el);
+      
+      if (process.env.BINDINGS === 'WDIO') {
+        return el.waitForExist({ timeout: pomConfig.timeoutInSeconds * 1000 })
+      }
+
+      return browser.wait(protractor.ExpectedConditions.presenceOf(el)).then(() => el);
     },
 
     getElementWhenVisible(locatorKey) {
       const el = this.getElement(locatorKey);
 
-      // todo see syntax without EC
-      return browser.wait(EC.visibilityOf(el)).then(() => el);
+      if (process.env.BINDINGS === 'WDIO') {
+        return el.waitForDisplayed({ timeout: pomConfig.timeoutInSeconds * 1000 })
+      }
+
+      return browser.wait(protractor.ExpectedConditions.visibilityOf(el)).then(() => el);
     },
 
     getElementWhenInvisible(locatorKey) {
       const el = this.getElement(locatorKey);
 
-      // todo see syntax without EC
-      return browser.wait(EC.invisibilityOf(el)).then(() => el);
+      if (process.env.BINDINGS === 'WDIO') {
+        return el.waitForDisplayed({ timeout: pomConfig.timeoutInSeconds * 1000, reverse: true })
+      }
+
+      return browser.wait(protractor.ExpectedConditions.invisibilityOf(el)).then(() => el);
     },
   }, customMethods);
 };
