@@ -55,14 +55,14 @@ Feature: Testing When steps
   # @when-steps-submit-form
   # Scenario: When I submit a form
   #   When I submit the 'main form'
-  #   Then I expect the url to be 'http://localhost:3000/other-page'
+  #   Then I expect the url to be 'http://localhost:3005/other-page'
 
   # TODO: see comment in: https://github.com/canvaspixels/courgette/issues/16
   # @when-steps-key
   # Scenario: When I press a key
   #   When I set 'fullname' to 'foo'
   #   And I press 'ENTER'
-  #   Then I expect the url to be 'http://localhost:3000/other-page'
+  #   Then I expect the url to be 'http://localhost:3005/other-page'
 
   @when-steps-clear
   Scenario: When I clear a field

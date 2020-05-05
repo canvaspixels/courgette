@@ -14,7 +14,7 @@ exports.pomConfig = {
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://localhost:3005',
   minifyPng: false,
 };
 
