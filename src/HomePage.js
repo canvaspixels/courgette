@@ -26,7 +26,7 @@ const Home = () => (
       <li data-test="list-item">bullet 3</li>
     </ul>
 
-    <form action="" data-test="form" onSubmit={(e) => { global.location.href = 'http://localhost:3000/other-page'; e.preventDefault(); }}>
+    <form action="" data-test="form" onSubmit={(e) => { global.location.href = 'http://localhost:3005/other-page'; e.preventDefault(); }}>
       <p>
         <label>
           <input type="file" name="a-file" data-test="a-file" />

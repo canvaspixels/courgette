@@ -5,7 +5,7 @@ cache:
     - "node_modules"
 node_js:
   - 'node'
-  - '8'
+  - '13'
 install:
   - nvm install 8
   - nvm alias default 8

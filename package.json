@@ -19,7 +19,7 @@
     "install-chromedriver-ci": "./node_modules/protractor/bin/webdriver-manager update --gecko=false --versions.chrome 2.35",
     "install-chromedriver": "./node_modules/protractor/bin/webdriver-manager update --gecko=false",
     "install-geckodriver": "./node_modules/protractor/bin/webdriver-manager update --chrome=false",
-    "start": "react-scripts start",
+    "start": "PORT=3005 react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "uitests": "node index.js",
     "ct": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette",

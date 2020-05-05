@@ -30,7 +30,7 @@ const capabilities = {
 const browserCapability = capabilities[process.env.browser || 'chrome'];
 
 exports.pomConfig = {
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://localhost:3005',
   outputPath,
   timeoutInSeconds: process.env.courgetteTimeout || 20, // minimum 2 or you'll see strange behaviour with some steps
   pagesPath: path.resolve(specsPath, 'pages'),
