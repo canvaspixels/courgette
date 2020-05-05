@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "react-scripts build",
-    "ci": "npm run install-chromedriver-ci && npm run start & npm run lint && npm run uitests",
+    "ci": "npm run install-chromedriver-ci && npm run start & npm run lint && npm run uitests && npm run uitests -- --confFile=courgette-conf-wdio.js",
     "eject": "react-scripts eject",
     "lint": "eslint '**/*.js'",
     "build-snippets:atom": "node scripts/generateSnippetsAtom.js --genFiles",
