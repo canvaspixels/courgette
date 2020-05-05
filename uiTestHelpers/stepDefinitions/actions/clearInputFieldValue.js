@@ -9,8 +9,8 @@ module.exports = async function clearInputFieldValue(locatorKey) {
   }
 
   if (process.env.BINDINGS === 'WDIO') {
-    return el.clear()
+    return el.clearValue()
   }
-  return el.clearValue();
+  return el.clear();
 };
 

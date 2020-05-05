@@ -1,6 +1,14 @@
-module.exports = function checkAttribute(locatorKey, expectedAttribute, expectedValue) {
-  return this.getCurrentPage()
-    .getElementWhenInDOM(locatorKey)
-    .then((element) => element.getAttribute(expectedAttribute))
-    .then((value) => expect(value).to.equal(expectedValue));
+const path = require('path');
+
+module.exports = async function checkAttribute(locatorKey, expectedAttribute, expectedValue) {
+  const pageObj = await this.getCurrentPage();
+  const el = await pageObj.getElementWhenInDOM(locatorKey);
+
+  if (process.env.DEBUG) {
+    console.log('In file:', path.basename(__filename), el);
+  }
+
+  const attrVal = await el.getAttribute(expectedAttribute);
+
+  return expect(attrVal).to.equal(expectedValue);
 };

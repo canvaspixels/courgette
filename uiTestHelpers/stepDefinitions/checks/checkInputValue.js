@@ -1,11 +1,18 @@
-module.exports = function checkInputValue(locatorKey, isNot, expectedVal) {
-  const expectedValue = expectedVal === undefined ? '' : expectedVal;
+module.exports = async function checkInputValue(locatorKey, isNot, expectedVal) {
+  const currentPage = this.getCurrentPage();
+  const el = await currentPage.getElementWhenInDOM(locatorKey)
+  const expectedValue = [undefined, null].includes(expectedVal) ? '' : expectedVal;
 
-  return this.getCurrentPage().getElementWhenInDOM(locatorKey)
-    .then((el) => {
-      const elValuePromise = el.getAttribute('value');
-      return isNot ?
-        expect(elValuePromise).to.not.eventually.equal(expectedValue) :
-        expect(elValuePromise).to.eventually.equal(expectedValue);
-    });
+  if (process.env.BINDINGS === 'WDIO') {
+    const elValuePromise = await el.getValue();
+    
+    return isNot ?
+      expect(elValuePromise).to.not.equal(expectedValue) :
+      expect(elValuePromise).to.equal(expectedValue);
+  }
+
+  const elValuePromise = el.getAttribute('value');
+  return isNot ?
+    expect(elValuePromise).to.not.eventually.equal(expectedValue) :
+    expect(elValuePromise).to.eventually.equal(expectedValue);
 };

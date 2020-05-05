@@ -1,10 +1,14 @@
 
-module.exports = function waitForElement(locatorKey, doesNotExist) {
+const path = require('path');
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+
+module.exports = async function waitForElement(locatorKey, doesNotExist) {
   const currentPage = this.getCurrentPage();
   const el = currentPage.getElement(locatorKey);
 
   if (process.env.BINDINGS === 'WDIO') {
-    return el.waitForExist({ timeout: pomConfig.timeoutInSeconds * 1000, reverse: doesNotExist })
+    const elem = await el;
+    return elem.waitForExist({ timeout: pomConfig.timeoutInSeconds * 1000, reverse: doesNotExist })
   }
 
   const EC = protractor.ExpectedConditions;

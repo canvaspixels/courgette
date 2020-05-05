@@ -1,5 +1,7 @@
-module.exports = function wait(numberOfSecs, callback) {
-  setTimeout(() => {
-    callback();
-  }, numberOfSecs * 1000);
+module.exports = function wait(numberOfSecs) {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res();
+    }, numberOfSecs * 1000);
+  })
 };

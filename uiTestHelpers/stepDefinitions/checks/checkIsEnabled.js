@@ -1,5 +1,6 @@
-module.exports = function checkIsEnabled(locatorKey, enabledOrDisabled) {
-  const el = this.getCurrentPage().getElement(locatorKey);
+module.exports = async function checkIsEnabled(locatorKey, enabledOrDisabled) {
+  const currentPage = this.getCurrentPage();
+  const el = await currentPage.getElementWhenInDOM(locatorKey)
   const elIsEnabled = el.isEnabled();
 
   return enabledOrDisabled === 'enabled' ?

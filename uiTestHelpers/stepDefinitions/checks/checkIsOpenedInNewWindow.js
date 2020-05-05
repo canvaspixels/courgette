@@ -1,4 +1,10 @@
 module.exports = function checkIsOpenedInNewWindow(href) {
+
+  if (process.env.BINDINGS === 'WDIO') {
+    browser.switchWindow(href)
+    return expect(browser.getUrl()).to.include(href);
+  }
+  
   const openTabHandles = browser.getAllWindowHandles()
     .then((handles) =>
       handles.map((handle) =>

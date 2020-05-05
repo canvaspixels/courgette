@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const cucumber = require(path.join(process.cwd(), 'node_modules/cucumber'));
+const cucumber = require('cucumber');
 
 require('colors');
 

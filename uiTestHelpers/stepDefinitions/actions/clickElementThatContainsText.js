@@ -1,3 +1,6 @@
+const path = require('path');
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+
 module.exports = async function clickElementThatContainsText(nth, text) {
   //* [contains(text(),'match')]
   let xpath = `//*[contains(text(),"${text}") or contains(@value,"${text}")]/ancestor-or-self::*[self::a or self::button or self::input]`;
@@ -10,7 +13,7 @@ module.exports = async function clickElementThatContainsText(nth, text) {
   console.log('              ', xpath);
 
   if (process.env.BINDINGS === 'WDIO') {
-    const elem = $(xpath)
+    const elem = await $(xpath)
     await elem.waitForClickable({ timeout: pomConfig.timeoutInSeconds * 1000 })
     return elem.click()
   }

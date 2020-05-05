@@ -1,4 +1,6 @@
 const path = require('path');
+// eslint-disable-next-line
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 module.exports = (name, world, elLocators, type = 'component', customMethods = {}) => {
   const components = {};
@@ -47,34 +49,66 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
     getElement: (locatorKey) => {
       locatorErrorCheck(locatorKey);
       if (process.env.DEBUG) {
-        console.log('screen: ', world.screen);
         console.log('getElement, locator key: ', locatorKey);
-        console.log('translates to selector from page object: ', locators[locatorKey].selector);
+        console.log('translates to selector from page object: ', locators[locatorKey]);
       }
 
-      return world.screen.$(locators[locatorKey].selector);
+      return $(locators[locatorKey]);
     },
 
     getElements: (locatorKey) => {
       locatorErrorCheck(locatorKey);
       if (process.env.DEBUG) {
-        console.log('screen: ', world.screen);
         console.log('getElements, locator key: ', locatorKey);
-        console.log('translates to selector from page object: ', locators[locatorKey].selector);
+        console.log('translates to selector from page object: ', locators[locatorKey]);
       }
 
-      return world.screen.$$(locators[locatorKey].selector);
+      return $$(locators[locatorKey]);
     },
 
     getSelectorByLocatorKey: (locatorKey) => {
       console.log('locators', locators);
 
-      return locators[locatorKey].selector;
+      return locators[locatorKey];
     },
 
     async getElementInsideElement(locatorKey, locatorKey2) {
       const el1 = await this.getElement(locatorKey);
-      return el1.$(locators[locatorKey2].selector);
+      return el1.$(locators[locatorKey2]);
+    },
+
+    getSelectorFromLocatorKey(locatorKey) {
+      return locators[locatorKey];
+    },
+
+    async getElementWhenInDOM(locatorKey, ...other) {
+      let el;
+
+      if (other.length) {
+        el = await this.getElementInsideElement(locatorKey, ...other);
+      } else {
+        el = await this.getElement(locatorKey);
+      }
+
+      await el.waitForExist({ timeout: pomConfig.timeoutInSeconds * 1000 })
+
+      return el
+    },
+
+    async getElementWhenVisible(locatorKey) {
+      const el = await this.getElement(locatorKey);
+
+      await el.waitForDisplayed({ timeout: pomConfig.timeoutInSeconds * 1000 })
+
+      return el
+    },
+
+    async getElementWhenInvisible(locatorKey) {
+      const el = await this.getElement(locatorKey);
+
+      await el.waitForDisplayed({ timeout: pomConfig.timeoutInSeconds * 1000, reverse: true })
+
+      return el
     },
   }, customMethods);
 };

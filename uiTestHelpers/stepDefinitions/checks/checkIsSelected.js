@@ -1,5 +1,5 @@
-module.exports = function checkIsSelected(locatorKey, isNotSelected) {
-  const el = this.getCurrentPage().getElement(locatorKey);
+module.exports = async function checkIsSelected(locatorKey, isNotSelected) {
+  const el = await this.getCurrentPage().getElement(locatorKey);
 
   return isNotSelected ?
     expect(el.isSelected()).to.eventually.equal(false) :

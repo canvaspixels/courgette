@@ -1,8 +1,6 @@
 // createComponent only supports protractor
 
 const path = require('path');
-// eslint-disable-next-line
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 module.exports = (name, world, elLocators, type = 'component', customMethods = {}) => {
   const components = {};
@@ -93,29 +91,17 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       // `${locator} not found`
       // todo see syntax without EC
       
-      if (process.env.BINDINGS === 'WDIO') {
-        return el.waitForExist({ timeout: pomConfig.timeoutInSeconds * 1000 })
-      }
-
       return browser.wait(protractor.ExpectedConditions.presenceOf(el)).then(() => el);
     },
 
     getElementWhenVisible(locatorKey) {
       const el = this.getElement(locatorKey);
 
-      if (process.env.BINDINGS === 'WDIO') {
-        return el.waitForDisplayed({ timeout: pomConfig.timeoutInSeconds * 1000 })
-      }
-
       return browser.wait(protractor.ExpectedConditions.visibilityOf(el)).then(() => el);
     },
 
     getElementWhenInvisible(locatorKey) {
       const el = this.getElement(locatorKey);
-
-      if (process.env.BINDINGS === 'WDIO') {
-        return el.waitForDisplayed({ timeout: pomConfig.timeoutInSeconds * 1000, reverse: true })
-      }
 
       return browser.wait(protractor.ExpectedConditions.invisibilityOf(el)).then(() => el);
     },

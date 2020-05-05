@@ -1,11 +1,34 @@
-const createPage = require('../../uiTestHelpers/createPage');
+const createPage = (process.env.BINDINGS === 'WDIO') ? require('../../uiTestHelpers/createPageWDIO') : require('../../uiTestHelpers/createPage');
 const banner = require('../components/banner');
 
 const fileName = createPage.getFileName(__filename);
 
 module.exports = (world) => {
   const pagePath = '/';
-  const locators = {
+  const locators = (process.env.BINDINGS === 'WDIO') ? {
+    'main container': '[data-test="home-container"]',
+    'empty div': '[data-test="empty-div"]',
+    'bullets': '[data-test="list-item"]',
+    'Go to other page by react router link': '[data-test="rr-link"]',
+    'Go to other page link': '[data-test="other-page-link"]',
+    'Go to other page in new tab link': '[data-test="other-page-link-new-tab"]',
+    'fullname': '[data-test="fullname"]',
+    'main form': '[data-test="form"]',
+    'main heading': '[data-test="main-heading"]',
+    'email': '[data-test="email"]',
+    'age field': '[data-test="age-field"]',
+    'age field 18 to 25': '[data-test="age-18to25"]',
+    'age field 26 plus': '[data-test="age-26plus"]',
+    'hidden field': '[data-test="hidden-field"]',
+    'button': '[data-test="button"]',
+    'disabled button': '[data-test="disabled-button"]',
+    'newsletter checkbox': '[data-test="newsletter-checkbox"]',
+    'you ok checkbox': '[data-test="you-ok-checkbox"]',
+    'non-existant element': '[data-test="non-existant"]',
+    'another simple page react link': '[data-test="another-simple-page-react-link"]',
+    'file upload': '[data-test="a-file"]',
+    'Go to home page by react router link': '[data-test="go-to-home-link"]', // doesn't actually exist on this page, just using to test that it doesn't exist
+  } : {
     'main container': by.css('[data-test="home-container"]'),
     'empty div': by.css('[data-test="empty-div"]'),
     'bullets': by.css('[data-test="list-item"]'),

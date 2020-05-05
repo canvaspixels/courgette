@@ -12,7 +12,7 @@ if (process.env.BINDINGS === 'WDIO') {
   createComponent = require('../../uiTestHelpers/createComponent');
 }
 
-const { Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
+const { Before } = require('cucumber');
 const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
@@ -74,19 +74,31 @@ createComponentObject = (world, fileName, components, cssSelectors = {}, xPaths 
   const cssLocators = Object.assign({}, cssSelectors);
   Object.keys(cssSelectors)
     .forEach((selectorKey) => {
-      cssLocators[selectorKey] = by.css(cssLocators[selectorKey]);
+      if (process.env.BINDINGS === 'WDIO') {
+        cssLocators[selectorKey] = cssLocators[selectorKey];
+      } else {
+        cssLocators[selectorKey] = by.css(cssLocators[selectorKey]);
+      }
     });
 
   const xPathLocators = Object.assign({}, xPaths);
   Object.keys(xPathLocators)
     .forEach((xPathKey) => {
-      xPathLocators[xPathKey] = by.xpath(xPathLocators[xPathKey]);
+      if (process.env.BINDINGS === 'WDIO') {
+        xPathLocators[xPathKey] = xPathLocators[xPathKey];
+      } else {
+        xPathLocators[xPathKey] = by.xpath(xPathLocators[xPathKey]);
+      }
     });
 
   const deepLocators = Object.assign({}, deepSelectors);
   Object.keys(deepLocators)
     .forEach((deepSelectorKey) => {
-      deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
+      if (process.env.BINDINGS === 'WDIO') {
+        deepLocators[deepSelectorKey] = deepLocators[deepSelectorKey];
+      } else {
+        deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
+      }
     });
 
   checkForCollisionsAcrossSelectorTypes(cssSelectors, xPaths, `${fileName}.component`);
@@ -109,19 +121,31 @@ const createPageObject = (world, fileName, pagePath, components, cssSelectors = 
   const cssLocators = Object.assign({}, cssSelectors);
   Object.keys(cssSelectors)
     .forEach((selectorKey) => {
-      cssLocators[selectorKey] = by.css(cssLocators[selectorKey]);
+      if (process.env.BINDINGS === 'WDIO') {
+        cssLocators[selectorKey] = cssLocators[selectorKey];
+      } else {
+        cssLocators[selectorKey] = by.css(cssLocators[selectorKey]);
+      }
     });
 
   const xPathLocators = Object.assign({}, xPaths);
   Object.keys(xPathLocators)
     .forEach((xPathKey) => {
-      xPathLocators[xPathKey] = by.xpath(xPathLocators[xPathKey]);
+      if (process.env.BINDINGS === 'WDIO') {
+        xPathLocators[xPathKey] = xPathLocators[xPathKey];
+      } else {
+        xPathLocators[xPathKey] = by.xpath(xPathLocators[xPathKey]);
+      }
     });
 
   const deepLocators = Object.assign({}, deepSelectors);
   Object.keys(deepLocators)
     .forEach((deepSelectorKey) => {
-      deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
+      if (process.env.BINDINGS === 'WDIO') {
+        deepLocators[deepSelectorKey] = deepLocators[deepSelectorKey];
+      } else {
+        deepLocators[deepSelectorKey] = by.deepCss(deepLocators[deepSelectorKey]);
+      }
     });
 
   checkForCollisionsAcrossSelectorTypes(cssSelectors, xPaths, `${fileName}.page`);
@@ -201,7 +225,7 @@ Before(function pomBeforeHook() {
       // try the .js version
       try {
         const page = require(path.resolve(pomConfig.pagesPath, name));
-
+        
         if (updateCurrentPage) {
           this.currentPage = page(this);
         }

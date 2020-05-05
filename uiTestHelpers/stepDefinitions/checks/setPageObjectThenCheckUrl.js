@@ -19,7 +19,13 @@ module.exports = function setPageObjectThenCheckUrl(pageName) {
   const expectedUrlNoTrailingSlash = expectedUrl.replace(/\/$/, '');
   const timestamp = Date.now();
   return new Promise((resolve, reject) => {
-    const pageUrlMatches = () => browser.getCurrentUrl()
+    let pageUrl
+    if (process.env.BINDINGS === 'WDIO') {
+      pageUrl = browser.getUrl()
+    } else {
+      pageUrl = browser.getCurrentUrl()
+    }
+    const pageUrlMatches = () => pageUrl
       .then((currentUrl) => {
         currentUrlNoTrailingSlash = currentUrl.replace(/\/$/, '');
 

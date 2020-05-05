@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = async function appendInputFieldValue(value, locatorKey) {
   const pageObj = await this.getCurrentPage();
   const el = await pageObj.getElementWhenInDOM(locatorKey);
@@ -8,6 +10,6 @@ module.exports = async function appendInputFieldValue(value, locatorKey) {
   if (process.env.BINDINGS === 'WDIO') {
     await el.addValue(value);
   } else {
-    await element.sendKeys(value);
+    await el.sendKeys(value);
   }
 };

@@ -1,22 +1,31 @@
 const path = require('path');
 
-const EC = protractor.ExpectedConditions;
-module.exports = function uploadFileSelector(fileToUpload, cssSelector) {
+module.exports = async function uploadFileSelector(fileToUpload, cssSelector) {
+  if (process.env.BINDINGS === 'WDIO') {
+    const elemelon = await $(cssSelector);
+
+    // todo add timeout
+    await elemelon.waitForDisplayed()
+    const absolutePath = path.resolve(fileToUpload);
+
+    browser.executeAsync((selector, callback) => {
+      document.querySelector(selector).style.display = 'inline';
+      callback();
+    }, cssSelector);
+
+    return elemelon.keys(absolutePath);
+  }
+
   const elemelon = element(by.css(cssSelector));
-  return browser.wait(EC.visibilityOf(elemelon))
+  return browser.wait(protractor.ExpectedConditions.visibilityOf(elemelon))
     .then(() => {
       const absolutePath = path.resolve(fileToUpload);
 
-      const executeFn = process.env.BINDINGS === 'WDIO' ? browser.executeAsync : browser.executeAsyncScript;
-      executeFn((selector, callback) => {
+      browser.executeAsyncScript((selector, callback) => {
         document.querySelector(selector).style.display = 'inline';
         callback();
       }, cssSelector);
 
-      if (process.env.BINDINGS === 'WDIO') {
-        return el.keys(absolutePath);
-      }
-
-      return el.sendKeys(absolutePath);
+      return elemelon.sendKeys(absolutePath);
     });
 };

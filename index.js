@@ -68,7 +68,7 @@ const logStream = fs.createWriteStream(logPath);
 
 let cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
 
-if (pomConfig.platform === 'mobile') {
+if (pomConfig.platform === 'mobile' || process.env.BINDINGS === 'WDIO') {
   cmd = path.join('node_modules', '.bin', `wdio${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
 }
 
@@ -249,8 +249,8 @@ spawnedProcess.on('exit', async (code) => {
 
   if (!outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
-    if (pomConfig.platform === 'mobile') {
-      console.log(`Exit mobile run with code ${code}`);
+    if (pomConfig.platform === 'mobile' || process.env.BINDINGS === 'WDIO') {
+      console.log(`Exit run with code ${code}`);
       process.exitCode = code;
     } else {
       console.error('NO COURGETTE SCENARIOS HAVE BEEN RUN, MAYBE YOU HAVE AN @ignore TAG ON THE ONE YOU’RE TRYING TO RUN?');

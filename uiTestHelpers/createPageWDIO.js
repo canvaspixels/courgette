@@ -1,6 +1,7 @@
 const path = require('path');
-const createComponent = require('./createMobileComponent');
+const createComponent = require('./createComponentWDIO');
 // eslint-disable-next-line
+const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
 
 module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 10 }, customMethods = {}) =>
   Object.assign(
@@ -15,7 +16,10 @@ module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 1
         // add protocol and host from pomConfig if pageUrl in the page object is just a pathname
         const url = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
 
-        console.log('Getting full url: ', url);
+        if (process.env.DEBUG) {
+          console.log('Getting full url: ', url);
+        }
+        
         return url;
       },
 
