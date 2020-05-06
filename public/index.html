@@ -22,29 +22,29 @@
     <title>React App</title>
     <script>
       // TESTING WEB COMPONENTS
-      class HelloWorld extends HTMLElement {
-        createdCallback() {
-          console.log('created');
-        }
-        attachedCallback() {
-          console.log('attached');
-          let template = document.querySelector('#hello-world-template');
-          let clone = document.importNode(template.content, true);
-          this.root = this.createShadowRoot();
-          this.root.appendChild(clone);
-        }
-        detachedCallback() {
-          console.log('detached');
-        }
-        // attributeChangedCallback(attr, oldVal, newVal) {
-        //   console.log(this);
-        // }
-      }
+      // class HelloWorld extends HTMLElement {
+      //   createdCallback() {
+      //     console.log('created');
+      //   }
+      //   attachedCallback() {
+      //     console.log('attached');
+      //     let template = document.querySelector('#hello-world-template');
+      //     let clone = document.importNode(template.content, true);
+      //     this.root = this.createShadowRoot();
+      //     this.root.appendChild(clone);
+      //   }
+      //   detachedCallback() {
+      //     console.log('detached');
+      //   }
+      //   // attributeChangedCallback(attr, oldVal, newVal) {
+      //   //   console.log(this);
+      //   // }
+      // }
 
-      if (document.createElement('hello-world').constructor !== HelloWorld) {
-        HelloWorld.prototype.owner = (document._currentScript || document.currentScript).ownerDocument;
-        document.registerElement('hello-world', HelloWorld);
-      }
+      // if (document.createElement('hello-world').constructor !== HelloWorld) {
+      //   HelloWorld.prototype.owner = (document._currentScript || document.currentScript).ownerDocument;
+      //   document.registerElement('hello-world', HelloWorld);
+      // }
     </script>
   </head>
   <body>

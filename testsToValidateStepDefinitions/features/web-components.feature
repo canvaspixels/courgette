@@ -1,4 +1,4 @@
-@web-components
+@ignore @web-components
 Feature: Testing Given steps
 
   @web-components-hello-world
