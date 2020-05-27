@@ -25,8 +25,8 @@ const disableHeadless = process.env.disableHeadless === 'true' || process.env.dh
 const capabilities = {
   chrome: {
     browserName: 'chrome',
-    chromeOptions: {
-      args: ['--window-size=1100,800']
+    'goog:chromeOptions': {
+      args: ['--window-size=1100,800', '--allow-insecure-localhost']
         .concat(disableHeadless ? [] : ['--headless', '--disable-gpu']),
     },
   },
@@ -56,8 +56,8 @@ const protractorConfig = {
   ],
   capabilities: {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
-    'shardTestFiles': !tags && !process.env.linearise && !process.env.showStepDefinitionUsage,
-    'maxInstances': 4,
+    // 'shardTestFiles': !tags && !process.env.linearise && !process.env.showStepDefinitionUsage,
+    // 'maxInstances': 4,
     ...browserCapability,
   },
   cucumberOpts: {

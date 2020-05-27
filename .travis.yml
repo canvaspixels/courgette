@@ -7,9 +7,7 @@ node_js:
   - 'node'
   - '13'
 install:
-  - nvm install 8
-  - nvm alias default 8
-  - npm install
+  - npm ci
 before_script:
   - sudo chown root /opt/google/chrome/chrome-sandbox
   - sudo chmod 4755 /opt/google/chrome/chrome-sandbox
