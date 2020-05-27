@@ -17,16 +17,16 @@ class CucumberStepFormatter extends cucumber.Formatter {
     }
   }
 
-  logTestCaseName({ sourceLocation }) {
-    const { gherkinDocument, pickle } = this.eventDataCollector.getTestCaseData(sourceLocation);
+  logTestCaseName(event) {
+    const { gherkinDocument, pickle } = this.eventDataCollector.getTestCaseAttempt(event);
     const text = `${gherkinDocument.feature.name}::: ${pickle.name}\n`;
     const colouredText = this.colorFns.location(text);
     this.log(colouredText);
   }
 
-  logTestStep({ testCase, index, result }) {
+  logTestStep({ testCase, result }) {
     const { gherkinKeyword, pickleStep } =
-      this.eventDataCollector.getTestStepData({ testCase, index });
+      this.eventDataCollector.getTestCaseAttempt(testCase);
 
     let text;
 
