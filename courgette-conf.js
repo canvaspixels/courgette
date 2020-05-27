@@ -49,7 +49,6 @@ const protractorConfig = {
   directConnect: true,
   ignoreUncaughtExceptions: true,
   framework: 'custom',
-  'fail-fast': true,
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   specs: [
     `${specsPath}/features/**/*.feature`,
@@ -61,6 +60,7 @@ const protractorConfig = {
     ...browserCapability,
   },
   cucumberOpts: {
+    'fail-fast': true,
     'require': [
       // `${specsPath}/helpers/globals.js`,
       `${courgettePath}/globals.js`,
