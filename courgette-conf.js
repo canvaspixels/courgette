@@ -49,6 +49,7 @@ const protractorConfig = {
   directConnect: true,
   ignoreUncaughtExceptions: true,
   framework: 'custom',
+  'fail-fast': true,
   frameworkPath: require.resolve('protractor-cucumber-framework'),
   specs: [
     `${specsPath}/features/**/*.feature`,
