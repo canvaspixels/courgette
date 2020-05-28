@@ -22,7 +22,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install Google Chrome # Using shell script to install Google Chrome
       run: |
-       chmod +x ./scripts/InstallChrome.sh
-        ./scripts/InstallChrome.sh
+       chmod +x ./scripts/installChrome.sh
+        ./scripts/installChrome.sh
     - run: npm ci
     - run: npm run ci
