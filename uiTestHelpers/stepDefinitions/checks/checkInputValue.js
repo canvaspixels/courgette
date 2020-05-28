@@ -1,5 +1,5 @@
 module.exports = function checkInputValue(locatorKey, isNot, expectedVal) {
-  const expectedValue = expectedVal === undefined ? '' : expectedVal;
+  const expectedValue = [undefined, null].includes(expectedVal) ? '' : expectedVal;
 
   return this.getCurrentPage().getElementWhenInDOM(locatorKey)
     .then((el) => {

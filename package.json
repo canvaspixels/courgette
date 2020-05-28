@@ -1,6 +1,6 @@
 {
   "name": "courgette",
-  "version": "3.8.6",
+  "version": "3.9.0",
   "description": "Courgette - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
@@ -16,10 +16,10 @@
     "build-api-readme": "node scripts/generateApiREADME.js",
     "build-api-website-page": "node scripts/generateApiWebsitePage.js",
     "build-snippets": "rm -rf snippets && npm run build-snippets:atom && npm run build-snippets:sublime && npm run build-snippets:vscode && npm run build-snippets:webstorm && npm run build-snippets:intellij",
-    "install-chromedriver-ci": "./node_modules/protractor/bin/webdriver-manager update --gecko=false --versions.chrome 2.35",
+    "install-chromedriver-ci": "./node_modules/protractor/bin/webdriver-manager update --gecko=false",
     "install-chromedriver": "./node_modules/protractor/bin/webdriver-manager update --gecko=false",
     "install-geckodriver": "./node_modules/protractor/bin/webdriver-manager update --chrome=false",
-    "start": "react-scripts start",
+    "start": "PORT=3005 react-scripts start",
     "test": "react-scripts test --env=jsdom",
     "uitests": "node index.js",
     "ct": "PATH=$(npm bin):$PATH NODE_OPTIONS=--no-deprecation courgette",
@@ -49,15 +49,15 @@
     "chai-as-promised": "^7.1.1",
     "cli-table": "^0.3.1",
     "colors": "^1.3.1",
-    "cucumber": "^5.1.0",
-    "cucumber-html-reporter": "^4.0.3",
+    "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.2.0",
     "jsonfile": "^5.0.0",
     "ncp": "^2.0.0",
-    "protractor": "^5.4.4",
+    "protractor": "^7.0.0",
     "protractor-console-plugin": "^0.1.1",
     "protractor-cucumber-framework": "^6.1.1",
     "yaml-page-objects": "0.0.1",
-    "yargs": "^12.0.1"
+    "yargs": "^15.3.1"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -67,8 +67,20 @@
     "eslint-plugin-react": "^7.10.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "react-router": "^5.1.2",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "^3.4.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

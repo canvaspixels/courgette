@@ -28,7 +28,7 @@ module.exports = {
       "react/jsx-filename-extension": "off",
       "react/no-did-mount-set-state": "off",
       "max-len": ["error", { "code": 200 }],
-      "quote-props": ["error", "consistent"],
+      "quote-props": "off",
       "func-names": "off", // <-- Avoids "unexpected unnamed async function" in async mocha tests
     },
 };

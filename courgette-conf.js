@@ -14,7 +14,7 @@ exports.pomConfig = {
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
-  baseUrl: 'http://localhost:3000',
+  baseUrl: 'http://localhost:3005',
   minifyPng: false,
 };
 
@@ -25,8 +25,8 @@ const disableHeadless = process.env.disableHeadless === 'true' || process.env.dh
 const capabilities = {
   chrome: {
     browserName: 'chrome',
-    chromeOptions: {
-      args: ['--window-size=1100,800']
+    'goog:chromeOptions': {
+      args: ['--window-size=1100,800', '--allow-insecure-localhost', '--no-sandbox']
         .concat(disableHeadless ? [] : ['--headless', '--disable-gpu']),
     },
   },
@@ -55,11 +55,12 @@ const protractorConfig = {
   ],
   capabilities: {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
-    'shardTestFiles': !tags && !process.env.linearise && !process.env.showStepDefinitionUsage,
-    'maxInstances': 4,
+    // 'shardTestFiles': !tags && !process.env.linearise && !process.env.showStepDefinitionUsage,
+    // 'maxInstances': 4,
     ...browserCapability,
   },
   cucumberOpts: {
+    'fail-fast': true,
     'require': [
       // `${specsPath}/helpers/globals.js`,
       `${courgettePath}/globals.js`,
