@@ -1,4 +1,5 @@
 module.exports = function setCookie(name, value) {
+  // delete cookie first for Chrome
   const mgr = browser.manage();
   return mgr.deleteCookie(name).then(() =>
     browser.manage().addCookie({
