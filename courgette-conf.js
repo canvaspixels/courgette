@@ -26,7 +26,7 @@ const capabilities = {
   chrome: {
     browserName: 'chrome',
     'goog:chromeOptions': {
-      args: ['--window-size=1100,800', '--allow-insecure-localhost']
+      args: ['--window-size=1100,800', '--allow-insecure-localhost', '--no-sandbox']
         .concat(disableHeadless ? [] : ['--headless', '--disable-gpu']),
     },
   },
