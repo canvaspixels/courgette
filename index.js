@@ -12,15 +12,13 @@ const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotView
 // eslint-disable-next-line
 const confFile = argv.confFile || process.env.confFile || 'courgette-conf.js';
 console.log('Loading confFile: ', confFile);
-const { pomConfig, config } = require(path.resolve(confFile));
+const { pomConfig } = require(path.resolve(confFile));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
 
 const log = (...args) => {
   console.log(...args);
 };
-
-const isDryRun = config.cucumberOpts && config.cucumberOpts['dry-run'];
 
 log('Nom nom... off we go!');
 
@@ -249,7 +247,7 @@ spawnedProcess.on('exit', async (code) => {
 
   generateScreenshotViewer(path.join(pomConfig.screenshotPath || pomConfig.outputPath, pomConfig.screenshotStepPath || 'stepDefinitionScreenshots'));
 
-  if (!isDryRun && !outputDirContainsJsons(pomConfig.outputPath)) {
+  if (!outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
     if (pomConfig.platform === 'mobile') {
       console.log(`Exit mobile run with code ${code}`);
