@@ -20,7 +20,7 @@ const log = (...args) => {
   console.log(...args);
 };
 
-const isDryRun = config.cucumberOpts && config.cucumberOpts['dry-run']
+const isDryRun = config.cucumberOpts && config.cucumberOpts['dry-run'];
 
 log('Nom nom... off we go!');
 
@@ -285,7 +285,7 @@ spawnedProcess.on('exit', async (code) => {
 
   if (pomConfig.forceSuccess) {
     // always exit with success
-    process.exitCode = 0
+    process.exitCode = 0;
   } else {
     process.exitCode = totalCount === successCount ? 0 : 1;
   }
