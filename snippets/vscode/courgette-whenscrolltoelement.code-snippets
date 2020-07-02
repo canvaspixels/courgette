@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whenscrolltoelement",
+    "body": [
+      "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'"
+    ],
+    "description": "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'"
+  }
+}

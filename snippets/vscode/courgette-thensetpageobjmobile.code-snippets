@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "thensetpageobjmobile",
+    "body": [
+      "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"
+    ],
+    "description": "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"
+  }
+}

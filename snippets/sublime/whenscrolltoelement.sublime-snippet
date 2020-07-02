@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'
+]]></content>
+  <tabTrigger>whenscrolltoelement</tabTrigger>
+</snippet>

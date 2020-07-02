@@ -12,13 +12,15 @@ const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotView
 // eslint-disable-next-line
 const confFile = argv.confFile || process.env.confFile || 'courgette-conf.js';
 console.log('Loading confFile: ', confFile);
-const { pomConfig } = require(path.resolve(confFile));
+const { pomConfig, config } = require(path.resolve(confFile));
 const { spawn } = require('child_process');
 const cucumberHtmlReporter = require('cucumber-html-reporter');
 
 const log = (...args) => {
   console.log(...args);
 };
+
+const isDryRun = config.cucumberOpts && config.cucumberOpts['dry-run']
 
 log('Nom nom... off we go!');
 
@@ -140,13 +142,13 @@ const printCukeErrors = (el, step, feature) => {
     } else {
       log(yellow, step.result.error_message);
     }
-  } else if (step.result.status === 'undefined') {
+  } else if (step.result.status === 'undefined' && !pomConfig.forceSuccess) {
     log(red, `\n------------------ Scenario Undefined Step Definition --------------- ${el.name}`);
     log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
     log(yellow, `Step: ${step.keyword}${step.name}`);
   }
 
-  if (step.result.error_message || step.result.status === 'undefined') {
+  if ((step.result.error_message || step.result.status === 'undefined') && !pomConfig.forceSuccess) {
     const screenshotStep = el.steps.find((stp) =>
       stp.keyword === 'After' &&
         stp.match &&
@@ -247,7 +249,7 @@ spawnedProcess.on('exit', async (code) => {
 
   generateScreenshotViewer(path.join(pomConfig.screenshotPath || pomConfig.outputPath, pomConfig.screenshotStepPath || 'stepDefinitionScreenshots'));
 
-  if (!outputDirContainsJsons(pomConfig.outputPath)) {
+  if (!isDryRun && !outputDirContainsJsons(pomConfig.outputPath)) {
     console.log('-----------------------------------');
     if (pomConfig.platform === 'mobile') {
       console.log(`Exit mobile run with code ${code}`);
@@ -281,5 +283,10 @@ spawnedProcess.on('exit', async (code) => {
   log('');
   log(table.toString());
 
-  process.exitCode = totalCount === successCount ? 0 : 1;
+  if (pomConfig.forceSuccess) {
+    // always exit with success
+    process.exitCode = 0
+  } else {
+    process.exitCode = totalCount === successCount ? 0 : 1;
+  }
 });

@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whentapatpoint",
+    "body": [
+      "${1:When} I tap the '${2:LOCATOR}' at '${3:X_COORD}' '${4:Y_COORD}'"
+    ],
+    "description": "${1:When} I tap the '${2:LOCATOR}' at '${3:X_COORD}' '${4:Y_COORD}'"
+  }
+}

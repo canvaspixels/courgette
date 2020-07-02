@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I tap the '${2:LOCATOR}' at '${3:X_COORD}' '${4:Y_COORD}'
+]]></content>
+  <tabTrigger>whentapatpoint</tabTrigger>
+</snippet>

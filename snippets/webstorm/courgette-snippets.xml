@@ -876,9 +876,27 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
+  <template name="whenscrolltoelement" value="$var1$ I scroll the '$var2$' '$var3$' to the  '$var4$'$END$" shortcut="TAB" description="$var1$ I scroll the '$var2$' '$var3$' to the  '$var4$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;DIRECTION&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var4" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
   <template name="whentap" value="$var1$ I tap the '$var2$'$END$" shortcut="TAB" description="$var1$ I tap the '$var2$'" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="OTHER" value="true" />
+    </context>
+  </template>
+  <template name="whentapatpoint" value="$var1$ I tap the '$var2$' at '$var3$' '$var4$'$END$" shortcut="TAB" description="$var1$ I tap the '$var2$' at '$var3$' '$var4$'" toReformat="false" toShortenFQNames="true">
+    <variable name="var1" expression="&quot;When&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var2" expression="&quot;LOCATOR&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var3" expression="&quot;X_COORD&quot;" defaultValue="" alwaysStopAt="true" />
+    <variable name="var4" expression="&quot;Y_COORD&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="OTHER" value="true" />
     </context>
@@ -950,7 +968,7 @@
       <option name="OTHER" value="true" />
     </context>
   </template>
-  <template name="thensetpageobj" value="$var1$ I set the page object to '$var2$' screen$END$" shortcut="TAB" description="$var1$ I set the page object to '$var2$' screen" toReformat="false" toShortenFQNames="true">
+  <template name="thensetpageobjmobile" value="$var1$ I set the page object to '$var2$' screen$END$" shortcut="TAB" description="$var1$ I set the page object to '$var2$' screen" toReformat="false" toShortenFQNames="true">
     <variable name="var1" expression="&quot;Then&quot;" defaultValue="" alwaysStopAt="true" />
     <variable name="var2" expression="&quot;PAGE_NAME&quot;" defaultValue="" alwaysStopAt="true" />
     <context>
