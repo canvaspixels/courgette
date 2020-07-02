@@ -358,9 +358,15 @@
   "${1:When} I wait for the '${2:LOCATOR}' to not exist":
     'prefix': 'whennotwaitforelement'
     'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
+  "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'":
+    'prefix': 'whenscrolltoelement'
+    'body': "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'"
   "${1:When} I tap the '${2:LOCATOR}'":
     'prefix': 'whentap'
     'body': "${1:When} I tap the '${2:LOCATOR}'"
+  "${1:When} I tap the '${2:LOCATOR}' at '${3:X_COORD}' '${4:Y_COORD}'":
+    'prefix': 'whentapatpoint'
+    'body': "${1:When} I tap the '${2:LOCATOR}' at '${3:X_COORD}' '${4:Y_COORD}'"
   "${1:When} I long press the '${2:LOCATOR}'":
     'prefix': 'whenlongpress'
     'body': "${1:When} I long press the '${2:LOCATOR}'"
@@ -389,7 +395,7 @@
     'prefix': 'thenonscreendeprecated'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' screen":
-    'prefix': 'thensetpageobj'
+    'prefix': 'thensetpageobjmobile'
     'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"
   "${1:Then} I expect the '${2:LOCATOR}' to be visible":
     'prefix': 'thenvisible'
@@ -830,9 +836,15 @@
   "${1:When} I wait for the '${2:LOCATOR}' to not exist":
     'prefix': 'whennotwaitforelement'
     'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
+  "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'":
+    'prefix': 'whenscrolltoelement'
+    'body': "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'"
   "${1:When} I tap the '${2:LOCATOR}'":
     'prefix': 'whentap'
     'body': "${1:When} I tap the '${2:LOCATOR}'"
+  "${1:When} I tap the '${2:LOCATOR}' at '${3:X_COORD}' '${4:Y_COORD}'":
+    'prefix': 'whentapatpoint'
+    'body': "${1:When} I tap the '${2:LOCATOR}' at '${3:X_COORD}' '${4:Y_COORD}'"
   "${1:When} I long press the '${2:LOCATOR}'":
     'prefix': 'whenlongpress'
     'body': "${1:When} I long press the '${2:LOCATOR}'"
@@ -861,7 +873,7 @@
     'prefix': 'thenonscreendeprecated'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' screen":
-    'prefix': 'thensetpageobj'
+    'prefix': 'thensetpageobjmobile'
     'body': "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"
   "${1:Then} I expect the '${2:LOCATOR}' to be visible":
     'prefix': 'thenvisible'

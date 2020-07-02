@@ -2,8 +2,8 @@
   "Print to console": {
     "prefix": "thensetpageobj",
     "body": [
-      "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"
+      "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
     ],
-    "description": "${1:Then} I set the page object to '${2:PAGE_NAME}' screen"
+    "description": "${1:Then} I set the page object to '${2:PAGE_NAME}' page"
   }
 }

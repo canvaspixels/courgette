@@ -140,13 +140,13 @@ const printCukeErrors = (el, step, feature) => {
     } else {
       log(yellow, step.result.error_message);
     }
-  } else if (step.result.status === 'undefined') {
+  } else if (step.result.status === 'undefined' && !pomConfig.forceSuccess) {
     log(red, `\n------------------ Scenario Undefined Step Definition --------------- ${el.name}`);
     log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
     log(yellow, `Step: ${step.keyword}${step.name}`);
   }
 
-  if (step.result.error_message || step.result.status === 'undefined') {
+  if ((step.result.error_message || step.result.status === 'undefined') && !pomConfig.forceSuccess) {
     const screenshotStep = el.steps.find((stp) =>
       stp.keyword === 'After' &&
         stp.match &&
@@ -281,5 +281,10 @@ spawnedProcess.on('exit', async (code) => {
   log('');
   log(table.toString());
 
-  process.exitCode = totalCount === successCount ? 0 : 1;
+  if (pomConfig.forceSuccess) {
+    // always exit with success
+    process.exitCode = 0;
+  } else {
+    process.exitCode = totalCount === successCount ? 0 : 1;
+  }
 });
