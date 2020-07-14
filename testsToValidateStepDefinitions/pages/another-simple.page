@@ -1,2 +1,3 @@
+path: /another-*
 selectors:
   Go to home page by react router link: [data-test="go-to-home-link"]

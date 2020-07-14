@@ -1,5 +1,7 @@
 const cucumber = require('cucumber');
 
+const timeTrim = (num) => (`00${num}`).slice(-2);
+
 class CucumberStepFormatter extends cucumber.Formatter {
   constructor(options) {
     super(options);
@@ -18,29 +20,26 @@ class CucumberStepFormatter extends cucumber.Formatter {
   }
 
   logTestCaseName(event) {
+    const d = new Date();
+    const time = `${timeTrim(d.getHours())}:${timeTrim(d.getMinutes())}:${timeTrim(d.getSeconds())}`;
+    this.log(`${d.getFullYear()}-${timeTrim(d.getMonth() + 1)}-${timeTrim(d.getDate())}T${time}`);
     const { gherkinDocument, pickle } = this.eventDataCollector.getTestCaseAttempt(event);
     const text = `${gherkinDocument.feature.name}::: ${pickle.name}\n`;
     const colouredText = this.colorFns.location(text);
     this.log(colouredText);
   }
 
-  logTestStep({ testCase, result }) {
-    const { gherkinKeyword, pickleStep } =
-      this.eventDataCollector.getTestCaseAttempt(testCase);
+  logTestStep(event) {
+    const testCaseAttempt = this.eventDataCollector.getTestCaseAttempt(event.testCase);
+    testCaseAttempt.stepResults = testCaseAttempt.testCase.steps.map(() => ({}));
 
-    let text;
-
-    if (pickleStep) {
-      text = `${gherkinKeyword}${pickleStep.text} ---> ${result.status.toUpperCase()}\n`;
-    } else {
-      const statusUpper = result.status.toUpperCase();
-      text = statusUpper === 'FAILED' ? `${this.hookStep} - FAILED\n\n` : '';
-    }
-
-    if (text) {
-      const colouredText = this.colorFns[result.status](text);
-      this.log(colouredText);
-    }
+    const testStep = cucumber.formatterHelpers.parseTestCaseAttempt({ testCaseAttempt }).testSteps[event.index];
+    if (!testStep.sourceLocation) return; // hook
+    const d = new Date();
+    const time = `${timeTrim(d.getHours())}:${timeTrim(d.getMinutes())}:${timeTrim(d.getSeconds())}`;
+    const text = `${time} ${testStep.keyword.trim()} ${testStep.text} ---> ${event.result.status.toUpperCase()}\n`;
+    const colouredText = this.colorFns[event.result.status](text);
+    this.log(colouredText);
   }
 
   logSeparator() {

@@ -1,3 +1,5 @@
+const minimatch = require('minimatch');
+
 module.exports = function setPageObjectThenCheckUrl(pageName) {
   // update the page object
   const newPageObject = this.getPage(pageName);
@@ -23,7 +25,7 @@ module.exports = function setPageObjectThenCheckUrl(pageName) {
       .then((currentUrl) => {
         currentUrlNoTrailingSlash = currentUrl.replace(/\/$/, '');
 
-        if (currentUrlNoTrailingSlash === expectedUrlNoTrailingSlash) {
+        if (minimatch(currentUrlNoTrailingSlash, expectedUrlNoTrailingSlash)) {
           resolve();
         } else if (Date.now() > ((timestamp + waitTimeout) - 100)) {
           console.log('Current URL doesn’t match that in page object');

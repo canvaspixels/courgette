@@ -52,6 +52,7 @@
     "cucumber": "^6.0.5",
     "cucumber-html-reporter": "^5.2.0",
     "jsonfile": "^5.0.0",
+    "minimatch": "3.0.4",
     "ncp": "^2.0.0",
     "protractor": "^7.0.0",
     "protractor-console-plugin": "^0.1.1",
