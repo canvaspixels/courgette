@@ -92,8 +92,8 @@ if (process.env.COURGETTE_DEBUG) {
 
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
-    COURGETTE_TAGS,
-    COURGETTE_CONF,
+    COURGETTE_TAGS: tags,
+    COURGETTE_CONF: confFile,
     COURGETTE_SHOW_STEP_DEFINITION_USAGE: process.env.COURGETTE_SHOW_STEP_DEFINITION_USAGE || argv.showStepDefinitionUsage || '',
   }),
 });
