@@ -3,7 +3,7 @@ module.exports = async function tapElement(locatorKey) {
 
   const el = await pageObj.getElement(locatorKey);
 
-  if (process.env.DEBUG) {
+  if (process.env.COURGETTE_DEBUG) {
     console.log('Tap element: ', el);
   }
 

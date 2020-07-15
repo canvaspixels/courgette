@@ -14,10 +14,10 @@ const scrollIntoView = async (dir = 'down', el, pageObj, locatorKey, scrollIndex
         'release',
       ]);
       scrollIntoView(dir, el, pageObj, locatorKey, scrollIndex + 1);
-      if (process.env.DEBUG) {
+      if (process.env.COURGETTE_DEBUG) {
         console.log('Scrolling to element');
       }
-    } else if (process.env.DEBUG) {
+    } else if (process.env.COURGETTE_DEBUG) {
       console.log('Scrolled to element: element now in view');
     }
   } catch (e) {
@@ -30,7 +30,7 @@ module.exports = async function scrollToElement(scrollingContainerLocatorKey, di
   const scrollableElement = await pageObj.getElement(scrollingContainerLocatorKey);
   if (process.env.PLATFORM.includes('ios')) {
     const name = pageObj.locators[locatorKey].accessibilityId;
-    if (process.env.DEBUG) {
+    if (process.env.COURGETTE_DEBUG) {
       console.log('accessibilityId name: ', name);
     }
 

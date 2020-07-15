@@ -46,7 +46,7 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
 
     getElement: (locatorKey) => {
       locatorErrorCheck(locatorKey);
-      if (process.env.DEBUG) {
+      if (process.env.COURGETTE_DEBUG) {
         console.log('screen: ', world.screen);
         console.log('getElement, locator key: ', locatorKey);
         console.log('translates to selector from page object: ', locators[locatorKey].selector);
@@ -57,7 +57,7 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
 
     getElements: (locatorKey) => {
       locatorErrorCheck(locatorKey);
-      if (process.env.DEBUG) {
+      if (process.env.COURGETTE_DEBUG) {
         console.log('screen: ', world.screen);
         console.log('getElements, locator key: ', locatorKey);
         console.log('translates to selector from page object: ', locators[locatorKey].selector);

@@ -4,7 +4,7 @@ module.exports = async function checkElementInsideElementInputValue(locatorKey2,
   const pageObj = await this.getCurrentPage();
   const el = await pageObj.getElementInsideElement(locatorKey, locatorKey2);
 
-  if (process.env.DEBUG) {
+  if (process.env.COURGETTE_DEBUG) {
     console.log('In file:', path.basename(__filename), el);
   }
 

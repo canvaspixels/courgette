@@ -10,7 +10,7 @@ const courgettePath = 'uiTestHelpers';
 
 exports.pomConfig = {
   outputPath,
-  timeoutInSeconds: process.env.courgetteTimeout || 10,
+  timeoutInSeconds: process.env.COURGETTE_TIMEOUT || 10,
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
@@ -20,20 +20,20 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
-const disableHeadless = process.env.disableHeadless === 'true' || process.env.dh === 'true';
+const runHeadless = !(process.env.COURGETTE_HEADLESS === 'false' || process.env.DH);
 
 const capabilities = {
   chrome: {
     browserName: 'chrome',
     'goog:chromeOptions': {
       args: ['--window-size=1100,800', '--allow-insecure-localhost', '--no-sandbox']
-        .concat(disableHeadless ? [] : ['--headless', '--disable-gpu']),
+        .concat(runHeadless ? ['--headless', '--disable-gpu'] : []),
     },
   },
   firefox: {
     'browserName': 'firefox',
     'moz:firefoxOptions': {
-      args: [].concat(disableHeadless ? [] : ['-headless']),
+      args: [].concat(runHeadless ? ['-headless'] : []),
       prefs: {
         'general.useragent.override': 'Automated tests',
       },
@@ -41,9 +41,9 @@ const capabilities = {
   },
 };
 
-const browserCapability = capabilities[process.env.browser || 'chrome'];
+const browserCapability = capabilities[process.env.COURGETTE_BROWSER || 'chrome'];
 
-const tags = process.env.tags ? process.env.tags.replace(',', ' or ') : '';
+const tags = process.env.COURGETTE_TAGS ? process.env.COURGETTE_TAGS.replace(',', ' or ') : '';
 
 const protractorConfig = {
   directConnect: true,
@@ -55,7 +55,7 @@ const protractorConfig = {
   ],
   capabilities: {
     // change acceptInsecureCerts to true if you are testing on https and using self-signed certs
-    // 'shardTestFiles': !tags && !process.env.linearise && !process.env.showStepDefinitionUsage,
+    // 'shardTestFiles': !tags && !process.env.COURGETTE_LINEARISE && !process.env.COURGETTE_SHOW_STEP_DEFINITION_USAGE,
     // 'maxInstances': 4,
     ...browserCapability,
   },
@@ -79,7 +79,7 @@ const protractorConfig = {
     'format': [
       'cucumberFormatter.js',
       `json:./${outputPath}/report.json`,
-    ].concat(process.env.showStepDefinitionUsage ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
+    ].concat(process.env.COURGETTE_SHOW_STEP_DEFINITION_USAGE ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
     'format-options': '{"colorsEnabled": true}',
     'profile': false,
     'no-source': true,

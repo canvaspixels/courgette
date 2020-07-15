@@ -4,7 +4,7 @@ const { argv } = require('yargs');
 // eslint-disable-next-line
 const { setDefaultTimeout, Before } = require(path.join(process.cwd(), 'node_modules/cucumber'));
 // eslint-disable-next-line
-const { pomConfig } = require(path.join(process.cwd(), argv.confFile || process.env.confFile || 'courgette-conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), argv.confFile || process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
 const timeoutInSeconds = pomConfig.timeoutInSeconds || 8;
 const timeoutInMS = timeoutInSeconds * 1000;

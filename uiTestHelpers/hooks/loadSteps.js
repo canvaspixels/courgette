@@ -6,7 +6,7 @@ const cucumber = require(path.join(process.cwd(), 'node_modules/cucumber'));
 require('colors');
 
 const { defineStep } = cucumber;
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 const timeoutInSeconds = pomConfig.timeoutInSeconds || 8;
 
 const stepsObj = {};

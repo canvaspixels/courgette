@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
 module.exports = function goToURL(pageUrl) {
   // add protocol and host from pomConfig if pageUrl in the page object is just a pathname

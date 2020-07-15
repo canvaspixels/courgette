@@ -1,6 +1,6 @@
 {
   "name": "courgette",
-  "version": "3.12.0",
+  "version": "4.0.0",
   "description": "Courgette - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,8 @@
   "bin": {
     "courgette": "./index.js",
     "ct": "./index.js",
-    "ct-install-firefox-driver": "./scripts/installFFDriver.js",
+    "ct-install-chromedriver": "./scripts/installChromeDriver.js",
+    "ct-install-firefoxdriver": "./scripts/installFFDriver.js",
     "ct-install-sample-conf": "./scripts/installSampleConf.js",
     "ct-install-sample-mobile-conf": "./scripts/installSampleMobileConf.js",
     "ct-install-sample-tests": "./scripts/installSampleTests.js",

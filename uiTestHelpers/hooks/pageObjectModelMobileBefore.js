@@ -7,7 +7,7 @@ const createMobileComponent = require('../../uiTestHelpers/createMobileComponent
 
 const { Before } = require('cucumber');
 
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
 const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
   const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'extends'];

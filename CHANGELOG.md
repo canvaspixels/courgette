@@ -1,3 +1,16 @@
+## 4.0.0
+* env variables uppercased and underscored and COURGETTE_ prefixed. Note that some of these will be in the config in your project so ideally change accordingly:
+  * courgetteTimeout is now COURGETTE_TIMEOUT
+  * disableHeadless is now COURGETTE_HEADLESS=false or DH=1 for short
+  * linearise is now COURGETTE_LINEARISE
+  * showStepDefinitionUsage is now COURGETTE_SHOW_STEP_DEFINITION_USAGE
+  * DEBUG is now COURGETTE_DEBUG
+  * tags is now COURGETTE_TAGS
+  * browser is now COURGETTE_BROWSER
+
+* SUPPRESS_PAGE_OBJECT_PATH_WARNING has been added to remove warning from logs regarding page path not being set
+* making ChromeDriver the default for the samples
+
 ## 3.12.0
 * Remove taken screenshot from report - Error screenshots will still appear in the HTML report, but step definition taken screenshots will not
 * improved cucumber formatter

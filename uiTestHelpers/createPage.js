@@ -1,7 +1,7 @@
 const path = require('path');
 const createComponent = require('./createComponent');
 // eslint-disable-next-line
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
 
 module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
@@ -17,7 +17,7 @@ module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
         // add protocol and host from pomConfig if pageUrl in the page object is just a pathname
         const url = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
 
-        if (process.env.DEBUG) {
+        if (process.env.COURGETTE_DEBUG) {
           console.log('Getting full url: ', url);
         }
 
