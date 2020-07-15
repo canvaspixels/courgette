@@ -42,7 +42,7 @@ const capabilities = {
   },
 };
 
-const browserCapability = capabilities[process.env.COURGETTE_BROWSER || 'firefox'];
+const browserCapability = capabilities[process.env.COURGETTE_BROWSER || 'chrome'];
 
 const tags = process.env.COURGETTE_TAGS ? process.env.COURGETTE_TAGS.replace(',', ' or ') : '';
 
