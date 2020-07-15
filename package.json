@@ -28,6 +28,7 @@
   "bin": {
     "courgette": "./index.js",
     "ct": "./index.js",
+    "ct-install-chromedriver": "./scripts/installChromeDriver.js",
     "ct-install-firefoxdriver": "./scripts/installFFDriver.js",
     "ct-install-sample-conf": "./scripts/installSampleConf.js",
     "ct-install-sample-mobile-conf": "./scripts/installSampleMobileConf.js",
