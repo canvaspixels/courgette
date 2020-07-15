@@ -9,6 +9,7 @@
   * browser is now COURGETTE_BROWSER
 
 * SUPPRESS_PAGE_OBJECT_PATH_WARNING has been added to remove warning from logs regarding page path not being set
+* making ChromeDriver the default for the samples
 
 ## 3.12.0
 * Remove taken screenshot from report - Error screenshots will still appear in the HTML report, but step definition taken screenshots will not
