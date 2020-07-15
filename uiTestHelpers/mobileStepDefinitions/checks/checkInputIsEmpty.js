@@ -4,7 +4,7 @@ module.exports = async function checkInputIsEmpty(locatorKey, isNotEmpty) {
   const pageObj = await this.getCurrentPage();
   const el = await pageObj.getElement(locatorKey);
 
-  if (process.env.DEBUG) {
+  if (process.env.COURGETTE_DEBUG) {
     console.log('In file:', path.basename(__filename), el);
   }
 

@@ -13,7 +13,7 @@ module.exports = async function tapElementAtPoint(locatorKey, x, y) {
 
     const xRelativeToRoot = location.x + Number(x);
     const yRelativeToRoot = location.y + Number(y);
-    if (process.env.DEBUG) {
+    if (process.env.COURGETTE_DEBUG) {
       console.log('Tap element: ', el);
       console.log({ location });
       console.log({ xRelativeToRoot });

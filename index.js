@@ -10,7 +10,7 @@ const os = require('os');
 const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
 // eslint-disable-next-line
-const confFile = argv.confFile || process.env.confFile || 'courgette-conf.js';
+const confFile = argv.confFile || process.env.COURGETTE_CONF || 'courgette-conf.js';
 console.log('Loading confFile: ', confFile);
 const { pomConfig } = require(path.resolve(confFile));
 const { spawn } = require('child_process');
@@ -21,6 +21,14 @@ const log = (...args) => {
 };
 
 log('Nom nom... off we go!');
+// (function() {
+//   var P = ["\\", "|", "/", "-"];
+//   var x = 0;
+//   return setInterval(function() {
+//     process.stdout.write("\r" + P[x++]);
+//     x &= 3;
+//   }, 250);
+// })();
 
 const rmDir = function rmDir(dir, rmSelf) {
   let files;
@@ -77,16 +85,16 @@ const firstArg = process.argv && process.argv[2];
 let tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
 tags = (tags || argv.tags || '').replace(',', ' or ');
 
-if (process.env.DEBUG) {
+if (process.env.COURGETTE_DEBUG) {
   console.log('spawning courgette process: ', cmd, args.join(' '));
   console.log('with tags: ', tags);
 }
 
 const spawnedProcess = spawn(cmd, args, {
   env: Object.assign({}, process.env, {
-    tags,
-    confFile,
-    showStepDefinitionUsage: process.env.showStepDefinitionUsage || argv.showStepDefinitionUsage || '',
+    COURGETTE_TAGS,
+    COURGETTE_CONF,
+    COURGETTE_SHOW_STEP_DEFINITION_USAGE: process.env.COURGETTE_SHOW_STEP_DEFINITION_USAGE || argv.showStepDefinitionUsage || '',
   }),
 });
 

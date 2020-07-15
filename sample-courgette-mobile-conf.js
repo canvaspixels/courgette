@@ -50,7 +50,7 @@ if (platform === 'ios-dev') {
 exports.pomConfig = {
   platform: 'mobile',
   outputPath,
-  timeoutInSeconds: process.env.courgetteTimeout || 20, // minimum 2 or you'll see strange behaviour with some steps
+  timeoutInSeconds: process.env.COURGETTE_TIMEOUT || 20, // minimum 2 or you'll see strange behaviour with some steps
   pagesPath: path.resolve(specsPath, 'pages'),
   componentsPath: path.resolve(specsPath, 'components'),
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
@@ -63,9 +63,9 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
-const tagExpression = ['not @ignore', process.env.tags].filter((tag) => !!tag).join(' and ');
+const tagExpression = ['not @ignore', process.env.COURGETTE_TAGS].filter((tag) => !!tag).join(' and ');
 
-if (process.env.DEBUG) {
+if (process.env.COURGETTE_DEBUG) {
   console.log({ tagExpression });
 }
 
@@ -114,7 +114,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
     'source': true,
     'format-options': '{"colorsEnabled": true}',
     'colors': true,
-    'timeout': (process.env.courgetteTimeout || 20) * 1000,
+    'timeout': (process.env.COURGETTE_TIMEOUT || 20) * 1000,
     'profile': [],
     // backtrace: false,   // <boolean> show full backtrace for errors
     // compiler: [],       // <string[]> ("extension:module") require files with the given EXTENSION after requiring MODULE (repeatable)

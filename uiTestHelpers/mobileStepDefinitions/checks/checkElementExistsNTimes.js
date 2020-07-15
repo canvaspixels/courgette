@@ -4,7 +4,7 @@ module.exports = async function checkElementExistsNTimes(locatorKey, doesNotExis
   const pageObj = await this.getCurrentPage();
   const els = await pageObj.getElements(locatorKey);
 
-  if (process.env.DEBUG) {
+  if (process.env.COURGETTE_DEBUG) {
     console.log('In file:', path.basename(__filename), els);
   }
 

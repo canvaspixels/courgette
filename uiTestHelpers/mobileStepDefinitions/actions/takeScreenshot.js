@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { pomConfig } = require(path.join(process.cwd(), process.env.confFile || 'courgette-conf.js'));
+const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
 module.exports = async function takeScreenshot(filename) {
   const png = await driver.takeScreenshot();
