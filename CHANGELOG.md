@@ -1,3 +1,5 @@
+## 3.11.0
+* forceSuccess flag added to pomConfig to force success exitCode even if the total number of specs matches the success count
 ## 3.8.2
 * steps timeout - crude solution - number of steps x timeout set. This means that if you have a long step and the first times out, you may be waiting a while
 ## 3.8.1
