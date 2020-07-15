@@ -18,10 +18,6 @@ module.exports = function disableAnimations() {
             ' -o-animation: none !important;' +
             ' -ms-animation: none !important;' +
             ' animation: none !important;}';
-    style.setAttribute(
-      'nonce',
-      window.document.getElementsByTagName('style')[0].nonce,
-    );
     window.document.getElementsByTagName('head')[0].appendChild(style);
   });
 };
