@@ -1,3 +1,6 @@
+## 4.0.1
+* fix for default browser now being Chrome
+
 ## 4.0.0
 * env variables uppercased and underscored and COURGETTE_ prefixed. Note that some of these will be in the config in your project so ideally change accordingly:
   * courgetteTimeout is now COURGETTE_TIMEOUT
