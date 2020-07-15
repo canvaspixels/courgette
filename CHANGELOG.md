@@ -1,3 +1,9 @@
+## 4.0.3
+* increase viewport height in sample
+
+## 4.0.2
+* fix to disableAnimations in Chrome
+
 ## 4.0.1
 * fix for default browser now being Chrome
 

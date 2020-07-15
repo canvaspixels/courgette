@@ -31,7 +31,7 @@ const capabilities = {
   chrome: {
     browserName: 'chrome',
     chromeOptions: {
-      args: ['--window-size=1100,800']
+      args: ['--window-size=1100,2000']
         .concat(runHeadless ? ['--headless', '--disable-gpu'] : []),
     },
   },
