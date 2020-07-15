@@ -20,7 +20,7 @@ exports.pomConfig = {
 
 exports.cucumberHtmlReporterConfig = {};
 
-const runHeadless = !(process.env.COURGETTE_HEADLESS === 'false' || process.env.DH)
+const runHeadless = !(process.env.COURGETTE_HEADLESS === 'false' || process.env.DH);
 
 const capabilities = {
   chrome: {
