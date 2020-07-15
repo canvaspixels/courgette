@@ -1,7 +1,14 @@
+## 3.12.0
+* Remove taken screenshot from report - Error screenshots will still appear in the HTML report, but step definition taken screenshots will not
+* improved cucumber formatter
+* GLOB pattern patching on Page object paths - check on page paths using minimatch lib - now you can add paths like /my/**/path to auto assert on page URLs
+
 ## 3.11.0
 * forceSuccess flag added to pomConfig to force success exitCode even if the total number of specs matches the success count
+
 ## 3.8.2
 * steps timeout - crude solution - number of steps x timeout set. This means that if you have a long step and the first times out, you may be waiting a while
+
 ## 3.8.1
 * bugfix for steps error reporting
 
