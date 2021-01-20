@@ -55,7 +55,7 @@
     "jsonfile": "^5.0.0",
     "minimatch": "3.0.4",
     "ncp": "^2.0.0",
-    "protractor": "^7.0.0",
+    "protractor": "7.0.0",
     "protractor-console-plugin": "^0.1.1",
     "protractor-cucumber-framework": "^6.1.1",
     "yaml-page-objects": "0.0.1",
