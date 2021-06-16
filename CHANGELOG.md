@@ -1,6 +1,8 @@
+## 4.1.0
+* Fixing sticky situations when a position sticky element is over the top of the element you’re trying to click. It will automatically scroll down the page until the click works
+
 ## 4.0.3
 * increase viewport height in sample
-
 ## 4.0.2
 * fix to disableAnimations in Chrome
 
