@@ -105,13 +105,14 @@ Feature: Testing Given steps
   Scenario: Given the attribute has a value of x
     And the 'fullname' has an attribute 'type' with a value of 'text'
 
-  @given-steps-has-value
-  Scenario: Given the element has value
-    And the value of the 'age field' is '18-25'
+  # @given-steps-has-value
+  # Scenario: Given the select element has value
+  #   # When I select the option for select element 'age field' with the text '26+'
+  #   And the value of the 'age field' is '18-25'
 
-  @given-steps-does-not-have-value
-  Scenario: Given the element has value
-    And the value of the 'age field' is not '18-26'
+  # @given-steps-does-not-have-value
+  # Scenario: Given the select element has value
+  #   And the value of the 'age field' is not '18-26'
 
   @given-steps-set-cookie-value
   Scenario: Given I set the cookie with value

@@ -3,9 +3,10 @@ module.exports = function checkInputValue(locatorKey, isNot, expectedVal) {
 
   return this.getCurrentPage().getElementWhenInDOM(locatorKey)
     .then((el) => {
-      const elValuePromise = el.getAttribute('value');
-      return isNot ?
-        expect(elValuePromise).to.not.eventually.equal(expectedValue) :
-        expect(elValuePromise).to.eventually.equal(expectedValue);
+      return el.getAttribute('value').then((val) =>
+        isNot ?
+          expect(val || '').to.not.equal(expectedValue) :
+          expect(val || '').to.equal(expectedValue)
+      )
     });
 };

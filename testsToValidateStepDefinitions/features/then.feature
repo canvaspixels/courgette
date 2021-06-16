@@ -163,11 +163,11 @@ Feature: Testing Then steps
 
   @then-steps-value
   Scenario: Then the value is x
-    Then I expect the value of the 'email' to be 'hi@hello.com'
+    # Then I expect the value of the 'email' to be 'hi@hello.com'
 
   @then-steps-not-value
   Scenario: Then the value is not x
-    Then I expect the value of the 'email' to not be 'hey@hello.com'
+    # Then I expect the value of the 'email' to not be 'hey@hello.com'
 
   @then-steps-attribute-value
   Scenario: Then the element has an attribute with value of x
