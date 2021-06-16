@@ -13,6 +13,8 @@ exports.pomConfig = {
   stepsPath: path.resolve(specsPath, 'stepDefinitions'),
   baseUrl: 'https://courgette-testing.com', // <------------ SET THE URL TO YOUR PROJECT HERE
   removeOutputPathOnStart: true,
+  // scrollIncrementInPx: 250, // may be needed if you have sticky elements that sit over the top of things you're trying to click
+  // maxClickTries: 100, // may be needed if you have sticky elements that sit over the top of things you're trying to click
   // screenshotPath: outputPath, // not needed unless you need it to differ to the outputPath. Used for error screenshots
   // screenshotStepPath: 'stepDefinitionScreenshots', // is appended to the screenshotPath or outputPath if one isn't set. Used for screenshots in the step definitions (e.g. When I take a screenshot)
   minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
