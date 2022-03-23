@@ -54,7 +54,7 @@ Then(/^I am checking a bunch of stuff$/, async function () {
   await this.checkElementDoesNotExistNTimes('bullets', 4);
   await this.checkInputIsEmpty('fullname');
   await this.checkInputIsNotEmpty('email');
-  // await this.checkInputValue('email', 'hi@hello.com');
+  await this.checkInputValue('email', 'hi@hello.com');
   await this.checkInputValueIsNot('email', 'hi@hello.con');
   await this.checkIsEnabled('button');
   await this.checkIsDisabled('disabled button');

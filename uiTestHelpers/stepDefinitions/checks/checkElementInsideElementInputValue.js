@@ -2,10 +2,11 @@ module.exports = function checkElementInsideElementInputValue(locatorKey2, locat
   const expectedValue = expectedVal === undefined ? '' : expectedVal;
 
   return this.getCurrentPage().getElementWhenInDOM(locatorKey, locatorKey2)
-    .then((el) => {
-      const elValuePromise = el.getAttribute('value');
+    .then(async (el) => {
+      const val = await browser.executeScript('return arguments[0].value', el);
+
       return isNot ?
-        expect(elValuePromise).to.not.eventually.equal(expectedValue) :
-        expect(elValuePromise).to.eventually.equal(expectedValue);
+        expect(val).to.not.equal(expectedValue) :
+        expect(val).to.equal(expectedValue);
     });
 };

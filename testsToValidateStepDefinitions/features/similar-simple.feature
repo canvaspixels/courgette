@@ -33,7 +33,7 @@ Feature: similar simple page that extends the simple page object
   @similarsimplepage-set-element-inside-element
   Scenario: Set an element inside another element
     When I set the 'name field' inside the 'main container' to 'some content'
-    # Then I expect the value of the 'name field' inside the 'main container' to be 'some content'
+    Then I expect the value of the 'name field' inside the 'main container' to be 'some content'
 
   @similarsimplepage-check-element-inside-element-text
   Scenario: check text of an element inside another element
