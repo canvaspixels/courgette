@@ -7,18 +7,18 @@ Feature: Testing combined actions
   @step-definition-actions-inputs
   Scenario: I have set and appended a field
     And I have set and appended a field
-    # Then I expect the value of the 'email' to be 'foo@bar.com'
+    Then I expect the value of the 'email' to be 'foo@bar.com'
 
   @step-definition-actions-react-inputs
   Scenario: I have set and appended a react field
     And I have set and appended a react field
-    # Then I expect the value of the 'email' to be 'foo@bar.com'
+    Then I expect the value of the 'email' to be 'foo@bar.com'
 
   @step-definition-actions-cleared-input
   Scenario: I have cleared and appended a field
     Given I am on the 'home' page
     And I have cleared and appended a field
-    # Then I expect the value of the 'email' to be 'test@test.com'
+    Then I expect the value of the 'email' to be 'test@test.com'
 
   # see comment in: https://github.com/canvaspixels/courgette/issues/16
   # @step-definition-actions-submit-click
@@ -40,6 +40,6 @@ Feature: Testing combined actions
   @step-definition-actions-set-select-by-option-text
   Scenario: I have set the select by option text
     And I have set select by option text
-    # Then I expect the value of the 'age field' to be '26+'
+    Then I expect the value of the 'age field' to be '26+'
 
 
