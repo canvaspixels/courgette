@@ -7,6 +7,6 @@ module.exports = function checkInputValue(locatorKey, isNot, expectedVal) {
 
       return isNot ?
         expect(val || '').to.not.equal(expectedValue) :
-        expect(val || '').to.equal(expectedValue)
+        expect(val || '').to.equal(expectedValue);
     });
 };

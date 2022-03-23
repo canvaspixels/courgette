@@ -5,6 +5,6 @@ module.exports = function checkInputIsEmpty(locatorKey, isNotEmpty) {
 
       return isNotEmpty ?
         expect(val || '').to.not.equal('') :
-        expect(val || '').to.equal('')
+        expect(val || '').to.equal('');
     });
 };
