@@ -3,8 +3,6 @@ Documentation has been moved to [Courgette-Testing.com](http://courgette-testing
 
 This project was formerly known as Cuketractor (formerly cucumber-protractor on npm)
 
-[![Build Status](https://travis-ci.org/canvaspixels/courgette.svg?branch=master)](https://travis-ci.org/canvaspixels/courgette)
-
 ![courgette](https://raw.githubusercontent.com/canvaspixels/courgette/master/courgette.jpg?v=2)
 
 ## Courgette gives you:
