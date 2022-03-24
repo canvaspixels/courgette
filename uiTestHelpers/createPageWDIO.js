@@ -1,6 +1,7 @@
 const path = require('path');
-const createComponent = require('./createMobileComponent');
+const createComponent = require('./createComponentWDIO');
 // eslint-disable-next-line
+const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
 module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 10 }, customMethods = {}) =>
   Object.assign(
@@ -13,11 +14,11 @@ module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 1
 
       goToScreen: async () => {
         const url = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
-        const screen = await browser.$(url);
+        const screen = await browser.url(url);
 
         world.screen = screen; // eslint-disable-line no-param-reassign
 
-        return screen.waitForExist(opts.timeoutInSeconds * 1000);
+        return screen;
       },
     },
     customMethods,

@@ -1,12 +1,7 @@
 const { argv } = require('yargs');
 
-const { When } = require('cucumber');
+const { When } = require('@cucumber/cucumber');
 const placeholders = require('../../placeholders'); // eslint-disable-line
-
-// TODO:
-// work on commented steps below
-// add xpath based steps
-// add support for selects
 
 const steps = [
   {
@@ -25,10 +20,7 @@ const steps = [
   // {
   //   matcher: "I set the file upload 'VALUE' to(?: the)? 'LOCATOR'", path: './actions/uploadFile', code: 'uploadfile',
   // },
-  { matcher: "I tap(?: the)? 'LOCATOR'", path: './actions/tapElement', code: 'tap' },
-  { matcher: "I tap(?: the)? 'LOCATOR' at 'X_COORD' 'Y_COORD'", path: './actions/tapElementAtPoint', code: 'tapatpoint' },
-  { matcher: "I long press(?: the)? 'LOCATOR'", path: './actions/longPressElement', code: 'longpress' },
-  { matcher: 'I press the back button', path: './actions/goBack', code: 'mobileback' },
+  { matcher: "I click(?: the)? 'LOCATOR'", path: './actions/clickElement', code: 'click' },
   {
     matcher: "I click(?: the)? 'LOCATOR' inside(?: the)? 'LOCATOR'", path: './actions/clickElementInsideElement', code: 'clickelinsideel',
   },

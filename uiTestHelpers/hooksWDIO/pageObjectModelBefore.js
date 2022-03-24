@@ -2,10 +2,10 @@ const path = require('path');
 const yaml = require('yaml-page-objects').default;
 const fs = require('fs');
 
-const createMobilePage = require('../../uiTestHelpers/createMobilePage');
-const createMobileComponent = require('../../uiTestHelpers/createMobileComponent');
+const createPage = require('../../uiTestHelpers/createPageWDIO');
+const createComponent = require('../../uiTestHelpers/createComponentWDIO');
 
-const { Before } = require('cucumber');
+const { Before } = require('@cucumber/cucumber');
 
 const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
@@ -67,13 +67,12 @@ createComponentObject = (fileName, world, components, a11ySelectors = {}) => {
   Object.keys(a11ySelectors)
     .forEach((selectorKey) => {
       const accessibilityId = a11yLocators[selectorKey];
-      a11yLocators[selectorKey] = $(`~${accessibilityId}`);
-      a11yLocators[selectorKey].accessibilityId = accessibilityId;
+      a11yLocators[selectorKey] = $(accessibilityId);
     });
 
   const locators = Object.assign({}, a11yLocators);
 
-  const component = createMobileComponent(fileName, world, locators);
+  const component = createComponent(fileName, world, locators);
 
   if (components) {
     const componentObjects = components.map((componentName) => getComponent(componentName));
@@ -88,13 +87,12 @@ const createPageObject = (fileName, world, pagePath, components, a11ySelectors =
   Object.keys(a11ySelectors)
     .forEach((selectorKey) => {
       const accessibilityId = a11yLocators[selectorKey];
-      a11yLocators[selectorKey] = $(`~${accessibilityId}`);
-      a11yLocators[selectorKey].accessibilityId = accessibilityId;
+      a11yLocators[selectorKey] = $(accessibilityId);
     });
 
   const locators = Object.assign({}, a11yLocators);
 
-  const page = createMobilePage(fileName, world, pagePath, locators, { timeoutInSeconds: pomConfig.timeoutInSeconds });
+  const page = createPage(fileName, world, pagePath, locators, { timeoutInSeconds: pomConfig.timeoutInSeconds });
 
   if (components) {
     const componentObjects = components.map((componentName) => getComponent(componentName));

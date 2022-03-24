@@ -1,12 +1,12 @@
 const { argv } = require('yargs');
 
-const { Given } = require('cucumber');
+const { Given } = require('@cucumber/cucumber');
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 // TODO: add url contains
 const steps = [
   {
-    matcher: "I am on the 'PAGE_NAME' screen",
+    matcher: "I am on the 'PAGE_NAME' page",
     path: './actions/goToScreen',
     notes: 'PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object', // eslint-disable-line max-len
     code: 'onscreen',

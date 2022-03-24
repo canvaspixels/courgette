@@ -4,11 +4,8 @@ module.exports = async function tapElement(locatorKey) {
   const el = await pageObj.getElement(locatorKey);
 
   if (process.env.COURGETTE_DEBUG) {
-    console.log('Tap element: ', el);
+    console.log('Click element: ', el);
   }
 
-  await driver.touchAction({
-    action: 'tap',
-    element: el,
-  });
+  await el.click();
 };

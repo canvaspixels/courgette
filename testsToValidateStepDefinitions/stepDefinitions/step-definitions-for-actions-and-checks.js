@@ -1,4 +1,4 @@
-const { Given, Then } = require('cucumber');
+const { Given, Then } = require('@cucumber/cucumber');
 
 Given(/^I am on another page$/, async function () {
   await this.goToURL('/');
