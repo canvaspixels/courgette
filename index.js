@@ -76,7 +76,7 @@ const logStream = fs.createWriteStream(logPath);
 
 let cmd = path.join('node_modules', '.bin', `protractor${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
 
-if (pomConfig.platform === 'mobile') {
+if (pomConfig.platform === 'mobile' || pomConfig.bindings === 'wdio') {
   cmd = path.join('node_modules', '.bin', `wdio${os.type().toLowerCase().includes('windows') ? '.cmd' : ''}`);
 }
 

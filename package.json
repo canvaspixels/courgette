@@ -31,6 +31,7 @@
     "ct-install-chromedriver": "./scripts/installChromeDriver.js",
     "ct-install-firefoxdriver": "./scripts/installFFDriver.js",
     "ct-install-sample-conf": "./scripts/installSampleConf.js",
+    "ct-install-sample-conf-wdio": "./scripts/installSampleConfWDIO.js",
     "ct-install-sample-mobile-conf": "./scripts/installSampleMobileConf.js",
     "ct-install-sample-tests": "./scripts/installSampleTests.js",
     "ct-package-scripts": "./scripts/setupPackageJsonScripts.js",
