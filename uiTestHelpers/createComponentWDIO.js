@@ -68,6 +68,20 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return browser.$$(selector);
     },
 
+    async getElementWhenInDOM(locatorKey, ...other) {
+      let el;
+
+      if (other.length) {
+        el = await this.getElementInsideElement(locatorKey, ...other);
+      } else {
+        el = await this.getElement(locatorKey);
+      }
+      // TODO add error
+      await el.waitForExist();
+      // `${locator} not found`
+      return el;
+    },
+
     getSelectorByLocatorKey: async (locatorKey) => {
       console.log('locators', locators);
       const selector = await locators[locatorKey].selector;

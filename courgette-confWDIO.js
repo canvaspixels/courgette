@@ -1,4 +1,6 @@
 const path = require('path');
+const CucumberFormatter = require('./cucumberFormatter')
+// const PrettyFormatter = require('@cucumber/pretty-formatter').default
 
 const specsPath = 'testsToValidateStepDefinitions';
 const outputPath = 'uiTestResult';
@@ -34,7 +36,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   exclude: [],
   maxInstances: 1,
   capabilities: [{
-    // maxInstances: 5,
+    maxInstances: 1,
     browserName: 'chrome',
     acceptInsecureCerts: true,
     'goog:chromeOptions': {
@@ -47,13 +49,14 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
     // excludeDriverLogs: ['bugreport', 'server'],
   }],
   logLevel: 'warn', // Level of logging verbosity: trace | debug | info | warn | error | silent
-  bail: 0, // (default is 0 - don't bail, run all tests).
-  waitforTimeout: 20000,
+  bail: 1, // (default is 0 - don't bail, run all tests).
+  waitforTimeout: process.env.COURGETTE_TIMEOUT * 1000,
   connectionRetryCount: 1,
   services: ['chromedriver'],
   framework: 'cucumber',
   reporters: [
-    'spec',
+    CucumberFormatter,
+    // 'spec',
     [
       'json',
       {
@@ -80,6 +83,10 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
       `${courgettePath}/hooksWDIO/attachScenarioNameBefore.js`,
       `${courgettePath}/hooksWDIO/attachScreenshotAfter.js`,
     ],
+    // 'format': [
+    //   // CucumberFormatter,
+    //   `json:./${outputPath}/report.json`,
+    // ].concat(process.env.COURGETTE_SHOW_STEP_DEFINITION_USAGE ? 'node_modules/cucumber/lib/formatter/usage_formatter.js' : []),
     tagExpression,
     'source': true,
     'format-options': '{"colorsEnabled": true}',

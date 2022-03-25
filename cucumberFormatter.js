@@ -1,58 +1,76 @@
-const cucumber = require('cucumber');
+const events = require('events')
 
-const timeTrim = (num) => (`00${num}`).slice(-2);
-
-class CucumberStepFormatter extends cucumber.Formatter {
-  constructor(options) {
-    super(options);
-    options.eventBroadcaster
-      .on('test-step-attachment', this.attached.bind(this))
-      .on('test-case-started', this.logTestCaseName.bind(this))
-      .on('test-step-finished', this.logTestStep.bind(this))
-      .on('test-case-finished', this.logSeparator.bind(this))
-      .on('test-run-finished', this.logTestRunResult.bind(this));
-  }
-
-  attached({ data }) {
-    if (data.includes('Hook Step:')) {
-      this.hookStep = data;
-    }
-  }
-
-  logTestCaseName(event) {
-    const d = new Date();
-    const time = `${timeTrim(d.getHours())}:${timeTrim(d.getMinutes())}:${timeTrim(d.getSeconds())}`;
-    this.log(`${d.getFullYear()}-${timeTrim(d.getMonth() + 1)}-${timeTrim(d.getDate())}T${time}`);
-    const { gherkinDocument, pickle } = this.eventDataCollector.getTestCaseAttempt(event);
-    const text = `${gherkinDocument.feature.name}::: ${pickle.name}\n`;
-    const colouredText = this.colorFns.location(text);
-    this.log(colouredText);
-  }
-
-  logTestStep(event) {
-    const testCaseAttempt = this.eventDataCollector.getTestCaseAttempt(event.testCase);
-    testCaseAttempt.stepResults = testCaseAttempt.testCase.steps.map(() => ({}));
-
-    const testStep = cucumber.formatterHelpers.parseTestCaseAttempt({ testCaseAttempt }).testSteps[event.index];
-    if (!testStep.sourceLocation) return; // hook
-    const d = new Date();
-    const time = `${timeTrim(d.getHours())}:${timeTrim(d.getMinutes())}:${timeTrim(d.getSeconds())}`;
-    const text = `${time} ${testStep.keyword.trim()} ${testStep.text} ---> ${event.result.status.toUpperCase()}\n`;
-    const colouredText = this.colorFns[event.result.status](text);
-    this.log(colouredText);
-  }
-
-  logSeparator() {
-    this.log('\n');
-  }
-
-  logTestRunResult({ result }) {
-    if (result.success) {
-      this.log(this.colorFns.passed('---PASS---'));
-    } else {
-      this.log(this.colorFns.failed('---FAIL---'));
-    }
-  }
+const esc = {
+    sp: '\u0020',
+    nl: '\n'
 }
 
-module.exports = CucumberStepFormatter;
+/**
+ * Initialize a new `Specs` matrix test reporter.
+ *
+ * @param {Runner} runner
+ * @api public
+ */
+const color = (...args) => {
+  return args.join(' ')
+}
+class CucumberReporter extends events.EventEmitter {
+    constructor (baseReporter, config, options = {}) {
+        super()
+
+        this.baseReporter = baseReporter
+
+        this.on('suite:start', (p) => {
+            if (p.parent) {
+                this.printLine('suite', `${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}Scenario: ${p.title}`)
+            } else {
+                this.printLine('medium', `${esc.nl}${esc.sp}${esc.sp}Feature: ${p.title}`)
+            }
+        })
+
+        this.on('test:pending', (p) => {
+            this.printLine('pending', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+        })
+
+        this.on('test:pass', (p) => {
+            this.printLine('bright pass', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+        })
+
+        this.on('test:fail', (p) => {
+            this.printLine('bright fail', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+            this.printLine('error message', `${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.message}${esc.nl}`)
+            this.printLine('error stack', `${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.stack}${esc.nl}`)
+        })
+
+        this.on('test:end', () => {
+        })
+
+        this.on('end', () => {
+            this.printEpilogueEnd()
+        })
+    }
+
+    printLine (status, line) {
+        // const { color } = this.baseReporter
+
+        if (!status || !line) {
+            return
+        }
+
+        process.stdout.write(color(status, line + esc.nl))
+    }
+
+    printEpilogueEnd () {
+        const { stats } = this.baseReporter
+        // const { color, stats } = this.baseReporter
+        const results = stats.getCounts()
+        const total = results.failures + results.passes + results.pending
+
+        process.stdout.write(color('suite', esc.nl + total + ' steps ('))
+        process.stdout.write(color('bright pass', results.passes + ' passed'))
+        process.stdout.write(color('bright fail', ', ' + results.failures + ' failed'))
+        process.stdout.write(color('pending', ', ' + results.pending + ' pending)' + esc.nl + esc.nl))
+    }
+}
+
+module.exports = CucumberReporter;

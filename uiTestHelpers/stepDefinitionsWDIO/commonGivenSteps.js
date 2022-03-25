@@ -3,13 +3,12 @@ const { argv } = require('yargs');
 const { Given } = require('@cucumber/cucumber');
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
-// TODO: add url contains
 const steps = [
   {
     matcher: "I am on the 'PAGE_NAME' page",
-    path: './actions/goToScreen',
+    path: './actions/goToPage',
     notes: 'PAGE_NAME should match the name of the page object file in your pages directory but use spaces instead of dashes and use lowercase for your page object file names with dash separating (kebab-case). This step definition sets the current page object', // eslint-disable-line max-len
-    code: 'onscreen',
+    code: 'onpage',
   },
   { matcher: "(?:the )?'LOCATOR' is (visible)", path: './checks/checkVisibility', code: 'visible' },
   { matcher: "(?:the )?'LOCATOR' is (hidden)", path: './checks/checkVisibility', code: 'hidden' },
@@ -25,40 +24,35 @@ const steps = [
   { matcher: "(?:the )?'LOCATOR' has an attribute 'ATTRIBUTE_NAME' with a value of 'VALUE'", path: './checks/checkAttribute', code: 'attribute' },
   { matcher: "(?:the )?'LOCATOR' is( not)* empty", path: './checks/checkInputIsEmpty', code: 'empty' },
   { matcher: "the value of(?: the)? 'LOCATOR' is( not)* 'VALUE'", path: './checks/checkInputValue', code: 'value' },
+  {
+    matcher: "I am on the page with url 'URL'",
+    path: './actions/goToURL',
+    notes: 'Goes to a page by URL',
+    code: 'gotourl',
+    pageObjectNotRequired: true,
+  },
+  {
+    matcher: "the page url is( not)* 'URL'", path: './checks/checkUrl', notes: 'Checks the page url', code: 'pageurl', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "the page url contains 'URL'", path: './checks/checkUrlContainsString', notes: 'Checks the page url contains', code: 'urlcontains', pageObjectNotRequired: true,
+  },
+  {
+    matcher: 'animations are disabled', path: './actions/disableAnimations', notes: 'Disables CSS animations', pageObjectNotRequired: true,
+  },
 
-
-  // {
-  //   matcher: "I am on the page with url 'URL'",
-  //   path: './actions/goToURL',
-  //   notes: 'Goes to a page by URL',
-  //   code: 'gotourl',
-  //   pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "the page url is( not)* 'URL'", path: './checks/checkUrl', notes: 'Checks the page url', code: 'pageurl', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "the page url contains 'URL'", path: './checks/checkUrlContainsString', notes: 'Checks the page url contains', code: 'urlcontains', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: 'animations are disabled', path: './actions/disableAnimations', notes: 'Disables CSS animations', pageObjectNotRequired: true,
-  // },
-
-  // {
-  //   matcher: "the title is( not)* 'STRING'", path: './checks/checkTitle', code: 'title', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "I set the cookie 'COOKIE_NAME' with value 'VALUE'", path: './actions/setCookie', code: 'setcookie', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "the cookie 'COOKIE_NAME' is( not)* set to 'VALUE'", path: './checks/checkCookieContent', code: 'cookie', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "the cookie 'COOKIE_NAME' is( not)* set", path: './checks/checkCookieExists', code: 'cookieset', pageObjectNotRequired: true,
-  // },
-
-
-
+  {
+    matcher: "the title is( not)* 'STRING'", path: './checks/checkTitle', code: 'title', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I set the cookie 'COOKIE_NAME' with value 'VALUE'", path: './actions/setCookie', code: 'setcookie', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "the cookie 'COOKIE_NAME' is( not)* set to 'VALUE'", path: './checks/checkCookieContent', code: 'cookie', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "the cookie 'COOKIE_NAME' is( not)* set", path: './checks/checkCookieExists', code: 'cookieset', pageObjectNotRequired: true,
+  },
 ];
 
 if (!argv.genFiles) {

@@ -12,7 +12,7 @@ module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 1
         return pageUrl;
       },
 
-      goToScreen: async () => {
+      goToPage: async () => {
         const url = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
         const screen = await browser.url(url);
 

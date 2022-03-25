@@ -11,20 +11,20 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 // Then(/^I expect the path to ( not)* be 'URL'$/, checkURLPath);
 
 const steps = [
-  // {
-  //   matcher: "I expect page to contain 'STRING'",
-  //   path: './checks/checkPageContainsText',
-  //   notes: 'This looks in the whole document for STRING',
-  //   code: 'pagecontainstext',
-  //   pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "I expect the url to( not)* be 'STRING'",
-  //   path: './checks/checkUrl',
-  //   notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
-  //   code: 'url',
-  //   pageObjectNotRequired: true,
-  // },
+  {
+    matcher: "I expect page to contain 'STRING'",
+    path: './checks/checkPageContainsText',
+    notes: 'This looks in the whole document for STRING',
+    code: 'pagecontainstext',
+    pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I expect the url to( not)* be 'STRING'",
+    path: './checks/checkUrl',
+    notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
+    code: 'url',
+    pageObjectNotRequired: true,
+  },
   {
     matcher: "I expect the url to contain 'STRING'",
     path: './checks/checkUrlContainsString',
@@ -39,13 +39,13 @@ const steps = [
   //   notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16)',
   //   pageObjectNotRequired: true,
   // },
-  // { matcher: "I expect the title to( not)* be 'STRING'", path: './checks/checkTitle', code: 'title' },
-  // {
-  //   matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain', pageObjectNotRequired: true,
-  // },
-  // {
-  //   matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists', pageObjectNotRequired: true,
-  // },
+  { matcher: "I expect the title to( not)* be 'STRING'", path: './checks/checkTitle', code: 'title' },
+  {
+    matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain', pageObjectNotRequired: true,
+  },
+  {
+    matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists', pageObjectNotRequired: true,
+  },
   {
     matcher: "I expect to be on the 'PAGE_NAME' page",
     path: './checks/setPageObjectThenCheckScreenExists',

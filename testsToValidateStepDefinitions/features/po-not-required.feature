@@ -1,9 +1,10 @@
 @no-po
 Feature: Testing steps where page object isn't required
 
-  @no-po-create-step-def
-  Scenario: Creating own step definition
-    Given I am on another page
+  # TODO WDIO steps files
+  # @no-po-create-step-def
+  # Scenario: Creating own step definition
+  #   Given I am on another page
 
   @no-po-click
   Scenario: Go to page and click element

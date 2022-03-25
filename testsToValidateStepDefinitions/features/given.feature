@@ -35,6 +35,7 @@ Feature: Testing Given steps
 
   @given-steps-hidden
   Scenario: Given the element is hidden
+    And take a screenshot
     And the 'hidden field' is hidden
 
   @given-steps-enabled
@@ -129,10 +130,10 @@ Feature: Testing Given steps
     And the cookie 'gdpr-banner-clicked' is not set to 'false'
 
   @given-steps-cookie-name-is-set
-  Scenario: Given set the cookie is set
+  Scenario: Given the cookie is set
     And I set the cookie 'gdpr-banner-clicked' with value 'true'
     And the cookie 'gdpr-banner-clicked' is set
 
   @given-steps-cookie-name-is-not-set
-  Scenario: Given set the cookie is not set
+  Scenario: Given the cookie is not set
     And the cookie 'gdpr-banner-clicked' is not set

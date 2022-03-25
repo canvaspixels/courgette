@@ -1,4 +1,6 @@
 const path = require('path');
+const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
+const timeoutInSeconds = pomConfig.timeoutInSeconds || 8;
 
 module.exports = async function checkVisibility(locatorKey, visibleOrHidden) {
   const pageObj = await this.getCurrentPage();
@@ -8,5 +10,8 @@ module.exports = async function checkVisibility(locatorKey, visibleOrHidden) {
     console.log('In file:', path.basename(__filename), el);
   }
 
-  return el.waitForDisplayed(10000, visibleOrHidden === 'hidden');
+  return el.waitForDisplayed({
+    timeout: timeoutInSeconds * 1000,
+    reverse: visibleOrHidden === 'hidden',
+  });
 };
