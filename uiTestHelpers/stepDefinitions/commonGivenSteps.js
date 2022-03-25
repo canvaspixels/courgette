@@ -4,7 +4,6 @@ const { argv } = require('yargs');
 const { Given } = require(path.join(process.cwd(), 'node_modules/cucumber')); // eslint-disable-line
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
-// TODO: add url contains
 const steps = [
   {
     matcher: "I am on the 'PAGE_NAME' page",

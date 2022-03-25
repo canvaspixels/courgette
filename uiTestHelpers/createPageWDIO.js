@@ -16,8 +16,6 @@ module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 1
         const url = `${pageUrl.startsWith('http') ? '' : pomConfig.baseUrl}${pageUrl}`;
         const screen = await browser.url(url);
 
-        world.screen = screen; // eslint-disable-line no-param-reassign
-
         return screen;
       },
     },

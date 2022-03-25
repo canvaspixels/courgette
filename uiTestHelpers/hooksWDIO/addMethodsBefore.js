@@ -2,7 +2,7 @@ const path = require('path');
 
 const { Before } = require(path.join(process.cwd(), 'node_modules/@cucumber/cucumber'));
 
-// TODO
+// TODO WDIO
 // const api = require('../../api');
 
 // Before(function addMethodsBeforeHook() {

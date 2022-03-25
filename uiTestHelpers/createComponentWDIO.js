@@ -44,37 +44,41 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
       return components[componentName];
     },
 
-    getElement: (locatorKey) => {
+    getElement: async (locatorKey) => {
       locatorErrorCheck(locatorKey);
+      const selector = await locators[locatorKey].selector;
       if (process.env.COURGETTE_DEBUG) {
         console.log('screen: ', world.screen);
         console.log('getElement, locator key: ', locatorKey);
-        console.log('translates to selector from page object: ', locators[locatorKey].selector);
+        console.log('translates to selector from page object: ', selector);
       }
 
-      return world.screen.$(locators[locatorKey].selector);
+      return browser.$(selector);
     },
 
-    getElements: (locatorKey) => {
+    getElements: async (locatorKey) => {
       locatorErrorCheck(locatorKey);
+      const selector = await locators[locatorKey].selector;
       if (process.env.COURGETTE_DEBUG) {
         console.log('screen: ', world.screen);
         console.log('getElements, locator key: ', locatorKey);
-        console.log('translates to selector from page object: ', locators[locatorKey].selector);
+        console.log('translates to selector from page object: ', selector);
       }
 
-      return world.screen.$$(locators[locatorKey].selector);
+      return browser.$$(selector);
     },
 
-    getSelectorByLocatorKey: (locatorKey) => {
+    getSelectorByLocatorKey: async (locatorKey) => {
       console.log('locators', locators);
+      const selector = await locators[locatorKey].selector;
 
-      return locators[locatorKey].selector;
+      return selector;
     },
 
     async getElementInsideElement(locatorKey, locatorKey2) {
       const el1 = await this.getElement(locatorKey);
-      return el1.$(locators[locatorKey2].selector);
+      const selector = await locators[locatorKey2].selector;
+      return el1.$(selector);
     },
   }, customMethods);
 };

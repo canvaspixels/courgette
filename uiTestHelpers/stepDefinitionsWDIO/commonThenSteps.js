@@ -11,24 +11,53 @@ const placeholders = require('../../placeholders'); // eslint-disable-line
 // Then(/^I expect the path to ( not)* be 'URL'$/, checkURLPath);
 
 const steps = [
+  // {
+  //   matcher: "I expect page to contain 'STRING'",
+  //   path: './checks/checkPageContainsText',
+  //   notes: 'This looks in the whole document for STRING',
+  //   code: 'pagecontainstext',
+  //   pageObjectNotRequired: true,
+  // },
+  // {
+  //   matcher: "I expect the url to( not)* be 'STRING'",
+  //   path: './checks/checkUrl',
+  //   notes: 'Using this just checks the URL, it does not change the page object so should not be used for end to end testing unless it is the final step',
+  //   code: 'url',
+  //   pageObjectNotRequired: true,
+  // },
   {
-    matcher: "I expect to be on the 'PAGE_NAME' screen",
+    matcher: "I expect the url to contain 'STRING'",
+    path: './checks/checkUrlContainsString',
+    notes: 'Using this just checks the URL, it does not change the page object.',
+    code: 'urlcontains',
+    pageObjectNotRequired: true,
+  },
+  // {
+  //   matcher: "I expect the url 'URL' is opened in a new tab",
+  //   path: './checks/checkIsOpenedInNewWindow',
+  //   code: 'urlnewtab',
+  //   notes: '[Currently not working in FirefoxDriver](https://github.com/canvaspixels/courgette/issues/16)',
+  //   pageObjectNotRequired: true,
+  // },
+  // { matcher: "I expect the title to( not)* be 'STRING'", path: './checks/checkTitle', code: 'title' },
+  // {
+  //   matcher: "I expect cookie 'COOKIE_NAME' to( not)* contain 'STRING'", path: './checks/checkCookieContains', code: 'cookiecontain', pageObjectNotRequired: true,
+  // },
+  // {
+  //   matcher: "I expect cookie 'COOKIE_NAME' to( not)* exist", path: './checks/checkCookieExists', code: 'cookieexists', pageObjectNotRequired: true,
+  // },
+  {
+    matcher: "I expect to be on the 'PAGE_NAME' page",
     path: './checks/setPageObjectThenCheckScreenExists',
     code: 'onscreen',
     notes: 'This step does 2 things: it changes the current page object so that any subsequent steps will use sel' +
       'ectors from the PAGE_NAME page object, and then asserts that the page exists.',
   },
   {
-    matcher: "I expect to be on the 'PAGE_NAME' page",
-    path: './checks/setPageObjectThenCheckScreenExists',
-    code: 'onscreendeprecated',
-    notes: 'deprecated',
-  },
-  {
-    matcher: "I set the page object to 'PAGE_NAME' screen",
+    matcher: "I set the page object to 'PAGE_NAME' page",
     path: './actions/setPageObject',
     notes: 'This changes the current page object so that any subsequent steps will use locators from the PAGE_NAME page object',
-    code: 'setpageobjmobile',
+    code: 'setpageobj',
   },
   { matcher: "I expect(?: the)? 'LOCATOR' to be (visible)", path: './checks/checkVisibility', code: 'visible' },
   {
@@ -66,6 +95,18 @@ const steps = [
   {
     matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshotcalled', pageObjectNotRequired: true,
   },
+
+  // LOWER PRIORITY
+  // {
+  //   matcher: "I expect the( (bottom|top|left|right))* border colour of the 'LOCATOR' to be 'STRING'",
+  //   path: './checks/checkElementBorderColour',
+  //   code: 'bordercolour',
+  //   notes: 'Pick a side (bottom, top, left, or right) or remove the expected side.',
+  // },
+  // { matcher: "I expect the colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementColour', code: 'colour' },
+  // { matcher: "I expect the background colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementBackgroundColour', code: 'backgroundcolour' },
+  // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
+  // { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
 ];
 
 if (!argv.genFiles) {

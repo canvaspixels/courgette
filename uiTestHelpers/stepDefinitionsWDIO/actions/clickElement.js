@@ -1,4 +1,4 @@
-module.exports = async function tapElement(locatorKey) {
+module.exports = async function clickElement(locatorKey) {
   const pageObj = await this.getCurrentPage();
 
   const el = await pageObj.getElement(locatorKey);
