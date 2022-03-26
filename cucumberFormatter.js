@@ -1,4 +1,5 @@
-const events = require('events')
+const events = require('events');
+const clc = require('cli-color');
 
 const esc = {
     sp: '\u0020',
@@ -14,6 +15,7 @@ const esc = {
 const color = (...args) => {
   return args.join(' ')
 }
+const timeTrim = (num) => (`00${num}`).slice(-2);
 class CucumberReporter extends events.EventEmitter {
     constructor (baseReporter, config, options = {}) {
         super()
@@ -21,25 +23,62 @@ class CucumberReporter extends events.EventEmitter {
         this.baseReporter = baseReporter
 
         this.on('suite:start', (p) => {
+          if (!this.isSynchronised) {
             if (p.parent) {
-                this.printLine('suite', `${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}Scenario: ${p.title}`)
+              this.printLine(`${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${clc.blueBright('Scenario')}: ${p.title}`)
             } else {
-                this.printLine('medium', `${esc.nl}${esc.sp}${esc.sp}Feature: ${p.title}`)
+              this.printLine(`${esc.sp}${esc.sp}${clc.blueBright('Feature')}: ${p.title}`)
             }
+          }
         })
 
         this.on('test:pending', (p) => {
-            this.printLine('pending', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+          this.printLine(`${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
         })
 
         this.on('test:pass', (p) => {
-            this.printLine('bright pass', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+          this.printLine(`${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${clc.greenBright(p.title)}`)
         })
 
         this.on('test:fail', (p) => {
-            this.printLine('bright fail', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
-            this.printLine('error message', `${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.message}${esc.nl}`)
-            this.printLine('error stack', `${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.stack}${esc.nl}`)
+
+// [0-0]   type: 'step',
+
+// [0-0]   title: "And the value of the 'age field' is '18-25'",
+// [0-0]   state: 'fail',
+// [0-0]   error: {
+// [0-0]     name: 'Error',
+// [0-0]     message: "AssertionError: expected null to equal '18-25'",
+// [0-0]     stack: "AssertionError: expected null to equal '18-25'\n" +
+// [0-0]       '    at World.checkInputValue (/Users/alexrogers/Projects/courgettejs/courgette/uiTestHelpers/stepDefinitionsWDIO/checks/checkInputValue.js:15:22)\n' +
+// [0-0]       '    at runMicrotasks (<anonymous>)\n' +
+// [0-0]       '    at processTicksAndRejections (node:internal/process/task_queues:96:5)'
+// [0-0]   },
+// [0-0]   duration: 13,
+// [0-0]   passed: false,
+
+// [0-0]   file: '/Users/alexrogers/Projects/courgettejs/courgette/testsToValidateStepDefinitions/features/given.feature',
+// [0-0]   uid: '175',
+// [0-0]   parent: '23',
+// [0-0]   argument: undefined,
+// [0-0]   tags: [
+
+// [0-0]     { name: '@given-steps', astNodeId: '100' },
+// [0-0]     { name: '@given-steps-has-value', astNodeId: '76' }
+// [0-0]   ],
+// [0-0]   featureName: 'Testing Given steps',
+// [0-0]   scenarioName: 'Given the select element has value',
+// [0-0]   fullTitle: "23: And the value of the 'age field' is '18-25'",
+// [0-0]   cid: '0-0',
+// [0-0]   specs: [
+// [0-0]     '/Users/alexrogers/Projects/courgettejs/courgette/testsToValidateStepDefinitions/features/given.feature'
+// [0-0]   ]
+// [0-0] }
+
+          this.printLine(`${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+          // this.printLine(ssage', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.message}${esc.nl}`)
+          // this.printLine(ack', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.stack}${esc.nl}`)
+          this.isSynchronised = true
         })
 
         this.on('test:end', () => {
@@ -50,14 +89,14 @@ class CucumberReporter extends events.EventEmitter {
         })
     }
 
-    printLine (status, line) {
-        // const { color } = this.baseReporter
-
-        if (!status || !line) {
+    printLine (line) {
+        if (!line) {
             return
         }
 
-        process.stdout.write(color(status, line + esc.nl))
+        const d = new Date();
+        const time = `${timeTrim(d.getHours())}:${timeTrim(d.getMinutes())}:${timeTrim(d.getSeconds())}`;
+        process.stdout.write(`${d.getFullYear()}-${timeTrim(d.getMonth() + 1)}-${timeTrim(d.getDate())}T${time}${line + esc.nl}`)
     }
 
     printEpilogueEnd () {

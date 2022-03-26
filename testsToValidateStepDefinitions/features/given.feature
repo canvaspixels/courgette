@@ -19,15 +19,15 @@ Feature: Testing Given steps
   # @given-steps-routing-link-new-tab
   # Scenario: Link to open in new tab
   #   When I click the 'Go to other page in new tab link'
-  #   Then I expect the url 'http://localhost:3005/other-page' is opened in a new tab
+  #   Then I expect the url 'http://localhost:3006/other-page' is opened in a new tab
 
   @given-steps-routing-given-url
   Scenario: Given the url is x
-    And the page url is 'http://localhost:3005/'
+    And the page url is 'http://localhost:3006/'
 
   @given-steps-routing-given-url-not
   Scenario: Given the url is not x
-    And the page url is not 'http://localhost:3005/foo'
+    And the page url is not 'http://localhost:3006/foo'
 
   @given-steps-visible
   Scenario: Given the element is visible

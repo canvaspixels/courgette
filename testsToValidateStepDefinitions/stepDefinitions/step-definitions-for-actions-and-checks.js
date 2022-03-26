@@ -3,8 +3,8 @@ const { Given, Then } = require('@cucumber/cucumber');
 Given(/^I am on another page$/, async function () {
   await this.goToURL('/');
   await this.clickElementWithText(null, 'Go to other page by react router');
-  await this.checkUrlIs('http://localhost:3005/other-page');
-  await this.checkUrlIsNot('http://localhost:3005/blah');
+  await this.checkUrlIs('http://localhost:3006/other-page');
+  await this.checkUrlIsNot('http://localhost:3006/blah');
 });
 
 Given(/^I have set and appended a field$/, async function () {
@@ -62,8 +62,8 @@ Then(/^I am checking a bunch of stuff$/, async function () {
   await this.checkIsDeselected('you ok checkbox');
   await this.checkTitle('React App'); // todo:add check title contains
   await this.checkTitleIsNot('React Appp');
-  await this.checkUrlIs('http://localhost:3005/');
-  await this.checkUrlIsNot('http://localhost:30050/');
+  await this.checkUrlIs('http://localhost:3006/');
+  await this.checkUrlIsNot('http://localhost:30060/');
   await this.checkUrlContainsString('localhost');
   await this.checkVisible('main heading');
   await this.checkHidden('hidden field');

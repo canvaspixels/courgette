@@ -22,17 +22,17 @@ Feature: Testing Then steps
   @then-steps-url-to-be
   Scenario: Then the url is
     When I click the 'Go to other page link'
-    Then I expect the url to be 'http://localhost:3005/other-page'
+    Then I expect the url to be 'http://localhost:3006/other-page'
 
   @then-steps-url-to-not-be
   Scenario: Then the url is not
-    Then I expect the url to not be 'http://localhost:3005/foo'
+    Then I expect the url to not be 'http://localhost:3006/foo'
 
   # TODO: fix in https://github.com/canvaspixels/courgette/issues/16
   # @then-steps-url-opens-in-new-tab
   # Scenario: Then the url is opened in a new tab
   #   When I click the 'Go to other page in new tab link'
-  #   Then I expect the url 'http://localhost:3005/other-page' is opened in a new tab
+  #   Then I expect the url 'http://localhost:3006/other-page' is opened in a new tab
   # todo improve to not check current tab
 
   @then-steps-is-visible

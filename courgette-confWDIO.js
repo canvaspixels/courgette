@@ -18,7 +18,7 @@ exports.pomConfig = {
   minifyPng: false, // defaults to '0.6-0.8', can be set to the quality string or true / false
   minifyStepPathOutput: 'uiTestResult/stepDefinitionScreenshots',
   removeOutputPathOnStart: true,
-  baseUrl: 'http://localhost:3005', // <------------ SET THE URL TO YOUR PROJECT HERE
+  baseUrl: 'http://localhost:3006', // <------------ SET THE URL TO YOUR PROJECT HERE
 };
 
 exports.cucumberHtmlReporterConfig = {};
@@ -31,12 +31,14 @@ if (process.env.COURGETTE_DEBUG) {
 
 const runHeadless = !(process.env.COURGETTE_HEADLESS === 'false' || process.env.DH);
 
+const maxInstances = process.env.COURGETTE_MAX_INSTANCES || 1
+
 exports.config = { // see https://webdriver.io/docs/configurationfile.html
   port: 4723,
   exclude: [],
-  maxInstances: 1,
+  maxInstances: maxInstances,
   capabilities: [{
-    maxInstances: 1,
+    maxInstances: maxInstances,
     browserName: 'chrome',
     acceptInsecureCerts: true,
     'goog:chromeOptions': {
@@ -55,8 +57,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   services: ['chromedriver'],
   framework: 'cucumber',
   reporters: [
-    CucumberFormatter,
-    // 'spec',
+    maxInstances > 1 ? 'spec' : CucumberFormatter,
     [
       'json',
       {
@@ -67,6 +68,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
       },
     ],
   ],
+  reporterSyncInterval: 20000,
   specs: [`${specsPath}/features/**/*.feature`],
   cucumberOpts: {
     'require': [
