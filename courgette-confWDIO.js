@@ -59,7 +59,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   reporters: [
     maxInstances > 1 ? 'spec' : CucumberFormatter,
     [
-      'json',
+      `json:./${outputPath}/report.json`,
       {
         outputDir: './uiTestResult',
         // outputFileFormat: function(opts) {
