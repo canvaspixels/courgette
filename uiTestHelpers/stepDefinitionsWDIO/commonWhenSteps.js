@@ -34,6 +34,9 @@ const steps = [
   {
     matcher: "I set react field 'LOCATOR' to 'STRING'", path: './actions/setReactInputFieldValue', code: 'setreact', notes: 'Similar to append in react above',
   },
+  {
+    matcher: "I delete cookie with name 'STRING'", path: './actions/deleteCookie', code: 'deletecookie',
+  },
 
   // TODO WDIO
   // {

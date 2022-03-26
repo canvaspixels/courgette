@@ -136,4 +136,5 @@ Feature: Testing Given steps
 
   @given-steps-cookie-name-is-not-set
   Scenario: Given the cookie is not set
-    And the cookie 'gdpr-banner-clicked' is not set
+    When I delete cookie with name 'gdpr-banner-clicked'
+    Then the cookie 'gdpr-banner-clicked' is not set

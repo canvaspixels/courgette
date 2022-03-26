@@ -53,22 +53,28 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   logLevel: 'warn', // Level of logging verbosity: trace | debug | info | warn | error | silent
   bail: 1, // (default is 0 - don't bail, run all tests).
   waitforTimeout: process.env.COURGETTE_TIMEOUT * 1000,
-  connectionRetryCount: 1,
+  connectionRetryCount: 2,
   services: ['chromedriver'],
   framework: 'cucumber',
   reporters: [
     maxInstances > 1 ? 'spec' : CucumberFormatter,
-    [
-      `json:./${outputPath}/report.json`,
-      {
-        outputDir: './uiTestResult',
-        // outputFileFormat: function(opts) {
-        //   return `results-${opts.cid}.${opts.capabilities}.json`;
-        // },
-      },
-    ],
+
+    [ 'cucumberjs-json', {
+              jsonFolder: `./${outputPath}`,
+              language: 'en',
+          },
+      ],
+    // [
+    //   'json',
+    //   {
+    //     outputDir: './uiTestResult',
+    //     // outputFileFormat: function(opts) {
+    //     //   return `results-${opts.cid}.${opts.capabilities}.json`;
+    //     // },
+    //   },
+    // ],
   ],
-  reporterSyncInterval: 20000,
+  // reporterSyncInterval: 5000,
   specs: [`${specsPath}/features/**/*.feature`],
   cucumberOpts: {
     'require': [

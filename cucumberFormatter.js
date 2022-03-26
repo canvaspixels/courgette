@@ -1,4 +1,5 @@
-const events = require('events');
+// const events = require('events');
+const WDIOReporter = require(`@wdio/reporter`).default;
 const clc = require('cli-color');
 
 const esc = {
@@ -16,16 +17,16 @@ const color = (...args) => {
   return args.join(' ')
 }
 const timeTrim = (num) => (`00${num}`).slice(-2);
-class CucumberReporter extends events.EventEmitter {
-    constructor (baseReporter, config, options = {}) {
-        super()
-
-        this.baseReporter = baseReporter
+let hitFailure = false
+class CucumberReporter extends WDIOReporter {
+    constructor (options) {
+        options = Object.assign(options, { stdout: true })
+        super(options)
 
         this.on('suite:start', (p) => {
-          if (!this.isSynchronised) {
+          if (!hitFailure) {
             if (p.parent) {
-              this.printLine(`${esc.nl}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${clc.blueBright('Scenario')}: ${p.title}`)
+              this.printLine(`${esc.sp}${esc.sp}${esc.sp}${esc.sp}${clc.blueBright('Scenario')}: ${p.title}`)
             } else {
               this.printLine(`${esc.sp}${esc.sp}${clc.blueBright('Feature')}: ${p.title}`)
             }
@@ -74,17 +75,20 @@ class CucumberReporter extends events.EventEmitter {
 // [0-0]     '/Users/alexrogers/Projects/courgettejs/courgette/testsToValidateStepDefinitions/features/given.feature'
 // [0-0]   ]
 // [0-0] }
-
-          this.printLine(`${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+          console.log('tags: ', clc.redBright(p.tags.map(({ name }) => name).join(' - ')));
+          // this.printLine(`${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.title}`)
+          hitFailure = true
           // this.printLine(ssage', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.message}${esc.nl}`)
           // this.printLine(ack', `${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${esc.sp}${p.err.stack}${esc.nl}`)
-          this.isSynchronised = true
+          // this.isSynchronised = true
         })
 
         this.on('test:end', () => {
+          // this.isSynchronised = true
         })
 
         this.on('end', () => {
+          // this.isSynchronised = true
             this.printEpilogueEnd()
         })
     }

@@ -79,6 +79,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.1",
     "wdio-chromedriver-service": "7.3.2",
+    "wdio-cucumberjs-json-reporter": "4.4.1",
     "wdio-json-reporter": "3.0.0"
   },
   "browserslist": {
