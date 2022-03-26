@@ -8,7 +8,8 @@ module.exports = async function checkInputValue(locatorKey, isNot, expectedVal) 
     console.log('In file:', path.basename(__filename), el);
   }
 
-  const value = await el.getValue();
+  const value = await el.getAttribute('value');
+console.log('value', value);
   return isNot ?
     expect(value).to.not.equal(expectedVal) :
     expect(value).to.equal(expectedVal);
