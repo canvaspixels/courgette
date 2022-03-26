@@ -5,15 +5,14 @@ const { After } = require('@cucumber/cucumber');
 
 const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
-After(function attachScreenshotAfterHook(scenarioResult) {
+After(async function attachScreenshotAfterHook(scenarioResult) {
   this.attach('Hook Step: attachScreenshotAfterHook');
 
   const msg = `Screenshot of: ${this.scenarioName}\n`;
-
-  if (scenarioResult.result.status === 'failed' || scenarioResult.result.status === 'undefined') {
+  if (scenarioResult.result.status === 'FAILED' || scenarioResult.result.status === 'undefined') {
     console.log(msg);
-    const png = driver.takeScreenshot();
     const screenshotFilePath = path.join(pomConfig.screenshotPath || pomConfig.outputPath, `${this.scenarioName.replace(/ /g, '-')}-${Date.now()}.png`);
+    const png = await driver.saveScreenshot(screenshotFilePath);
     const stream = fs.createWriteStream(screenshotFilePath);
     console.log('*************************************\nScreenshotFilePath:');
     console.log(screenshotFilePath);
@@ -22,9 +21,5 @@ After(function attachScreenshotAfterHook(scenarioResult) {
     console.log('-------------------------------------');
     stream.write(Buffer.from(png, 'base64'));
     stream.end();
-    const bufferedImage = Buffer.from(png.replace(/^data:image\/(png|gif|jpeg);base64,/, ''), 'base64');
-    this.attach(msg);
-    this.attach('Scenario failed - screenshot attached.');
-    this.attach(bufferedImage, 'image/png');
   }
 });
