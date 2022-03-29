@@ -6,6 +6,8 @@ const { argv } = require('yargs');
 const Table = require('cli-table');
 require('colors');
 const os = require('os');
+const getFreePort = require('./scripts/freeport')
+let chromePort;
 
 const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
 
@@ -90,9 +92,12 @@ if (process.env.COURGETTE_DEBUG) {
   console.log('with tags: ', tags);
 }
 
+let rerunCount = 0
+
 const startRunner = () => {
   const spawnedProcess = spawn(cmd, args, {
     env: Object.assign({}, process.env, {
+      COURGETTE_CHROME_PORT: chromePort,
       COURGETTE_TAGS: tags,
       COURGETTE_CONF: confFile,
       COURGETTE_SHOW_STEP_DEFINITION_USAGE: process.env.COURGETTE_SHOW_STEP_DEFINITION_USAGE || argv.showStepDefinitionUsage || '',
@@ -149,7 +154,10 @@ const startRunner = () => {
       } else {
         log(yellow, step.result.error_message);
         if (step.result.error_message.includes('connect ECONNRESET')) {
-          startRunner()
+          if (rerunCount < 5) {
+            rerunCount += 1;
+            setTimeout(() => startRunner, 5000);
+          }
         }
       }
     } else if (step.result.status === 'undefined' && !pomConfig.forceSuccess) {
@@ -302,4 +310,7 @@ const startRunner = () => {
   });
 }
 
-startRunner()
+getFreePort().then((port) => {
+  chromePort = port
+  startRunner()
+})

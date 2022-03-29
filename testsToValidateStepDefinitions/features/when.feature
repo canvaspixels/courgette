@@ -4,13 +4,13 @@ Feature: Testing When steps
   Background: I am on the homepage
     Given I am on the 'Home' page
 
-  @when-upload-file-selector
-  Scenario: When I upload a file
-    When I set the file upload 'testsToValidateStepDefinitions/features/given.feature' to element with selector '[data-test="a-file"]'
+  # @when-upload-file-selector
+  # Scenario: When I upload a file
+  #   When I set the file upload 'testsToValidateStepDefinitions/features/given.feature' to element with selector '[data-test="a-file"]'
 
-  @when-upload-file
-  Scenario: When I upload a file
-    When I set the file upload 'testsToValidateStepDefinitions/features/given.feature' to the 'file upload'
+  # @when-upload-file
+  # Scenario: When I upload a file
+  #   When I set the file upload 'testsToValidateStepDefinitions/features/given.feature' to the 'file upload'
 
   @when-steps-append-value
   Scenario: When I append to a field
@@ -36,20 +36,20 @@ Feature: Testing When steps
     And I wait for 'non-existant element' to not exist
     Then I expect the value of the 'fullname' to be 'foo'
 
-  @when-steps-append-react-field
-  Scenario: When I append to a field in react
-    When I append 'hello' to react field 'email'
-    Then I expect the value of the 'email' to be 'hi@hello.comhello'
+  # @when-steps-append-react-field
+  # Scenario: When I append to a field in react
+  #   When I append 'hello' to react field 'email'
+  #   Then I expect the value of the 'email' to be 'hi@hello.comhello'
 
-  @when-steps-set-react-field
-  Scenario: When I set text in a field in react
-    When I set react field 'fullname' to 'foo'
-    Then I expect the value of the 'fullname' to be 'foo'
+  # @when-steps-set-react-field
+  # Scenario: When I set text in a field in react
+  #   When I set react field 'fullname' to 'foo'
+  #   Then I expect the value of the 'fullname' to be 'foo'
 
-  @when-steps-clear-then-set-react-value
-  Scenario: When I append to a field
-    When I set react field 'email' to 'hello'
-    Then I expect the value of the 'email' to be 'hello'
+  # @when-steps-clear-then-set-react-value
+  # Scenario: When I append to a field
+  #   When I set react field 'email' to 'hello'
+  #   Then I expect the value of the 'email' to be 'hello'
 
   # TODO: see comment in: https://github.com/canvaspixels/courgette/issues/16
   # @when-steps-submit-form

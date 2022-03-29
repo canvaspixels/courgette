@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = async function checkContainsText(locatorKey, containsStr, expectedText) {
   const pageObj = await this.getCurrentPage();
+
   const el = await pageObj.getElement(locatorKey);
 
   if (process.env.COURGETTE_DEBUG) {

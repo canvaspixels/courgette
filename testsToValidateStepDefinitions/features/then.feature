@@ -43,17 +43,17 @@ Feature: Testing Then steps
   Scenario: Then the element is hidden
     Then I expect the 'hidden field' to be hidden
 
-  @then-steps-border-colour
-  Scenario: Then the border colour is
-    Then I expect the bottom border colour of the 'main heading' to be 'rgba(255, 0, 255, 1)'
+  # @then-steps-border-colour
+  # Scenario: Then the border colour is
+  #   Then I expect the bottom border colour of the 'main heading' to be 'rgba(255, 0, 255, 1)'
 
-  @then-steps-colour
-  Scenario: Then the colour is
-    Then I expect the colour of the 'main heading' to be 'rgba(13, 105, 227, 1)'
+  # @then-steps-colour
+  # Scenario: Then the colour is
+  #   Then I expect the colour of the 'main heading' to be 'rgba(13, 105, 227, 1)'
 
-  @then-steps-background-colour
-  Scenario: Then the background colour is
-    Then I expect the background colour of the 'main container' to be 'rgba(220, 220, 220, 1)'
+  # @then-steps-background-colour
+  # Scenario: Then the background colour is
+  #   Then I expect the background colour of the 'main container' to be 'rgba(220, 220, 220, 1)'
 
   @then-steps-title
   Scenario: Then the title is React App
@@ -129,15 +129,15 @@ Feature: Testing Then steps
     And I set the cookie 'gdpr-banner-clicked' with value 'true'
     Then I expect cookie 'gdpr-banner-clicked' to not contain 'foo'
 
-  @then-steps-cookie-exists
-  Scenario: Then the cookie exists
-    And I set the cookie 'gdpr-banner-clicked' with value 'true'
-    Then I expect cookie 'gdpr-banner-clicked' to exist
-
   @then-steps-cookie-to-not-exist
   Scenario: Then the cookie does not exist
     And I set the cookie 'cookie-crisp' with value 'true'
     Then I expect cookie 'gdpr-banner-clicked' to not exist
+
+  @then-steps-cookie-exists
+  Scenario: Then the cookie exists
+    And I set the cookie 'gdpr-banner-clicked' with value 'true'
+    Then I expect cookie 'gdpr-banner-clicked' to exist
 
   @then-steps-class-name
   Scenario: Then the class name

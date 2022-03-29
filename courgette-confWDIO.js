@@ -1,5 +1,5 @@
 const path = require('path');
-const CucumberFormatter = require('./cucumberFormatter')
+const CucumberFormatter = require('./cucumberFormatter');
 // const PrettyFormatter = require('@cucumber/pretty-formatter').default
 
 const specsPath = 'testsToValidateStepDefinitions';
@@ -54,7 +54,11 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   bail: 1, // (default is 0 - don't bail, run all tests).
   waitforTimeout: process.env.COURGETTE_TIMEOUT * 1000,
   connectionRetryCount: 2,
-  services: ['chromedriver'],
+  services: [
+    ['chromedriver', {
+      port: 7676,
+    }],
+  ],
   framework: 'cucumber',
   reporters: [
     maxInstances > 1 ? 'spec' : CucumberFormatter,
@@ -82,12 +86,12 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
       // `${specsPath}/helpers/globals.js`,
       `${courgettePath}/globals.js`,
       `${courgettePath}/hooksWDIO/pageObjectModelBefore.js`,
+      `${courgettePath}/hooksWDIO/addMethodsBefore.js`,
       `${courgettePath}/hooksWDIO/setDefaultTimeout.js`,
       `${courgettePath}/stepDefinitionsWDIO/commonGivenSteps.js`,
       `${courgettePath}/stepDefinitionsWDIO/commonWhenSteps.js`,
       `${courgettePath}/stepDefinitionsWDIO/commonThenSteps.js`,
-      `${specsPath}/step-definitions/*.js`,
-      // `${specsPath}/helpers/hooks.js`,
+      `${specsPath}/stepDefinitions/*.js`,
       `${courgettePath}/hooksWDIO/attachScenarioNameBefore.js`,
       `${courgettePath}/hooksWDIO/attachScreenshotAfter.js`,
     ],

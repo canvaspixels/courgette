@@ -95,6 +95,7 @@ const steps = [
   {
     matcher: "take a screenshot called 'STRING'", path: './actions/takeScreenshot', code: 'screenshotcalled', pageObjectNotRequired: true,
   },
+  { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
 
   // LOWER PRIORITY
   // {
@@ -105,7 +106,6 @@ const steps = [
   // },
   // { matcher: "I expect the colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementColour', code: 'colour' },
   // { matcher: "I expect the background colour of the 'LOCATOR' to be 'STRING'", path: './checks/checkElementBackgroundColour', code: 'backgroundcolour' },
-  // { matcher: "I expect(?: the)? 'LOCATOR' to( not)* have the class 'CLASS_NAME'", path: './checks/checkClass', code: 'classname' },
   // { matcher: "I expect(?: the)? 'LOCATOR' to be focused", path: './checks/checkFocus', code: 'focused' },
 ];
 

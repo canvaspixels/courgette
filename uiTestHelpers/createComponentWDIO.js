@@ -4,9 +4,9 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
   const components = {};
   const locators = elLocators;
 
-  const locatorErrorCheck = (locator) => {
+  const locatorErrorCheck = async (locator) => {
     if (!locators[locator]) {
-      console.log(`Error: The locator named "${locator}" does not exist for the ${name} ${type}`);
+      return Promise.reject(`Error: The locator named "${locator}" does not exist for the ${name} ${type}`);
     }
   };
 
@@ -45,26 +45,32 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
     },
 
     getElement: async (locatorKey) => {
-      locatorErrorCheck(locatorKey);
+      try {
+        await locatorErrorCheck(locatorKey);
+      } catch (e) {
+        return Promise.reject(e);
+      }
       const selector = await locators[locatorKey].selector;
       if (process.env.COURGETTE_DEBUG) {
         console.log('screen: ', world.screen);
         console.log('getElement, locator key: ', locatorKey);
         console.log('translates to selector from page object: ', selector);
       }
-
       return browser.$(selector);
     },
 
     getElements: async (locatorKey) => {
-      locatorErrorCheck(locatorKey);
+      try {
+        await locatorErrorCheck(locatorKey);
+      } catch (e) {
+        return Promise.reject(e);
+      }
       const selector = await locators[locatorKey].selector;
       if (process.env.COURGETTE_DEBUG) {
         console.log('screen: ', world.screen);
         console.log('getElements, locator key: ', locatorKey);
         console.log('translates to selector from page object: ', selector);
       }
-
       return browser.$$(selector);
     },
 

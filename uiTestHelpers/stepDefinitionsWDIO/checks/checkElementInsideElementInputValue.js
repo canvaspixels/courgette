@@ -8,9 +8,9 @@ module.exports = async function checkElementInsideElementInputValue(locatorKey2,
     console.log('In file:', path.basename(__filename), el);
   }
 
-  const value = await el.getAttribute('value');
+  const value = await el.getValue();
 
   return isNot ?
-    expect(value).to.not.equal(expectedVal) :
-    expect(value).to.equal(expectedVal);
+    expect(value).to.not.equal(expectedVal ?? '') :
+    expect(value).to.equal(expectedVal ?? '');
 };

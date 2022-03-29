@@ -58,9 +58,6 @@ const steps = [
   //   notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16)', // eslint-disable-line
   //   pageObjectNotRequired: true,
   // },
-  // {
-  //   matcher: "I submit the(?: form)? 'LOCATOR'", path: './actions/submitForm', code: 'submit', notes: '[This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359)',
-  // },
 ];
 
 if (!argv.genFiles) {

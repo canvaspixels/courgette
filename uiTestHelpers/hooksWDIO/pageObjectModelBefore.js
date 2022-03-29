@@ -13,7 +13,7 @@ const validateKeys = (doc, objPath, validKeysOpt, isComponent) => {
   const validKeys = validKeysOpt || ['path', 'components', 'selectors', 'extends'];
   Object.keys(doc).forEach((key) => {
     if (!validKeys.includes(key.toLowerCase())) {
-      throw new Error(`"${key}" is not valid inside ${objPath}. The only valid items for a ${isComponent ? 'component' : 'page'} object are: \n\t${validKeys.join('\n\t')}\n\n`);
+      console.error(`"${key}" is not valid inside ${objPath}. The only valid items for a ${isComponent ? 'component' : 'page'} object are: \n\t${validKeys.join('\n\t')}\n\n`);
     }
   });
 };
@@ -25,14 +25,6 @@ const getObjFromDoc = (doc, keyToFind) => {
   }
   return undefined;
 };
-
-// const checkForCollisionsAcrossSelectorTypes = (obj1, obj2, fileName) => {
-//   Object.keys(obj1).forEach((key) => {
-//     if (obj2[key]) {
-//       throw new Error(`"${key}" is duplicated in the following page object: ${fileName}`);
-//     }
-//   });
-// };
 
 let createComponentObject;
 const getComponent = (name) => {
@@ -132,15 +124,20 @@ Before(function pomBeforeHook() {
         const extendsPageObj = getObjFromDoc(doc, 'extends');
         if (extendsPageObj) {
           const extendingYamlPagePath = path.resolve(pomConfig.pagesPath, extendsPageObj);
+          console.log('extendingYamlPagePath, ', extendingYamlPagePath);
           try {
-            const docExtending = yaml.parse(fs.readFileSync(extendingYamlPagePath, 'utf8'));
+            const fileToBeExtended = fs.readFileSync(extendingYamlPagePath, 'utf8')
+            console.log('fileToBeExtended', fileToBeExtended);
+            const docExtending = yaml.parse(fileToBeExtended);
+            console.log('docExtending', docExtending);
             validateKeys(docExtending, extendingYamlPagePath);
+            console.log('validateKeys', validateKeys);
             if (!components) {
               components = getObjFromDoc(docExtending, 'components');
             }
             selectors = Object.assign({}, getObjFromDoc(docExtending, 'selectors') || {}, selectors || {});
           } catch (e) {
-            console.log(`The following extends file does not exist: ${extendingYamlPagePath}`);
+            console.error(`The following extends file does not exist: ${extendingYamlPagePath}`);
           }
         }
 
@@ -153,19 +150,6 @@ Before(function pomBeforeHook() {
       } catch (e) {
         console.log(e);
         throw new Error(e);
-      }
-    } else {
-      // try the .js version
-      try {
-        const page = require(path.resolve(pomConfig.pagesPath, name));
-
-        if (updateCurrentPage) {
-          this.currentPage = page(this);
-        }
-        return page(this);
-      } catch (err) {
-        console.log(err);
-        throw new Error(`Page object ${name} not found at ${pomConfig.pagesPath}/${name}.js nor ${pomConfig.pagesPath}/${name}.page`);
       }
     }
   };
