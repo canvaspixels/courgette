@@ -310,7 +310,7 @@ const startRunner = () => {
   });
 }
 
-getFreePort().then((port) => {
+getFreePort(7600, 7700).then((port) => {
   chromePort = port
   startRunner()
 })
