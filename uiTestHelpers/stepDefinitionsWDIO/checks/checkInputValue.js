@@ -10,6 +10,6 @@ module.exports = async function checkInputValue(locatorKey, isNot, expectedVal) 
 
   const value = await el.getValue();
   return isNot ?
-    expect(value).to.not.equal(expectedVal ?? '') :
-    expect(value).to.equal(expectedVal ?? '');
+    expect(value).to.not.equal(expectedVal || '') :
+    expect(value).to.equal(expectedVal || '');
 };

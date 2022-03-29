@@ -11,6 +11,6 @@ module.exports = async function checkElementInsideElementInputValue(locatorKey2,
   const value = await el.getValue();
 
   return isNot ?
-    expect(value).to.not.equal(expectedVal ?? '') :
-    expect(value).to.equal(expectedVal ?? '');
+    expect(value).to.not.equal(expectedVal || '') :
+    expect(value).to.equal(expectedVal || '');
 };

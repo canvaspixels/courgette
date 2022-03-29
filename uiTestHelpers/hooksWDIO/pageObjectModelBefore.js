@@ -127,11 +127,8 @@ Before(function pomBeforeHook() {
           console.log('extendingYamlPagePath, ', extendingYamlPagePath);
           try {
             const fileToBeExtended = fs.readFileSync(extendingYamlPagePath, 'utf8')
-            console.log('fileToBeExtended', fileToBeExtended);
             const docExtending = yaml.parse(fileToBeExtended);
-            console.log('docExtending', docExtending);
             validateKeys(docExtending, extendingYamlPagePath);
-            console.log('validateKeys', validateKeys);
             if (!components) {
               components = getObjFromDoc(docExtending, 'components');
             }

@@ -56,7 +56,7 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   connectionRetryCount: 2,
   services: [
     ['chromedriver', {
-      port: process.env.COURGETTE_CHROME_PORT || 7676,
+      port: Number(process.env.COURGETTE_CHROME_PORT) || 7676,
     }],
   ],
   framework: 'cucumber',

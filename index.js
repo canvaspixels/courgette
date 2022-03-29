@@ -87,14 +87,14 @@ const firstArg = process.argv && process.argv[2];
 let tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
 tags = (tags || argv.tags || '').replace(',', ' or ');
 
-if (process.env.COURGETTE_DEBUG) {
-  console.log('spawning courgette process: ', cmd, args.join(' '));
-  console.log('with tags: ', tags);
-}
-
 let rerunCount = 0
 
 const startRunner = () => {
+  if (process.env.COURGETTE_DEBUG) {
+    console.log('spawning courgette process: ', cmd, args.join(' '));
+    console.log('with tags: ', tags);
+    console.log('on port: ', chromePort);
+  }
   const spawnedProcess = spawn(cmd, args, {
     env: Object.assign({}, process.env, {
       COURGETTE_CHROME_PORT: chromePort,

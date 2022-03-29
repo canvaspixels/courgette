@@ -119,6 +119,11 @@ Feature: Testing Then steps
   Scenario: Then the element is disabled
     Then I expect the 'disabled button' to be disabled
 
+  @then-steps-cookie-to-not-exist
+  Scenario: Then the cookie does not exist
+    And I set the cookie 'cookie-crisp' with value 'true'
+    Then I expect cookie 'gdpr-banner-clicked' to not exist
+
   @then-steps-cookie-to-contain
   Scenario: Then the cookie contains x
     And I set the cookie 'gdpr-banner-clicked' with value 'true'
@@ -128,11 +133,6 @@ Feature: Testing Then steps
   Scenario: Then the cookie does not contain x
     And I set the cookie 'gdpr-banner-clicked' with value 'true'
     Then I expect cookie 'gdpr-banner-clicked' to not contain 'foo'
-
-  @then-steps-cookie-to-not-exist
-  Scenario: Then the cookie does not exist
-    And I set the cookie 'cookie-crisp' with value 'true'
-    Then I expect cookie 'gdpr-banner-clicked' to not exist
 
   @then-steps-cookie-exists
   Scenario: Then the cookie exists
