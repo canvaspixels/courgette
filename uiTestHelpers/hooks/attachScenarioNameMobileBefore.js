@@ -1,4 +1,4 @@
-const { Before } = require('cucumber');
+const { Before } = require('@cucumber/cucumber');
 
 Before(function attachScenariosNameBeforeHook(scenarioResult) {
   this.attach('Hook Step: attachScenariosNameBeforeHook');

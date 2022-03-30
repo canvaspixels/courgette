@@ -1,4 +1,4 @@
-const { Before, After } = require('cucumber');
+const { Before, After } = require('@cucumber/cucumber');
 
 Before(async () => {
   console.log('Launch the app');

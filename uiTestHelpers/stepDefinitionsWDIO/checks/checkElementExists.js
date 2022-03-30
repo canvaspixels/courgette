@@ -1,4 +1,5 @@
 const path = require('path');
+
 const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 const timeoutInSeconds = pomConfig.timeoutInSeconds || 8;
 

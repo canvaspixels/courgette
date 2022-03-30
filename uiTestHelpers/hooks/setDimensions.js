@@ -1,4 +1,4 @@
-const { Before } = require('cucumber');
+const { Before } = require('@cucumber/cucumber');
 
 Before(async function () {
   console.log('            Set browser width and height');

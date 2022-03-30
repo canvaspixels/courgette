@@ -1,6 +1,6 @@
 const { argv } = require('yargs');
 
-const { When } = require('cucumber');
+const { When } = require('@cucumber/cucumber');
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 // TODO:

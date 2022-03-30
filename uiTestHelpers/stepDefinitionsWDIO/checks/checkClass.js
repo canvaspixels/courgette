@@ -11,6 +11,6 @@ module.exports = async function checkAttribute(locatorKey, doesNotContain, class
   const classNameToBeChecked = await el.getAttribute('class');
 
   return doesNotContain ?
-        expect(classNameToBeChecked).to.not.include(className) :
-        expect(classNameToBeChecked).to.be.include(className);
+    expect(classNameToBeChecked).to.not.include(className) :
+    expect(classNameToBeChecked).to.be.include(className);
 };

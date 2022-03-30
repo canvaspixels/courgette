@@ -51,13 +51,6 @@ const steps = [
   //   code: 'appendreact',
   //   notes: 'Sets the value to the input then fires React’s version of the onChange event, so that any actions fire',
   // },
-  // {
-  //   matcher: "I press 'KEY'",
-  //   path: './actions/pressKey',
-  //   code: 'key',
-  //   notes: '[See list of possible keys](https://gist.github.com/canvaspixels/a5793fe712743dda9216eef06cc96022) - [This only works in ChromeDriver](https://github.com/canvaspixels/courgette/issues/16)', // eslint-disable-line
-  //   pageObjectNotRequired: true,
-  // },
 ];
 
 if (!argv.genFiles) {

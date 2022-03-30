@@ -3,7 +3,7 @@ const createComponent = require('./createComponentWDIO');
 // eslint-disable-next-line
 const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 
-module.exports = (name, world, pageUrl, elLocators, opts = { timeoutInSeconds: 10 }, customMethods = {}) =>
+module.exports = (name, world, pageUrl, elLocators, customMethods = {}) =>
   Object.assign(
     {},
     createComponent(name, world, elLocators, 'page'),

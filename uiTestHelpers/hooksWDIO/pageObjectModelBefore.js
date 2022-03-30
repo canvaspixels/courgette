@@ -84,7 +84,7 @@ const createPageObject = (fileName, world, pagePath, components, a11ySelectors =
 
   const locators = Object.assign({}, a11yLocators);
 
-  const page = createPage(fileName, world, pagePath, locators, { timeoutInSeconds: pomConfig.timeoutInSeconds });
+  const page = createPage(fileName, world, pagePath, locators);
 
   if (components) {
     const componentObjects = components.map((componentName) => getComponent(componentName));
@@ -126,7 +126,7 @@ Before(function pomBeforeHook() {
           const extendingYamlPagePath = path.resolve(pomConfig.pagesPath, extendsPageObj);
           console.log('extendingYamlPagePath, ', extendingYamlPagePath);
           try {
-            const fileToBeExtended = fs.readFileSync(extendingYamlPagePath, 'utf8')
+            const fileToBeExtended = fs.readFileSync(extendingYamlPagePath, 'utf8');
             const docExtending = yaml.parse(fileToBeExtended);
             validateKeys(docExtending, extendingYamlPagePath);
             if (!components) {
@@ -149,6 +149,7 @@ Before(function pomBeforeHook() {
         throw new Error(e);
       }
     }
+    return Promise.resolve();
   };
 
   this.getCurrentPage = () => {

@@ -31,14 +31,14 @@ if (process.env.COURGETTE_DEBUG) {
 
 const runHeadless = !(process.env.COURGETTE_HEADLESS === 'false' || process.env.DH);
 
-const maxInstances = process.env.COURGETTE_MAX_INSTANCES || 1
+const maxInstances = process.env.COURGETTE_MAX_INSTANCES || 1;
 
 exports.config = { // see https://webdriver.io/docs/configurationfile.html
   port: 4723,
   exclude: [],
-  maxInstances: maxInstances,
+  maxInstances,
   capabilities: [{
-    maxInstances: maxInstances,
+    maxInstances,
     browserName: 'chrome',
     acceptInsecureCerts: true,
     'goog:chromeOptions': {
@@ -63,11 +63,11 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   reporters: [
     maxInstances > 1 ? 'spec' : CucumberFormatter,
 
-    [ 'cucumberjs-json', {
-              jsonFolder: `./${outputPath}`,
-              language: 'en',
-          },
-      ],
+    ['cucumberjs-json', {
+      jsonFolder: `./${outputPath}`,
+      language: 'en',
+    },
+    ],
     // [
     //   'json',
     //   {

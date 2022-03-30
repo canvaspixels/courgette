@@ -1,6 +1,6 @@
 const { argv } = require('yargs');
 
-const { Given } = require('cucumber');
+const { Given } = require('@cucumber/cucumber');
 const placeholders = require('../../placeholders'); // eslint-disable-line
 
 // TODO: add url contains

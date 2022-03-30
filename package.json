@@ -46,6 +46,7 @@
   "author": "Alex Rogers",
   "license": "MIT",
   "dependencies": {
+    "@wdio/reporter": "7.19.1",
     "babel-core": "^6.26.3",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",

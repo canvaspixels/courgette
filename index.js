@@ -6,7 +6,8 @@ const { argv } = require('yargs');
 const Table = require('cli-table');
 require('colors');
 const os = require('os');
-const getFreePort = require('./scripts/freeport')
+const getFreePort = require('./scripts/freeport');
+
 let chromePort;
 
 const generateScreenshotViewer = require('./uiTestHelpers/generateScreenshotViewer');
@@ -87,7 +88,7 @@ const firstArg = process.argv && process.argv[2];
 let tags = firstArg && firstArg.indexOf('--') !== 0 ? firstArg : null;
 tags = (tags || argv.tags || '').replace(',', ' or ');
 
-let rerunCount = 0
+let rerunCount = 0;
 
 const startRunner = () => {
   if (process.env.COURGETTE_DEBUG) {
@@ -119,7 +120,7 @@ const startRunner = () => {
       log(red, `\n------------------ Scenario Error --------------- ${el.name}`);
       log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
       log(yellow, `Step: ${step.keyword} ${step.name}`);
-      let { location } = step.match;
+      // let { location } = step.match;
       let stepsGroupStepsLength = 1;
       if (step.embeddings) {
         const stepsGroupSteps = step.embeddings.filter((attachItem) => {
@@ -140,7 +141,7 @@ const startRunner = () => {
           } catch (e) {} // eslint-disable-line no-empty
           if (lastStepsGroupStepData) {
             log(yellow, `    Steps group step: ${lastStepsGroupStepData.stepsGroupStep}`);
-            location = lastStepsGroupStepData.stepsFile;
+            // location = lastStepsGroupStepData.stepsFile;
           }
         }
       }
@@ -308,9 +309,9 @@ const startRunner = () => {
       process.exitCode = totalCount === successCount ? 0 : 1;
     }
   });
-}
+};
 
 getFreePort(7600, 7700).then((port) => {
-  chromePort = port
-  startRunner()
-})
+  chromePort = port;
+  startRunner();
+});

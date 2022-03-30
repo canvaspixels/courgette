@@ -6,8 +6,9 @@ module.exports = (name, world, elLocators, type = 'component', customMethods = {
 
   const locatorErrorCheck = async (locator) => {
     if (!locators[locator]) {
-      return Promise.reject(`Error: The locator named "${locator}" does not exist for the ${name} ${type}`);
+      return Promise.reject(new Error(`Error: The locator named "${locator}" does not exist for the ${name} ${type}`));
     }
+    return Promise.resolve();
   };
 
   return Object.assign({}, {
