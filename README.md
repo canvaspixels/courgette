@@ -1,7 +1,5 @@
 # Courgette - Bringing sanity to test automation with Selenium
-Documentation has been moved to [Courgette-Testing.com](http://courgette-testing.com)
-
-This project was formerly known as Cuketractor (formerly cucumber-protractor on npm)
+Documentation: [Courgette-Testing.com](http://courgette-testing.com)
 
 ![courgette](https://raw.githubusercontent.com/canvaspixels/courgette/master/courgette.jpg?v=2)
 
@@ -29,10 +27,7 @@ To get started:
 
 1. Clone this repository and cd into it
 2. Install nodeJS if you don't already have it
-3. Install node_modules `npm install`
-4. Install selenium's latest Chromedriver `npm run install-chromedriver`. Note: on some linux distributions, the Chrome version isn't always the latest. Just make sure your Chrome version number matches the Chromedriver version number. Refer to [webdriver-manager](https://github.com/angular/webdriver-manager) for further help. It may be that you need to run:
-`./node_modules/protractor/bin/webdriver-manager update --versions.chrome=79`
-5. Run the tests `npm run ct`
+4. Run the tests `npm run ct`
 
 If you have any problems with the above steps, please create an issue.
 

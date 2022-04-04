@@ -1,6 +1,5 @@
 const path = require('path');
 const CucumberFormatter = require('./cucumberFormatter');
-// const PrettyFormatter = require('@cucumber/pretty-formatter').default
 
 const specsPath = 'testsToValidateStepDefinitions';
 const outputPath = 'uiTestResult';
@@ -62,11 +61,11 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
   framework: 'cucumber',
   reporters: [
     maxInstances > 1 ? 'spec' : CucumberFormatter,
-
-    ['cucumberjs-json', {
-      jsonFolder: `./${outputPath}`,
-      language: 'en',
-    },
+    [
+      'cucumberjs-json', {
+        jsonFolder: `./${outputPath}`,
+        language: 'en',
+      },
     ],
     // [
     //   'json',
@@ -78,12 +77,10 @@ exports.config = { // see https://webdriver.io/docs/configurationfile.html
     //   },
     // ],
   ],
-  // reporterSyncInterval: 5000,
   specs: [`${specsPath}/features/**/*.feature`],
   cucumberOpts: {
     'require': [
       `${courgettePath}/hooksWDIO/loadSteps.js`,
-      // `${specsPath}/helpers/globals.js`,
       `${courgettePath}/globals.js`,
       `${courgettePath}/hooksWDIO/pageObjectModelBefore.js`,
       `${courgettePath}/hooksWDIO/addMethodsBefore.js`,

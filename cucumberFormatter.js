@@ -1,4 +1,3 @@
-// const events = require('events');
 const WDIOReporter = require('@wdio/reporter').default;
 const clc = require('cli-color');
 
@@ -7,12 +6,6 @@ const esc = {
   nl: '\n',
 };
 
-/**
- * Initialize a new `Specs` matrix test reporter.
- *
- * @param {Runner} runner
- * @api public
- */
 const color = (...args) => args.join(' ');
 const timeTrim = (num) => (`00${num}`).slice(-2);
 let hitFailure = false;
