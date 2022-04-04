@@ -1,6 +1,0 @@
-<snippet>
-  <content><![CDATA[
-${1:Then} I expect to be on the '${2:PAGE_NAME}' page
-]]></content>
-  <tabTrigger>thenonpage</tabTrigger>
-</snippet>

@@ -4,9 +4,9 @@
 // To gen snippets just in ide
 // node scripts/generateSnippetsAtom.js --genFiles --justForIDE
 
-const givenSteps = require('../uiTestHelpers/stepDefinitions/commonGivenSteps');
-const whenSteps = require('../uiTestHelpers/stepDefinitions/commonWhenSteps');
-const thenSteps = require('../uiTestHelpers/stepDefinitions/commonThenSteps');
+const givenSteps = require('../uiTestHelpers/stepDefinitionsWDIO/commonGivenSteps');
+const whenSteps = require('../uiTestHelpers/stepDefinitionsWDIO/commonWhenSteps');
+const thenSteps = require('../uiTestHelpers/stepDefinitionsWDIO/commonThenSteps');
 const mobileGivenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonGivenSteps');
 const mobileWhenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonWhenSteps');
 const mobileThenSteps = require('../uiTestHelpers/mobileStepDefinitions/commonThenSteps');
