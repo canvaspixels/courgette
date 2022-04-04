@@ -23,7 +23,7 @@ const log = (...args) => {
   console.log(...args);
 };
 
-log('Nom nom... off we go!');
+log('Courgette initialising!!...');
 // (function() {
 //   var P = ["\\", "|", "/", "-"];
 //   var x = 0;

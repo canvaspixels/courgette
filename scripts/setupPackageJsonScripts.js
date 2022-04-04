@@ -17,8 +17,8 @@ const setupPackageJsonScripts = async function () {
     console.log('added ct script to your package.json');
     await runScript(addScriptToPackageJson, ['courgette', scriptToAdd]);
     console.log('added courgette script to your package.json');
-    await runScript(addScriptToPackageJson, ['install-firefoxdriver', './node_modules/protractor/bin/webdriver-manager update --chrome=false']);
-    console.log('added install-firefoxdriver to your package.json');
+    // await runScript(addScriptToPackageJson, ['install-firefoxdriver', './node_modules/protractor/bin/webdriver-manager update --chrome=false']);
+    // console.log('added install-firefoxdriver to your package.json');
     await runScript(addScriptToPackageJson, ['install-chromedriver', './node_modules/protractor/bin/webdriver-manager update --gecko=false']);
     console.log('added install-chromedriver to your package.json');
     await runScript(addScriptToPackageJson, ['postinstall', 'npm run install-chromedriver']);
