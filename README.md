@@ -27,7 +27,9 @@ To get started:
 
 1. Clone this repository and cd into it
 2. Install nodeJS if you don't already have it
-4. Run the tests `npm run ct`
+3. Install node_modules `npm install`
+4. Read the [Getting started page](https://courgette-testing.com/getting-started)
+5. Run the tests `npm run ct`
 
 If you have any problems with the above steps, please create an issue.
 

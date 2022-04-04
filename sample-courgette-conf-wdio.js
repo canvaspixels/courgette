@@ -1,4 +1,5 @@
 const path = require('path');
+
 const CucumberFormatter = require(path.join(process.cwd(), 'node_modules/courgette/cucumberFormatter.js'));
 
 const specsPath = 'uiTests';
