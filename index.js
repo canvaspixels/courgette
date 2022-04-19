@@ -120,6 +120,7 @@ const startRunner = () => {
       log(red, `\n------------------ Scenario Error --------------- ${el.name}`);
       log(yellow, `Tags: ${el.tags.map((tag) => tag.name).join(', ')}`);
       log(yellow, `Step: ${step.keyword} ${step.name}`);
+      // TODO WDIO - look into why location isn't in the json
       // let { location } = step.match;
       let stepsGroupStepsLength = 1;
       if (step.embeddings) {
