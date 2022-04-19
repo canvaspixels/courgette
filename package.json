@@ -1,6 +1,6 @@
 {
   "name": "courgette",
-  "version": "4.1.1",
+  "version": "5.0.0",
   "description": "Courgette - Bootstrap your cucumber tests with cucumber, protractor and a structured way of creating page objects and component objects",
   "main": "index.js",
   "scripts": {
@@ -47,7 +47,6 @@
   "license": "MIT",
   "dependencies": {
     "@wdio/reporter": "7.19.1",
-    "babel-core": "^6.26.3",
     "chai": "^4.1.2",
     "chai-as-promised": "^7.1.1",
     "cli-color": "2.0.1",

@@ -2,13 +2,13 @@
 
 ### From Protractor to WebdriverIO (WDIO)
 
-Due to [Protractor ending development](https://github.com/angular/protractor/issues/5502), WDIO will now be used instead going forward.
+Due to [Protractor ending development](https://github.com/angular/protractor/issues/5502), WDIO will now be used instead of Protractor going forward.
 
 ### What this means for you...
 
 * The biggest thing is that you'll need a new config. See the [courgette-conf.js](https://github.com/canvaspixels/courgette/blob/master/courgette-conf.js) inside the Courgette repo that's used to test that Courgette itself works (it runs a small website to test against).
 
-* The next biggest thing is that Courgette is doing away with `.js` page objects (and component objects). From now on only the YAML syntax is supported.
+* The next thing is that Courgette is doing away with `.js` page objects (and component objects). From now on only the YAML syntax is supported.
 
 * Built-in step definitions are still all the same as before however some have been removed (see below). However if you have made your own step definitions, you'll need to use WDIO methods where you've used Protractor methods. E.g. `browser.executeScript` becomes `browser.execute`. See all the methods on the WDIO site e.g. here: https://webdriver.io/docs/api/element/addValue/
 
