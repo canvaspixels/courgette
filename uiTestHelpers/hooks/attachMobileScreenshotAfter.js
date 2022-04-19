@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const { After } = require('cucumber');
+const { After } = require('@cucumber/cucumber');
 
 const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 

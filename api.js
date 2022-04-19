@@ -1,43 +1,42 @@
-const appendInputFieldValue = require('./uiTestHelpers/stepDefinitions/actions/appendInputFieldValue');
-const appendReactInputFieldValue = require('./uiTestHelpers/stepDefinitions/actions/appendReactInputFieldValue');
-const clearInputFieldValue = require('./uiTestHelpers/stepDefinitions/actions/clearInputFieldValue');
-const clickElement = require('./uiTestHelpers/stepDefinitions/actions/clickElement');
-const clickElementWithText = require('./uiTestHelpers/stepDefinitions/actions/clickElementWithText');
-const clickElementThatContainsText = require('./uiTestHelpers/stepDefinitions/actions/clickElementThatContainsText');
-const clickElementInsideElement = require('./uiTestHelpers/stepDefinitions/actions/clickElementInsideElement');
-const disableAnimations = require('./uiTestHelpers/stepDefinitions/actions/disableAnimations');
-const goToPage = require('./uiTestHelpers/stepDefinitions/actions/goToPage');
-const goToURL = require('./uiTestHelpers/stepDefinitions/actions/goToURL');
-const pressKey = require('./uiTestHelpers/stepDefinitions/actions/pressKey');
-const setCookie = require('./uiTestHelpers/stepDefinitions/actions/setCookie');
-const setInputFieldValue = require('./uiTestHelpers/stepDefinitions/actions/setInputFieldValue');
-const setReactInputFieldValue = require('./uiTestHelpers/stepDefinitions/actions/setReactInputFieldValue');
-const setSelectValueByOptionText = require('./uiTestHelpers/stepDefinitions/actions/setSelectValueByOptionText');
-const submitForm = require('./uiTestHelpers/stepDefinitions/actions/submitForm');
-const checkAttribute = require('./uiTestHelpers/stepDefinitions/checks/checkAttribute');
-const checkClass = require('./uiTestHelpers/stepDefinitions/checks/checkClass');
-const checkColour = require('./uiTestHelpers/stepDefinitions/checks/checkColour');
-const checkContainsAnyTextImport = require('./uiTestHelpers/stepDefinitions/checks/checkContainsAnyText');
-const checkContainsTextImport = require('./uiTestHelpers/stepDefinitions/checks/checkContainsText');
-const checkCookieContainsImport = require('./uiTestHelpers/stepDefinitions/checks/checkCookieContains');
-const checkCookieContentImport = require('./uiTestHelpers/stepDefinitions/checks/checkCookieContent');
-const checkCookieExistsImport = require('./uiTestHelpers/stepDefinitions/checks/checkCookieExists');
-const checkElementBackgroundColour = require('./uiTestHelpers/stepDefinitions/checks/checkElementBackgroundColour');
-const checkElementBorderColour = require('./uiTestHelpers/stepDefinitions/checks/checkElementBorderColour');
-const checkElementColour = require('./uiTestHelpers/stepDefinitions/checks/checkElementColour');
-const checkElementExistsImport = require('./uiTestHelpers/stepDefinitions/checks/checkElementExists');
-const checkElementExistsNTimesImport = require('./uiTestHelpers/stepDefinitions/checks/checkElementExistsNTimes');
-const setPageObjectThenCheckUrl = require('./uiTestHelpers/stepDefinitions/checks/setPageObjectThenCheckUrl');
-const checkFocus = require('./uiTestHelpers/stepDefinitions/checks/checkFocus');
-const checkInputIsEmptyImport = require('./uiTestHelpers/stepDefinitions/checks/checkInputIsEmpty');
-const checkInputValueImport = require('./uiTestHelpers/stepDefinitions/checks/checkInputValue');
-const checkIsEnabledImport = require('./uiTestHelpers/stepDefinitions/checks/checkIsEnabled');
-const checkIsOpenedInNewWindow = require('./uiTestHelpers/stepDefinitions/checks/checkIsOpenedInNewWindow');
-const checkIsSelectedImport = require('./uiTestHelpers/stepDefinitions/checks/checkIsSelected');
-const checkTitleImport = require('./uiTestHelpers/stepDefinitions/checks/checkTitle');
-const checkUrl = require('./uiTestHelpers/stepDefinitions/checks/checkUrl');
-const checkUrlContainsString = require('./uiTestHelpers/stepDefinitions/checks/checkUrlContainsString');
-const checkVisibility = require('./uiTestHelpers/stepDefinitions/checks/checkVisibility');
+const appendInputFieldValue = require('./uiTestHelpers/stepDefinitionsWDIO/actions/appendInputFieldValue');
+// const appendReactInputFieldValue = require('./uiTestHelpers/stepDefinitionsWDIO/actions/appendReactInputFieldValue');
+const clearInputFieldValue = require('./uiTestHelpers/stepDefinitionsWDIO/actions/clearInputFieldValue');
+const clickElement = require('./uiTestHelpers/stepDefinitionsWDIO/actions/clickElement');
+const clickElementWithText = require('./uiTestHelpers/stepDefinitionsWDIO/actions/clickElementWithText');
+const clickElementThatContainsText = require('./uiTestHelpers/stepDefinitionsWDIO/actions/clickElementThatContainsText');
+const clickElementInsideElement = require('./uiTestHelpers/stepDefinitionsWDIO/actions/clickElementInsideElement');
+const disableAnimations = require('./uiTestHelpers/stepDefinitionsWDIO/actions/disableAnimations');
+const goToPage = require('./uiTestHelpers/stepDefinitionsWDIO/actions/goToPage');
+const goToURL = require('./uiTestHelpers/stepDefinitionsWDIO/actions/goToURL');
+// const pressKey = require('./uiTestHelpers/stepDefinitionsWDIO/actions/pressKey');
+const setCookie = require('./uiTestHelpers/stepDefinitionsWDIO/actions/setCookie');
+const setInputFieldValue = require('./uiTestHelpers/stepDefinitionsWDIO/actions/setInputFieldValue');
+const setReactInputFieldValue = require('./uiTestHelpers/stepDefinitionsWDIO/actions/setReactInputFieldValue');
+const setSelectValueByOptionText = require('./uiTestHelpers/stepDefinitionsWDIO/actions/setSelectValueByOptionText');
+const checkAttribute = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkAttribute');
+const checkClass = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkClass');
+// const checkColour = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkColour');
+const checkContainsAnyTextImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkContainsAnyText');
+const checkContainsTextImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkContainsText');
+const checkCookieContainsImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkCookieContains');
+const checkCookieContentImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkCookieContent');
+const checkCookieExistsImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkCookieExists');
+// const checkElementBackgroundColour = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkElementBackgroundColour');
+// const checkElementBorderColour = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkElementBorderColour');
+// const checkElementColour = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkElementColour');
+const checkElementExistsImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkElementExists');
+const checkElementExistsNTimesImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkElementExistsNTimes');
+const setPageObjectThenCheckUrl = require('./uiTestHelpers/stepDefinitionsWDIO/checks/setPageObjectThenCheckUrl');
+// const checkFocus = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkFocus');
+const checkInputIsEmptyImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkInputIsEmpty');
+const checkInputValueImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkInputValue');
+const checkIsEnabledImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkIsEnabled');
+// const checkIsOpenedInNewWindow = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkIsOpenedInNewWindow');
+const checkIsSelectedImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkIsSelected');
+const checkTitleImport = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkTitle');
+const checkUrl = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkUrl');
+const checkUrlContainsString = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkUrlContainsString');
+const checkVisibility = require('./uiTestHelpers/stepDefinitionsWDIO/checks/checkVisibility');
 
 const pageObjectsNotRequired = [
   {
@@ -50,11 +49,11 @@ const pageObjectsNotRequired = [
     method: goToURL,
     methodArgs: ['url'],
   },
-  {
-    methodName: 'pressKey',
-    method: pressKey,
-    methodArgs: ['key'],
-  },
+  // {
+  //   methodName: 'pressKey',
+  //   method: pressKey,
+  //   methodArgs: ['key'],
+  // },
   {
     methodName: 'disableAnimations',
     method: disableAnimations,
@@ -145,11 +144,11 @@ const pageObjectsNotRequired = [
     },
     methodArgs: ['cookieName'],
   },
-  {
-    methodName: 'checkIsOpenedInNewWindow',
-    method: checkIsOpenedInNewWindow,
-    methodArgs: ['href'],
-  },
+  // {
+  //   methodName: 'checkIsOpenedInNewWindow',
+  //   method: checkIsOpenedInNewWindow,
+  //   methodArgs: ['href'],
+  // },
 ];
 
 const pageObjectsRequired = [
@@ -163,11 +162,11 @@ const pageObjectsRequired = [
     method: appendInputFieldValue,
     methodArgs: ['value', 'locatorKey'],
   },
-  {
-    methodName: 'appendReactInputFieldValue',
-    method: appendReactInputFieldValue,
-    methodArgs: ['text', 'locatorKey'],
-  },
+  // {
+  //   methodName: 'appendReactInputFieldValue',
+  //   method: appendReactInputFieldValue,
+  //   methodArgs: ['text', 'locatorKey'],
+  // },
   {
     methodName: 'clearInputFieldValue',
     method: clearInputFieldValue,
@@ -199,12 +198,6 @@ const pageObjectsRequired = [
     methodArgs: ['locatorKey', 'itemText'],
   },
   {
-    methodName: 'submitForm',
-    method: submitForm,
-    methodArgs: ['locatorKey'],
-    notes: '[This only works in ChromeDriver](https://github.com/SeleniumHQ/selenium/issues/4359)',
-  },
-  {
     methodName: 'checkAttribute',
     method: checkAttribute,
     methodArgs: ['locatorKey', 'expectedAttribute', 'expectedValue'],
@@ -223,11 +216,11 @@ const pageObjectsRequired = [
     },
     methodArgs: ['locatorKey', 'className'],
   },
-  {
-    methodName: 'checkColour',
-    method: checkColour,
-    methodArgs: ['locatorKey', 'expectedColour', 'property'],
-  },
+  // {
+  //   methodName: 'checkColour',
+  //   method: checkColour,
+  //   methodArgs: ['locatorKey', 'expectedColour', 'property'],
+  // },
   {
     methodName: 'checkContainsAnyText',
     method: function checkContainsAnyText(locatorKey) {
@@ -256,21 +249,21 @@ const pageObjectsRequired = [
     },
     methodArgs: ['locatorKey', 'expectedText'],
   },
-  {
-    methodName: 'checkElementBackgroundColour',
-    method: checkElementBackgroundColour,
-    methodArgs: ['locatorKey', 'expectedColour'],
-  },
-  {
-    methodName: 'checkElementBorderColour',
-    method: checkElementBorderColour,
-    methodArgs: ['position', 'locatorKey', 'expectedColour'],
-  },
-  {
-    methodName: 'checkElementColour',
-    method: checkElementColour,
-    methodArgs: ['locatorKey', 'expectedColour'],
-  },
+  // {
+  //   methodName: 'checkElementBackgroundColour',
+  //   method: checkElementBackgroundColour,
+  //   methodArgs: ['locatorKey', 'expectedColour'],
+  // },
+  // {
+  //   methodName: 'checkElementBorderColour',
+  //   method: checkElementBorderColour,
+  //   methodArgs: ['position', 'locatorKey', 'expectedColour'],
+  // },
+  // {
+  //   methodName: 'checkElementColour',
+  //   method: checkElementColour,
+  //   methodArgs: ['locatorKey', 'expectedColour'],
+  // },
   {
     methodName: 'checkElementExists',
     method: function checkElementExists(locatorKey) {
@@ -374,11 +367,11 @@ const pageObjectsRequired = [
     },
     methodArgs: ['locatorKey'],
   },
-  {
-    methodName: 'checkFocus',
-    method: checkFocus,
-    methodArgs: ['locatorKey'],
-  },
+  // {
+  //   methodName: 'checkFocus',
+  //   method: checkFocus,
+  //   methodArgs: ['locatorKey'],
+  // },
 ];
 
 module.exports = {

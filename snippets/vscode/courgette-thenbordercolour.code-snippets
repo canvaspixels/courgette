@@ -1,9 +1,0 @@
-{
-  "Print to console": {
-    "prefix": "thenbordercolour",
-    "body": [
-      "${1:Then} I expect the bottom|top|left|right border colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-    ],
-    "description": "${1:Then} I expect the bottom|top|left|right border colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-  }
-}

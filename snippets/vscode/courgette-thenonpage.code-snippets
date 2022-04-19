@@ -1,9 +1,0 @@
-{
-  "Print to console": {
-    "prefix": "thenonpage",
-    "body": [
-      "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
-    ],
-    "description": "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
-  }
-}

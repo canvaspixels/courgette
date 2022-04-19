@@ -9,10 +9,11 @@ Feature: Testing combined actions
     And I have set and appended a field
     Then I expect the value of the 'email' to be 'foo@bar.com'
 
-  @step-definition-actions-react-inputs
-  Scenario: I have set and appended a react field
-    And I have set and appended a react field
-    Then I expect the value of the 'email' to be 'foo@bar.com'
+  # TODO WDIO
+  # @step-definition-actions-react-inputs
+  # Scenario: I have set and appended a react field
+  #   And I have set and appended a react field
+  #   Then I expect the value of the 'email' to be 'foo@bar.com'
 
   @step-definition-actions-cleared-input
   Scenario: I have cleared and appended a field

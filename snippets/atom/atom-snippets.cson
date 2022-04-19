@@ -4,21 +4,6 @@
   "${1:Given} I am on the '${2:PAGE_NAME}' page":
     'prefix': 'givenonpage'
     'body': "${1:Given} I am on the '${2:PAGE_NAME}' page"
-  "${1:Given} I am on the page with url '${2:URL}'":
-    'prefix': 'givengotourl'
-    'body': "${1:Given} I am on the page with url '${2:URL}'"
-  "${1:Given} the page url is '${2:URL}'":
-    'prefix': 'givenpageurl'
-    'body': "${1:Given} the page url is '${2:URL}'"
-  "${1:Given} the page url is not '${2:URL}'":
-    'prefix': 'givennotpageurl'
-    'body': "${1:Given} the page url is not '${2:URL}'"
-  "${1:Given} the page url contains '${2:URL}'":
-    'prefix': 'givenurlcontains'
-    'body': "${1:Given} the page url contains '${2:URL}'"
-  "${1:Given} animations are disabled":
-    'prefix': 'givendisableAnimations'
-    'body': "${1:Given} animations are disabled"
   "${1:Given} the '${2:LOCATOR}' is visible":
     'prefix': 'givenvisible'
     'body': "${1:Given} the '${2:LOCATOR}' is visible"
@@ -49,12 +34,6 @@
   "${1:Given} the '${2:LOCATOR}' is not on the page":
     'prefix': 'givennotexists'
     'body': "${1:Given} the '${2:LOCATOR}' is not on the page"
-  "${1:Given} the title is '${2:STRING}'":
-    'prefix': 'giventitle'
-    'body': "${1:Given} the title is '${2:STRING}'"
-  "${1:Given} the title is not '${2:STRING}'":
-    'prefix': 'givennottitle'
-    'body': "${1:Given} the title is not '${2:STRING}'"
   "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'":
     'prefix': 'givencontainstext'
     'body': "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'"
@@ -82,6 +61,27 @@
   "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'":
     'prefix': 'givennotvalue'
     'body': "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'"
+  "${1:Given} I am on the page with url '${2:URL}'":
+    'prefix': 'givengotourl'
+    'body': "${1:Given} I am on the page with url '${2:URL}'"
+  "${1:Given} the page url is '${2:URL}'":
+    'prefix': 'givenpageurl'
+    'body': "${1:Given} the page url is '${2:URL}'"
+  "${1:Given} the page url is not '${2:URL}'":
+    'prefix': 'givennotpageurl'
+    'body': "${1:Given} the page url is not '${2:URL}'"
+  "${1:Given} the page url contains '${2:URL}'":
+    'prefix': 'givenurlcontains'
+    'body': "${1:Given} the page url contains '${2:URL}'"
+  "${1:Given} animations are disabled":
+    'prefix': 'givendisableAnimations'
+    'body': "${1:Given} animations are disabled"
+  "${1:Given} the title is '${2:STRING}'":
+    'prefix': 'giventitle'
+    'body': "${1:Given} the title is '${2:STRING}'"
+  "${1:Given} the title is not '${2:STRING}'":
+    'prefix': 'givennottitle'
+    'body': "${1:Given} the title is not '${2:STRING}'"
   "${1:Given} I set the cookie '${2:COOKIE_NAME}' with value '${3:VALUE}'":
     'prefix': 'givensetcookie'
     'body': "${1:Given} I set the cookie '${2:COOKIE_NAME}' with value '${3:VALUE}'"
@@ -100,57 +100,48 @@
   "${1:When} I wait '${2:VALUE}' seconds?":
     'prefix': 'whenwait'
     'body': "${1:When} I wait '${2:VALUE}' seconds?"
-  "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'":
-    'prefix': 'whenuploadfileselector'
-    'body': "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'"
-  "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'":
-    'prefix': 'whenclickelwithtext'
-    'body': "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
-  "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'":
-    'prefix': 'whenclickelcontainstext'
-    'body': "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'"
-  "${1:When} I press '${2:KEY}'":
-    'prefix': 'whenkey'
-    'body': "${1:When} I press '${2:KEY}'"
   "${1:When} I wait for the '${2:LOCATOR}' to exist":
     'prefix': 'whenwaitforelement'
     'body': "${1:When} I wait for the '${2:LOCATOR}' to exist"
   "${1:When} I wait for the '${2:LOCATOR}' to not exist":
     'prefix': 'whennotwaitforelement'
     'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
-  "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'":
-    'prefix': 'whenuploadfile'
-    'body': "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'"
+  "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'":
+    'prefix': 'whenscrolltoelement'
+    'body': "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'"
   "${1:When} I click the '${2:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "${1:When} I click the '${2:LOCATOR}'"
   "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'":
     'prefix': 'whenclickelinsideel'
     'body': "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'"
+  "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'":
+    'prefix': 'whenclickelwithtext'
+    'body': "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
+  "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'":
+    'prefix': 'whenclickelcontainstext'
+    'body': "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'"
   "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'":
     'prefix': 'whenappend'
     'body': "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'"
   "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'":
-    'prefix': 'whenset'
+    'prefix': 'whenmobileset'
     'body': "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
   "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'":
     'prefix': 'whensetelinsideel'
     'body': "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'"
-  "${1:When} I append '${2:STRING}' to react field '${3:LOCATOR}'":
-    'prefix': 'whenappendreact'
-    'body': "${1:When} I append '${2:STRING}' to react field '${3:LOCATOR}'"
-  "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'":
-    'prefix': 'whensetreact'
-    'body': "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'"
-  "${1:When} I submit the form '${2:LOCATOR}'":
-    'prefix': 'whensubmit'
-    'body': "${1:When} I submit the form '${2:LOCATOR}'"
   "${1:When} I clear the '${2:LOCATOR}'":
     'prefix': 'whenclear'
     'body': "${1:When} I clear the '${2:LOCATOR}'"
   "${1:When} I select the option for select element '${2:LOCATOR}' with the text '${3:VALUE}'":
     'prefix': 'whenoption'
     'body': "${1:When} I select the option for select element '${2:LOCATOR}' with the text '${3:VALUE}'"
+  "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'":
+    'prefix': 'whensetreact'
+    'body': "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'"
+  "${1:When} I delete cookie with name '${2:STRING}'":
+    'prefix': 'whendeletecookie'
+    'body': "${1:When} I delete cookie with name '${2:STRING}'"
   "${1:Then} I expect page to contain '${2:STRING}'":
     'prefix': 'thenpagecontainstext'
     'body': "${1:Then} I expect page to contain '${2:STRING}'"
@@ -163,11 +154,26 @@
   "${1:Then} I expect the url to contain '${2:STRING}'":
     'prefix': 'thenurlcontains'
     'body': "${1:Then} I expect the url to contain '${2:STRING}'"
-  "${1:Then} I expect the url '${2:URL}' is opened in a new tab":
-    'prefix': 'thenurlnewtab'
-    'body': "${1:Then} I expect the url '${2:URL}' is opened in a new tab"
+  "${1:Then} I expect the title to be '${2:STRING}'":
+    'prefix': 'thentitle'
+    'body': "${1:Then} I expect the title to be '${2:STRING}'"
+  "${1:Then} I expect the title to not be '${2:STRING}'":
+    'prefix': 'thennottitle'
+    'body': "${1:Then} I expect the title to not be '${2:STRING}'"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'":
+    'prefix': 'thencookiecontain'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'":
+    'prefix': 'thennotcookiecontain'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist":
+    'prefix': 'thencookieexists'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist":
+    'prefix': 'thennotcookieexists'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist"
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
-    'prefix': 'thenonpage'
+    'prefix': 'thenonscreen'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
     'prefix': 'thensetpageobj'
@@ -181,21 +187,6 @@
   "${1:Then} I expect the '${2:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be hidden"
-  "${1:Then} I expect the bottom|top|left|right border colour of the '${2:LOCATOR}' to be '${3:STRING}'":
-    'prefix': 'thenbordercolour'
-    'body': "${1:Then} I expect the bottom|top|left|right border colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-  "${1:Then} I expect the colour of the '${2:LOCATOR}' to be '${3:STRING}'":
-    'prefix': 'thencolour'
-    'body': "${1:Then} I expect the colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-  "${1:Then} I expect the background colour of the '${2:LOCATOR}' to be '${3:STRING}'":
-    'prefix': 'thenbackgroundcolour'
-    'body': "${1:Then} I expect the background colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-  "${1:Then} I expect the title to be '${2:STRING}'":
-    'prefix': 'thentitle'
-    'body': "${1:Then} I expect the title to be '${2:STRING}'"
-  "${1:Then} I expect the title to not be '${2:STRING}'":
-    'prefix': 'thennottitle'
-    'body': "${1:Then} I expect the title to not be '${2:STRING}'"
   "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'":
     'prefix': 'thencontainstext'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'"
@@ -241,27 +232,6 @@
   "${1:Then} I expect the '${2:LOCATOR}' to be disabled":
     'prefix': 'thendisabled'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be disabled"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'":
-    'prefix': 'thencookiecontain'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'":
-    'prefix': 'thennotcookiecontain'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist":
-    'prefix': 'thencookieexists'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist":
-    'prefix': 'thennotcookieexists'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist"
-  "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'":
-    'prefix': 'thenclassname'
-    'body': "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'"
-  "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'":
-    'prefix': 'thennotclassname'
-    'body': "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'"
-  "${1:Then} I expect the '${2:LOCATOR}' to be focused":
-    'prefix': 'thenfocused'
-    'body': "${1:Then} I expect the '${2:LOCATOR}' to be focused"
   "${1:Then} I expect the '${2:LOCATOR}' to be empty":
     'prefix': 'thenempty'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be empty"
@@ -286,6 +256,12 @@
   "${1:Then} take a screenshot called '${2:STRING}'":
     'prefix': 'thenscreenshotcalled'
     'body': "${1:Then} take a screenshot called '${2:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'":
+    'prefix': 'thenclassname'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'":
+    'prefix': 'thennotclassname'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'"
   "${1:Then} fail step and take screenshot":
     'prefix': 'thendie'
     'body': "${1:Then} fail step and take screenshot"
@@ -482,21 +458,6 @@
   "${1:Given} I am on the '${2:PAGE_NAME}' page":
     'prefix': 'givenonpage'
     'body': "${1:Given} I am on the '${2:PAGE_NAME}' page"
-  "${1:Given} I am on the page with url '${2:URL}'":
-    'prefix': 'givengotourl'
-    'body': "${1:Given} I am on the page with url '${2:URL}'"
-  "${1:Given} the page url is '${2:URL}'":
-    'prefix': 'givenpageurl'
-    'body': "${1:Given} the page url is '${2:URL}'"
-  "${1:Given} the page url is not '${2:URL}'":
-    'prefix': 'givennotpageurl'
-    'body': "${1:Given} the page url is not '${2:URL}'"
-  "${1:Given} the page url contains '${2:URL}'":
-    'prefix': 'givenurlcontains'
-    'body': "${1:Given} the page url contains '${2:URL}'"
-  "${1:Given} animations are disabled":
-    'prefix': 'givendisableAnimations'
-    'body': "${1:Given} animations are disabled"
   "${1:Given} the '${2:LOCATOR}' is visible":
     'prefix': 'givenvisible'
     'body': "${1:Given} the '${2:LOCATOR}' is visible"
@@ -527,12 +488,6 @@
   "${1:Given} the '${2:LOCATOR}' is not on the page":
     'prefix': 'givennotexists'
     'body': "${1:Given} the '${2:LOCATOR}' is not on the page"
-  "${1:Given} the title is '${2:STRING}'":
-    'prefix': 'giventitle'
-    'body': "${1:Given} the title is '${2:STRING}'"
-  "${1:Given} the title is not '${2:STRING}'":
-    'prefix': 'givennottitle'
-    'body': "${1:Given} the title is not '${2:STRING}'"
   "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'":
     'prefix': 'givencontainstext'
     'body': "${1:Given} the '${2:LOCATOR}' contains the text '${3:STRING}'"
@@ -560,6 +515,27 @@
   "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'":
     'prefix': 'givennotvalue'
     'body': "${1:Given} the value of the '${2:LOCATOR}' is not '${3:VALUE}'"
+  "${1:Given} I am on the page with url '${2:URL}'":
+    'prefix': 'givengotourl'
+    'body': "${1:Given} I am on the page with url '${2:URL}'"
+  "${1:Given} the page url is '${2:URL}'":
+    'prefix': 'givenpageurl'
+    'body': "${1:Given} the page url is '${2:URL}'"
+  "${1:Given} the page url is not '${2:URL}'":
+    'prefix': 'givennotpageurl'
+    'body': "${1:Given} the page url is not '${2:URL}'"
+  "${1:Given} the page url contains '${2:URL}'":
+    'prefix': 'givenurlcontains'
+    'body': "${1:Given} the page url contains '${2:URL}'"
+  "${1:Given} animations are disabled":
+    'prefix': 'givendisableAnimations'
+    'body': "${1:Given} animations are disabled"
+  "${1:Given} the title is '${2:STRING}'":
+    'prefix': 'giventitle'
+    'body': "${1:Given} the title is '${2:STRING}'"
+  "${1:Given} the title is not '${2:STRING}'":
+    'prefix': 'givennottitle'
+    'body': "${1:Given} the title is not '${2:STRING}'"
   "${1:Given} I set the cookie '${2:COOKIE_NAME}' with value '${3:VALUE}'":
     'prefix': 'givensetcookie'
     'body': "${1:Given} I set the cookie '${2:COOKIE_NAME}' with value '${3:VALUE}'"
@@ -578,57 +554,48 @@
   "${1:When} I wait '${2:VALUE}' seconds?":
     'prefix': 'whenwait'
     'body': "${1:When} I wait '${2:VALUE}' seconds?"
-  "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'":
-    'prefix': 'whenuploadfileselector'
-    'body': "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'"
-  "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'":
-    'prefix': 'whenclickelwithtext'
-    'body': "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
-  "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'":
-    'prefix': 'whenclickelcontainstext'
-    'body': "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'"
-  "${1:When} I press '${2:KEY}'":
-    'prefix': 'whenkey'
-    'body': "${1:When} I press '${2:KEY}'"
   "${1:When} I wait for the '${2:LOCATOR}' to exist":
     'prefix': 'whenwaitforelement'
     'body': "${1:When} I wait for the '${2:LOCATOR}' to exist"
   "${1:When} I wait for the '${2:LOCATOR}' to not exist":
     'prefix': 'whennotwaitforelement'
     'body': "${1:When} I wait for the '${2:LOCATOR}' to not exist"
-  "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'":
-    'prefix': 'whenuploadfile'
-    'body': "${1:When} I set the file upload '${2:VALUE}' to the '${3:LOCATOR}'"
+  "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'":
+    'prefix': 'whenscrolltoelement'
+    'body': "${1:When} I scroll the '${2:LOCATOR}' '${3:DIRECTION}' to the  '${4:LOCATOR}'"
   "${1:When} I click the '${2:LOCATOR}'":
     'prefix': 'whenclick'
     'body': "${1:When} I click the '${2:LOCATOR}'"
   "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'":
     'prefix': 'whenclickelinsideel'
     'body': "${1:When} I click the '${2:LOCATOR}' inside the '${3:LOCATOR}'"
+  "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'":
+    'prefix': 'whenclickelwithtext'
+    'body': "${1:When} I click the '${2:NTH}' element with the text '${3:VALUE}'"
+  "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'":
+    'prefix': 'whenclickelcontainstext'
+    'body': "${1:When} I click the '${2:NTH}' element that contains the text '${3:VALUE}'"
   "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'":
     'prefix': 'whenappend'
     'body': "${1:When} I append '${2:STRING}' to '${3:LOCATOR}'"
   "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'":
-    'prefix': 'whenset'
+    'prefix': 'whenmobileset'
     'body': "${1:When} I set '${2:LOCATOR}' to '${3:STRING}'"
   "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'":
     'prefix': 'whensetelinsideel'
     'body': "${1:When} I set the '${2:LOCATOR}' inside the '${3:LOCATOR}' to '${4:STRING}'"
-  "${1:When} I append '${2:STRING}' to react field '${3:LOCATOR}'":
-    'prefix': 'whenappendreact'
-    'body': "${1:When} I append '${2:STRING}' to react field '${3:LOCATOR}'"
-  "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'":
-    'prefix': 'whensetreact'
-    'body': "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'"
-  "${1:When} I submit the form '${2:LOCATOR}'":
-    'prefix': 'whensubmit'
-    'body': "${1:When} I submit the form '${2:LOCATOR}'"
   "${1:When} I clear the '${2:LOCATOR}'":
     'prefix': 'whenclear'
     'body': "${1:When} I clear the '${2:LOCATOR}'"
   "${1:When} I select the option for select element '${2:LOCATOR}' with the text '${3:VALUE}'":
     'prefix': 'whenoption'
     'body': "${1:When} I select the option for select element '${2:LOCATOR}' with the text '${3:VALUE}'"
+  "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'":
+    'prefix': 'whensetreact'
+    'body': "${1:When} I set react field '${2:LOCATOR}' to '${3:STRING}'"
+  "${1:When} I delete cookie with name '${2:STRING}'":
+    'prefix': 'whendeletecookie'
+    'body': "${1:When} I delete cookie with name '${2:STRING}'"
   "${1:Then} I expect page to contain '${2:STRING}'":
     'prefix': 'thenpagecontainstext'
     'body': "${1:Then} I expect page to contain '${2:STRING}'"
@@ -641,11 +608,26 @@
   "${1:Then} I expect the url to contain '${2:STRING}'":
     'prefix': 'thenurlcontains'
     'body': "${1:Then} I expect the url to contain '${2:STRING}'"
-  "${1:Then} I expect the url '${2:URL}' is opened in a new tab":
-    'prefix': 'thenurlnewtab'
-    'body': "${1:Then} I expect the url '${2:URL}' is opened in a new tab"
+  "${1:Then} I expect the title to be '${2:STRING}'":
+    'prefix': 'thentitle'
+    'body': "${1:Then} I expect the title to be '${2:STRING}'"
+  "${1:Then} I expect the title to not be '${2:STRING}'":
+    'prefix': 'thennottitle'
+    'body': "${1:Then} I expect the title to not be '${2:STRING}'"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'":
+    'prefix': 'thencookiecontain'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'":
+    'prefix': 'thennotcookiecontain'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist":
+    'prefix': 'thencookieexists'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist"
+  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist":
+    'prefix': 'thennotcookieexists'
+    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist"
   "${1:Then} I expect to be on the '${2:PAGE_NAME}' page":
-    'prefix': 'thenonpage'
+    'prefix': 'thenonscreen'
     'body': "${1:Then} I expect to be on the '${2:PAGE_NAME}' page"
   "${1:Then} I set the page object to '${2:PAGE_NAME}' page":
     'prefix': 'thensetpageobj'
@@ -659,21 +641,6 @@
   "${1:Then} I expect the '${2:LOCATOR}' to be hidden":
     'prefix': 'thenhidden'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be hidden"
-  "${1:Then} I expect the bottom|top|left|right border colour of the '${2:LOCATOR}' to be '${3:STRING}'":
-    'prefix': 'thenbordercolour'
-    'body': "${1:Then} I expect the bottom|top|left|right border colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-  "${1:Then} I expect the colour of the '${2:LOCATOR}' to be '${3:STRING}'":
-    'prefix': 'thencolour'
-    'body': "${1:Then} I expect the colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-  "${1:Then} I expect the background colour of the '${2:LOCATOR}' to be '${3:STRING}'":
-    'prefix': 'thenbackgroundcolour'
-    'body': "${1:Then} I expect the background colour of the '${2:LOCATOR}' to be '${3:STRING}'"
-  "${1:Then} I expect the title to be '${2:STRING}'":
-    'prefix': 'thentitle'
-    'body': "${1:Then} I expect the title to be '${2:STRING}'"
-  "${1:Then} I expect the title to not be '${2:STRING}'":
-    'prefix': 'thennottitle'
-    'body': "${1:Then} I expect the title to not be '${2:STRING}'"
   "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'":
     'prefix': 'thencontainstext'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to contain the text '${3:STRING}'"
@@ -719,27 +686,6 @@
   "${1:Then} I expect the '${2:LOCATOR}' to be disabled":
     'prefix': 'thendisabled'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be disabled"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'":
-    'prefix': 'thencookiecontain'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to contain '${3:STRING}'"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'":
-    'prefix': 'thennotcookiecontain'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not contain '${3:STRING}'"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist":
-    'prefix': 'thencookieexists'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to exist"
-  "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist":
-    'prefix': 'thennotcookieexists'
-    'body': "${1:Then} I expect cookie '${2:COOKIE_NAME}' to not exist"
-  "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'":
-    'prefix': 'thenclassname'
-    'body': "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'"
-  "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'":
-    'prefix': 'thennotclassname'
-    'body': "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'"
-  "${1:Then} I expect the '${2:LOCATOR}' to be focused":
-    'prefix': 'thenfocused'
-    'body': "${1:Then} I expect the '${2:LOCATOR}' to be focused"
   "${1:Then} I expect the '${2:LOCATOR}' to be empty":
     'prefix': 'thenempty'
     'body': "${1:Then} I expect the '${2:LOCATOR}' to be empty"
@@ -764,6 +710,12 @@
   "${1:Then} take a screenshot called '${2:STRING}'":
     'prefix': 'thenscreenshotcalled'
     'body': "${1:Then} take a screenshot called '${2:STRING}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'":
+    'prefix': 'thenclassname'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to have the class '${3:CLASS_NAME}'"
+  "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'":
+    'prefix': 'thennotclassname'
+    'body': "${1:Then} I expect the '${2:LOCATOR}' to not have the class '${3:CLASS_NAME}'"
   "${1:Then} fail step and take screenshot":
     'prefix': 'thendie'
     'body': "${1:Then} fail step and take screenshot"

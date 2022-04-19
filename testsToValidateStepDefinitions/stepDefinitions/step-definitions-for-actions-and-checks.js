@@ -1,10 +1,10 @@
-const { Given, Then } = require('cucumber');
+const { Given, Then } = require('@cucumber/cucumber');
 
 Given(/^I am on another page$/, async function () {
   await this.goToURL('/');
   await this.clickElementWithText(null, 'Go to other page by react router');
-  await this.checkUrlIs('http://localhost:3005/other-page');
-  await this.checkUrlIsNot('http://localhost:3005/blah');
+  await this.checkUrlIs('http://localhost:3006/other-page');
+  await this.checkUrlIsNot('http://localhost:3006/blah');
 });
 
 Given(/^I have set and appended a field$/, async function () {
@@ -13,10 +13,11 @@ Given(/^I have set and appended a field$/, async function () {
   await this.appendInputFieldValue('bar.com', 'email');
 });
 
-Given(/^I have set and appended a react field$/, async function () {
-  await this.setReactInputFieldValue('email', 'foo@');
-  await this.appendReactInputFieldValue('bar.com', 'email');
-});
+// TODO WDIO
+// Given(/^I have set and appended a react field$/, async function () {
+//   await this.setReactInputFieldValue('email', 'foo@');
+//   await this.appendReactInputFieldValue('bar.com', 'email');
+// });
 
 Given(/^I have cleared and appended a field$/, async function () {
   await this.clearInputFieldValue('email');
@@ -45,9 +46,6 @@ Then(/^I am checking a bunch of stuff$/, async function () {
   await this.checkDoesNotContainAnyText('empty div');
   await this.checkContainsText('main heading', 'Home page');
   await this.checkDoesNotContainText('main heading', 'foo');
-  await this.checkElementBackgroundColour('main container', 'rgba(220, 220, 220, 1)');
-  await this.checkElementBorderColour(null, 'main heading', 'rgba(255, 0, 255, 1)');
-  await this.checkElementColour('main heading', 'rgba(13, 105, 227, 1)');
   await this.checkElementExists('main heading');
   await this.checkElementDoesNotExist('non-existant element');
   await this.checkElementExistsNTimes('bullets', 3);
@@ -62,8 +60,8 @@ Then(/^I am checking a bunch of stuff$/, async function () {
   await this.checkIsDeselected('you ok checkbox');
   await this.checkTitle('React App'); // todo:add check title contains
   await this.checkTitleIsNot('React Appp');
-  await this.checkUrlIs('http://localhost:3005/');
-  await this.checkUrlIsNot('http://localhost:30050/');
+  await this.checkUrlIs('http://localhost:3006/');
+  await this.checkUrlIsNot('http://localhost:30060/');
   await this.checkUrlContainsString('localhost');
   await this.checkVisible('main heading');
   await this.checkHidden('hidden field');

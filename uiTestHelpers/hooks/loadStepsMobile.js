@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 
-const cucumber = require('cucumber');
+const cucumber = require('@cucumber/cucumber');
 
 require('colors');
 

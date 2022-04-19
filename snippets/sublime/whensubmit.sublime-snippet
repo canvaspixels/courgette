@@ -1,6 +1,0 @@
-<snippet>
-  <content><![CDATA[
-${1:When} I submit the form '${2:LOCATOR}'
-]]></content>
-  <tabTrigger>whensubmit</tabTrigger>
-</snippet>

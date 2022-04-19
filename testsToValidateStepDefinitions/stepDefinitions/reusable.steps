@@ -3,12 +3,12 @@ Steps: Some reusable steps
   Step: I am on the homepage page and I click the link
     # Adding: "I am on another page" to show you can add custom step definitions
     Given I am on another page
-    Given I am on the page with url 'http://localhost:3005'
+    Given I am on the page with url 'http://localhost:3006'
     When I click the element with the text 'Go to other page by react router'
 
   Step: I do some assertions
-    Then I expect the url to be 'http://localhost:3005/other-page'
-    And I expect the url to not be 'http://localhost:3005/foo'
+    Then I expect the url to be 'http://localhost:3006/other-page'
+    And I expect the url to not be 'http://localhost:3006/foo'
     And take a screenshot
 
   Step: I am on the page with url '{{PAGE}}' and I click '{{LINK}}'

@@ -1,6 +1,0 @@
-<snippet>
-  <content><![CDATA[
-${1:When} I set '${2:LOCATOR}' to '${3:STRING}'
-]]></content>
-  <tabTrigger>whenset</tabTrigger>
-</snippet>

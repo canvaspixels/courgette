@@ -1,0 +1,9 @@
+{
+  "Print to console": {
+    "prefix": "whendeletecookie",
+    "body": [
+      "${1:When} I delete cookie with name '${2:STRING}'"
+    ],
+    "description": "${1:When} I delete cookie with name '${2:STRING}'"
+  }
+}

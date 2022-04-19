@@ -40,13 +40,6 @@ if (platform === 'ios' || !platform) {
   CAPABILITIES_TO_USE.push(...ALL_CAPABILITIES.ios);
 }
 
-if (platform === 'ios-dev') {
-  CAPABILITIES_TO_USE.push({
-    ...IOS_13_3,
-    app: './ios/build/APPNAME/Build/Products/Debug-iphonesimulator/FreeUp.app',
-  });
-}
-
 exports.pomConfig = {
   platform: 'mobile',
   outputPath,

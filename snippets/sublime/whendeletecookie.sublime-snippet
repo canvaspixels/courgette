@@ -1,0 +1,6 @@
+<snippet>
+  <content><![CDATA[
+${1:When} I delete cookie with name '${2:STRING}'
+]]></content>
+  <tabTrigger>whendeletecookie</tabTrigger>
+</snippet>

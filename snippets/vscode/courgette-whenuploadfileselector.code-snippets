@@ -1,9 +1,0 @@
-{
-  "Print to console": {
-    "prefix": "whenuploadfileselector",
-    "body": [
-      "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'"
-    ],
-    "description": "${1:When} I set the file upload '${2:VALUE}' to the element with selector '${3:SELECTOR}'"
-  }
-}

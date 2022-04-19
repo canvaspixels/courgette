@@ -5,7 +5,7 @@ const fs = require('fs');
 const createMobilePage = require('../../uiTestHelpers/createMobilePage');
 const createMobileComponent = require('../../uiTestHelpers/createMobileComponent');
 
-const { Before } = require('cucumber');
+const { Before } = require('@cucumber/cucumber');
 
 const { pomConfig } = require(path.join(process.cwd(), process.env.COURGETTE_CONF || 'courgette-conf.js'));
 

@@ -1,0 +1,2 @@
+selectors:
+  main banner: [data-test="main-banner"]

@@ -5,8 +5,6 @@ selectors:
   some other element selected by class: .my-class
   some other element selected by id: '#my-class'
   simple page wrapper: '#Simple-Page-Wrapper'
-
-XPaths:
   name field: //*[@data-test="fullname"]
   go home link: //*[@data-test="go-to-home-link"]
   main container: //*[@id="Simple-Page-Wrapper"]

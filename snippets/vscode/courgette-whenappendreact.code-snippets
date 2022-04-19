@@ -1,9 +1,0 @@
-{
-  "Print to console": {
-    "prefix": "whenappendreact",
-    "body": [
-      "${1:When} I append '${2:STRING}' to react field '${3:LOCATOR}'"
-    ],
-    "description": "${1:When} I append '${2:STRING}' to react field '${3:LOCATOR}'"
-  }
-}

@@ -22,17 +22,17 @@ Feature: Testing Then steps
   @then-steps-url-to-be
   Scenario: Then the url is
     When I click the 'Go to other page link'
-    Then I expect the url to be 'http://localhost:3005/other-page'
+    Then I expect the url to be 'http://localhost:3006/other-page'
 
   @then-steps-url-to-not-be
   Scenario: Then the url is not
-    Then I expect the url to not be 'http://localhost:3005/foo'
+    Then I expect the url to not be 'http://localhost:3006/foo'
 
   # TODO: fix in https://github.com/canvaspixels/courgette/issues/16
   # @then-steps-url-opens-in-new-tab
   # Scenario: Then the url is opened in a new tab
   #   When I click the 'Go to other page in new tab link'
-  #   Then I expect the url 'http://localhost:3005/other-page' is opened in a new tab
+  #   Then I expect the url 'http://localhost:3006/other-page' is opened in a new tab
   # todo improve to not check current tab
 
   @then-steps-is-visible
@@ -43,17 +43,17 @@ Feature: Testing Then steps
   Scenario: Then the element is hidden
     Then I expect the 'hidden field' to be hidden
 
-  @then-steps-border-colour
-  Scenario: Then the border colour is
-    Then I expect the bottom border colour of the 'main heading' to be 'rgba(255, 0, 255, 1)'
+  # @then-steps-border-colour
+  # Scenario: Then the border colour is
+  #   Then I expect the bottom border colour of the 'main heading' to be 'rgba(255, 0, 255, 1)'
 
-  @then-steps-colour
-  Scenario: Then the colour is
-    Then I expect the colour of the 'main heading' to be 'rgba(13, 105, 227, 1)'
+  # @then-steps-colour
+  # Scenario: Then the colour is
+  #   Then I expect the colour of the 'main heading' to be 'rgba(13, 105, 227, 1)'
 
-  @then-steps-background-colour
-  Scenario: Then the background colour is
-    Then I expect the background colour of the 'main container' to be 'rgba(220, 220, 220, 1)'
+  # @then-steps-background-colour
+  # Scenario: Then the background colour is
+  #   Then I expect the background colour of the 'main container' to be 'rgba(220, 220, 220, 1)'
 
   @then-steps-title
   Scenario: Then the title is React App
@@ -119,6 +119,11 @@ Feature: Testing Then steps
   Scenario: Then the element is disabled
     Then I expect the 'disabled button' to be disabled
 
+  @then-steps-cookie-to-not-exist
+  Scenario: Then the cookie does not exist
+    And I set the cookie 'cookie-crisp' with value 'true'
+    Then I expect cookie 'gdpr-banner-clicked' to not exist
+
   @then-steps-cookie-to-contain
   Scenario: Then the cookie contains x
     And I set the cookie 'gdpr-banner-clicked' with value 'true'
@@ -133,11 +138,6 @@ Feature: Testing Then steps
   Scenario: Then the cookie exists
     And I set the cookie 'gdpr-banner-clicked' with value 'true'
     Then I expect cookie 'gdpr-banner-clicked' to exist
-
-  @then-steps-cookie-to-not-exist
-  Scenario: Then the cookie does not exist
-    And I set the cookie 'cookie-crisp' with value 'true'
-    Then I expect cookie 'gdpr-banner-clicked' to not exist
 
   @then-steps-class-name
   Scenario: Then the class name
